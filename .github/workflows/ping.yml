@@ -1,0 +1,20 @@
+name: ping
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: verify env + api + secret
+        env:
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+        run: |
+          echo "fired_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "secret_len=${#QWEN_API_KEY}"
+          curl -s --max-time 20 "https://api.bitget.com/api/v2/spot/market/tickers?symbol=RNVDAUSDT" | head -c 200
+          echo ""
