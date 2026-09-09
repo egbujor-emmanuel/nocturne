@@ -31,6 +31,31 @@ def run(args,timeout=90,check=False):
     except subprocess.TimeoutExpired:
         return -1,"","TIMEOUT after %ss" % timeout
 
+GIT_LOCK=os.path.join(ROOT,"logs",".gitlock")
+STALE=600  # seconds; a crashed holder must not block capture forever
+
+def acquire_git_lock(wait=90):
+    """Only one process may touch the git index at a time. Three writers doing
+    `pull --rebase` concurrently left the repo mid-rebase with a detached HEAD
+    and 90 conflicted files - this prevents that."""
+    deadline=time.time()+wait
+    while time.time()<deadline:
+        try:
+            if os.path.exists(GIT_LOCK) and time.time()-os.path.getmtime(GIT_LOCK)>STALE:
+                os.remove(GIT_LOCK)
+            fd=os.open(GIT_LOCK,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
+            os.write(fd,str(os.getpid()).encode()); os.close(fd)
+            return True
+        except FileExistsError:
+            time.sleep(2)
+        except Exception:
+            return True
+    return False
+
+def release_git_lock():
+    try: os.remove(GIT_LOCK)
+    except Exception: pass
+
 def main():
     log("START pid=%s src=%s" % (os.getpid(),SRC))
     rc,out,err=run([sys.executable,os.path.join("scripts","capture.py")],timeout=180)
@@ -42,6 +67,14 @@ def main():
     rc3,o3,e3=run([sys.executable,os.path.join("scripts","orchestrate.py")],timeout=300)
     log("orch rc=%s %s" % (rc3,(o3 or e3).strip().splitlines()[-1][:110] if (o3 or e3).strip() else ""))
 
+    if not acquire_git_lock():
+        log("git lock busy - captured to disk, will push next cycle"); return 0
+    try:
+        return _git_publish()
+    finally:
+        release_git_lock()
+
+def _git_publish():
     for path in ("data/live","data/books","data/status.local.json","data/health.json",
                  "data/site.json","api","predictions","posts"):
         if os.path.exists(os.path.join(ROOT,path)):
