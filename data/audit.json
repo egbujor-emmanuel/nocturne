@@ -27,13 +27,13 @@
   "phase": "0",
   "check": "no secrets in git history",
   "pass": true,
-  "detail": "clean (5 patterns checked)"
+  "detail": "clean (4 patterns checked)"
  },
  {
   "phase": "1",
   "check": "capture cycle runs",
   "pass": true,
-  "detail": "0 ET sess=RTH rows=87 books=87/87 -> 2026-09-09.local.ndjson"
+  "detail": "25 ET sess=AH rows=87 books=87/87 -> 2026-09-09.local.ndjson"
  },
  {
   "phase": "1",
@@ -45,19 +45,19 @@
   "phase": "1",
   "check": "health check",
   "pass": true,
-  "detail": "session=RTH limit=45m healthy=True"
+  "detail": "session=AH limit=45m healthy=True"
  },
  {
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 3 captures, lane2 1 captures"
+  "detail": "lane1 5 captures, lane2 5 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
   "pass": true,
-  "detail": "9 dispatch runs"
+  "detail": "21 dispatch runs"
  },
  {
   "phase": "1",
@@ -93,7 +93,7 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "87 books; RNVDA buy $581,879"
+  "detail": "87 books; RNVDA buy $679,630"
  },
  {
   "phase": "3",
@@ -105,19 +105,19 @@
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 67948 bytes"
+  "detail": "HTTP 200, 67818 bytes"
  },
  {
   "phase": "3",
   "check": "api index live",
   "pass": true,
-  "detail": "HTTP 200, 1251 bytes"
+  "detail": "HTTP 200, 1250 bytes"
  },
  {
   "phase": "3",
   "check": "api symbol live",
   "pass": true,
-  "detail": "HTTP 200, 726 bytes"
+  "detail": "HTTP 200, 725 bytes"
  },
  {
   "phase": "3",
