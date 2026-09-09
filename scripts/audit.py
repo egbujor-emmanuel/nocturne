@@ -186,8 +186,10 @@ def _apin():
 
 
 def _pred():
-    fs = [f for f in glob.glob("predictions/*.json") if not f.endswith("latest.json")]
-    fs += [f for f in glob.glob("predictions/replay/*.json")]
+    # only files that are supposed to carry a hash: live predictions and replays,
+    # never the *_graded.json results written after the fact
+    fs = [f for f in glob.glob("predictions/*.json") + glob.glob("predictions/replay/*.json")
+          if not f.endswith("latest.json") and not f.endswith("_graded.json")]
     if not fs:
         return False, "no prediction file"
     f = sorted(fs)[-1]

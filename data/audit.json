@@ -27,13 +27,13 @@
   "phase": "0",
   "check": "no secrets in git history",
   "pass": true,
-  "detail": "clean"
+  "detail": "clean (5 patterns checked)"
  },
  {
   "phase": "1",
   "check": "capture cycle runs",
   "pass": true,
-  "detail": "7 ET sess=RTH rows=87 books=87/87 -> 2026-09-09.local.ndjson"
+  "detail": "0 ET sess=RTH rows=87 books=87/87 -> 2026-09-09.local.ndjson"
  },
  {
   "phase": "1",
@@ -57,7 +57,7 @@
   "phase": "1",
   "check": "external cron dispatching",
   "pass": true,
-  "detail": "8 dispatch runs"
+  "detail": "9 dispatch runs"
  },
  {
   "phase": "1",
@@ -93,7 +93,7 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "87 books; RNVDA buy $587,398"
+  "detail": "87 books; RNVDA buy $581,879"
  },
  {
   "phase": "3",
@@ -105,7 +105,7 @@
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 67991 bytes"
+  "detail": "HTTP 200, 67948 bytes"
  },
  {
   "phase": "3",
@@ -129,7 +129,7 @@
   "phase": "3",
   "check": "prediction + hash integrity",
   "pass": true,
-  "detail": "2026-09-09_1028.json n=75 hash MATCH"
+  "detail": "2026-09-06_1800.json n=56 hash MATCH"
  },
  {
   "phase": "3",
