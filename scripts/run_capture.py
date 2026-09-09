@@ -7,7 +7,10 @@ subprocess timeouts is deterministic.
 """
 import os,sys,subprocess,datetime as dt,random,time
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOG=os.path.join(ROOT,"logs","runner.log")
+SRC="local"
+for i,a in enumerate(sys.argv):
+    if a=="--source" and i+1<len(sys.argv): SRC=sys.argv[i+1]
+LOG=os.path.join(ROOT,"logs","runner.%s.log"%SRC)
 os.makedirs(os.path.join(ROOT,"logs"),exist_ok=True)
 
 def log(m):
@@ -17,7 +20,7 @@ def log(m):
 
 def run(args,timeout=90,check=False):
     env=dict(os.environ,GIT_TERMINAL_PROMPT="0",GCM_INTERACTIVE="never",
-             NOCTURNE_SOURCE="local")
+             NOCTURNE_SOURCE=SRC)
     try:
         p=subprocess.run(args,cwd=ROOT,env=env,capture_output=True,text=True,timeout=timeout)
         return p.returncode,(p.stdout or "").strip(),(p.stderr or "").strip()
@@ -25,7 +28,7 @@ def run(args,timeout=90,check=False):
         return -1,"","TIMEOUT after %ss" % timeout
 
 def main():
-    log("START pid=%s" % os.getpid())
+    log("START pid=%s src=%s" % (os.getpid(),SRC))
     rc,out,err=run([sys.executable,os.path.join("scripts","capture.py")],timeout=180)
     log(f"capture rc={rc} {out[:120]}{(' ERR '+err[:160]) if err else ''}")
     if rc!=0: return 1
@@ -39,7 +42,7 @@ def main():
     if rc==0:
         log("nothing staged"); return 0
     stamp=dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
-    run(["git","commit","-q","-m",f"capture local {stamp}"],timeout=60)
+    run(["git","commit","-q","-m","capture %s %s"%(SRC,stamp)],timeout=60)
     for i in range(4):
         rc,_,_=run(["git","pull","--rebase","--autostash","-q","origin","master"],timeout=120)
         if rc==0:

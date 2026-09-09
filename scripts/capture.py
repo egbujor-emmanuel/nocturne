@@ -17,7 +17,7 @@ API="https://api.bitget.com/api/v2/spot/market"
 BAND=0.10          # buy/sellLimitPriceRatio from the symbol metadata
 DEPTH_PCTS=(0.5,2.0)
 
-def jget(u,tries=3,timeout=20):
+def jget(u,tries=2,timeout=10):
     for i in range(tries):
         try:
             with urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=timeout) as r:
@@ -59,15 +59,21 @@ def main():
 
     syms=universe()
 
+    hb=os.path.join(ROOT,"logs","heartbeat.txt"); os.makedirs(os.path.dirname(hb),exist_ok=True)
+    def beat(m):
+        try: open(hb,"a",encoding="utf8").write(ts.strftime("%H:%M:%S")+" "+str(m)+chr(10))
+        except Exception: pass
+    beat("tickers")
     tk=jget(f"{API}/tickers")
     tmap={}
     if tk and tk.get("code")=="00000":
         tmap={r["symbol"]:r for r in tk["data"]}
 
     books={}
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=16) as ex:
         for s,b in ex.map(book,syms): books[s]=b
 
+    beat(f"books {sum(1 for v in books.values() if v)}/{len(syms)}")
     outdir=os.path.join(ROOT,"data","live"); os.makedirs(outdir,exist_ok=True)
     src=os.environ.get("NOCTURNE_SOURCE","local")
     path=os.path.join(outdir,f"{et:%Y-%m-%d}.{src}.ndjson")
@@ -116,6 +122,7 @@ def main():
             "rows":len(rows),"with_book":ok,
             "next_reopen":reopen.isoformat(),"file":os.path.basename(path)}
     json.dump(status,open(os.path.join(ROOT,"data",f"status.{src}.json"),"w"),indent=1)
+    beat("done")
     print(f"{et:%Y-%m-%d %H:%M ET} sess={sess} rows={len(rows)} books={ok}/{len(syms)} -> {os.path.basename(path)}")
 
 if __name__=="__main__": main()
