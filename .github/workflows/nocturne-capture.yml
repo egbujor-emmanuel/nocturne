@@ -46,8 +46,23 @@ jobs:
           git add -A data/ api/ predictions/ posts/ shots/ 2>/dev/null || git add -A data/
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git commit -m "capture $(date -u +%Y-%m-%dT%H:%MZ)"
+          # Reconcile by MERGE, never rebase. A conflicted rebase leaves unmerged
+          # files that every subsequent retry trips over, so all five retries fail
+          # and the runner's captured rows are lost with its filesystem.
+          # Generated files (api/, site.json) are rebuilt each cycle, so -X ours is
+          # correct; each source writes its own data/live file, so those never clash.
           for i in 1 2 3 4 5; do
-            git pull --rebase --autostash origin master && git push && exit 0
-            echo "retry $i"; sleep $((RANDOM % 8 + 3))
+            git rebase --abort 2>/dev/null || true
+            git merge --abort 2>/dev/null || true
+            git fetch -q origin master || true
+            if ! git merge -X ours --no-edit -q origin/master 2>/dev/null; then
+              git merge --abort 2>/dev/null || true
+              git checkout --ours . 2>/dev/null || true
+              git add -A 2>/dev/null || true
+            fi
+            if git push -q 2>/dev/null; then echo "pushed on attempt $i"; exit 0; fi
+            echo "push retry $i"
+            sleep $((RANDOM % 7 + 3))
           done
+          echo "PUSH FAILED after 5 attempts"
           exit 1

@@ -87,13 +87,19 @@ def _git_publish():
     stamp=dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
     run(["git","commit","-q","-m","capture %s %s"%(SRC,stamp)],timeout=60)
     for i in range(4):
-        rc,_,_=run(["git","pull","--rebase","--autostash","-q","origin","master"],timeout=120)
-        if rc==0:
-            rc2,_,e2=run(["git","push","-q"],timeout=120)
-            if rc2==0: log("pushed"); return 0
-            log(f"push failed attempt {i+1}: {e2[:120]}")
-        else:
-            log(f"pull failed attempt {i+1}")
+        # merge, never rebase: a conflicted rebase leaves unmerged files that
+        # every later retry trips over.
+        run(["git","rebase","--abort"],timeout=30)
+        run(["git","merge","--abort"],timeout=30)
+        run(["git","fetch","-q","origin","master"],timeout=90)
+        rcm,_,_=run(["git","merge","-X","ours","--no-edit","-q","origin/master"],timeout=120)
+        if rcm!=0:
+            run(["git","merge","--abort"],timeout=30)
+            run(["git","checkout","--ours","."],timeout=60)
+            run(["git","add","-A"],timeout=60)
+        rc2,_,e2=run(["git","push","-q"],timeout=120)
+        if rc2==0: log("pushed"); return 0
+        log("push failed attempt %d: %s" % (i+1,e2[:100]))
         time.sleep(random.uniform(2,6))
     log("PUSH FAILED after 4 attempts (commit is safe locally)")
     return 0
