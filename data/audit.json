@@ -1,0 +1,152 @@
+[
+ {
+  "phase": "0",
+  "check": "repo is public",
+  "pass": true,
+  "detail": "PUBLIC"
+ },
+ {
+  "phase": "0",
+  "check": "qwen secret set",
+  "pass": true,
+  "detail": "present"
+ },
+ {
+  "phase": "0",
+  "check": "weekend universe mapped",
+  "pass": true,
+  "detail": "87 of 699"
+ },
+ {
+  "phase": "0",
+  "check": "history backfilled",
+  "pass": true,
+  "detail": "87 symbols, ~4000 bars each"
+ },
+ {
+  "phase": "0",
+  "check": "no secrets in git history",
+  "pass": true,
+  "detail": "clean"
+ },
+ {
+  "phase": "1",
+  "check": "capture cycle runs",
+  "pass": true,
+  "detail": "7 ET sess=RTH rows=87 books=87/87 -> 2026-09-09.local.ndjson"
+ },
+ {
+  "phase": "1",
+  "check": "session classifier",
+  "pass": true,
+  "detail": "boundaries pass"
+ },
+ {
+  "phase": "1",
+  "check": "health check",
+  "pass": true,
+  "detail": "session=RTH limit=45m healthy=True"
+ },
+ {
+  "phase": "1",
+  "check": "two local lanes exist",
+  "pass": true,
+  "detail": "lane1 3 captures, lane2 1 captures"
+ },
+ {
+  "phase": "1",
+  "check": "external cron dispatching",
+  "pass": true,
+  "detail": "8 dispatch runs"
+ },
+ {
+  "phase": "1",
+  "check": "multiple sources on disk",
+  "pass": true,
+  "detail": "sources: ['gh', 'local', 'local2']"
+ },
+ {
+  "phase": "2",
+  "check": "void-drift study reproduces",
+  "pass": true,
+  "detail": "n=  81 symbols= 13  beta=-1.003 se=0.290 t=-3.46 R2=0.131  noise=100.3%"
+ },
+ {
+  "phase": "2",
+  "check": "fair value beats baseline OOS",
+  "pass": true,
+  "detail": "MF +9.19% MAE, dir 57.4%"
+ },
+ {
+  "phase": "2",
+  "check": "noise score monotonic",
+  "pass": true,
+  "detail": "76 symbols; 1.2%=91 vs 0.02%=1"
+ },
+ {
+  "phase": "2",
+  "check": "qwen judge + gate",
+  "pass": true,
+  "detail": "gated call ok, sub-threshold skipped"
+ },
+ {
+  "phase": "2",
+  "check": "depth/band/lifecycle",
+  "pass": true,
+  "detail": "87 books; RNVDA buy $587,398"
+ },
+ {
+  "phase": "3",
+  "check": "dashboard live",
+  "pass": true,
+  "detail": "HTTP 200, 7515 bytes"
+ },
+ {
+  "phase": "3",
+  "check": "site.json live",
+  "pass": true,
+  "detail": "HTTP 200, 67991 bytes"
+ },
+ {
+  "phase": "3",
+  "check": "api index live",
+  "pass": true,
+  "detail": "HTTP 200, 1251 bytes"
+ },
+ {
+  "phase": "3",
+  "check": "api symbol live",
+  "pass": true,
+  "detail": "HTTP 200, 726 bytes"
+ },
+ {
+  "phase": "3",
+  "check": "api covers universe",
+  "pass": true,
+  "detail": "87 symbol endpoints"
+ },
+ {
+  "phase": "3",
+  "check": "prediction + hash integrity",
+  "pass": true,
+  "detail": "2026-09-09_1028.json n=75 hash MATCH"
+ },
+ {
+  "phase": "3",
+  "check": "grader produced a round",
+  "pass": true,
+  "detail": "1 round(s); claim1 0/1 claim2 1/1"
+ },
+ {
+  "phase": "3",
+  "check": "post generator <=280",
+  "pass": true,
+  "detail": "short post 276 chars"
+ },
+ {
+  "phase": "3",
+  "check": "skill hits public api",
+  "pass": true,
+  "detail": "finding: 100.3% of void drift reverses (beta -1.003, t -3.46, n=19"
+ }
+]
