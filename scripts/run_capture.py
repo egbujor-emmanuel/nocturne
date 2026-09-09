@@ -35,9 +35,11 @@ def main():
     if "skip" in out: return 0
     rc2,o2,e2=run([sys.executable,os.path.join("scripts","build_state.py")],timeout=120)
     log("state rc=%s %s" % (rc2,(o2 or e2)[:90]))
+    rc3,o3,e3=run([sys.executable,os.path.join("scripts","orchestrate.py")],timeout=300)
+    log("orch rc=%s %s" % (rc3,(o3 or e3).strip().splitlines()[-1][:110] if (o3 or e3).strip() else ""))
 
     for path in ("data/live","data/books","data/status.local.json","data/health.json",
-                 "data/site.json","api"):
+                 "data/site.json","api","predictions","posts"):
         if os.path.exists(os.path.join(ROOT,path)):
             run(["git","add","-A",path],timeout=60)
     rc,out,_=run(["git","diff","--cached","--quiet"],timeout=30)
