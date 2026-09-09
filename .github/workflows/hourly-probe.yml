@@ -1,0 +1,10 @@
+name: hourly-probe
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "probe fired at $(date -u +%Y-%m-%dT%H:%M:%SZ) event=${{ github.event_name }}"
