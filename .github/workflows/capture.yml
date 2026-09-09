@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'ignore cadence gate'
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -17,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - name: capture cycle
-        run: python scripts/capture.py
+        run: python scripts/capture.py ${{ inputs.force && '--force' || '' }}
       - name: commit
         run: |
           git config user.name "nocturne-bot"
