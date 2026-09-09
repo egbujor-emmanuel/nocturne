@@ -9,6 +9,7 @@ Designed to be run by cron/Actions. Idempotent, append-only, never rewrites.
 import json,os,sys,time,datetime as dt,urllib.request
 from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+import netfix  # DNS fallback; no-op on a healthy network
 from session import classify, next_reopen, ET
 
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

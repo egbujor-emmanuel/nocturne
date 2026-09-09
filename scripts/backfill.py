@@ -5,6 +5,9 @@ Bitget history-candles backwards to listing. Resumable: skips symbols that
 already have >= MIN_BARS on disk.
 """
 import json,urllib.request,datetime as dt,time,os,sys
+import os as _os, sys as _sys
+_sys.path.insert(0,_os.path.dirname(_os.path.abspath(__file__)))
+import netfix  # DNS fallback; no-op on a healthy network
 
 BASE="https://api.bitget.com/api/v2/spot/market/history-candles"
 UA={"User-Agent":"Mozilla/5.0"}

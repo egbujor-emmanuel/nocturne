@@ -18,11 +18,15 @@ def log(m):
     with open(LOG,"a",encoding="utf8") as f: f.write(line+"\n")
     print(line)
 
+# Windows: stop git/python subprocesses flashing a console window every cycle
+CREATE_NO_WINDOW = 0x08000000 if os.name == "nt" else 0
+
 def run(args,timeout=90,check=False):
     env=dict(os.environ,GIT_TERMINAL_PROMPT="0",GCM_INTERACTIVE="never",
              NOCTURNE_SOURCE=SRC)
     try:
-        p=subprocess.run(args,cwd=ROOT,env=env,capture_output=True,text=True,timeout=timeout)
+        p=subprocess.run(args,cwd=ROOT,env=env,capture_output=True,text=True,
+                         timeout=timeout,creationflags=CREATE_NO_WINDOW)
         return p.returncode,(p.stdout or "").strip(),(p.stderr or "").strip()
     except subprocess.TimeoutExpired:
         return -1,"","TIMEOUT after %ss" % timeout

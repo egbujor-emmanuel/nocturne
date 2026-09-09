@@ -7,6 +7,7 @@ Publishes the result whether we won or lost - that is the point.
 import sys,os,json,glob,time,urllib.request,datetime as dt,statistics as st
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from core import ROOT
+import netfix  # DNS fallback; no-op on a healthy network
 from session import ET
 UA={"User-Agent":"nocturne/1.0"}
 

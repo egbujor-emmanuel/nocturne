@@ -5,6 +5,9 @@ Nobody has published the actual list. We detect it from the tape: a symbol is
 weekend-tradeable if it printed trades inside the last completed void window.
 """
 import json,urllib.request,datetime as dt,time,sys
+import os as _os, sys as _sys
+_sys.path.insert(0,_os.path.dirname(_os.path.abspath(__file__)))
+import netfix  # DNS fallback; no-op on a healthy network
 
 ET=dt.timezone(dt.timedelta(hours=-4))
 UA={"User-Agent":"Mozilla/5.0"}

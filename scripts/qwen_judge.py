@@ -11,6 +11,7 @@ Cost controls, because the hackathon credit is finite and latency is ~11s:
 """
 import sys,os,json,re,time,urllib.request,urllib.parse,datetime as dt
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+import netfix  # DNS fallback; no-op on a healthy network
 from core import ROOT
 
 THRESHOLD=80          # only judge genuinely unusual dislocations
