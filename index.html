@@ -86,6 +86,18 @@ td{font-variant-numeric:tabular-nums}
 .depth .amt{min-width:74px;text-align:right}
 .vthin .fill{background:var(--hot)} .thin .fill{background:var(--warm)} .ok .fill{background:#3b6ea5}
 .vthin .amt{color:var(--hot);font-weight:600}
+.how{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:16px 20px;margin:16px 0}
+.how h2{font-size:14px;margin:0 0 8px;font-weight:600}
+.how ol{margin:0;padding-left:20px;color:var(--dim);font-size:13.5px;line-height:1.75}
+.how ol b{color:var(--fg)}
+.noacct{margin:12px 0 0;padding:10px 13px;background:#0c1116;border:1px solid var(--line);
+  border-radius:8px;color:var(--dim);font-size:12.5px}
+.noacct b{color:var(--cool)}
+td .go{font-size:12px;color:var(--acc);text-decoration:none;white-space:nowrap}
+td .go:hover{text-decoration:underline}
+.sym a{color:var(--fg);text-decoration:none}
+.sym a:hover{color:var(--acc)}
 footer{margin-top:24px;color:var(--dim);font-size:12.5px;line-height:1.75}
 footer b{color:var(--fg)}
 .honest{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warm);
@@ -135,10 +147,32 @@ footer b{color:var(--fg)}
 <div class="tblwrap"><table>
 <thead><tr>
 <th>Symbol</th><th>Name</th><th>Last</th><th>Fair value</th><th>Drift</th>
-<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th><th>Spread</th>
+<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th><th>Spread</th><th></th>
 </tr></thead>
 <tbody id="rows"><tr><td colspan="10">loading…</td></tr></tbody>
 </table></div>
+
+<section class="how">
+  <h2>How to use this</h2>
+  <ol>
+    <li><b>Before you trade an rToken while the market is shut</b>, find it below.
+      Compare <b>Last</b> against <b>Fair value</b> — the last regular-session close.</li>
+    <li><b>Check the depth.</b> Buy/sell depth is what the book can absorb before the
+      price moves half a percent. Many rTokens hold under $25,000. If your order is
+      larger than that, you are the market.</li>
+    <li><b>Check the Noise score.</b> High means this drift is unusually large for this
+      stock. It ranks risk; it does not tell you which way Monday goes.</li>
+    <li><b>Mind the clock.</b> Bitget cancels every unfilled weekend limit order when the
+      US market reopens — the countdown is above.</li>
+    <li><b>Then trade on Bitget.</b> Every symbol links to its own Bitget page.</li>
+  </ol>
+  <p class="noacct"><b>No account, wallet or API key needed here.</b> NOCTURNE is
+  read-only: it never places an order, holds a key or touches a balance. It reads the
+  same public market data anyone can, and hands you the numbers Bitget's own screen
+  does not show. Agents can read it too — see the
+  <a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/skill/nocturne/SKILL.md">skill</a>
+  and the <a href="api/v1/index.json">public API</a>.</p>
+</section>
 
 <div class="honest">
 <b>What this is not.</b> It is not a forecast of Monday's price. We built and tested
@@ -181,6 +215,7 @@ drawCliff();
 var f=function(n,d){return n==null?"—":n.toLocaleString(undefined,{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
 var money=function(n){return n==null?"—":"$"+f(n);};
 
+function load(){
 fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(function(s){
   var fi=s.finding;
   document.getElementById("sess").textContent=s.session;
@@ -221,13 +256,19 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       '<span class="'+(r.dislocation_pct>=0?"pos":"neg")+'">'+
       (r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+"%</span>";
     var tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+"</span>":"—";
-    return '<tr><td class="sym">'+r.symbol+'</td><td class="nm">'+r.name+"</td>"+
+    var url="https://www.bitget.com/spot/"+r.pair;
+    return '<tr><td class="sym"><a href="'+url+'" target="_blank" rel="noopener">'+r.symbol+'</a></td>'+
+      '<td class="nm">'+r.name+"</td>"+
       "<td>"+f(r.last,2)+"</td><td>"+(r.fair_value==null?"—":f(r.fair_value,2))+"</td>"+
       "<td>"+dr+"</td><td>"+(r.noise_score==null?"—":r.noise_score)+"</td><td>"+tier+"</td>"+
       "<td>"+bar(r.buy_usd_0_5)+"</td><td>"+bar(r.sell_usd_0_5)+"</td>"+
-      "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td></tr>";
+      "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td>"+
+      '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade &rarr;</a></td></tr>";
   }).join("");
 }).catch(function(e){
-  document.getElementById("rows").innerHTML='<tr><td colspan="10">failed to load state: '+e+"</td></tr>";
+  document.getElementById("rows").innerHTML='<tr><td colspan="11">failed to load state: '+e+"</td></tr>";
 });
+}
+load();
+setInterval(load, 60000);   // the page must not show a frozen weekend
 </script></body></html>
