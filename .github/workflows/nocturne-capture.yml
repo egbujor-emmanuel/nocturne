@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "nocturne-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add -A data/
+          git add -A data/ api/ predictions/ posts/ 2>/dev/null || git add -A data/
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git commit -m "capture $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4 5; do

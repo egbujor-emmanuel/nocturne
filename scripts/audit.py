@@ -96,8 +96,8 @@ def _health():
 
 
 def _lanes():
-    a, b = os.path.exists("logs/runner.log"), os.path.exists("logs/runner.local2.log")
-    ca = open("logs/runner.log").read().count("rows=87") if a else 0
+    a, b = os.path.exists("logs/runner.local.log"), os.path.exists("logs/runner.local2.log")
+    ca = open("logs/runner.local.log").read().count("rows=87") if a else 0
     cb = open("logs/runner.local2.log").read().count("rows=87") if b else 0
     return a and b, "lane1 %d captures, lane2 %d captures" % (ca, cb)
 
