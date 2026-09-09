@@ -24,7 +24,9 @@ jobs:
       - name: capture cycle
         env:
           NOCTURNE_SOURCE: gh
-        run: python scripts/capture.py ${{ inputs.force && '--force' || '' }}
+        run: |
+          python scripts/capture.py ${{ inputs.force && '--force' || '' }}
+          python scripts/build_state.py || echo "state build skipped"
       - name: commit
         run: |
           git config user.name "nocturne-bot"

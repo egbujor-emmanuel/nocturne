@@ -86,6 +86,16 @@ def build():
         "observations":196,"weekends":13},
       "symbols":out}
     json.dump(state,open(os.path.join(ROOT,"data","site.json"),"w"),indent=1)
+    # public API: stable versioned paths served by GitHub Pages
+    api=os.path.join(ROOT,"api","v1"); os.makedirs(os.path.join(api,"symbols"),exist_ok=True)
+    json.dump(state,open(os.path.join(api,"state.json"),"w"),indent=1)
+    json.dump({"generated":state["generated_et"],"session":state["session"],
+               "is_dark":state["is_dark"],"next_reopen_et":state["next_reopen_et"],
+               "finding":state["finding"],
+               "symbols":[r["symbol"] for r in state["symbols"]]},
+              open(os.path.join(api,"index.json"),"w"),indent=1)
+    for r in state["symbols"]:
+        json.dump(r,open(os.path.join(api,"symbols",r["symbol"]+".json"),"w"),indent=1)
     return state
 
 if __name__=="__main__":

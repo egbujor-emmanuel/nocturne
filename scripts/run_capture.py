@@ -33,9 +33,11 @@ def main():
     log(f"capture rc={rc} {out[:120]}{(' ERR '+err[:160]) if err else ''}")
     if rc!=0: return 1
     if "skip" in out: return 0
+    rc2,o2,e2=run([sys.executable,os.path.join("scripts","build_state.py")],timeout=120)
+    log("state rc=%s %s" % (rc2,(o2 or e2)[:90]))
 
     for path in ("data/live","data/books","data/status.local.json","data/health.json",
-                 "data/site.json"):
+                 "data/site.json","api"):
         if os.path.exists(os.path.join(ROOT,path)):
             run(["git","add","-A",path],timeout=60)
     rc,out,_=run(["git","diff","--cached","--quiet"],timeout=30)
