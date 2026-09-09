@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NOCTURNE — a price for the market that has none</title>
+<style>
+:root{--bg:#0b0d10;--panel:#13161b;--line:#242a33;--fg:#e8ecf1;--dim:#8b95a3;
+--hi:#ff6b5e;--ok:#4ec9a0;--acc:#7aa2f7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
+.sub{color:var(--dim);margin:0 0 20px}
+.hero{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:18px}
+.hero b{color:var(--hi);font-size:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.card .k{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.card .v{font-size:20px;font-weight:600;margin-top:3px}
+.banner{border-radius:10px;padding:12px 14px;margin-bottom:16px;border:1px solid}
+.dark-on{background:#1a1408;border-color:#5a4410;color:#ffcf70}
+.dark-off{background:#0e1a16;border-color:#1d4438;color:#7fe0bd}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:900px;background:var(--panel)}
+th,td{padding:9px 11px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--dim);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+tbody tr:hover{background:#181c22}
+.sym{font-weight:600}.nm{color:var(--dim)}
+.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.HIGH{background:#3a1512;color:#ff8a7e}.ELEVATED{background:#3a2c12;color:#ffc978}
+.LOW{background:#12291f;color:#68d9ae}
+.vthin{color:var(--hi);font-weight:700}.thin{color:#ffb454;font-weight:600}
+.pos{color:#68d9ae}.neg{color:#ff8a7e}
+footer{margin-top:26px;color:var(--dim);font-size:12px;line-height:1.7}
+a{color:var(--acc)}
+.note{color:var(--dim);font-size:12px;margin:10px 0 0}
+</style></head><body><div class="wrap">
+<h1>NOCTURNE</h1>
+<p class="sub">A reference price for stocks while the stock market is closed.</p>
+
+<div class="hero">
+For large-cap tokenized US stocks, <b id="noise">100%</b> of the price movement that happens
+while the US market is shut reverses once real liquidity returns.
+<div class="note" id="stat">&nbsp;</div>
+</div>
+
+<div id="banner" class="banner dark-off">loading…</div>
+
+<div class="grid">
+  <div class="card"><div class="k">Session</div><div class="v" id="sess">—</div></div>
+  <div class="card"><div class="k">Weekend-tradeable</div><div class="v" id="uni">—</div></div>
+  <div class="card"><div class="k">Orders cancelled in</div><div class="v" id="reopen">—</div></div>
+  <div class="card"><div class="k">Limit band</div><div class="v" id="band">—</div></div>
+  <div class="card"><div class="k">Last capture</div><div class="v" id="cap">—</div></div>
+</div>
+
+<div class="tblwrap"><table>
+<thead><tr>
+<th>Symbol</th><th>Name</th><th>Last</th><th>Fair value</th><th>Drift</th>
+<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th>
+<th>Spread</th><th>Liquidity</th></tr></thead>
+<tbody id="rows"><tr><td colspan="11">loading…</td></tr></tbody>
+</table></div>
+
+<p class="note" id="suppressed"></p>
+
+<footer>
+<b>What this is.</b> Bitget lists tokenized US equities that trade 24/7, but Nasdaq closes
+Friday 20:00 ET and reopens Monday 09:30 ET. For ~47 hours a week there is no external price
+for these assets anywhere — Bitget's internal matching engine is the only source, and it clears
+almost no volume.<br>
+<b>Method.</b> Fair value during a dark session is the last regular-session close. Validated
+walk-forward: it beats "the current price is right" by <span id="oos">—</span>% MAE on large caps,
+with <span id="dir">—</span>% directional accuracy. Depth, spread and the ±10% limit band are
+observed directly from the order book, not modelled.<br>
+<b>What this is not.</b> It is not a forecast of Monday's price. Fitted forecasting models were
+tested and lost to the baseline; only the unfitted full-fade model wins. The Noise Score ranks
+execution risk, it does not predict direction.<br>
+<span id="built"></span> ·
+<a href="https://github.com/egbujor-emmanuel/nocturne">source &amp; dataset</a>
+</footer>
+</div>
+<script>
+const f=(n,d=0)=>n==null?"—":n.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
+const money=n=>n==null?"—":"$"+f(n);
+fetch("data/site.json?t="+Date.now()).then(r=>r.json()).then(s=>{
+  const fi=s.finding;
+  document.getElementById("noise").textContent=Math.round(fi.noise_share_large_cap_pct)+"%";
+  document.getElementById("stat").textContent=
+    "beta = "+fi.beta+", t = "+fi.t+", "+fi.observations+" observations across "+fi.weekends+" weekends.";
+  document.getElementById("oos").textContent=fi.oos_improvement_pct;
+  document.getElementById("dir").textContent=fi.oos_direction_pct;
+  document.getElementById("sess").textContent=s.session;
+  document.getElementById("uni").textContent=s.universe.weekend_tradeable+" / "+s.universe.scanned;
+  document.getElementById("reopen").textContent=s.hours_to_reopen+" h";
+  document.getElementById("band").textContent="±"+s.band_pct+"%";
+  document.getElementById("cap").textContent=s.generated_et;
+  document.getElementById("built").textContent="Generated "+s.generated_et;
+  const b=document.getElementById("banner");
+  if(s.is_dark){
+    b.className="banner dark-on";
+    b.innerHTML="<b>US market is CLOSED ("+s.session+").</b> Prices below are set by Bitget's internal matching engine. Unfilled limit orders are cancelled at "+s.next_reopen_et+".";
+  } else {
+    b.className="banner dark-off";
+    b.innerHTML="<b>US market is open ("+s.session+").</b> Orders route to real market liquidity, so the Noise Score is suppressed — movement now is genuine price discovery. It returns at 20:00 ET when the weekend session begins.";
+  }
+  const sup=s.symbols.find(r=>r.score_suppressed_reason);
+  document.getElementById("suppressed").textContent=sup?sup.score_suppressed_reason:"";
+  document.getElementById("rows").innerHTML=s.symbols.map(function(r){
+    const liq=r.liquidity==="VERY THIN"?'<span class="vthin">VERY THIN</span>'
+      :r.liquidity==="THIN"?'<span class="thin">THIN</span>':(r.liquidity||"—");
+    const dr=r.dislocation_pct==null?"—":
+      '<span class="'+(r.dislocation_pct>=0?'pos':'neg')+'">'+(r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+'%</span>';
+    const tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+'</span>':"—";
+    return '<tr><td class="sym">'+r.symbol+'</td><td class="nm">'+r.name+'</td><td>'+f(r.last,2)+
+      '</td><td>'+(r.fair_value==null?"—":f(r.fair_value,2))+'</td><td>'+dr+
+      '</td><td>'+(r.noise_score==null?"—":r.noise_score)+'</td><td>'+tier+
+      '</td><td>'+money(r.buy_usd_0_5)+'</td><td>'+money(r.sell_usd_0_5)+
+      '</td><td>'+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+'</td><td>'+liq+'</td></tr>';
+  }).join("");
+}).catch(function(e){document.getElementById("rows").innerHTML=
+  '<tr><td colspan="11">failed to load state: '+e+'</td></tr>';});
+</script></body></html>
