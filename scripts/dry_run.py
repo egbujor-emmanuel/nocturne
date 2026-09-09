@@ -13,7 +13,7 @@ Exercises the entire Friday-to-Monday chain before the real gate:
 Everything it creates is written under a dryrun/ prefix and removed at the end,
 so the public record is untouched.
 """
-import sys, os, json, glob, shutil, datetime as dt
+import sys, os, json, glob, shutil, importlib, datetime as dt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -108,7 +108,9 @@ try:
     # 5. grade against REAL historical Monday prices
     unpin()
     import grade as G
-    replay = sorted(glob.glob("predictions/replay/*.json"))
+    # never pick a *_graded.json results file - it is not a prediction doc
+    replay = sorted(f for f in glob.glob("predictions/replay/*.json")
+                    if not f.endswith("_graded.json"))
     rc = G.main(replay[-1]) if replay else 1
     sb = json.load(open(sb_path)) if os.path.exists(sb_path) else {"summary": {}}
     r = sb["rounds"][-1] if sb.get("rounds") else {}
@@ -124,7 +126,7 @@ try:
     step("6 post grade", lg <= 280, "short post %d chars" % lg)
 
     # 7. health after the whole run
-    import importlib, health
+    import health
     importlib.reload(health)
     rc = health.main()
     step("7 health", rc == 0, "capture healthy after full chain")
@@ -145,7 +147,6 @@ finally:
         json.dump(sb_backup, open(sb_path, "w"), indent=1)
     # rebuild real state so nothing is left pinned to the fake clock
     import build_state as B2
-    importlib.import_module("build_state")
     B2.classify = _orig_classify
     B2.next_reopen = _orig_reopen
     B2.build()
