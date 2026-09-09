@@ -26,9 +26,9 @@ Legend: [ ] todo · [~] in progress · [x] done+verified · [!] blocked
 ## Phase 2 — Intelligence (Thu)
 - [x] I1 Void-drift study frozen + reproducible
 - [x] I2 Fair value = Friday close; +9.19% MAE vs baseline out-of-sample (large caps)
-- [ ] I3 Noise Score 0-100
-- [ ] I4 Qwen news judge + threshold gate + cache
-- [ ] I5 Depth & band module (+/-10% band, $10 min, 0.10% fees)
+- [x] I3 Noise Score 0-100 — percentile of |z| vs symbol's own history, 76 symbols calibrated
+- [x] I4 Qwen judge — gated at score>=80, cached, degrades safely
+- [x] I5 Depth, band, order-lifecycle module
 
 ## Phase 3 — Publishing (Thu-Fri)
 - [ ] P1 Dashboard on GitHub Pages
