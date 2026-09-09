@@ -1,17 +1,17 @@
 {
- "checked": "2026-09-09T16:31:15.764794+00:00",
+ "checked": "2026-09-09T19:27:18.482379+00:00",
  "session": "RTH",
  "limit_min": 45,
  "sources": {
   "gh": {
-   "age_min": 30.9,
-   "last": "2026-09-09 12:00 ET",
+   "age_min": 27.0,
+   "last": "2026-09-09 15:00 ET",
    "state": "OK"
   },
   "local": {
-   "age_min": 0.3,
+   "age_min": 176.4,
    "last": "2026-09-09 12:30 ET",
-   "state": "OK"
+   "state": "STALE"
   }
  },
  "healthy": true
