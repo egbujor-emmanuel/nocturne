@@ -54,7 +54,7 @@ def main():
     # cadence gate: 5-min while the US market is shut (what we actually study),
     # 15-min otherwise. Halves repo growth without losing the void window.
     from session import DARK
-    if sess not in DARK and et.minute % 15 >= 5 and "--force" not in sys.argv:
+    if sess not in DARK and et.minute % 30 >= 10 and "--force" not in sys.argv:
         print(f"{et:%H:%M ET} sess={sess} skip (off-cadence)"); return
 
     syms=universe()
