@@ -64,10 +64,14 @@ not "all traders."
    capture time. **rAAPL holds $18,307 within half a percent during US trading
    hours.** On a weekend it is far thinner. rSOXL — a documented
    weekend-tradeable name — returns a completely empty book.
-3. **An order-lifecycle warning.** A live countdown to the Monday reopen, when
+3. **Order splitting.** Pick an order size and NOCTURNE shows how many slices it
+   would take to fill without moving the price more than half a percent — computed
+   from the live book, not modelled. A $50,000 order in rAAPL needs 3 slices; a
+   single market order would move the price ~1.05%.
+4. **An order-lifecycle warning.** A live countdown to the Monday reopen, when
    Bitget cancels every unfilled weekend limit order. This is one line in
    Bitget's documentation with real money consequences.
-4. **A Noise Score.** How far this price has drifted from the last close, in
+5. **A Noise Score.** How far this price has drifted from the last close, in
    units of that symbol's own daily volatility, ranked against its own history.
    It ranks execution risk. It does not predict direction.
 

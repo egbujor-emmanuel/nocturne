@@ -63,9 +63,12 @@ h1{font-size:22px;margin:0;letter-spacing:.14em;font-weight:600}
 .card .v{font-size:19px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
 
 /* table */
-.tblhead{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+.tblhead{display:flex;align-items:baseline;gap:10px;margin:0 0 8px;flex-wrap:wrap}
 .tblhead h2{font-size:14px;margin:0;font-weight:600}
 .tblhead span{font-size:12px;color:var(--dim)}
+.sizer{margin-left:auto}
+.sizer select{background:var(--panel2);color:var(--fg);border:1px solid var(--line);
+  border-radius:6px;padding:3px 7px;font-size:12px;margin-left:5px}
 .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
 table{border-collapse:collapse;width:100%;min-width:840px}
 th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
@@ -143,11 +146,21 @@ footer b{color:var(--fg)}
   <div class="card"><div class="k">Void drift reverses</div><div class="v" id="noise">—</div></div>
 </div>
 
-<div class="tblhead"><h2>Live book</h2><span id="tblnote">&nbsp;</span></div>
+<div class="tblhead"><h2>Live book</h2><span id="tblnote">&nbsp;</span>
+  <span class="sizer">order size
+    <select id="osize">
+      <option value="0">off</option>
+      <option value="1000">$1,000</option>
+      <option value="10000">$10,000</option>
+      <option value="50000" selected>$50,000</option>
+      <option value="250000">$250,000</option>
+    </select>
+  </span>
+</div>
 <div class="tblwrap"><table>
 <thead><tr>
 <th>Symbol</th><th>Name</th><th>Last</th><th>Fair value</th><th>Drift</th>
-<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th><th>Spread</th><th></th>
+<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th><th>Spread</th><th>Slices needed</th><th></th>
 </tr></thead>
 <tbody id="rows"><tr><td colspan="10">loading…</td></tr></tbody>
 </table></div>
@@ -160,6 +173,8 @@ footer b{color:var(--fg)}
     <li><b>Check the depth.</b> Buy/sell depth is what the book can absorb before the
       price moves half a percent. Many rTokens hold under $25,000. If your order is
       larger than that, you are the market.</li>
+    <li><b>Size your order.</b> Pick an order size above the table and NOCTURNE shows how
+      many slices it would take to fill without moving the price more than half a percent.</li>
     <li><b>Check the Noise score.</b> High means this drift is unusually large for this
       stock. It ranks risk; it does not tell you which way Monday goes.</li>
     <li><b>Mind the clock.</b> Bitget cancels every unfilled weekend limit order when the
@@ -252,6 +267,17 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       return '<div class="depth '+cls+'"><span class="track"><i class="fill" style="width:'+pct+'%"></i></span>'+
              '<span class="amt">'+money(v)+'</span></div>';
     }
+    var osz=parseFloat(document.getElementById("osize").value)||0;
+    var d05=r.buy_usd_0_5||0, split="—";
+    if(osz>0){
+      if(d05<=0){ split='<span class="vthin">no book</span>'; }
+      else if(osz<=d05){ split='1 <span class="nm">(fits)</span>'; }
+      else {
+        var n=Math.min(20,Math.ceil(osz/d05));
+        split='<span class="'+(n>=6?"vthin":"thin")+'">'+n+'</span> <span class="nm">x $'+
+              Math.round(osz/n).toLocaleString()+'</span>';
+      }
+    }
     var dr=r.dislocation_pct==null?"—":
       '<span class="'+(r.dislocation_pct>=0?"pos":"neg")+'">'+
       (r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+"%</span>";
@@ -263,12 +289,14 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       "<td>"+dr+"</td><td>"+(r.noise_score==null?"—":r.noise_score)+"</td><td>"+tier+"</td>"+
       "<td>"+bar(r.buy_usd_0_5)+"</td><td>"+bar(r.sell_usd_0_5)+"</td>"+
       "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td>"+
+      "<td>"+split+"</td>"+
       '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade &rarr;</a></td></tr>';
   }).join("");
 }).catch(function(e){
-  document.getElementById("rows").innerHTML='<tr><td colspan="11">failed to load state: '+e+"</td></tr>";
+  document.getElementById("rows").innerHTML='<tr><td colspan="12">failed to load state: '+e+"</td></tr>";
 });
 }
 load();
-setInterval(load, 60000);   // the page must not show a frozen weekend
+setInterval(load, 60000);
+document.getElementById("osize").addEventListener("change", load);   // the page must not show a frozen weekend
 </script></body></html>
