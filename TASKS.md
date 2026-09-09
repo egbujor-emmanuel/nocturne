@@ -24,8 +24,8 @@ Legend: [ ] todo · [~] in progress · [x] done+verified · [!] blocked
 - [x] C5 Health check — dual-source staleness, fails Actions on outage
 
 ## Phase 2 — Intelligence (Thu)
-- [ ] I1 Void-drift study frozen + reproducible (beta = -0.779)
-- [ ] I2 Fair-value model per session state
+- [x] I1 Void-drift study frozen + reproducible
+- [x] I2 Fair value = Friday close; +9.19% MAE vs baseline out-of-sample (large caps)
 - [ ] I3 Noise Score 0-100
 - [ ] I4 Qwen news judge + threshold gate + cache
 - [ ] I5 Depth & band module (+/-10% band, $10 min, 0.10% fees)
