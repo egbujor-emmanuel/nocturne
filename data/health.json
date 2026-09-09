@@ -1,16 +1,16 @@
 {
- "checked": "2026-09-09T12:04:15.093639+00:00",
+ "checked": "2026-09-09T13:05:38.141405+00:00",
  "session": "PRE",
  "limit_min": 45,
  "sources": {
   "gh": {
-   "age_min": 2.5,
+   "age_min": 63.9,
    "last": "2026-09-09 08:01 ET",
-   "state": "OK"
+   "state": "STALE"
   },
   "local": {
-   "age_min": 1.5,
-   "last": "2026-09-09 08:02 ET",
+   "age_min": 1.0,
+   "last": "2026-09-09 09:04 ET",
    "state": "OK"
   }
  },
