@@ -13,8 +13,8 @@ Legend: [ ] todo · [~] in progress · [x] done+verified · [!] blocked
 - [x] F1 Public repo created; nocturne-cron-test deleted
 - [x] F2 Skeleton, .gitignore, .env.example, TASKS.md
 - [ ] F3 Qwen key -> GitHub Secret + local .env
-- [~] F4 Universe scan (all rTokens -> true weekend list)
-- [ ] F5 Backfill history for full weekend universe
+- [x] F4 Universe scan — 87 of 699 rTokens trade the void window (docs say 20)
+- [~] F5 Backfill history for full weekend universe (87 symbols)
 
 ## Phase 1 — Capture (Wed-Thu, before G1)
 - [ ] C1 capture.py (ticker + top-50 book, atomic append)

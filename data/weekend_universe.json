@@ -1,0 +1,5515 @@
+{
+ "generated": "2026-09-09T11:40:49.845165+00:00",
+ "void_window": [
+  "2026-09-04T20:00:00-04:00",
+  "2026-09-06T19:00:00-04:00"
+ ],
+ "candidates": 699,
+ "weekend_tradeable": 87,
+ "universe": [
+  {
+   "symbol": "RCRCLUSDT",
+   "base": "RCRCL",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 2638503.88
+  },
+  {
+   "symbol": "RMUUSDT",
+   "base": "RMU",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 1385057.42
+  },
+  {
+   "symbol": "RMSTRUSDT",
+   "base": "RMSTR",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 1215562.88
+  },
+  {
+   "symbol": "RSNDKUSDT",
+   "base": "RSNDK",
+   "void_bars": 46,
+   "void_bars_traded": 46,
+   "void_usd": 805480.7
+  },
+  {
+   "symbol": "RCOINUSDT",
+   "base": "RCOIN",
+   "void_bars": 32,
+   "void_bars_traded": 32,
+   "void_usd": 266449.4
+  },
+  {
+   "symbol": "RGOOGLUSDT",
+   "base": "RGOOGL",
+   "void_bars": 43,
+   "void_bars_traded": 43,
+   "void_usd": 228528.3
+  },
+  {
+   "symbol": "RDRAMUSDT",
+   "base": "RDRAM",
+   "void_bars": 33,
+   "void_bars_traded": 33,
+   "void_usd": 228111.69
+  },
+  {
+   "symbol": "RCOHRUSDT",
+   "base": "RCOHR",
+   "void_bars": 31,
+   "void_bars_traded": 31,
+   "void_usd": 195459.39
+  },
+  {
+   "symbol": "RNVDAUSDT",
+   "base": "RNVDA",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 168279.9
+  },
+  {
+   "symbol": "RHOODUSDT",
+   "base": "RHOOD",
+   "void_bars": 40,
+   "void_bars_traded": 40,
+   "void_usd": 123778.67
+  },
+  {
+   "symbol": "RSKHYUSDT",
+   "base": "RSKHY",
+   "void_bars": 35,
+   "void_bars_traded": 35,
+   "void_usd": 94688.59
+  },
+  {
+   "symbol": "RBEUSDT",
+   "base": "RBE",
+   "void_bars": 28,
+   "void_bars_traded": 28,
+   "void_usd": 89703.62
+  },
+  {
+   "symbol": "RTSLAUSDT",
+   "base": "RTSLA",
+   "void_bars": 42,
+   "void_bars_traded": 42,
+   "void_usd": 88371.79
+  },
+  {
+   "symbol": "RLITEUSDT",
+   "base": "RLITE",
+   "void_bars": 26,
+   "void_bars_traded": 26,
+   "void_usd": 79974.48
+  },
+  {
+   "symbol": "RAVGOUSDT",
+   "base": "RAVGO",
+   "void_bars": 38,
+   "void_bars_traded": 38,
+   "void_usd": 65909.57
+  },
+  {
+   "symbol": "RSPCXUSDT",
+   "base": "RSPCX",
+   "void_bars": 46,
+   "void_bars_traded": 46,
+   "void_usd": 64950.12
+  },
+  {
+   "symbol": "RQQQUSDT",
+   "base": "RQQQ",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 62607.46
+  },
+  {
+   "symbol": "RORCLUSDT",
+   "base": "RORCL",
+   "void_bars": 19,
+   "void_bars_traded": 19,
+   "void_usd": 53709.77
+  },
+  {
+   "symbol": "RINTCUSDT",
+   "base": "RINTC",
+   "void_bars": 44,
+   "void_bars_traded": 44,
+   "void_usd": 53517.85
+  },
+  {
+   "symbol": "RMRVLUSDT",
+   "base": "RMRVL",
+   "void_bars": 27,
+   "void_bars_traded": 27,
+   "void_usd": 52432.16
+  },
+  {
+   "symbol": "RCRWVUSDT",
+   "base": "RCRWV",
+   "void_bars": 20,
+   "void_bars_traded": 20,
+   "void_usd": 44766.4
+  },
+  {
+   "symbol": "RPLTRUSDT",
+   "base": "RPLTR",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 44234.54
+  },
+  {
+   "symbol": "RRKLBUSDT",
+   "base": "RRKLB",
+   "void_bars": 39,
+   "void_bars_traded": 39,
+   "void_usd": 43288.66
+  },
+  {
+   "symbol": "RTEMUSDT",
+   "base": "RTEM",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 41879.38
+  },
+  {
+   "symbol": "RMSFTUSDT",
+   "base": "RMSFT",
+   "void_bars": 19,
+   "void_bars_traded": 19,
+   "void_usd": 37052.62
+  },
+  {
+   "symbol": "RAMDUSDT",
+   "base": "RAMD",
+   "void_bars": 25,
+   "void_bars_traded": 25,
+   "void_usd": 31134.3
+  },
+  {
+   "symbol": "RSOXXUSDT",
+   "base": "RSOXX",
+   "void_bars": 22,
+   "void_bars_traded": 22,
+   "void_usd": 30879.31
+  },
+  {
+   "symbol": "RMETAUSDT",
+   "base": "RMETA",
+   "void_bars": 31,
+   "void_bars_traded": 31,
+   "void_usd": 29379.59
+  },
+  {
+   "symbol": "RTSMUSDT",
+   "base": "RTSM",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 26330.52
+  },
+  {
+   "symbol": "RTTWOUSDT",
+   "base": "RTTWO",
+   "void_bars": 12,
+   "void_bars_traded": 12,
+   "void_usd": 22681.69
+  },
+  {
+   "symbol": "RAMZNUSDT",
+   "base": "RAMZN",
+   "void_bars": 23,
+   "void_bars_traded": 23,
+   "void_usd": 21918.59
+  },
+  {
+   "symbol": "RTQQQUSDT",
+   "base": "RTQQQ",
+   "void_bars": 22,
+   "void_bars_traded": 22,
+   "void_usd": 19048.86
+  },
+  {
+   "symbol": "RSLVUSDT",
+   "base": "RSLV",
+   "void_bars": 17,
+   "void_bars_traded": 17,
+   "void_usd": 17959.7
+  },
+  {
+   "symbol": "RSNOWUSDT",
+   "base": "RSNOW",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 17601.83
+  },
+  {
+   "symbol": "RAXTIUSDT",
+   "base": "RAXTI",
+   "void_bars": 19,
+   "void_bars_traded": 19,
+   "void_usd": 16528.12
+  },
+  {
+   "symbol": "RSPYUSDT",
+   "base": "RSPY",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 13365.03
+  },
+  {
+   "symbol": "RARMUSDT",
+   "base": "RARM",
+   "void_bars": 20,
+   "void_bars_traded": 20,
+   "void_usd": 13349.63
+  },
+  {
+   "symbol": "RGLWUSDT",
+   "base": "RGLW",
+   "void_bars": 17,
+   "void_bars_traded": 17,
+   "void_usd": 12688.36
+  },
+  {
+   "symbol": "RAAPLUSDT",
+   "base": "RAAPL",
+   "void_bars": 38,
+   "void_bars_traded": 38,
+   "void_usd": 11276.3
+  },
+  {
+   "symbol": "RNOKUSDT",
+   "base": "RNOK",
+   "void_bars": 13,
+   "void_bars_traded": 13,
+   "void_usd": 11232.48
+  },
+  {
+   "symbol": "RMARAUSDT",
+   "base": "RMARA",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 11048.91
+  },
+  {
+   "symbol": "RAAOIUSDT",
+   "base": "RAAOI",
+   "void_bars": 15,
+   "void_bars_traded": 15,
+   "void_usd": 10323.4
+  },
+  {
+   "symbol": "RSGOVUSDT",
+   "base": "RSGOV",
+   "void_bars": 8,
+   "void_bars_traded": 8,
+   "void_usd": 9921.7
+  },
+  {
+   "symbol": "RDDOGUSDT",
+   "base": "RDDOG",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 8826.54
+  },
+  {
+   "symbol": "RHIMSUSDT",
+   "base": "RHIMS",
+   "void_bars": 11,
+   "void_bars_traded": 11,
+   "void_usd": 8348.81
+  },
+  {
+   "symbol": "RONDSUSDT",
+   "base": "RONDS",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 8250.27
+  },
+  {
+   "symbol": "RBABAUSDT",
+   "base": "RBABA",
+   "void_bars": 9,
+   "void_bars_traded": 9,
+   "void_usd": 7832.32
+  },
+  {
+   "symbol": "REWYUSDT",
+   "base": "REWY",
+   "void_bars": 12,
+   "void_bars_traded": 12,
+   "void_usd": 7721.42
+  },
+  {
+   "symbol": "RPDDUSDT",
+   "base": "RPDD",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 7393.28
+  },
+  {
+   "symbol": "RIONQUSDT",
+   "base": "RIONQ",
+   "void_bars": 9,
+   "void_bars_traded": 9,
+   "void_usd": 7054.36
+  },
+  {
+   "symbol": "RSOXSUSDT",
+   "base": "RSOXS",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 6915.51
+  },
+  {
+   "symbol": "RIRENUSDT",
+   "base": "RIREN",
+   "void_bars": 16,
+   "void_bars_traded": 16,
+   "void_usd": 6530.32
+  },
+  {
+   "symbol": "RVOOUSDT",
+   "base": "RVOO",
+   "void_bars": 46,
+   "void_bars_traded": 46,
+   "void_usd": 6529.08
+  },
+  {
+   "symbol": "RISRGUSDT",
+   "base": "RISRG",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 5872.14
+  },
+  {
+   "symbol": "RNOWUSDT",
+   "base": "RNOW",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 5476.34
+  },
+  {
+   "symbol": "RLRCXUSDT",
+   "base": "RLRCX",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 5015.23
+  },
+  {
+   "symbol": "RASTSUSDT",
+   "base": "RASTS",
+   "void_bars": 10,
+   "void_bars_traded": 10,
+   "void_usd": 4848.04
+  },
+  {
+   "symbol": "RKOUSDT",
+   "base": "RKO",
+   "void_bars": 13,
+   "void_bars_traded": 13,
+   "void_usd": 4717.14
+  },
+  {
+   "symbol": "RSMHUSDT",
+   "base": "RSMH",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 3782.11
+  },
+  {
+   "symbol": "RCSCOUSDT",
+   "base": "RCSCO",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 3606.03
+  },
+  {
+   "symbol": "RWDCUSDT",
+   "base": "RWDC",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 3445.36
+  },
+  {
+   "symbol": "RASMLUSDT",
+   "base": "RASML",
+   "void_bars": 8,
+   "void_bars_traded": 8,
+   "void_usd": 2905.26
+  },
+  {
+   "symbol": "RIBMUSDT",
+   "base": "RIBM",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 2903.89
+  },
+  {
+   "symbol": "RDELLUSDT",
+   "base": "RDELL",
+   "void_bars": 11,
+   "void_bars_traded": 11,
+   "void_usd": 2623.25
+  },
+  {
+   "symbol": "RAPPUSDT",
+   "base": "RAPP",
+   "void_bars": 8,
+   "void_bars_traded": 8,
+   "void_usd": 2568.78
+  },
+  {
+   "symbol": "RFUTUUSDT",
+   "base": "RFUTU",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 2545.13
+  },
+  {
+   "symbol": "RSQQQUSDT",
+   "base": "RSQQQ",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 2471.61
+  },
+  {
+   "symbol": "RAMATUSDT",
+   "base": "RAMAT",
+   "void_bars": 7,
+   "void_bars_traded": 7,
+   "void_usd": 2270.11
+  },
+  {
+   "symbol": "RADBEUSDT",
+   "base": "RADBE",
+   "void_bars": 7,
+   "void_bars_traded": 7,
+   "void_usd": 1961.64
+  },
+  {
+   "symbol": "RNBISUSDT",
+   "base": "RNBIS",
+   "void_bars": 11,
+   "void_bars_traded": 11,
+   "void_usd": 1693.88
+  },
+  {
+   "symbol": "RSOFIUSDT",
+   "base": "RSOFI",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 1300.86
+  },
+  {
+   "symbol": "RQCOMUSDT",
+   "base": "RQCOM",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 1008.28
+  },
+  {
+   "symbol": "RQQQMUSDT",
+   "base": "RQQQM",
+   "void_bars": 6,
+   "void_bars_traded": 6,
+   "void_usd": 852.05
+  },
+  {
+   "symbol": "RSTRCUSDT",
+   "base": "RSTRC",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 783.9
+  },
+  {
+   "symbol": "RSPMOUSDT",
+   "base": "RSPMO",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 655.4
+  },
+  {
+   "symbol": "RVRTUSDT",
+   "base": "RVRT",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 546.79
+  },
+  {
+   "symbol": "RIWMUSDT",
+   "base": "RIWM",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 535.19
+  },
+  {
+   "symbol": "RSTXUSDT",
+   "base": "RSTX",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 404.03
+  },
+  {
+   "symbol": "RLMTUSDT",
+   "base": "RLMT",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 253.18
+  },
+  {
+   "symbol": "RCRWDUSDT",
+   "base": "RCRWD",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 214.28
+  },
+  {
+   "symbol": "RAEHRUSDT",
+   "base": "RAEHR",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 179.21
+  },
+  {
+   "symbol": "RAPLDUSDT",
+   "base": "RAPLD",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 142.8
+  },
+  {
+   "symbol": "RTLTUSDT",
+   "base": "RTLT",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 129.34
+  },
+  {
+   "symbol": "RMAUSDT",
+   "base": "RMA",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 120.12
+  },
+  {
+   "symbol": "RMELIUSDT",
+   "base": "RMELI",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 40.59
+  },
+  {
+   "symbol": "RSONYUSDT",
+   "base": "RSONY",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 25.65
+  },
+  {
+   "symbol": "RUSOUSDT",
+   "base": "RUSO",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 11.65
+  }
+ ],
+ "all_results": [
+  {
+   "symbol": "RPBRUSDT",
+   "base": "RPBR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSYKUSDT",
+   "base": "RSYK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNKEUSDT",
+   "base": "RNKE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBPUSDT",
+   "base": "RBP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RELVUSDT",
+   "base": "RELV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPHUSDT",
+   "base": "RPH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPNCUSDT",
+   "base": "RPNC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSNPSUSDT",
+   "base": "RSNPS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHDBUSDT",
+   "base": "RHDB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPGRUSDT",
+   "base": "RPGR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTMUSDT",
+   "base": "RTM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCBUSDT",
+   "base": "RCB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSBUXUSDT",
+   "base": "RSBUX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCVSUSDT",
+   "base": "RCVS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RULUSDT",
+   "base": "RUL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBXUSDT",
+   "base": "RBX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RENBUSDT",
+   "base": "RENB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPGUSDT",
+   "base": "RPG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPFEUSDT",
+   "base": "RPFE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBKNGUSDT",
+   "base": "RBKNG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMTUSDT",
+   "base": "RAMT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMRKUSDT",
+   "base": "RMRK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMNSTUSDT",
+   "base": "RMNST",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCSXUSDT",
+   "base": "RCSX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDHRUSDT",
+   "base": "RDHR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBTIUSDT",
+   "base": "RBTI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLOWUSDT",
+   "base": "RLOW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWMBUSDT",
+   "base": "RWMB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHDUSDT",
+   "base": "RHD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJCIUSDT",
+   "base": "RJCI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGRNDUSDT",
+   "base": "RGRND",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPLDUSDT",
+   "base": "RPLD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNIKLUSDT",
+   "base": "RNIKL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGLWUSDT",
+   "base": "RGLW",
+   "void_bars": 17,
+   "void_bars_traded": 17,
+   "void_usd": 12688.36
+  },
+  {
+   "symbol": "RCMCSAUSDT",
+   "base": "RCMCSA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGILDUSDT",
+   "base": "RGILD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RISRGUSDT",
+   "base": "RISRG",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 5872.14
+  },
+  {
+   "symbol": "RMTZUSDT",
+   "base": "RMTZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIBKRUSDT",
+   "base": "RIBKR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUSBUSDT",
+   "base": "RUSB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMRNAUSDT",
+   "base": "RMRNA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWELLUSDT",
+   "base": "RWELL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAEMUSDT",
+   "base": "RAEM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSHELUSDT",
+   "base": "RSHEL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSAPUSDT",
+   "base": "RSAP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROXYUSDT",
+   "base": "ROXY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTDUSDT",
+   "base": "RTD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKKRUSDT",
+   "base": "RKKR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAPHUSDT",
+   "base": "RAPH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTJXUSDT",
+   "base": "RTJX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROSCRUSDT",
+   "base": "ROSCR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRIOUSDT",
+   "base": "RRIO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSLBUSDT",
+   "base": "RSLB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSOUSDT",
+   "base": "RSO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RASXUSDT",
+   "base": "RASX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REBAYUSDT",
+   "base": "REBAY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPCGUSDT",
+   "base": "RPCG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHCAUSDT",
+   "base": "RHCA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPALLUSDT",
+   "base": "RPALL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMSUSDT",
+   "base": "RMS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAZNUSDT",
+   "base": "RAZN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMMMUSDT",
+   "base": "RMMM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNVSUSDT",
+   "base": "RNVS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPMUSDT",
+   "base": "RPM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMOUSDT",
+   "base": "RMO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWMUSDT",
+   "base": "RWM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVRTXUSDT",
+   "base": "RVRTX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNEMUSDT",
+   "base": "RNEM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RXOMUSDT",
+   "base": "RXOM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVZUSDT",
+   "base": "RVZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTUSDT",
+   "base": "RT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTMUSUSDT",
+   "base": "RTMUS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMDLZUSDT",
+   "base": "RMDLZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTLNUSDT",
+   "base": "RTLN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHIMSUSDT",
+   "base": "RHIMS",
+   "void_bars": 11,
+   "void_bars_traded": 11,
+   "void_usd": 8348.81
+  },
+  {
+   "symbol": "RLNGUSDT",
+   "base": "RLNG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RROKUSDT",
+   "base": "RROK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAZOUSDT",
+   "base": "RAZO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCTVAUSDT",
+   "base": "RCTVA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RODFLUSDT",
+   "base": "RODFL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDALUSDT",
+   "base": "RDAL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSEUSDT",
+   "base": "RSE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBMYUSDT",
+   "base": "RBMY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RREGNUSDT",
+   "base": "RREGN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPSAUSDT",
+   "base": "RPSA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNDAQUSDT",
+   "base": "RNDAQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAJGUSDT",
+   "base": "RAJG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REWUSDT",
+   "base": "REW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCORUSDT",
+   "base": "RCOR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFASTUSDT",
+   "base": "RFAST",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RETRUSDT",
+   "base": "RETR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWPMUSDT",
+   "base": "RWPM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMCHPUSDT",
+   "base": "RMCHP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDVNUSDT",
+   "base": "RDVN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMEUSDT",
+   "base": "RAME",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RXELUSDT",
+   "base": "RXEL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RARGXUSDT",
+   "base": "RARGX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNVDAUSDT",
+   "base": "RNVDA",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 168279.9
+  },
+  {
+   "symbol": "RTSLAUSDT",
+   "base": "RTSLA",
+   "void_bars": 42,
+   "void_bars_traded": 42,
+   "void_usd": 88371.79
+  },
+  {
+   "symbol": "RQQQUSDT",
+   "base": "RQQQ",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 62607.46
+  },
+  {
+   "symbol": "RAXTIUSDT",
+   "base": "RAXTI",
+   "void_bars": 19,
+   "void_bars_traded": 19,
+   "void_usd": 16528.12
+  },
+  {
+   "symbol": "RAAOIUSDT",
+   "base": "RAAOI",
+   "void_bars": 15,
+   "void_bars_traded": 15,
+   "void_usd": 10323.4
+  },
+  {
+   "symbol": "RSNDKUSDT",
+   "base": "RSNDK",
+   "void_bars": 46,
+   "void_bars_traded": 46,
+   "void_usd": 805480.7
+  },
+  {
+   "symbol": "RLITEUSDT",
+   "base": "RLITE",
+   "void_bars": 26,
+   "void_bars_traded": 26,
+   "void_usd": 79974.48
+  },
+  {
+   "symbol": "RCRDOUSDT",
+   "base": "RCRDO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDELLUSDT",
+   "base": "RDELL",
+   "void_bars": 11,
+   "void_bars_traded": 11,
+   "void_usd": 2623.25
+  },
+  {
+   "symbol": "RFNUSDT",
+   "base": "RFN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCIENUSDT",
+   "base": "RCIEN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCLWUSDT",
+   "base": "RCLW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNOKUSDT",
+   "base": "RNOK",
+   "void_bars": 13,
+   "void_bars_traded": 13,
+   "void_usd": 11232.48
+  },
+  {
+   "symbol": "RBEUSDT",
+   "base": "RBE",
+   "void_bars": 28,
+   "void_bars_traded": 28,
+   "void_usd": 89703.62
+  },
+  {
+   "symbol": "RTSMUSDT",
+   "base": "RTSM",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 26330.52
+  },
+  {
+   "symbol": "RNTAPUSDT",
+   "base": "RNTAP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRMBSUSDT",
+   "base": "RRMBS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSIMOUSDT",
+   "base": "RSIMO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRKLBUSDT",
+   "base": "RRKLB",
+   "void_bars": 39,
+   "void_bars_traded": 39,
+   "void_usd": 43288.66
+  },
+  {
+   "symbol": "RIONQUSDT",
+   "base": "RIONQ",
+   "void_bars": 9,
+   "void_bars_traded": 9,
+   "void_usd": 7054.36
+  },
+  {
+   "symbol": "RNTNXUSDT",
+   "base": "RNTNX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RASMLUSDT",
+   "base": "RASML",
+   "void_bars": 8,
+   "void_bars_traded": 8,
+   "void_usd": 2905.26
+  },
+  {
+   "symbol": "RAAPLUSDT",
+   "base": "RAAPL",
+   "void_bars": 38,
+   "void_bars_traded": 38,
+   "void_usd": 11276.3
+  },
+  {
+   "symbol": "RAVGOUSDT",
+   "base": "RAVGO",
+   "void_bars": 38,
+   "void_bars_traded": 38,
+   "void_usd": 65909.57
+  },
+  {
+   "symbol": "RPLTRUSDT",
+   "base": "RPLTR",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 44234.54
+  },
+  {
+   "symbol": "RGOOGLUSDT",
+   "base": "RGOOGL",
+   "void_bars": 43,
+   "void_bars_traded": 43,
+   "void_usd": 228528.3
+  },
+  {
+   "symbol": "RINTCUSDT",
+   "base": "RINTC",
+   "void_bars": 44,
+   "void_bars_traded": 44,
+   "void_usd": 53517.85
+  },
+  {
+   "symbol": "RMSFTUSDT",
+   "base": "RMSFT",
+   "void_bars": 19,
+   "void_bars_traded": 19,
+   "void_usd": 37052.62
+  },
+  {
+   "symbol": "RSMCIUSDT",
+   "base": "RSMCI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMATUSDT",
+   "base": "RAMAT",
+   "void_bars": 7,
+   "void_bars_traded": 7,
+   "void_usd": 2270.11
+  },
+  {
+   "symbol": "RLRCXUSDT",
+   "base": "RLRCX",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 5015.23
+  },
+  {
+   "symbol": "RSPYUSDT",
+   "base": "RSPY",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 13365.03
+  },
+  {
+   "symbol": "RAMZNUSDT",
+   "base": "RAMZN",
+   "void_bars": 23,
+   "void_bars_traded": 23,
+   "void_usd": 21918.59
+  },
+  {
+   "symbol": "RMETAUSDT",
+   "base": "RMETA",
+   "void_bars": 31,
+   "void_bars_traded": 31,
+   "void_usd": 29379.59
+  },
+  {
+   "symbol": "RCRCLUSDT",
+   "base": "RCRCL",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 2638503.88
+  },
+  {
+   "symbol": "RMUUSDT",
+   "base": "RMU",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 1385057.42
+  },
+  {
+   "symbol": "RHOODUSDT",
+   "base": "RHOOD",
+   "void_bars": 40,
+   "void_bars_traded": 40,
+   "void_usd": 123778.67
+  },
+  {
+   "symbol": "RVRTUSDT",
+   "base": "RVRT",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 546.79
+  },
+  {
+   "symbol": "RETNUSDT",
+   "base": "RETN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RANETUSDT",
+   "base": "RANET",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RALABUSDT",
+   "base": "RALAB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWDCUSDT",
+   "base": "RWDC",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 3445.36
+  },
+  {
+   "symbol": "RSTXUSDT",
+   "base": "RSTX",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 404.03
+  },
+  {
+   "symbol": "RAPPUSDT",
+   "base": "RAPP",
+   "void_bars": 8,
+   "void_bars_traded": 8,
+   "void_usd": 2568.78
+  },
+  {
+   "symbol": "RAMDUSDT",
+   "base": "RAMD",
+   "void_bars": 25,
+   "void_bars_traded": 25,
+   "void_usd": 31134.3
+  },
+  {
+   "symbol": "RARMUSDT",
+   "base": "RARM",
+   "void_bars": 20,
+   "void_bars_traded": 20,
+   "void_usd": 13349.63
+  },
+  {
+   "symbol": "RMRVLUSDT",
+   "base": "RMRVL",
+   "void_bars": 27,
+   "void_bars_traded": 27,
+   "void_usd": 52432.16
+  },
+  {
+   "symbol": "RMPUSDT",
+   "base": "RMP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RADSKUSDT",
+   "base": "RADSK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFANGUSDT",
+   "base": "RFANG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RALLUSDT",
+   "base": "RALL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCAHUSDT",
+   "base": "RCAH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFLEXUSDT",
+   "base": "RFLEX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLHXUSDT",
+   "base": "RLHX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCCJUSDT",
+   "base": "RCCJ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROUSDT",
+   "base": "RO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCARRUSDT",
+   "base": "RCARR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSPGUSDT",
+   "base": "RSPG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHEIUSDT",
+   "base": "RHEI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMSIUSDT",
+   "base": "RMSI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNUUSDT",
+   "base": "RNU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REXCUSDT",
+   "base": "REXC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTDGUSDT",
+   "base": "RTDG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTGTUSDT",
+   "base": "RTGT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCRHUSDT",
+   "base": "RCRH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSTTUSDT",
+   "base": "RSTT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKEYSUSDT",
+   "base": "RKEYS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAFLUSDT",
+   "base": "RAFL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAEPUSDT",
+   "base": "RAEP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSREUSDT",
+   "base": "RSRE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCLUSDT",
+   "base": "RCL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMDLNUSDT",
+   "base": "RMDLN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RURIUSDT",
+   "base": "RURI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNUEUSDT",
+   "base": "RNUE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCLSUSDT",
+   "base": "RCLS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDUSDT",
+   "base": "RD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAONUSDT",
+   "base": "RAON",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCTASUSDT",
+   "base": "RCTAS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAPDUSDT",
+   "base": "RAPD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFERGUSDT",
+   "base": "RFERG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGWWUSDT",
+   "base": "RGWW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMSCIUSDT",
+   "base": "RMSCI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTFCUSDT",
+   "base": "RTFC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFRBTUSDT",
+   "base": "RFRBT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBSXUSDT",
+   "base": "RBSX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTELUSDT",
+   "base": "RTEL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIDXXUSDT",
+   "base": "RIDXX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKMIUSDT",
+   "base": "RKMI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RECLUSDT",
+   "base": "RECL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RORLYUSDT",
+   "base": "RORLY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPSXUSDT",
+   "base": "RPSX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTRVUSDT",
+   "base": "RTRV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAUUSDT",
+   "base": "RAU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCNIUSDT",
+   "base": "RCNI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RROSTUSDT",
+   "base": "RROST",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRSGUSDT",
+   "base": "RRSG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRCLUSDT",
+   "base": "RRCL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHUMUSDT",
+   "base": "RHUM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPCARUSDT",
+   "base": "RPCAR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RITWUSDT",
+   "base": "RITW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMPWRUSDT",
+   "base": "RMPWR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RARESUSDT",
+   "base": "RARES",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBKRUSDT",
+   "base": "RBKR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGMUSDT",
+   "base": "RGM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCCEPUSDT",
+   "base": "RCCEP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSUUSDT",
+   "base": "RSU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REOGUSDT",
+   "base": "REOG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDLRUSDT",
+   "base": "RDLR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGFSUSDT",
+   "base": "RGFS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSHWUSDT",
+   "base": "RSHW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVALEUSDT",
+   "base": "RVALE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REMRUSDT",
+   "base": "REMR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMPCUSDT",
+   "base": "RMPC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHLTUSDT",
+   "base": "RHLT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWBDUSDT",
+   "base": "RWBD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMCOUSDT",
+   "base": "RMCO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBUSDT",
+   "base": "RB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBDXUSDT",
+   "base": "RBDX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVLOUSDT",
+   "base": "RVLO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCIUSDT",
+   "base": "RCI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFIXUSDT",
+   "base": "RFIX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKDPUSDT",
+   "base": "RKDP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSMTCUSDT",
+   "base": "RSMTC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRXTUSDT",
+   "base": "RRXT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSPCXUSDT",
+   "base": "RSPCX",
+   "void_bars": 46,
+   "void_bars_traded": 46,
+   "void_usd": 64950.12
+  },
+  {
+   "symbol": "RFDXUSDT",
+   "base": "RFDX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RICEUSDT",
+   "base": "RICE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMRSHUSDT",
+   "base": "RMRSH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSCHDUSDT",
+   "base": "RSCHD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RASSTUSDT",
+   "base": "RASST",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDHIUSDT",
+   "base": "RDHI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RYUMUSDT",
+   "base": "RYUM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMPUSDT",
+   "base": "RAMP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNVDUSDT",
+   "base": "RNVD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAIPOUSDT",
+   "base": "RAIPO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSPMOUSDT",
+   "base": "RSPMO",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 655.4
+  },
+  {
+   "symbol": "RDXYZUSDT",
+   "base": "RDXYZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSTRCUSDT",
+   "base": "RSTRC",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 783.9
+  },
+  {
+   "symbol": "RQQQIUSDT",
+   "base": "RQQQI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAIGUSDT",
+   "base": "RAIG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWCNUSDT",
+   "base": "RWCN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RALNYUSDT",
+   "base": "RALNY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPEGUSDT",
+   "base": "RPEG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRAMUSDT",
+   "base": "RRAM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RONUSDT",
+   "base": "RON",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMKRUSDT",
+   "base": "RAMKR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUVXYUSDT",
+   "base": "RUVXY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCSIQUSDT",
+   "base": "RCSIQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCCIUSDT",
+   "base": "RCCI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAVAVUSDT",
+   "base": "RAVAV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKLACUSDT",
+   "base": "RKLAC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFWDIUSDT",
+   "base": "RFWDI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSATAUSDT",
+   "base": "RSATA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSKHYUSDT",
+   "base": "RSKHY",
+   "void_bars": 35,
+   "void_bars_traded": 35,
+   "void_usd": 94688.59
+  },
+  {
+   "symbol": "RCBREUSDT",
+   "base": "RCBRE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSTLDUSDT",
+   "base": "RSTLD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJBLUSDT",
+   "base": "RJBL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLYVUSDT",
+   "base": "RLYV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAUSDT",
+   "base": "RA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REMEUSDT",
+   "base": "REME",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSYYUSDT",
+   "base": "RSYY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RADMUSDT",
+   "base": "RADM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKRUSDT",
+   "base": "RKR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCCLUSDT",
+   "base": "RCCL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RQLDUSDT",
+   "base": "RQLD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RXLVUSDT",
+   "base": "RXLV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUALUSDT",
+   "base": "RUAL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJEPQUSDT",
+   "base": "RJEPQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RXBIUSDT",
+   "base": "RXBI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDIAUSDT",
+   "base": "RDIA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCONLUSDT",
+   "base": "RCONL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKSTRUSDT",
+   "base": "RKSTR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RECHOUSDT",
+   "base": "RECHO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSSPCUSDT",
+   "base": "RSSPC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIBBUSDT",
+   "base": "RIBB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVMCUSDT",
+   "base": "RVMC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHIGUSDT",
+   "base": "RHIG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHALUSDT",
+   "base": "RHAL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKVUEUSDT",
+   "base": "RKVUE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RROPUSDT",
+   "base": "RROP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSUNBUSDT",
+   "base": "RSUNB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHBANUSDT",
+   "base": "RHBAN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMLMUSDT",
+   "base": "RMLM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REQTUSDT",
+   "base": "REQT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RZTSUSDT",
+   "base": "RZTS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRKTUSDT",
+   "base": "RRKT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RELUSDT",
+   "base": "REL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNTRAUSDT",
+   "base": "RNTRA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RZMUSDT",
+   "base": "RZM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFSLRUSDT",
+   "base": "RFSLR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDTEUSDT",
+   "base": "RDTE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDXCMUSDT",
+   "base": "RDXCM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGEHCUSDT",
+   "base": "RGEHC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHSYUSDT",
+   "base": "RHSY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWATUSDT",
+   "base": "RWAT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPAYXUSDT",
+   "base": "RPAYX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGTLBUSDT",
+   "base": "RGTLB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTOSTUSDT",
+   "base": "RTOST",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMTBUSDT",
+   "base": "RMTB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKMBUSDT",
+   "base": "RKMB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTWLOUSDT",
+   "base": "RTWLO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCNCUSDT",
+   "base": "RCNC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRVMDUSDT",
+   "base": "RRVMD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKGCUSDT",
+   "base": "RKGC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIQVUSDT",
+   "base": "RIQV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNRGUSDT",
+   "base": "RNRG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROTISUSDT",
+   "base": "ROTIS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFDXFUSDT",
+   "base": "RFDXF",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPPLUSDT",
+   "base": "RPPL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNVTUSDT",
+   "base": "RNVT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RXPOUSDT",
+   "base": "RXPO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJMKEUSDT",
+   "base": "RJMKE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFISVUSDT",
+   "base": "RFISV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RATOUSDT",
+   "base": "RATO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRMDUSDT",
+   "base": "RRMD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFICOUSDT",
+   "base": "RFICO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCASYUSDT",
+   "base": "RCASY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKHCUSDT",
+   "base": "RKHC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMTSIUSDT",
+   "base": "RMTSI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSTRLUSDT",
+   "base": "RSTRL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCFGUSDT",
+   "base": "RCFG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJBHTUSDT",
+   "base": "RJBHT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REXPEUSDT",
+   "base": "REXPE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBIIBUSDT",
+   "base": "RBIIB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTDYUSDT",
+   "base": "RTDY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIRUSDT",
+   "base": "RIR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMRZUSDT",
+   "base": "RAMRZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLAZRUSDT",
+   "base": "RLAZR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCBOEUSDT",
+   "base": "RCBOE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCPRTUSDT",
+   "base": "RCPRT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTPRUSDT",
+   "base": "RTPR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REXEUSDT",
+   "base": "REXE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMTDUSDT",
+   "base": "RMTD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHPQUSDT",
+   "base": "RHPQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWWDUSDT",
+   "base": "RWWD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLYTEUSDT",
+   "base": "RLYTE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RROLUSDT",
+   "base": "RROL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLENUSDT",
+   "base": "RLEN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRLUSDT",
+   "base": "RRL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCHRWUSDT",
+   "base": "RCHRW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCMSUSDT",
+   "base": "RCMS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKEYUSDT",
+   "base": "RKEY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDGUSDT",
+   "base": "RDG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVRSKUSDT",
+   "base": "RVRSK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUTHRUSDT",
+   "base": "RUTHR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLPLAUSDT",
+   "base": "RLPLA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCRSUSDT",
+   "base": "RCRS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDOWUSDT",
+   "base": "RDOW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRFUSDT",
+   "base": "RRF",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBGUSDT",
+   "base": "RBG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSTZUSDT",
+   "base": "RSTZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFTAIUSDT",
+   "base": "RFTAI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHUBBUSDT",
+   "base": "RHUBB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBAPUSDT",
+   "base": "RBAP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCTSHUSDT",
+   "base": "RCTSH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RQSRUSDT",
+   "base": "RQSR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMPGUSDT",
+   "base": "RAMPG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFLYUSDT",
+   "base": "RFLY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLQDAUSDT",
+   "base": "RLQDA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJEPIUSDT",
+   "base": "RJEPI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHDVUSDT",
+   "base": "RHDV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVRSNUSDT",
+   "base": "RVRSN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RINFQUSDT",
+   "base": "RINFQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLPTHUSDT",
+   "base": "RLPTH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMPXUSDT",
+   "base": "RAMPX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLYBUSDT",
+   "base": "RLYB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFISUSDT",
+   "base": "RFIS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RINSMUSDT",
+   "base": "RINSM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RENTGUSDT",
+   "base": "RENTG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RINCYUSDT",
+   "base": "RINCY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTSNUSDT",
+   "base": "RTSN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLUVUSDT",
+   "base": "RLUV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPOETUSDT",
+   "base": "RPOET",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLWLGUSDT",
+   "base": "RLWLG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDLTRUSDT",
+   "base": "RDLTR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAKAMUSDT",
+   "base": "RAKAM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSEZLUSDT",
+   "base": "RSEZL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REROCUSDT",
+   "base": "REROC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROMCUSDT",
+   "base": "ROMC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REXPDUSDT",
+   "base": "REXPD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSWUSDT",
+   "base": "RSW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMKSIUSDT",
+   "base": "RMKSI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REFXUSDT",
+   "base": "REFX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RULTAUSDT",
+   "base": "RULTA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBURLUSDT",
+   "base": "RBURL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLSCCUSDT",
+   "base": "RLSCC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAAUSDT",
+   "base": "RAA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUSFDUSDT",
+   "base": "RUSFD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDKSUSDT",
+   "base": "RDKS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNXTUSDT",
+   "base": "RNXT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTTMIUSDT",
+   "base": "RTTMI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLNTUSDT",
+   "base": "RLNT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHUSDT",
+   "base": "RH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVICIUSDT",
+   "base": "RVICI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGLPIUSDT",
+   "base": "RGLPI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGISUSDT",
+   "base": "RGIS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMCRUSDT",
+   "base": "RAMCR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMAINUSDT",
+   "base": "RMAIN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROWLUSDT",
+   "base": "ROWL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDJTUSDT",
+   "base": "RDJT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPURRUSDT",
+   "base": "RPURR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIQQQUSDT",
+   "base": "RIQQQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMPLXUSDT",
+   "base": "RMPLX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWESUSDT",
+   "base": "RWES",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPAAUSDT",
+   "base": "RPAA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNNNUSDT",
+   "base": "RNNN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCUBEUSDT",
+   "base": "RCUBE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJOBYUSDT",
+   "base": "RJOBY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RACHRUSDT",
+   "base": "RACHR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCOINUSDT",
+   "base": "RCOIN",
+   "void_bars": 32,
+   "void_bars_traded": 32,
+   "void_usd": 266449.4
+  },
+  {
+   "symbol": "RMSTRUSDT",
+   "base": "RMSTR",
+   "void_bars": 47,
+   "void_bars_traded": 47,
+   "void_usd": 1215562.88
+  },
+  {
+   "symbol": "RPANWUSDT",
+   "base": "RPANW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCRWDUSDT",
+   "base": "RCRWD",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 214.28
+  },
+  {
+   "symbol": "RORCLUSDT",
+   "base": "RORCL",
+   "void_bars": 19,
+   "void_bars_traded": 19,
+   "void_usd": 53709.77
+  },
+  {
+   "symbol": "RCEGUSDT",
+   "base": "RCEG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVSTUSDT",
+   "base": "RVST",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROKLOUSDT",
+   "base": "ROKLO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRGTIUSDT",
+   "base": "RRGTI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RQBTSUSDT",
+   "base": "RQBTS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RQUBTUSDT",
+   "base": "RQUBT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJPMUSDT",
+   "base": "RJPM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNIOUSDT",
+   "base": "RNIO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVUSDT",
+   "base": "RV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLIUSDT",
+   "base": "RLI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCOSTUSDT",
+   "base": "RCOST",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRIVNUSDT",
+   "base": "RRIVN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCVNAUSDT",
+   "base": "RCVNA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPLUGUSDT",
+   "base": "RPLUG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RQCOMUSDT",
+   "base": "RQCOM",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 1008.28
+  },
+  {
+   "symbol": "RTXNUSDT",
+   "base": "RTXN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNXPIUSDT",
+   "base": "RNXPI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REQIXUSDT",
+   "base": "REQIX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNFLXUSDT",
+   "base": "RNFLX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGEVUSDT",
+   "base": "RGEV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUBERUSDT",
+   "base": "RUBER",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNEEUSDT",
+   "base": "RNEE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSPOTUSDT",
+   "base": "RSPOT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSMRUSDT",
+   "base": "RSMR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBABAUSDT",
+   "base": "RBABA",
+   "void_bars": 9,
+   "void_bars_traded": 9,
+   "void_usd": 7832.32
+  },
+  {
+   "symbol": "RRTXUSDT",
+   "base": "RRTX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBAUSDT",
+   "base": "RBA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPDDUSDT",
+   "base": "RPDD",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 7393.28
+  },
+  {
+   "symbol": "RDDOGUSDT",
+   "base": "RDDOG",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 8826.54
+  },
+  {
+   "symbol": "RSQQQUSDT",
+   "base": "RSQQQ",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 2471.61
+  },
+  {
+   "symbol": "RTLTUSDT",
+   "base": "RTLT",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 129.34
+  },
+  {
+   "symbol": "RGLDUSDT",
+   "base": "RGLD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRIOTUSDT",
+   "base": "RRIOT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSHOPUSDT",
+   "base": "RSHOP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWULFUSDT",
+   "base": "RWULF",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRDDTUSDT",
+   "base": "RRDDT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNETUSDT",
+   "base": "RNET",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNVOUSDT",
+   "base": "RNVO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMDBUSDT",
+   "base": "RMDB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RASTSUSDT",
+   "base": "RASTS",
+   "void_bars": 10,
+   "void_bars_traded": 10,
+   "void_usd": 4848.04
+  },
+  {
+   "symbol": "RLUNRUSDT",
+   "base": "RLUNR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSOUNUSDT",
+   "base": "RSOUN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBBAIUSDT",
+   "base": "RBBAI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSNOWUSDT",
+   "base": "RSNOW",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 17601.83
+  },
+  {
+   "symbol": "RUSOUSDT",
+   "base": "RUSO",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 11.65
+  },
+  {
+   "symbol": "RCRMUSDT",
+   "base": "RCRM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIRENUSDT",
+   "base": "RIREN",
+   "void_bars": 16,
+   "void_bars_traded": 16,
+   "void_usd": 6530.32
+  },
+  {
+   "symbol": "RCRWVUSDT",
+   "base": "RCRWV",
+   "void_bars": 20,
+   "void_bars_traded": 20,
+   "void_usd": 44766.4
+  },
+  {
+   "symbol": "RXYZUSDT",
+   "base": "RXYZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLLYUSDT",
+   "base": "RLLY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKWEBUSDT",
+   "base": "RKWEB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFXIUSDT",
+   "base": "RFXI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RINDAUSDT",
+   "base": "RINDA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REWJUSDT",
+   "base": "REWJ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REWZUSDT",
+   "base": "REWZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCOHRUSDT",
+   "base": "RCOHR",
+   "void_bars": 31,
+   "void_bars_traded": 31,
+   "void_usd": 195459.39
+  },
+  {
+   "symbol": "RDRAMUSDT",
+   "base": "RDRAM",
+   "void_bars": 33,
+   "void_bars_traded": 33,
+   "void_usd": 228111.69
+  },
+  {
+   "symbol": "RCBRSUSDT",
+   "base": "RCBRS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUSARUSDT",
+   "base": "RUSAR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTQQQUSDT",
+   "base": "RTQQQ",
+   "void_bars": 22,
+   "void_bars_traded": 22,
+   "void_usd": 19048.86
+  },
+  {
+   "symbol": "RNOWUSDT",
+   "base": "RNOW",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 5476.34
+  },
+  {
+   "symbol": "RBILIUSDT",
+   "base": "RBILI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RINTUUSDT",
+   "base": "RINTU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDKNGUSDT",
+   "base": "RDKNG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRBLXUSDT",
+   "base": "RRBLX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RADBEUSDT",
+   "base": "RADBE",
+   "void_bars": 7,
+   "void_bars_traded": 7,
+   "void_usd": 1961.64
+  },
+  {
+   "symbol": "RUUSDT",
+   "base": "RU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJDUSDT",
+   "base": "RJD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCSCOUSDT",
+   "base": "RCSCO",
+   "void_bars": 4,
+   "void_bars_traded": 4,
+   "void_usd": 3606.03
+  },
+  {
+   "symbol": "RBIDUUSDT",
+   "base": "RBIDU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTCOMUSDT",
+   "base": "RTCOM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSPCEUSDT",
+   "base": "RSPCE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNBISUSDT",
+   "base": "RNBIS",
+   "void_bars": 11,
+   "void_bars_traded": 11,
+   "void_usd": 1693.88
+  },
+  {
+   "symbol": "RARKKUSDT",
+   "base": "RARKK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPINSUSDT",
+   "base": "RPINS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCAPRUSDT",
+   "base": "RCAPR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMELIUSDT",
+   "base": "RMELI",
+   "void_bars": 3,
+   "void_bars_traded": 3,
+   "void_usd": 40.59
+  },
+  {
+   "symbol": "RAPLDUSDT",
+   "base": "RAPLD",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 142.8
+  },
+  {
+   "symbol": "RONDSUSDT",
+   "base": "RONDS",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 8250.27
+  },
+  {
+   "symbol": "RRDWUSDT",
+   "base": "RRDW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVFSUSDT",
+   "base": "RVFS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPSQUSDT",
+   "base": "RPSQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAFRMUSDT",
+   "base": "RAFRM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROPRAUSDT",
+   "base": "ROPRA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REXODUSDT",
+   "base": "REXOD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSNAPUSDT",
+   "base": "RSNAP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGLXYUSDT",
+   "base": "RGLXY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSOFIUSDT",
+   "base": "RSOFI",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 1300.86
+  },
+  {
+   "symbol": "RMAUSDT",
+   "base": "RMA",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 120.12
+  },
+  {
+   "symbol": "ROPENUSDT",
+   "base": "ROPEN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RABNBUSDT",
+   "base": "RABNB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDASHUSDT",
+   "base": "RDASH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGRABUSDT",
+   "base": "RGRAB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMCUSDT",
+   "base": "RAMC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSPXUUSDT",
+   "base": "RSPXU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSITMUSDT",
+   "base": "RSITM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCIFRUSDT",
+   "base": "RCIFR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REWYUSDT",
+   "base": "REWY",
+   "void_bars": 12,
+   "void_bars_traded": 12,
+   "void_usd": 7721.42
+  },
+  {
+   "symbol": "RFUTUUSDT",
+   "base": "RFUTU",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 2545.13
+  },
+  {
+   "symbol": "RSOXXUSDT",
+   "base": "RSOXX",
+   "void_bars": 22,
+   "void_bars_traded": 22,
+   "void_usd": 30879.31
+  },
+  {
+   "symbol": "RCPNGUSDT",
+   "base": "RCPNG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBBUSDT",
+   "base": "RBB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RETHAUSDT",
+   "base": "RETHA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGMEUSDT",
+   "base": "RGME",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIBITUSDT",
+   "base": "RIBIT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUMCUSDT",
+   "base": "RUMC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RICLNUSDT",
+   "base": "RICLN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLABDUSDT",
+   "base": "RLABD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLABUUSDT",
+   "base": "RLABU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFAZUSDT",
+   "base": "RFAZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFSLYUSDT",
+   "base": "RFSLY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFASUSDT",
+   "base": "RFAS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTZAUSDT",
+   "base": "RTZA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTNAUSDT",
+   "base": "RTNA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSOXSUSDT",
+   "base": "RSOXS",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 6915.51
+  },
+  {
+   "symbol": "RUPROUSDT",
+   "base": "RUPRO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCOPXUSDT",
+   "base": "RCOPX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCUSDT",
+   "base": "RC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RURAUSDT",
+   "base": "RURA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGSUSDT",
+   "base": "RGS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUECUSDT",
+   "base": "RUEC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDNNUSDT",
+   "base": "RDNN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSLVUSDT",
+   "base": "RSLV",
+   "void_bars": 17,
+   "void_bars_traded": 17,
+   "void_usd": 17959.7
+  },
+  {
+   "symbol": "RUNGUSDT",
+   "base": "RUNG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBNOUSDT",
+   "base": "RBNO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTANUSDT",
+   "base": "RTAN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLITUSDT",
+   "base": "RLIT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTEAMUSDT",
+   "base": "RTEAM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RENPHUSDT",
+   "base": "RENPH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCOFUSDT",
+   "base": "RCOF",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSEDGUSDT",
+   "base": "RSEDG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RALBUSDT",
+   "base": "RALB",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RYINNUSDT",
+   "base": "RYINN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSCHWUSDT",
+   "base": "RSCHW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFCXUSDT",
+   "base": "RFCX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWFCUSDT",
+   "base": "RWFC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSCCOUSDT",
+   "base": "RSCCO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RYANGUSDT",
+   "base": "RYANG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RREMXUSDT",
+   "base": "RREMX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSOXLUSDT",
+   "base": "RSOXL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIBMUSDT",
+   "base": "RIBM",
+   "void_bars": 5,
+   "void_bars_traded": 5,
+   "void_usd": 2903.89
+  },
+  {
+   "symbol": "RUNHUSDT",
+   "base": "RUNH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFTNTUSDT",
+   "base": "RFTNT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROKTAUSDT",
+   "base": "ROKTA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJNJUSDT",
+   "base": "RJNJ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDOCUUSDT",
+   "base": "RDOCU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWDAYUSDT",
+   "base": "RWDAY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAXPUSDT",
+   "base": "RAXP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBZUSDT",
+   "base": "RBZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMCDUSDT",
+   "base": "RMCD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLMTUSDT",
+   "base": "RLMT",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 253.18
+  },
+  {
+   "symbol": "RLCIDUSDT",
+   "base": "RLCID",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGWREUSDT",
+   "base": "RGWRE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCRSPUSDT",
+   "base": "RCRSP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDISUSDT",
+   "base": "RDIS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RKOUSDT",
+   "base": "RKO",
+   "void_bars": 13,
+   "void_bars_traded": 13,
+   "void_usd": 4717.14
+  },
+  {
+   "symbol": "RDOCNUSDT",
+   "base": "RDOCN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHPEUSDT",
+   "base": "RHPE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDUOLUSDT",
+   "base": "RDUOL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHIMXUSDT",
+   "base": "RHIMX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBKSYUSDT",
+   "base": "RBKSY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSONYUSDT",
+   "base": "RSONY",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 25.65
+  },
+  {
+   "symbol": "RBWXTUSDT",
+   "base": "RBWXT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RROKUUSDT",
+   "base": "RROKU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCAVAUSDT",
+   "base": "RCAVA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCELHUSDT",
+   "base": "RCELH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RRACEUSDT",
+   "base": "RRACE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCGNXUSDT",
+   "base": "RCGNX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPYPLUSDT",
+   "base": "RPYPL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPEPUSDT",
+   "base": "RPEP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMNDYUSDT",
+   "base": "RMNDY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RABBVUSDT",
+   "base": "RABBV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTTDUSDT",
+   "base": "RTTD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTERUSDT",
+   "base": "RTER",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNASAUSDT",
+   "base": "RNASA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBMNRUSDT",
+   "base": "RBMNR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSTMUSDT",
+   "base": "RSTM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAVLUSDT",
+   "base": "RAVL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCRCAUSDT",
+   "base": "RCRCA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RADPUSDT",
+   "base": "RADP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIEMGUSDT",
+   "base": "RIEMG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIEFUSDT",
+   "base": "RIEF",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGEMIUSDT",
+   "base": "RGEMI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RITAUSDT",
+   "base": "RITA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGLTRUSDT",
+   "base": "RGLTR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHYGUSDT",
+   "base": "RHYG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RINCEUSDT",
+   "base": "RINCE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHYSUSDT",
+   "base": "RHYS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIJHUSDT",
+   "base": "RIJH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIAUUSDT",
+   "base": "RIAU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIEFAUSDT",
+   "base": "RIEFA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFIGUSDT",
+   "base": "RFIG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIWMUSDT",
+   "base": "RIWM",
+   "void_bars": 2,
+   "void_bars_traded": 2,
+   "void_usd": 535.19
+  },
+  {
+   "symbol": "RIWFUSDT",
+   "base": "RIWF",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFLHYUSDT",
+   "base": "RFLHY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFLQLUSDT",
+   "base": "RFLQL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIVVUSDT",
+   "base": "RIVV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFSOLUSDT",
+   "base": "RFSOL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFTGCUSDT",
+   "base": "RFTGC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RITOTUSDT",
+   "base": "RITOT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIWNUSDT",
+   "base": "RIWN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFIGRUSDT",
+   "base": "RFIGR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFUSDT",
+   "base": "RF",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPAVEUSDT",
+   "base": "RPAVE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REEMUSDT",
+   "base": "REEM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "ROIHUSDT",
+   "base": "ROIH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMSTZUSDT",
+   "base": "RMSTZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "REFAUSDT",
+   "base": "REFA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSNXXUSDT",
+   "base": "RSNXX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RJAAAUSDT",
+   "base": "RJAAA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RFGDLUSDT",
+   "base": "RFGDL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RQQQMUSDT",
+   "base": "RQQQM",
+   "void_bars": 6,
+   "void_bars_traded": 6,
+   "void_usd": 852.05
+  },
+  {
+   "symbol": "RCOPUSDT",
+   "base": "RCOP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCLOIUSDT",
+   "base": "RCLOI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSHYUSDT",
+   "base": "RSHY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDBCUSDT",
+   "base": "RDBC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCVXUSDT",
+   "base": "RCVX",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RWMTUSDT",
+   "base": "RWMT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPPLTUSDT",
+   "base": "RPPLT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDGRWUSDT",
+   "base": "RDGRW",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RDEUSDT",
+   "base": "RDE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPDBCUSDT",
+   "base": "RPDBC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RECHUSDT",
+   "base": "RECH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVTIUSDT",
+   "base": "RVTI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBLSHUSDT",
+   "base": "RBLSH",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBTGUSDT",
+   "base": "RBTG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAPOUSDT",
+   "base": "RAPO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBACUSDT",
+   "base": "RBAC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBTGOUSDT",
+   "base": "RBTGO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUSFRUSDT",
+   "base": "RUSFR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCIBRUSDT",
+   "base": "RCIBR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTIPUSDT",
+   "base": "RTIP",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCMGUSDT",
+   "base": "RCMG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCLOAUSDT",
+   "base": "RCLOA",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RIGVUSDT",
+   "base": "RIGV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSBETUSDT",
+   "base": "RSBET",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAALUSDT",
+   "base": "RAAL",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVXUSUSDT",
+   "base": "RVXUS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RACNUSDT",
+   "base": "RACN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVNQUSDT",
+   "base": "RVNQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAGGUSDT",
+   "base": "RAGG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RADIUSDT",
+   "base": "RADI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVTVUSDT",
+   "base": "RVTV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBINCUSDT",
+   "base": "RBINC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAMGNUSDT",
+   "base": "RAMGN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBLKUSDT",
+   "base": "RBLK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNTESUSDT",
+   "base": "RNTES",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RZSUSDT",
+   "base": "RZS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBITOUSDT",
+   "base": "RBITO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RNOCUSDT",
+   "base": "RNOC",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTEMUSDT",
+   "base": "RTEM",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 41879.38
+  },
+  {
+   "symbol": "RBITIUSDT",
+   "base": "RBITI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTMOUSDT",
+   "base": "RTMO",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBOTZUSDT",
+   "base": "RBOTZ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RABTUSDT",
+   "base": "RABT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVPGUSDT",
+   "base": "RVPG",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVGTUSDT",
+   "base": "RVGT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RXLKUSDT",
+   "base": "RXLK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTSEMUSDT",
+   "base": "RTSEM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RXLUUSDT",
+   "base": "RXLU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTTWOUSDT",
+   "base": "RTTWO",
+   "void_bars": 12,
+   "void_bars_traded": 12,
+   "void_usd": 22681.69
+  },
+  {
+   "symbol": "ROSSUSDT",
+   "base": "ROSS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVEEVUSDT",
+   "base": "RVEEV",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RAEHRUSDT",
+   "base": "RAEHR",
+   "void_bars": 1,
+   "void_bars_traded": 1,
+   "void_usd": 179.21
+  },
+  {
+   "symbol": "RMSTUUSDT",
+   "base": "RMSTU",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RVSXYUSDT",
+   "base": "RVSXY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RHWMUSDT",
+   "base": "RHWM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RTTUSDT",
+   "base": "RTT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGSKUSDT",
+   "base": "RGSK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMARUSDT",
+   "base": "RMAR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMDTUSDT",
+   "base": "RMDT",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RPWRUSDT",
+   "base": "RPWR",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCDNSUSDT",
+   "base": "RCDNS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RSGOVUSDT",
+   "base": "RSGOV",
+   "void_bars": 8,
+   "void_bars_traded": 8,
+   "void_usd": 9921.7
+  },
+  {
+   "symbol": "RSMHUSDT",
+   "base": "RSMH",
+   "void_bars": 18,
+   "void_bars_traded": 18,
+   "void_usd": 3782.11
+  },
+  {
+   "symbol": "RVOOUSDT",
+   "base": "RVOO",
+   "void_bars": 46,
+   "void_bars_traded": 46,
+   "void_usd": 6529.08
+  },
+  {
+   "symbol": "RDUKUSDT",
+   "base": "RDUK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RLINUSDT",
+   "base": "RLIN",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCMEUSDT",
+   "base": "RCME",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGEUSDT",
+   "base": "RGE",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RUPSUSDT",
+   "base": "RUPS",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMCKUSDT",
+   "base": "RMCK",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RURNMUSDT",
+   "base": "RURNM",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RGDUSDT",
+   "base": "RGD",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCMIUSDT",
+   "base": "RCMI",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RCNQUSDT",
+   "base": "RCNQ",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RBNYUSDT",
+   "base": "RBNY",
+   "void_bars": 0,
+   "void_bars_traded": 0,
+   "void_usd": 0.0
+  },
+  {
+   "symbol": "RMARAUSDT",
+   "base": "RMARA",
+   "void_bars": 14,
+   "void_bars_traded": 14,
+   "void_usd": 11048.91
+  }
+ ]
+}
