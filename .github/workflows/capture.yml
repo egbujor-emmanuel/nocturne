@@ -1,0 +1,32 @@
+name: capture
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: capture
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: capture cycle
+        run: python scripts/capture.py
+      - name: commit
+        run: |
+          git config user.name "nocturne-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/live data/books data/status.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "capture $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin master && git push && exit 0
+            echo "retry $i"; sleep $((RANDOM % 8 + 3))
+          done
+          exit 1
