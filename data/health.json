@@ -1,0 +1,18 @@
+{
+ "checked": "2026-09-09T12:04:15.093639+00:00",
+ "session": "PRE",
+ "limit_min": 45,
+ "sources": {
+  "gh": {
+   "age_min": 2.5,
+   "last": "2026-09-09 08:01 ET",
+   "state": "OK"
+  },
+  "local": {
+   "age_min": 1.5,
+   "last": "2026-09-09 08:02 ET",
+   "state": "OK"
+  }
+ },
+ "healthy": true
+}

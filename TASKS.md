@@ -17,11 +17,11 @@ Legend: [ ] todo · [~] in progress · [x] done+verified · [!] blocked
 - [~] F5 Backfill history for full weekend universe (87 symbols)
 
 ## Phase 1 — Capture (Wed-Thu, before G1)
-- [ ] C1 capture.py (ticker + top-50 book, atomic append)
-- [ ] C2 GitHub Actions 5-min cron, commits back
-- [ ] C3 Windows Task Scheduler backup runner
-- [ ] C4 Session-state classifier (RTH/AH/VoidA/PartialB/premarket)
-- [ ] C5 Health check (alert if no data 30 min)
+- [x] C1 capture.py — 87/87 books in 24s, source-tagged NDJSON
+- [x] C2 GitHub Actions 5-min cron — bot commit verified on remote
+- [x] C3 Windows Task Scheduler runner — registered, 5-min
+- [x] C4 Session classifier — all boundary assertions pass
+- [x] C5 Health check — dual-source staleness, fails Actions on outage
 
 ## Phase 2 — Intelligence (Thu)
 - [ ] I1 Void-drift study frozen + reproducible (beta = -0.779)
