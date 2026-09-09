@@ -69,7 +69,8 @@ def main():
         for s,b in ex.map(book,syms): books[s]=b
 
     outdir=os.path.join(ROOT,"data","live"); os.makedirs(outdir,exist_ok=True)
-    path=os.path.join(outdir,f"{et:%Y-%m-%d}.ndjson")
+    src=os.environ.get("NOCTURNE_SOURCE","local")
+    path=os.path.join(outdir,f"{et:%Y-%m-%d}.{src}.ndjson")
     reopen=next_reopen(ts)
     rows=[]; ok=0
     for s in syms:
@@ -77,7 +78,7 @@ def main():
         if not t: continue
         try: last=float(t.get("lastPr") or 0)
         except: last=0.0
-        row={"t":int(ts.timestamp()),"s":s,"sess":sess,"last":last,
+        row={"t":int(ts.timestamp()),"src":src,"s":s,"sess":sess,"last":last,
              "bid":float(t.get("bidPr") or 0),"ask":float(t.get("askPr") or 0),
              "bidSz":float(t.get("bidSz") or 0),"askSz":float(t.get("askSz") or 0),
              "v24":float(t.get("usdtVolume") or 0)}
@@ -108,13 +109,13 @@ def main():
         os.makedirs(snapdir,exist_ok=True)
         snap={s:{"asks":(b["asks"][:20] if b else None),"bids":(b["bids"][:20] if b else None)}
               for s,b in books.items()}
-        json.dump({"t":int(ts.timestamp()),"sess":sess,"books":snap},
+        json.dump({"t":int(ts.timestamp()),"src":src,"sess":sess,"books":snap},
                   open(os.path.join(snapdir,f"{et:%H%M}.json"),"w"),separators=(",",":"))
 
-    status={"last_run":ts.isoformat(),"session":sess,"symbols":len(syms),
+    status={"last_run":ts.isoformat(),"src":src,"session":sess,"symbols":len(syms),
             "rows":len(rows),"with_book":ok,
             "next_reopen":reopen.isoformat(),"file":os.path.basename(path)}
-    json.dump(status,open(os.path.join(ROOT,"data","status.json"),"w"),indent=1)
+    json.dump(status,open(os.path.join(ROOT,"data",f"status.{src}.json"),"w"),indent=1)
     print(f"{et:%Y-%m-%d %H:%M ET} sess={sess} rows={len(rows)} books={ok}/{len(syms)} -> {os.path.basename(path)}")
 
 if __name__=="__main__": main()
