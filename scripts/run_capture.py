@@ -25,6 +25,7 @@ def run(args,timeout=90,check=False):
         return -1,"","TIMEOUT after %ss" % timeout
 
 def main():
+    log("START pid=%s" % os.getpid())
     rc,out,err=run([sys.executable,os.path.join("scripts","capture.py")],timeout=180)
     log(f"capture rc={rc} {out[:120]}{(' ERR '+err[:160]) if err else ''}")
     if rc!=0: return 1
