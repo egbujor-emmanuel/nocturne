@@ -2,123 +2,232 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NOCTURNE — a price for the market that has none</title>
+<meta name="description" content="A reference price for tokenized US stocks while the stock market is closed. 100% of weekend price movement in large-cap rTokens reverses by Monday.">
 <style>
-:root{--bg:#0b0d10;--panel:#13161b;--line:#242a33;--fg:#e8ecf1;--dim:#8b95a3;
---hi:#ff6b5e;--ok:#4ec9a0;--acc:#7aa2f7}
+:root{
+  --bg:#08090c; --panel:#101319; --panel2:#151922; --line:#232935;
+  --fg:#eef2f7; --dim:#8993a4; --faint:#5c6575;
+  --hot:#ff5f52; --warm:#ffb454; --cool:#4ec9a0; --acc:#7aa2f7;
+}
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);
-font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
-h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
-.sub{color:var(--dim);margin:0 0 20px}
-.hero{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:18px}
-.hero b{color:var(--hi);font-size:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.card .k{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
-.card .v{font-size:20px;font-weight:600;margin-top:3px}
-.banner{border-radius:10px;padding:12px 14px;margin-bottom:16px;border:1px solid}
-.dark-on{background:#1a1408;border-color:#5a4410;color:#ffcf70}
-.dark-off{background:#0e1a16;border-color:#1d4438;color:#7fe0bd}
-.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
-table{border-collapse:collapse;width:100%;min-width:900px;background:var(--panel)}
-th,td{padding:9px 11px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
-th{color:var(--dim);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
-th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
-tbody tr:hover{background:#181c22}
-.sym{font-weight:600}.nm{color:var(--dim)}
-.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
-.HIGH{background:#3a1512;color:#ff8a7e}.ELEVATED{background:#3a2c12;color:#ffc978}
-.LOW{background:#12291f;color:#68d9ae}
-.vthin{color:var(--hi);font-weight:700}.thin{color:#ffb454;font-weight:600}
-.pos{color:#68d9ae}.neg{color:#ff8a7e}
-footer{margin-top:26px;color:var(--dim);font-size:12px;line-height:1.7}
+  font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 72px}
 a{color:var(--acc)}
-.note{color:var(--dim);font-size:12px;margin:10px 0 0}
-</style></head><body><div class="wrap">
-<h1>NOCTURNE</h1>
-<p class="sub">A reference price for stocks while the stock market is closed.</p>
+.mast{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h1{font-size:22px;margin:0;letter-spacing:.14em;font-weight:600}
+.tag{color:var(--dim);font-size:14px}
+.live{margin-left:auto;font-size:12px;color:var(--faint)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cool);
+  margin-right:6px;vertical-align:middle}
 
-<div class="hero">
-For large-cap tokenized US stocks, <b id="noise">100%</b> of the price movement that happens
-while the US market is shut reverses once real liquidity returns.
-<div class="note" id="stat">&nbsp;</div>
+/* hero */
+.hero{background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:14px;padding:26px 24px;margin:18px 0 14px}
+.ratio{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.ratio .big{font-size:clamp(46px,10vw,78px);line-height:.95;font-weight:700;
+  color:var(--hot);letter-spacing:-.03em}
+.ratio .to{font-size:20px;color:var(--dim);font-weight:600}
+.heroline{margin-top:12px;font-size:17px;max-width:62ch}
+.heroline b{color:var(--fg)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;max-width:620px}
+.cmp div{background:#0c0e13;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.cmp .k{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.09em}
+.cmp .v{font-size:19px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
+.cmp .n{font-size:11px;color:var(--faint);margin-top:2px}
+
+/* chart */
+.chart{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px 10px;margin-bottom:14px}
+.chart h2{font-size:13px;margin:0 0 2px;color:var(--fg);font-weight:600}
+.chart .sub{font-size:12px;color:var(--dim);margin-bottom:14px}
+.bars{display:flex;align-items:flex-end;gap:3px;height:140px}
+.bar{flex:1;position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+  height:100%;min-width:0}
+.bar i{display:block;border-radius:2px 2px 0 0;background:linear-gradient(180deg,#3b6ea5,#26445f)}
+.bar.dark i{background:linear-gradient(180deg,var(--hot),#7a2119)}
+.bar span{font-size:9px;color:var(--faint);text-align:center;margin-top:5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cliff{margin-top:10px;font-size:12px;color:var(--dim)}
+.cliff b{color:var(--hot)}
+
+/* banner + cards */
+.banner{border-radius:12px;padding:13px 16px;margin-bottom:14px;border:1px solid;font-size:14px}
+.on{background:#1c1206;border-color:#6b4a12;color:#ffcf70}
+.off{background:#0b1a15;border-color:#1d4a3b;color:#84e3c1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.card .k{color:var(--dim);font-size:10.5px;text-transform:uppercase;letter-spacing:.09em}
+.card .v{font-size:19px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
+
+/* table */
+.tblhead{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+.tblhead h2{font-size:14px;margin:0;font-weight:600}
+.tblhead span{font-size:12px;color:var(--dim)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:840px}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--dim);font-weight:500;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#141821}
+td{font-variant-numeric:tabular-nums}
+.sym{font-weight:600}.nm{color:var(--dim);font-size:13px}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:.03em}
+.HIGH{background:#3d1613;color:#ff8e82}
+.ELEVATED{background:#3a2b10;color:#ffc978}
+.LOW{background:#10281e;color:#68d9ae}
+.pos{color:#68d9ae}.neg{color:#ff8e82}
+.depth{display:flex;align-items:center;gap:7px;justify-content:flex-end}
+.depth .track{width:74px;height:6px;border-radius:3px;background:#1b202a;overflow:hidden;flex:none}
+.depth .fill{display:block;height:100%;border-radius:3px}
+.depth .amt{min-width:74px;text-align:right}
+.vthin .fill{background:var(--hot)} .thin .fill{background:var(--warm)} .ok .fill{background:#3b6ea5}
+.vthin .amt{color:var(--hot);font-weight:600}
+footer{margin-top:24px;color:var(--dim);font-size:12.5px;line-height:1.75}
+footer b{color:var(--fg)}
+.honest{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warm);
+  border-radius:8px;padding:12px 15px;margin:14px 0}
+@media(max-width:600px){.cmp{grid-template-columns:1fr}.bars{height:110px}}
+</style></head><body><div class="wrap">
+
+<div class="mast">
+  <h1>NOCTURNE</h1>
+  <span class="tag">a reference price for stocks while the market is closed</span>
+  <span class="live" id="live"><span class="dot"></span><span id="livet">—</span></span>
 </div>
 
-<div id="banner" class="banner dark-off">loading…</div>
+<section class="hero">
+  <div class="ratio"><span class="big" id="ratio">684</span><span class="to">to 1</span></div>
+  <p class="heroline">One hour of Apple on a Friday clears more than
+  <b>every tokenized US stock on Bitget clears across an entire weekend</b> — combined.
+  And the weekend price still moves.</p>
+  <div class="cmp">
+    <div><div class="k">rAAPL · one Friday hour</div><div class="v" id="fri">$5,911,636,056</div>
+      <div class="n">closing auction, 2026-09-04</div></div>
+    <div><div class="k">All <span id="uniN">87</span> rTokens · whole weekend</div>
+      <div class="v" id="wknd">$8,640,279</div><div class="n">median per stock: $8,827</div></div>
+  </div>
+</section>
+
+<section class="chart">
+  <h2>The cliff — rAAPL hourly turnover, Friday into Saturday</h2>
+  <div class="sub">Measured from Bitget's own tape. Log scale; each bar is one hour, ET.</div>
+  <div class="bars" id="bars"></div>
+  <div class="cliff">At <b>20:00 ET</b> US after-hours ends and Bitget's internal matching
+    engine takes over. Turnover falls from <b>$2.38B</b> to <b>$63</b> in one hour —
+    a factor of <b>37 million</b>.</div>
+</section>
+
+<div id="banner" class="banner off">loading…</div>
 
 <div class="grid">
   <div class="card"><div class="k">Session</div><div class="v" id="sess">—</div></div>
   <div class="card"><div class="k">Weekend-tradeable</div><div class="v" id="uni">—</div></div>
   <div class="card"><div class="k">Orders cancelled in</div><div class="v" id="reopen">—</div></div>
   <div class="card"><div class="k">Limit band</div><div class="v" id="band">—</div></div>
-  <div class="card"><div class="k">Last capture</div><div class="v" id="cap">—</div></div>
+  <div class="card"><div class="k">Void drift reverses</div><div class="v" id="noise">—</div></div>
 </div>
 
+<div class="tblhead"><h2>Live book</h2><span id="tblnote">&nbsp;</span></div>
 <div class="tblwrap"><table>
 <thead><tr>
 <th>Symbol</th><th>Name</th><th>Last</th><th>Fair value</th><th>Drift</th>
-<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th>
-<th>Spread</th><th>Liquidity</th></tr></thead>
-<tbody id="rows"><tr><td colspan="11">loading…</td></tr></tbody>
+<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th><th>Spread</th>
+</tr></thead>
+<tbody id="rows"><tr><td colspan="10">loading…</td></tr></tbody>
 </table></div>
 
-<p class="note" id="suppressed"></p>
+<div class="honest">
+<b>What this is not.</b> It is not a forecast of Monday's price. We built and tested
+forecasting models walk-forward and <b>they lost to the naive baseline</b>. Only the
+unfitted model wins, by about 9% MAE on large caps, in 7 weekends out of 10. The Noise
+Score ranks execution risk; it does not predict direction.
+</div>
 
 <footer>
-<b>What this is.</b> Bitget lists tokenized US equities that trade 24/7, but Nasdaq closes
-Friday 20:00 ET and reopens Monday 09:30 ET. For ~47 hours a week there is no external price
-for these assets anywhere — Bitget's internal matching engine is the only source, and it clears
-almost no volume.<br>
-<b>Method.</b> Fair value during a dark session is the last regular-session close. Validated
-walk-forward: it beats "the current price is right" by <span id="oos">—</span>% MAE on large caps,
-with <span id="dir">—</span>% directional accuracy. Depth, spread and the ±10% limit band are
-observed directly from the order book, not modelled.<br>
-<b>What this is not.</b> It is not a forecast of Monday's price. Fitted forecasting models were
-tested and lost to the baseline; only the unfitted full-fade model wins. The Noise Score ranks
-execution risk, it does not predict direction.<br>
+<b>The market.</b> Bitget lists tokenized US equities that trade 24/7, but Nasdaq closes
+Friday 20:00 ET and reopens Monday 09:30 ET. For ~47 hours a week these assets have no
+external price anywhere — an internal matching engine is the only source.<br>
+<b>The finding.</b> Across 196 observations, 37 symbols and 13 weekends, we regressed the
+re-anchor return on the void-window return. For large caps: <b id="f2">β = -1.003, t = -3.46</b>
+— essentially all weekend movement reverses. We call it <b>Void Drift</b>.<br>
+<b>The method.</b> Fair value during a dark session is the last regular-session close.
+Depth, spread and the ±10% limit band are read directly from the order book, not modelled.<br>
 <span id="built"></span> ·
-<a href="https://github.com/egbujor-emmanuel/nocturne">source &amp; dataset</a>
+<a href="https://github.com/egbujor-emmanuel/nocturne">source, dataset &amp; study</a> ·
+<a href="api/v1/index.json">public API</a>
 </footer>
 </div>
+
 <script>
-const f=(n,d=0)=>n==null?"—":n.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
-const money=n=>n==null?"—":"$"+f(n);
-fetch("data/site.json?t="+Date.now()).then(r=>r.json()).then(s=>{
-  const fi=s.finding;
-  document.getElementById("noise").textContent=Math.round(fi.noise_share_large_cap_pct)+"%";
-  document.getElementById("stat").textContent=
-    "beta = "+fi.beta+", t = "+fi.t+", "+fi.observations+" observations across "+fi.weekends+" weekends.";
-  document.getElementById("oos").textContent=fi.oos_improvement_pct;
-  document.getElementById("dir").textContent=fi.oos_direction_pct;
+var CLIFF=[["13:00",1194526120],["14:00",946424534],["15:00",2266891565],["16:00",2380614570],
+["17:00",419727470],["18:00",18908460],["19:00",16062350],["20:00",63],["21:00",123],
+["22:00",377],["23:00",11],["Sat 02",247],["Sat 08",176],["Sat 14",4],["Sat 20",318]];
+
+function drawCliff(){
+  var host=document.getElementById("bars"), max=Math.log10(2380614570), min=Math.log10(1);
+  host.innerHTML=CLIFF.map(function(d,i){
+    var h=Math.max(2,((Math.log10(Math.max(d[1],1))-min)/(max-min))*100);
+    var dark=i>=7;
+    return '<div class="bar'+(dark?' dark':'')+'" title="'+d[0]+' — $'+d[1].toLocaleString()+'">'+
+           '<i style="height:'+h+'%"></i><span>'+d[0]+'</span></div>';
+  }).join("");
+}
+drawCliff();
+
+var f=function(n,d){return n==null?"—":n.toLocaleString(undefined,{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
+var money=function(n){return n==null?"—":"$"+f(n);};
+
+fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(function(s){
+  var fi=s.finding;
   document.getElementById("sess").textContent=s.session;
   document.getElementById("uni").textContent=s.universe.weekend_tradeable+" / "+s.universe.scanned;
+  document.getElementById("uniN").textContent=s.universe.weekend_tradeable;
   document.getElementById("reopen").textContent=s.hours_to_reopen+" h";
   document.getElementById("band").textContent="±"+s.band_pct+"%";
-  document.getElementById("cap").textContent=s.generated_et;
+  document.getElementById("noise").textContent=Math.round(fi.noise_share_large_cap_pct)+"%";
+  document.getElementById("livet").textContent=s.generated_et;
   document.getElementById("built").textContent="Generated "+s.generated_et;
-  const b=document.getElementById("banner");
+  document.getElementById("f2").textContent="β = "+fi.beta+", t = "+fi.t;
+
+  var b=document.getElementById("banner");
   if(s.is_dark){
-    b.className="banner dark-on";
-    b.innerHTML="<b>US market is CLOSED ("+s.session+").</b> Prices below are set by Bitget's internal matching engine. Unfilled limit orders are cancelled at "+s.next_reopen_et+".";
-  } else {
-    b.className="banner dark-off";
-    b.innerHTML="<b>US market is open ("+s.session+").</b> Orders route to real market liquidity, so the Noise Score is suppressed — movement now is genuine price discovery. It returns at 20:00 ET when the weekend session begins.";
+    b.className="banner on";
+    b.innerHTML="<b>US market is CLOSED ("+s.session+").</b> Every price below is set by "+
+      "Bitget's internal matching engine — there is no external reference. Unfilled limit "+
+      "orders are cancelled at "+s.next_reopen_et+".";
+    document.getElementById("tblnote").textContent="noise scores active";
+  }else{
+    b.className="banner off";
+    b.innerHTML="<b>US market is open ("+s.session+").</b> Orders route to real market "+
+      "liquidity, so the Noise Score is suppressed — movement now is genuine price discovery. "+
+      "It returns at 20:00 ET when the weekend session begins.";
+    document.getElementById("tblnote").textContent="noise scores suppressed while the market is open";
   }
-  const sup=s.symbols.find(r=>r.score_suppressed_reason);
-  document.getElementById("suppressed").textContent=sup?sup.score_suppressed_reason:"";
+
+  var maxd=0;
+  s.symbols.forEach(function(r){ if(r.buy_usd_0_5>maxd) maxd=r.buy_usd_0_5; });
   document.getElementById("rows").innerHTML=s.symbols.map(function(r){
-    const liq=r.liquidity==="VERY THIN"?'<span class="vthin">VERY THIN</span>'
-      :r.liquidity==="THIN"?'<span class="thin">THIN</span>':(r.liquidity||"—");
-    const dr=r.dislocation_pct==null?"—":
-      '<span class="'+(r.dislocation_pct>=0?'pos':'neg')+'">'+(r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+'%</span>';
-    const tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+'</span>':"—";
-    return '<tr><td class="sym">'+r.symbol+'</td><td class="nm">'+r.name+'</td><td>'+f(r.last,2)+
-      '</td><td>'+(r.fair_value==null?"—":f(r.fair_value,2))+'</td><td>'+dr+
-      '</td><td>'+(r.noise_score==null?"—":r.noise_score)+'</td><td>'+tier+
-      '</td><td>'+money(r.buy_usd_0_5)+'</td><td>'+money(r.sell_usd_0_5)+
-      '</td><td>'+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+'</td><td>'+liq+'</td></tr>';
+    var cls=r.liquidity==="VERY THIN"?"vthin":(r.liquidity==="THIN"?"thin":"ok");
+    function bar(v){
+      var pct=maxd?Math.max(1.5,(v/maxd)*100):0;
+      return '<div class="depth '+cls+'"><span class="track"><i class="fill" style="width:'+pct+'%"></i></span>'+
+             '<span class="amt">'+money(v)+'</span></div>';
+    }
+    var dr=r.dislocation_pct==null?"—":
+      '<span class="'+(r.dislocation_pct>=0?"pos":"neg")+'">'+
+      (r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+"%</span>";
+    var tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+"</span>":"—";
+    return '<tr><td class="sym">'+r.symbol+'</td><td class="nm">'+r.name+"</td>"+
+      "<td>"+f(r.last,2)+"</td><td>"+(r.fair_value==null?"—":f(r.fair_value,2))+"</td>"+
+      "<td>"+dr+"</td><td>"+(r.noise_score==null?"—":r.noise_score)+"</td><td>"+tier+"</td>"+
+      "<td>"+bar(r.buy_usd_0_5)+"</td><td>"+bar(r.sell_usd_0_5)+"</td>"+
+      "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td></tr>";
   }).join("");
-}).catch(function(e){document.getElementById("rows").innerHTML=
-  '<tr><td colspan="11">failed to load state: '+e+'</td></tr>';});
+}).catch(function(e){
+  document.getElementById("rows").innerHTML='<tr><td colspan="10">failed to load state: '+e+"</td></tr>";
+});
 </script></body></html>
