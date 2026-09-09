@@ -263,7 +263,7 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       "<td>"+dr+"</td><td>"+(r.noise_score==null?"—":r.noise_score)+"</td><td>"+tier+"</td>"+
       "<td>"+bar(r.buy_usd_0_5)+"</td><td>"+bar(r.sell_usd_0_5)+"</td>"+
       "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td>"+
-      '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade &rarr;</a></td></tr>";
+      '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade &rarr;</a></td></tr>';
   }).join("");
 }).catch(function(e){
   document.getElementById("rows").innerHTML='<tr><td colspan="11">failed to load state: '+e+"</td></tr>";
