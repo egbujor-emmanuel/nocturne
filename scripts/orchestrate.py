@@ -147,5 +147,72 @@ def main():
     return 0
 
 
+def selftest():
+    """Run the REAL publish path against a pinned clock, then remove what it made.
+
+    Proves post generation works end to end on whatever machine this runs on -
+    including the GitHub runner, which is the path that must survive without a
+    laptop or an assistant present.
+    """
+    import hashlib
+    import session as S, build_state as B, predict as P, make_post as M
+
+    before = set(glob.glob(os.path.join(PRED_DIR, "*"))) |              set(glob.glob(os.path.join(ROOT, "posts", "*")))
+    fake = dt.datetime(2026, 9, 6, 18, 0, tzinfo=S.ET)   # a real past void window
+    oc, orr = S.classify, S.next_reopen
+    R = []
+    try:
+        S.classify = lambda t=None: oc(fake)
+        S.next_reopen = lambda t=None: orr(fake)
+        for mod in (B, P, M):
+            if hasattr(mod, "classify"): mod.classify = S.classify
+            if hasattr(mod, "next_reopen"): mod.next_reopen = S.next_reopen
+        P.build = B.build
+
+        rc = P.main(force=False)
+        fs = sorted(f for f in glob.glob(os.path.join(PRED_DIR, "*.json"))
+                    if not f.endswith("latest.json") and not f.endswith("_graded.json"))
+        newest = fs[-1] if fs else None
+        R.append(("predict ran", rc == 0 and newest is not None,
+                  os.path.basename(newest) if newest else "no file"))
+        if newest:
+            body = open(newest, encoding="utf8").read()
+            rec = open(newest.replace(".json", ".sha256"), encoding="utf8").read().split()[0]
+            n = len(json.loads(body)["predictions"])
+            R.append(("hash matches file", hashlib.sha256(body.encode()).hexdigest() == rec,
+                      "n=%d" % n))
+            R.append(("enough symbols scored", n >= 40, "%d scored" % n))
+            M.predict()
+            sp = sorted(glob.glob(os.path.join(ROOT, "posts", "*_predict_short.txt")))
+            if sp:
+                txt = open(sp[-1], encoding="utf8").read()
+                R.append(("post written", True, os.path.basename(sp[-1])))
+                R.append(("post <= 280 chars", len(txt) <= 280, "%d chars" % len(txt)))
+                R.append(("has #BitgetHackathon", "#BitgetHackathon" in txt, ""))
+                R.append(("has @Bitget_AI", "@Bitget_AI" in txt, ""))
+                R.append(("has live URL", "egbujor-emmanuel.github.io" in txt, ""))
+                R.append(("names top risk", "risk" in txt.lower(), ""))
+            else:
+                R.append(("post written", False, "no post file"))
+    finally:
+        S.classify, S.next_reopen = oc, orr
+        after = set(glob.glob(os.path.join(PRED_DIR, "*"))) |                 set(glob.glob(os.path.join(ROOT, "posts", "*")))
+        removed = 0
+        for f in sorted(after - before):
+            try:
+                os.remove(f); removed += 1
+            except Exception:
+                pass
+
+    print("ORCHESTRATOR SELFTEST")
+    for name, ok, det in R:
+        print("  [%s] %-24s %s" % ("PASS" if ok else "FAIL", name, det))
+    p_ = sum(1 for _, o, _ in R if o)
+    print("  %d/%d passed, %d test artifacts removed" % (p_, len(R), removed))
+    return 0 if R and p_ == len(R) else 1
+
+
 if __name__ == "__main__":
+    if "--selftest" in sys.argv:
+        sys.exit(selftest())
     sys.exit(main())

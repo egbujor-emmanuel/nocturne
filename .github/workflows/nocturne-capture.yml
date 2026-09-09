@@ -8,6 +8,10 @@ on:
         description: 'ignore cadence gate'
         type: boolean
         default: false
+      selftest:
+        description: 'run the orchestrator publish selftest instead of capturing'
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -21,7 +25,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
+      - name: orchestrator selftest
+        if: ${{ inputs.selftest }}
+        run: python scripts/orchestrate.py --selftest
+
       - name: capture cycle
+        if: ${{ !inputs.selftest }}
         env:
           NOCTURNE_SOURCE: gh
         run: |
@@ -30,6 +39,7 @@ jobs:
           python scripts/shoot.py || echo "shot skipped"
           python scripts/orchestrate.py || echo "orchestrator skipped"
       - name: commit
+        if: ${{ !inputs.selftest }}
         run: |
           git config user.name "nocturne-bot"
           git config user.email "bot@users.noreply.github.com"
