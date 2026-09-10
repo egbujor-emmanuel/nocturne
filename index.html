@@ -267,11 +267,11 @@ var f=function(n,d){return n==null?"—":n.toLocaleString(undefined,
   {minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
 var money=function(n){return n==null?"—":"$"+f(n);};
 
-function countTo(node,target,suffix,dec){
+function countTo(node,target,suffix,dec,prefix){
   var t0=null,dur=900;
   function step(ts){ if(!t0)t0=ts; var p=Math.min(1,(ts-t0)/dur);
     var e=1-Math.pow(1-p,3);
-    node.textContent=f(target*e,dec||0)+(suffix||"");
+    node.textContent=(prefix||"")+f(target*e,dec||0)+(suffix||"");
     if(p<1)requestAnimationFrame(step);}
   requestAnimationFrame(step);
 }
@@ -302,7 +302,16 @@ function placeNow(){
   if(pos!==null){var d=document.createElement("div");
     d.className="now"; d.style.left=(pos/72*100)+"%"; t.appendChild(d);
     el("wknow").textContent="live";
-  } else el("wknow").textContent="weekday session";
+  } else {
+    var target=new Date(now.getTime());   // next Friday 20:00 ET
+    var d2=(5-((et.getUTCDay()+6)%7+1)+7)%7;
+    target.setTime(now.getTime()+d2*86400000);
+    var etT=new Date(target.getTime()-4*3600*1000);
+    etT.setUTCHours(20,0,0,0);
+    var hrs=(etT.getTime()+4*3600*1000-now.getTime())/3600000;
+    if(hrs<0)hrs+=168;
+    el("wknow").textContent="void opens in "+hrs.toFixed(0)+"h";
+  }
 }
 
 function load(){
@@ -311,7 +320,7 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
   el("sess").textContent=s.session;
   el("sessn").textContent=s.is_dark?"US market closed":"US market open";
   countTo(el("noise"),fi.noise_share_large_cap_pct,"%",0);
-  countTo(el("wknd"),8.64,"m",2); el("wknd").textContent="$8.64m";
+  countTo(el("wknd"),8.64,"m",2,"$");
   el("reopen").textContent=s.hours_to_reopen+"h";
   el("uni").textContent=s.universe.weekend_tradeable;
   el("stamp").textContent=s.generated_et;
