@@ -2,7 +2,7 @@
  "symbol": "RADBE",
  "pair": "RADBEUSDT",
  "name": "ADBE",
- "last": 254.77,
+ "last": 254.12,
  "bid": 254.1,
  "ask": 254.82,
  "spread_pct": 0.3148,
@@ -11,11 +11,11 @@
  "fair_value": 257.26,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.968,
- "noise_score": 93,
+ "dislocation_pct": -1.221,
+ "noise_score": 99,
  "tier": "HIGH",
  "sigma_daily_pct": 2.858,
- "z": -0.34,
+ "z": -0.43,
  "buy_usd_0_5": 19687.84,
  "sell_usd_0_5": 20400.23,
  "buy_shares_0_5": 76.9817,
@@ -23,5 +23,5 @@
  "band_max_buy": 282.986,
  "band_max_sell": 231.534,
  "class": "other",
- "captured": "2026-09-09 22:26 ET"
+ "captured": "2026-09-09 22:29 ET"
 }

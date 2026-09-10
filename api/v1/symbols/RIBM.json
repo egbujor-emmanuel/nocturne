@@ -2,7 +2,7 @@
  "symbol": "RIBM",
  "pair": "RIBMUSDT",
  "name": "IBM",
- "last": 238.97,
+ "last": 238.93,
  "bid": 238.87,
  "ask": 238.98,
  "spread_pct": 0.0837,
@@ -11,11 +11,11 @@
  "fair_value": 232.09,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 2.964,
+ "dislocation_pct": 2.947,
  "noise_score": 99,
  "tier": "HIGH",
  "sigma_daily_pct": 3.492,
- "z": 0.85,
+ "z": 0.84,
  "buy_usd_0_5": 15871.68,
  "sell_usd_0_5": 16161.17,
  "buy_shares_0_5": 66.2272,
@@ -23,5 +23,5 @@
  "band_max_buy": 255.299,
  "band_max_sell": 208.881,
  "class": "other",
- "captured": "2026-09-09 22:26 ET"
+ "captured": "2026-09-09 22:29 ET"
 }

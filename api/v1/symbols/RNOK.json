@@ -2,7 +2,7 @@
  "symbol": "RNOK",
  "pair": "RNOKUSDT",
  "name": "NOK",
- "last": 10.7,
+ "last": 10.69,
  "bid": 10.68,
  "ask": 10.71,
  "spread_pct": 0.5618,
@@ -11,11 +11,11 @@
  "fair_value": 10.65,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.469,
- "noise_score": 45,
+ "dislocation_pct": 0.376,
+ "noise_score": 42,
  "tier": "LOW",
  "sigma_daily_pct": 4.074,
- "z": 0.12,
+ "z": 0.09,
  "buy_usd_0_5": 22380.78,
  "sell_usd_0_5": 15995.16,
  "buy_shares_0_5": 2079.062,
@@ -23,5 +23,5 @@
  "band_max_buy": 11.715,
  "band_max_sell": 9.585,
  "class": "other",
- "captured": "2026-09-09 22:26 ET"
+ "captured": "2026-09-09 22:29 ET"
 }
