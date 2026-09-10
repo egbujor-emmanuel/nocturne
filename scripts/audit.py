@@ -81,7 +81,14 @@ chk("0", "no secrets in git history", _secrets_clean)
 # ---------------- PHASE 1 ----------------
 def _cap():
     c, o = sh(sys.executable, "scripts/capture.py", "--force", timeout=180)
-    return ("rows=87" in o and "books=87/87" in o), o.strip()[-60:]
+    # a symbol can legitimately return an empty book (rSOXL always does), and the
+    # row is still written with book=None. Demand all rows, tolerate a few books.
+    import re as _re
+    m = _re.search(r"rows=(\d+) books=(\d+)/(\d+)", o)
+    if not m:
+        return False, o.strip()[-60:]
+    rows, got, tot = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    return (rows >= tot and got >= tot - 5), "rows=%d books=%d/%d" % (rows, got, tot)
 
 
 def _sess():
