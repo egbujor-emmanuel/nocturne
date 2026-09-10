@@ -1,177 +1,221 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NOCTURNE — a price for the market that has none</title>
+<title>NOCTURNE — a reference price for stocks while the market is closed</title>
 <meta name="description" content="A reference price for tokenized US stocks while the stock market is closed. 100% of weekend price movement in large-cap rTokens reverses by Monday.">
 <style>
 :root{
-  --bg:#08090c; --panel:#101319; --panel2:#151922; --line:#232935;
-  --fg:#eef2f7; --dim:#8993a4; --faint:#5c6575;
-  --hot:#ff5f52; --warm:#ffb454; --cool:#4ec9a0; --acc:#7aa2f7;
+  --paper:#F7F1E6; --paper2:#FDFAF4; --panel:#FFFDF8;
+  --rule:#E0D5C0; --rule2:#EDE5D6;
+  --ink:#121A24; --ink2:#48525F; --ink3:#7B8592;
+  --blue:#1652E8; --blue-d:#0A2C7E; --blue-l:#E9EEFD; --blue-s:#4C82FF;
+  --up:#07734A; --down:#C42B1C; --warn:#8F5E00; --warn-bg:#FAEFD6;
+  --sh:0 1px 2px rgba(18,26,36,.06),0 3px 10px rgba(18,26,36,.05);
+  --sh2:0 2px 4px rgba(18,26,36,.08),0 12px 28px rgba(18,26,36,.07);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);
-  font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  -webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 72px}
-a{color:var(--acc)}
-.mast{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
-h1{font-size:22px;margin:0;letter-spacing:.14em;font-weight:600}
-.tag{color:var(--dim);font-size:14px}
-.live{margin-left:auto;font-size:12px;color:var(--faint)}
-.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cool);
-  margin-right:6px;vertical-align:middle}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 12% -8%,#FFFBF2 0%,transparent 55%)}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:1140px;margin:0 auto;padding:0 18px 72px}
+a{color:var(--blue)}
+.num{font-variant-numeric:tabular-nums}
 
-/* hero */
-.hero{background:linear-gradient(180deg,var(--panel2),var(--panel));
-  border:1px solid var(--line);border-radius:14px;padding:26px 24px;margin:18px 0 14px}
-.ratio{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.ratio .big{font-size:clamp(46px,10vw,78px);line-height:.95;font-weight:700;
-  color:var(--hot);letter-spacing:-.03em}
-.ratio .to{font-size:20px;color:var(--dim);font-weight:600}
-.heroline{margin-top:12px;font-size:17px;max-width:62ch}
-.heroline b{color:var(--fg)}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;max-width:620px}
-.cmp div{background:#0c0e13;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
-.cmp .k{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.09em}
-.cmp .v{font-size:19px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
-.cmp .n{font-size:11px;color:var(--faint);margin-top:2px}
+.mast{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:16px 0 12px;border-bottom:2px solid var(--ink)}
+.mast h1{font-size:23px;margin:0;letter-spacing:.2em;font-weight:600}
+.mast .tag{color:var(--ink2);font-size:13.5px;font-style:italic}
+.mast .stamp{margin-left:auto;font-size:11.5px;color:var(--ink3);letter-spacing:.04em}
+.pulse{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--up);
+  margin-right:6px;vertical-align:middle;box-shadow:0 0 0 3px rgba(7,115,74,.15)}
 
-/* chart */
-.chart{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-  padding:16px 18px 10px;margin-bottom:14px}
-.chart h2{font-size:13px;margin:0 0 2px;color:var(--fg);font-weight:600}
-.chart .sub{font-size:12px;color:var(--dim);margin-bottom:14px}
-.bars{display:flex;align-items:flex-end;gap:3px;height:140px}
-.bar{flex:1;position:relative;display:flex;flex-direction:column;justify-content:flex-end;
-  height:100%;min-width:0}
-.bar i{display:block;border-radius:2px 2px 0 0;background:linear-gradient(180deg,#3b6ea5,#26445f)}
-.bar.dark i{background:linear-gradient(180deg,var(--hot),#7a2119)}
-.bar span{font-size:9px;color:var(--faint);text-align:center;margin-top:5px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cliff{margin-top:10px;font-size:12px;color:var(--dim)}
-.cliff b{color:var(--hot)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  border:1px solid var(--rule);border-radius:5px;background:var(--paper2);
+  box-shadow:var(--sh);margin-top:14px;overflow:hidden}
+.strip div{padding:11px 14px;border-right:1px solid var(--rule2)}
+.strip div:last-child{border-right:none}
+.strip .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.strip .v{font-size:17px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+.strip .v.blue{color:var(--blue)}
 
-/* banner + cards */
-.banner{border-radius:12px;padding:13px 16px;margin-bottom:14px;border:1px solid;font-size:14px}
-.on{background:#1c1206;border-color:#6b4a12;color:#ffcf70}
-.off{background:#0b1a15;border-color:#1d4a3b;color:#84e3c1}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
-.card .k{color:var(--dim);font-size:10.5px;text-transform:uppercase;letter-spacing:.09em}
-.card .v{font-size:19px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:32px;
+  padding:24px 0 22px}
+.lead h2{font-size:31px;line-height:1.16;margin:0 0 12px;font-weight:400;letter-spacing:-.015em}
+.lead h2 em{font-style:normal;color:var(--blue);
+  background:linear-gradient(transparent 68%,rgba(22,82,232,.18) 0)}
+.lead p{margin:0 0 12px;color:var(--ink2);font-size:15px}
+.kicker{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);font-weight:700;margin-bottom:9px}
+.figs{display:flex;border:1px solid var(--rule);border-radius:5px;overflow:hidden;
+  background:var(--panel);margin-top:16px;box-shadow:var(--sh)}
+.figs div{flex:1;padding:11px 13px;border-right:1px solid var(--rule2)}
+.figs div:last-child{border-right:none}
+.figs .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.figs .v{font-size:15.5px;font-weight:700;margin-top:3px;font-variant-numeric:tabular-nums}
+.figs .n{font-size:11px;color:var(--ink3);margin-top:2px}
 
-/* table */
-.tblhead{display:flex;align-items:baseline;gap:10px;margin:0 0 8px;flex-wrap:wrap}
-.tblhead h2{font-size:14px;margin:0;font-weight:600}
-.tblhead span{font-size:12px;color:var(--dim)}
-.sizer{margin-left:auto}
-.sizer select{background:var(--panel2);color:var(--fg);border:1px solid var(--line);
-  border-radius:6px;padding:3px 7px;font-size:12px;margin-left:5px}
-.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
-table{border-collapse:collapse;width:100%;min-width:840px}
-th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
-th{color:var(--dim);font-weight:500;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em}
+.chart{background:linear-gradient(180deg,var(--panel),#FFF9EE);
+  border:1px solid var(--rule);border-radius:6px;padding:15px 17px 11px;box-shadow:var(--sh2)}
+.chart .ttl{font-size:12.5px;font-weight:700}
+.chart .sub{font-size:11.5px;color:var(--ink3);margin:2px 0 14px}
+.plot{display:flex;gap:12px}
+.yax{display:flex;flex-direction:column;justify-content:space-between;height:140px;
+  font-size:9.5px;color:var(--ink3);text-align:right;min-width:34px;padding-bottom:17px}
+.bars{display:flex;align-items:flex-end;gap:4px;height:140px;flex:1;
+  border-bottom:1px solid var(--rule);border-left:1px solid var(--rule);
+  background:repeating-linear-gradient(to top,transparent,transparent 34px,var(--rule2) 34px,var(--rule2) 35px)}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;min-width:0}
+.bar i{display:block;border-radius:2px 2px 0 0;position:relative;
+  background:linear-gradient(180deg,var(--blue-s),var(--blue) 42%,var(--blue-d));
+  box-shadow:inset -2px 0 0 rgba(0,0,0,.14),inset 2px 0 0 rgba(255,255,255,.28),
+             0 2px 5px rgba(10,44,126,.28)}
+.bar.dark i{background:linear-gradient(180deg,#E2695C,var(--down) 45%,#8E1D12);
+  box-shadow:inset -2px 0 0 rgba(0,0,0,.14),inset 2px 0 0 rgba(255,255,255,.25),
+             0 2px 5px rgba(142,29,18,.28)}
+.bar span{font-size:8.5px;color:var(--ink3);text-align:center;margin-top:5px;
+  white-space:nowrap;overflow:hidden}
+.cliffnote{margin-top:10px;font-size:11.5px;color:var(--ink2);line-height:1.6}
+.cliffnote b{color:var(--down)}
+
+.banner{padding:11px 15px;margin:6px 0 0;border-left:3px solid;font-size:13.5px;
+  border-radius:3px;box-shadow:var(--sh)}
+.b-dark{background:var(--warn-bg);border-color:var(--warn);color:#57390A}
+.b-open{background:var(--blue-l);border-color:var(--blue);color:var(--blue-d)}
+
+h3.sec{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);
+  margin:30px 0 10px;padding-bottom:7px;border-bottom:1px solid var(--rule);font-weight:700}
+.sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  margin:30px 0 10px;padding-bottom:7px;border-bottom:1px solid var(--rule)}
+.sechead h3{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);
+  margin:0;font-weight:700}
+.sechead .note{font-size:11.5px;color:var(--ink3);font-style:italic}
+.sizer{margin-left:auto;font-size:11.5px;color:var(--ink3)}
+.sizer select{font:inherit;background:var(--paper2);color:var(--ink);border:1px solid var(--rule);
+  border-radius:3px;padding:3px 7px;margin-left:6px}
+
+.tblwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--panel);
+  box-shadow:var(--sh2)}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:13px}
+th,td{padding:8px 11px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--rule2)}
+th{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);
+  font-weight:700;background:linear-gradient(180deg,#FFFDF8,#F6EFE2);
+  border-bottom:1px solid var(--rule);position:sticky;top:0}
 th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+tbody tr:nth-child(even){background:#FFFEFA}
+tbody tr:hover{background:var(--blue-l)}
 tbody tr:last-child td{border-bottom:none}
-tbody tr:hover{background:#141821}
 td{font-variant-numeric:tabular-nums}
-.sym{font-weight:600}.nm{color:var(--dim);font-size:13px}
-.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:.03em}
-.HIGH{background:#3d1613;color:#ff8e82}
-.ELEVATED{background:#3a2b10;color:#ffc978}
-.LOW{background:#10281e;color:#68d9ae}
-.pos{color:#68d9ae}.neg{color:#ff8e82}
-.hist{opacity:.42;font-style:italic}
-.pill.hist{opacity:.42;font-style:normal}
-.depth{display:flex;align-items:center;gap:7px;justify-content:flex-end}
-.depth .track{width:74px;height:6px;border-radius:3px;background:#1b202a;overflow:hidden;flex:none}
-.depth .fill{display:block;height:100%;border-radius:3px}
-.depth .amt{min-width:74px;text-align:right}
-.vthin .fill{background:var(--hot)} .thin .fill{background:var(--warm)} .ok .fill{background:#3b6ea5}
-.vthin .amt{color:var(--hot);font-weight:600}
-.record{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-  padding:16px 20px;margin:16px 0}
-.record h2{font-size:14px;margin:0 0 6px;font-weight:600}
-.rsub{color:var(--dim);font-size:12.5px;margin:8px 0 0;line-height:1.7}
-.rsub b{color:var(--fg)}
-.round{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:9px 12px;
-  background:#0c1116;border:1px solid var(--line);border-radius:9px;margin-top:9px;font-size:12.5px}
-.round .when{color:var(--dim);min-width:150px}
-.badge{padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:.03em}
-.won{background:#10281e;color:#68d9ae}
-.lost{background:#3d1613;color:#ff8e82}
-.pend{background:#2a2410;color:#ffcf70}
-.round .det{color:var(--dim)}
-.more{margin-top:10px;text-align:center}
-.more button{background:var(--panel2);color:var(--acc);border:1px solid var(--line);
-  border-radius:8px;padding:7px 16px;font-size:12.5px;cursor:pointer}
-.more button:hover{border-color:var(--acc)}
-.how{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-  padding:16px 20px;margin:16px 0}
-.how h2{font-size:14px;margin:0 0 8px;font-weight:600}
-.how ol{margin:0;padding-left:20px;color:var(--dim);font-size:13.5px;line-height:1.75}
-.how ol b{color:var(--fg)}
-.noacct{margin:12px 0 0;padding:10px 13px;background:#0c1116;border:1px solid var(--line);
-  border-radius:8px;color:var(--dim);font-size:12.5px}
-.noacct b{color:var(--cool)}
-td .go{font-size:12px;color:var(--acc);text-decoration:none;white-space:nowrap}
-td .go:hover{text-decoration:underline}
-.sym a{color:var(--fg);text-decoration:none}
-.sym a:hover{color:var(--acc)}
-footer{margin-top:24px;color:var(--dim);font-size:12.5px;line-height:1.75}
-footer b{color:var(--fg)}
-.honest{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warm);
-  border-radius:8px;padding:12px 15px;margin:14px 0}
-@media(max-width:600px){.cmp{grid-template-columns:1fr}.bars{height:110px}}
+.sym a{color:var(--ink);font-weight:700;text-decoration:none}
+.sym a:hover{color:var(--blue)}
+.nm{color:var(--ink3);font-size:12px}
+.up{color:var(--up)}.down{color:var(--down)}
+.pill{display:inline-block;padding:1px 8px;border-radius:3px;font-size:9.5px;font-weight:700;
+  letter-spacing:.05em;border:1px solid}
+.HIGH{background:#FBE9E7;color:var(--down);border-color:#F0C4BE}
+.ELEVATED{background:var(--warn-bg);color:var(--warn);border-color:#E7D5A6}
+.LOW{background:#E2F3EA;color:var(--up);border-color:#BCE1CE}
+.hist{opacity:.5;font-style:italic}
+.pill.hist{opacity:.5;font-style:normal}
+.dep{display:flex;align-items:center;gap:7px;justify-content:flex-end}
+.dep .track{width:58px;height:7px;background:var(--rule2);border-radius:2px;overflow:hidden;
+  flex:none;box-shadow:inset 0 1px 2px rgba(18,26,36,.12)}
+.dep .fill{display:block;height:100%;border-radius:2px;
+  background:linear-gradient(180deg,var(--blue-s),var(--blue))}
+.dep.thin .fill{background:linear-gradient(180deg,#D9A23C,var(--warn))}
+.dep.vthin .fill{background:linear-gradient(180deg,#E2695C,var(--down))}
+.dep.vthin .amt{color:var(--down);font-weight:700}
+.dep .amt{min-width:70px;text-align:right}
+.go{font-size:11.5px;color:var(--blue);text-decoration:none}
+.go:hover{text-decoration:underline}
+.more{text-align:center;margin-top:12px}
+.more button{font:inherit;font-size:12.5px;background:var(--paper2);color:var(--blue);
+  border:1px solid var(--rule);border-radius:4px;padding:7px 18px;cursor:pointer;
+  box-shadow:var(--sh)}
+.more button:hover{border-color:var(--blue)}
+
+.round{display:flex;gap:11px;flex-wrap:wrap;align-items:center;padding:9px 13px;
+  border:1px solid var(--rule);border-radius:4px;margin-top:8px;font-size:12.5px;
+  background:var(--panel);box-shadow:var(--sh)}
+.round .when{color:var(--ink2);min-width:142px;font-weight:600}
+.badge{padding:1px 8px;border-radius:3px;font-size:9.5px;font-weight:700;
+  letter-spacing:.05em;border:1px solid}
+.won{background:#E2F3EA;color:var(--up);border-color:#BCE1CE}
+.lost{background:#FBE9E7;color:var(--down);border-color:#F0C4BE}
+.pend{background:var(--blue-l);color:var(--blue-d);border-color:#C2D3F7}
+.round .det{color:var(--ink3)}
+.pnote{color:var(--ink2);font-size:12.5px;margin:10px 0 0;line-height:1.7}
+.pnote b{color:var(--ink)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.cols ol{margin:0;padding-left:19px;color:var(--ink2);font-size:13px;line-height:1.8}
+.cols ol b{color:var(--ink)}
+.noacct{background:var(--blue-l);border-left:3px solid var(--blue);padding:11px 14px;
+  border-radius:3px;color:var(--blue-d);font-size:12.5px;line-height:1.65}
+.caveat{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--warn);
+  padding:13px 16px;border-radius:3px;color:var(--ink2);font-size:13px;line-height:1.7;
+  margin-top:14px;box-shadow:var(--sh)}
+.caveat b{color:var(--ink)}
+footer{margin-top:30px;padding-top:16px;border-top:2px solid var(--ink);
+  color:var(--ink2);font-size:12.5px;line-height:1.8}
+footer b{color:var(--ink)}
+@media(max-width:820px){.lead{grid-template-columns:1fr;gap:20px}.lead h2{font-size:26px}}
 </style></head><body><div class="wrap">
 
 <div class="mast">
-  <h1>NOCTURNE</h1>
-  <span class="tag">a reference price for stocks while the market is closed</span>
-  <span class="live" id="live"><span class="dot"></span><span id="livet">—</span></span>
+  <h1 class="serif">NOCTURNE</h1>
+  <span class="tag serif">a reference price for stocks while the market is closed</span>
+  <span class="stamp"><span class="pulse"></span><span id="stamp">—</span></span>
 </div>
 
-<section class="hero">
-  <div class="ratio"><span class="big" id="ratio">684</span><span class="to">to 1</span></div>
-  <p class="heroline">One hour of Apple on a Friday clears more than
-  <b>every tokenized US stock on Bitget clears across an entire weekend</b> — combined.
-  And the weekend price still moves.</p>
-  <div class="cmp">
-    <div><div class="k">rAAPL · one Friday hour</div><div class="v" id="fri">$5,911,636,056</div>
-      <div class="n">closing auction, 2026-09-04</div></div>
-    <div><div class="k">All <span id="uniN">87</span> rTokens · whole weekend</div>
-      <div class="v" id="wknd">$8,640,279</div><div class="n">median per stock: $8,827</div></div>
+<div class="strip">
+  <div><div class="k">Session</div><div class="v" id="sess">—</div></div>
+  <div><div class="k">Weekend-tradeable</div><div class="v num" id="uni">—</div></div>
+  <div><div class="k">Orders cancelled in</div><div class="v num" id="reopen">—</div></div>
+  <div><div class="k">Limit band</div><div class="v num" id="band">—</div></div>
+  <div><div class="k">Void drift reverses</div><div class="v num blue" id="noise">—</div></div>
+</div>
+
+<div class="lead">
+  <div>
+    <div class="kicker">The finding</div>
+    <h2 class="serif">For 47 hours a week, these stocks have <em>no price</em> anywhere on Earth.</h2>
+    <p>Bitget lists tokenized US equities that trade around the clock. Nasdaq does not — it
+    closes Friday 20:00 ET and reopens Monday 09:30. In between, an internal matching engine
+    is the only source of a price, and it clears almost nothing.</p>
+    <p>Across 196 observations and 13 weekends we measured what happens to that movement once
+    real liquidity returns. For large caps, essentially <b>all of it reverses</b>. We call it
+    <b>Void Drift</b>.</p>
+    <div class="figs">
+      <div><div class="k">rAAPL · one Friday hour</div><div class="v num">$5,911,636,056</div>
+        <div class="n">closing auction, 4 Sep</div></div>
+      <div><div class="k">All 87 rTokens · whole weekend</div><div class="v num">$8,640,279</div>
+        <div class="n">684× less · median $8,827 per stock</div></div>
+    </div>
   </div>
-</section>
-
-<section class="chart">
-  <h2>The cliff — rAAPL hourly turnover, Friday into Saturday</h2>
-  <div class="sub">Measured from Bitget's own tape. Log scale; each bar is one hour, ET.</div>
-  <div class="bars" id="bars"></div>
-  <div class="cliff">At <b>20:00 ET</b> US after-hours ends and Bitget's internal matching
-    engine takes over. Turnover falls from <b>$2.38B</b> to <b>$63</b> in one hour —
-    a factor of <b>37 million</b>.</div>
-</section>
-
-<div id="banner" class="banner off">loading…</div>
-
-<div class="grid">
-  <div class="card"><div class="k">Session</div><div class="v" id="sess">—</div></div>
-  <div class="card"><div class="k">Weekend-tradeable</div><div class="v" id="uni">—</div></div>
-  <div class="card"><div class="k">Orders cancelled in</div><div class="v" id="reopen">—</div></div>
-  <div class="card"><div class="k">Limit band</div><div class="v" id="band">—</div></div>
-  <div class="card"><div class="k">Void drift reverses</div><div class="v" id="noise">—</div></div>
+  <div class="chart">
+    <div class="ttl">rAAPL hourly turnover — Friday into Saturday</div>
+    <div class="sub">Bitget's own tape. Logarithmic scale, one bar per hour, US Eastern.</div>
+    <div class="plot">
+      <div class="yax"><span>$1bn</span><span>$1m</span><span>$1k</span><span>$1</span></div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <div class="cliffnote">At <b>20:00 ET</b> US after-hours ends and the internal matching
+      engine takes over. Turnover falls from <b>$2.38bn</b> to <b>$63</b> in a single hour —
+      a factor of <b>37 million</b>.</div>
+  </div>
 </div>
 
-<div class="tblhead"><h2>Live book</h2><span id="tblnote">&nbsp;</span>
+<div id="banner" class="banner b-open">loading…</div>
+
+<div class="sechead">
+  <h3>Live book</h3><span class="note" id="tblnote"></span>
   <span class="sizer">order size
     <select id="osize">
-      <option value="0">off</option>
-      <option value="1000">$1,000</option>
-      <option value="10000">$10,000</option>
-      <option value="50000" selected>$50,000</option>
+      <option value="0">off</option><option value="1000">$1,000</option>
+      <option value="10000">$10,000</option><option value="50000" selected>$50,000</option>
       <option value="250000">$250,000</option>
     </select>
   </span>
@@ -179,66 +223,56 @@ footer b{color:var(--fg)}
 <div class="tblwrap"><table>
 <thead><tr>
 <th>Symbol</th><th>Name</th><th>Last</th><th>Fair value</th><th>Drift</th>
-<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th><th>Spread</th><th>Slices needed</th><th></th>
-</tr></thead>
-<tbody id="rows"><tr><td colspan="10">loading…</td></tr></tbody>
+<th>Noise</th><th>Tier</th><th>Buy depth @0.5%</th><th>Sell depth @0.5%</th>
+<th>Spread</th><th>Slices</th><th></th></tr></thead>
+<tbody id="rows"><tr><td colspan="12">loading…</td></tr></tbody>
 </table></div>
 <div class="more" id="morewrap"></div>
 
-<section class="record" id="record">
-  <h2>The public record</h2>
-  <p class="rsub">Every weekend we publish two falsifiable claims <b>before</b> the US market
-  reopens, with a SHA256 of the file committed to a public repo — a git timestamp cannot be
-  back-dated. Then we grade them and publish the result, win or lose.</p>
-  <div id="pending"></div>
-  <div id="rounds"></div>
-  <p class="rsub" id="rsummary"></p>
-  <p class="rsub">Claim 1 historically wins <b>7 weekends in 10</b>. We state that in advance,
-  so a single loss is a predicted outcome rather than a surprise.
-  <a href="https://github.com/egbujor-emmanuel/nocturne/tree/master/predictions">every prediction &amp; hash</a> ·
-  <a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/docs/METHODOLOGY.md">methodology</a></p>
-</section>
+<h3 class="sec">The public record</h3>
+<p class="pnote">Every weekend we publish two falsifiable claims <b>before</b> the US market
+reopens, with a SHA256 of the file committed to a public repository — a git timestamp cannot
+be back-dated. Then we grade them and publish the result, win or lose.</p>
+<div id="pending"></div><div id="rounds"></div>
+<p class="pnote" id="rsummary"></p>
+<p class="pnote">Claim 1 historically wins <b>7 weekends in 10</b>. We state that in advance, so
+a single loss is a predicted outcome rather than a surprise.
+<a href="https://github.com/egbujor-emmanuel/nocturne/tree/master/predictions">every prediction &amp; hash</a> ·
+<a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/docs/METHODOLOGY.md">methodology</a></p>
 
-<section class="how">
-  <h2>How to use this</h2>
+<h3 class="sec">How to use this</h3>
+<div class="cols">
   <ol>
-    <li><b>Before you trade an rToken while the market is shut</b>, find it below.
-      Compare <b>Last</b> against <b>Fair value</b> — the last regular-session close.</li>
-    <li><b>Check the depth.</b> Buy/sell depth is what the book can absorb before the
-      price moves half a percent. Many rTokens hold under $25,000. If your order is
-      larger than that, you are the market.</li>
-    <li><b>Size your order.</b> Pick an order size above the table and NOCTURNE shows how
-      many slices it would take to fill without moving the price more than half a percent.</li>
-    <li><b>Check the Noise score.</b> High means this drift is unusually large for this
-      stock. It ranks risk; it does not tell you which way Monday goes.</li>
-    <li><b>Mind the clock.</b> Bitget cancels every unfilled weekend limit order when the
-      US market reopens — the countdown is above.</li>
-    <li><b>Then trade on Bitget.</b> Every symbol links to its own Bitget page.</li>
+    <li><b>Find the rToken</b> you are about to trade while the market is shut. Compare
+      <b>Last</b> against <b>Fair value</b> — the last regular-session close.</li>
+    <li><b>Check the depth.</b> That is what the book absorbs before the price moves half a
+      percent. Many rTokens hold under $25,000.</li>
+    <li><b>Size the order.</b> Pick an order size above the table and every row shows how many
+      slices it would take to fill.</li>
+    <li><b>Check the Noise score.</b> High means this drift is unusually large for this stock.
+      It ranks risk; it does not say which way Monday goes.</li>
+    <li><b>Mind the clock.</b> Bitget cancels every unfilled weekend limit order at the reopen.</li>
+    <li><b>Then trade on Bitget.</b> Every symbol links to its own page.</li>
   </ol>
-  <p class="noacct"><b>No account, wallet or API key needed here.</b> NOCTURNE is
-  read-only: it never places an order, holds a key or touches a balance. It reads the
-  same public market data anyone can, and hands you the numbers Bitget's own screen
-  does not show. Agents can read it too — see the
-  <a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/skill/nocturne/SKILL.md">skill</a>
-  and the <a href="api/v1/index.json">public API</a>.</p>
-</section>
-
-<div class="honest">
-<b>What this is not.</b> It is not a forecast of Monday's price. We built and tested
-forecasting models walk-forward and <b>they lost to the naive baseline</b>. Only the
-unfitted model wins, by about 9% MAE on large caps, in 7 weekends out of 10. The Noise
-Score ranks execution risk; it does not predict direction.
+  <div>
+    <div class="noacct"><b>No account, wallet or API key needed here.</b> NOCTURNE is read-only:
+      it never places an order, holds a key or touches a balance. It reads the same public
+      market data anyone can and hands you the numbers Bitget's own screen does not show.
+      Agents can read it too — see the
+      <a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/skill/nocturne/SKILL.md">skill</a>
+      and the <a href="api/v1/index.json">public API</a>.</div>
+    <div class="caveat"><b>What this is not.</b> It is not a forecast of Monday's price. We built
+      and tested forecasting models walk-forward and <b>they lost to the naive baseline</b>. Only
+      the unfitted model wins, by about 9% MAE on large caps, in 7 weekends out of 10.</div>
+  </div>
 </div>
 
 <footer>
-<b>The market.</b> Bitget lists tokenized US equities that trade 24/7, but Nasdaq closes
-Friday 20:00 ET and reopens Monday 09:30 ET. For ~47 hours a week these assets have no
-external price anywhere — an internal matching engine is the only source.<br>
-<b>The finding.</b> Across 196 observations, 37 symbols and 13 weekends, we regressed the
-re-anchor return on the void-window return. For large caps: <b id="f2">β = -1.003, t = -3.46</b>
-— essentially all weekend movement reverses. We call it <b>Void Drift</b>.<br>
-<b>The method.</b> Fair value during a dark session is the last regular-session close.
-Depth, spread and the ±10% limit band are read directly from the order book, not modelled.<br>
+<b>Method.</b> Fair value during a dark session is the last regular-session close. Depth, spread
+and the ±10% limit band are read directly from the order book, not modelled. Scores are produced
+only in the weekend windows the model was calibrated on.<br>
+<b>The finding.</b> Regressing the re-anchor return on the void-window return, large caps:
+<b id="f2">β = −1.003, t = −3.46</b>, R² 0.131, n 81.<br>
 <span id="built"></span> ·
 <a href="https://github.com/egbujor-emmanuel/nocturne">source, dataset &amp; study</a> ·
 <a href="api/v1/index.json">public API</a>
@@ -250,134 +284,126 @@ var CLIFF=[["13:00",1194526120],["14:00",946424534],["15:00",2266891565],["16:00
 ["17:00",419727470],["18:00",18908460],["19:00",16062350],["20:00",63],["21:00",123],
 ["22:00",377],["23:00",11],["Sat 02",247],["Sat 08",176],["Sat 14",4],["Sat 20",318]];
 
-function drawCliff(){
-  var host=el("bars"), max=Math.log10(2380614570), min=Math.log10(1);
-  host.innerHTML=CLIFF.map(function(d,i){
-    var h=Math.max(2,((Math.log10(Math.max(d[1],1))-min)/(max-min))*100);
-    var dark=i>=7;
-    return '<div class="bar'+(dark?' dark':'')+'" title="'+d[0]+' — $'+d[1].toLocaleString()+'">'+
-           '<i style="height:'+h+'%"></i><span>'+d[0]+'</span></div>';
-  }).join("");
-}
-drawCliff();
-
 function el(id){var e=document.getElementById(id);
   if(!e){console.warn("missing element:",id);}
-  return e || {innerHTML:"", textContent:"", className:"", addEventListener:function(){}};}
-var f=function(n,d){return n==null?"—":n.toLocaleString(undefined,{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
+  return e||{innerHTML:"",textContent:"",className:"",value:"0",
+             addEventListener:function(){}};}
+var f=function(n,d){return n==null?"—":n.toLocaleString(undefined,
+  {minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
 var money=function(n){return n==null?"—":"$"+f(n);};
+
+(function(){
+  var host=el("bars"),max=Math.log10(2380614570);
+  host.innerHTML=CLIFF.map(function(d,i){
+    var h=Math.max(1.5,(Math.log10(Math.max(d[1],1))/max)*100);
+    return '<div class="bar'+(i>=7?' dark':'')+'" title="'+d[0]+' — $'+d[1].toLocaleString()+'">'+
+           '<i style="height:'+h+'%"></i><span>'+d[0]+'</span></div>';}).join("");
+})();
 
 function load(){
 fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(function(s){
   var fi=s.finding;
   el("sess").textContent=s.session;
   el("uni").textContent=s.universe.weekend_tradeable+" / "+s.universe.scanned;
-  el("uniN").textContent=s.universe.weekend_tradeable;
   el("reopen").textContent=s.hours_to_reopen+" h";
   el("band").textContent="±"+s.band_pct+"%";
   el("noise").textContent=Math.round(fi.noise_share_large_cap_pct)+"%";
-  el("livet").textContent=s.generated_et;
+  el("stamp").textContent=s.generated_et;
   el("built").textContent="Generated "+s.generated_et;
-  el("f2").textContent="β = "+fi.beta+", t = "+fi.t;
+  el("f2").innerHTML="β = "+fi.beta+", t = "+fi.t;
 
-  var b=el("banner");
+  var b=el("banner"), w=s.last_void_window;
+  var histNote="greyed values are the last void window"+(w?" ("+w[0]+" to "+w[1]+")":"");
   if(s.scores_live){
-    b.className="banner on";
+    b.className="banner b-dark";
     b.innerHTML="<b>US market is CLOSED ("+s.session+").</b> Every price below is set by "+
       "Bitget's internal matching engine — there is no external reference. Unfilled limit "+
       "orders are cancelled at "+s.next_reopen_et+".";
     el("tblnote").textContent="noise scores active";
   }else if(s.is_dark){
-    b.className="banner on";
+    b.className="banner b-dark";
     b.innerHTML="<b>US market is closed overnight ("+s.session+").</b> Scores are held back: "+
       "the model is calibrated on weekend windows, and an overnight move follows a full "+
-      "session of real price discovery. Live scoring resumes when the weekend session opens "+
-      "Friday 20:00 ET.";
+      "session of real price discovery. Live scoring resumes Friday 20:00 ET.";
+    el("tblnote").textContent=histNote;
   }else{
-    b.className="banner off";
+    b.className="banner b-open";
     b.innerHTML="<b>US market is open ("+s.session+").</b> Orders route to real market "+
       "liquidity, so the Noise Score is suppressed — movement now is genuine price discovery. "+
       "It returns at 20:00 ET when the weekend session begins.";
-    var w=s.last_void_window;
-    el("tblnote").innerHTML=
-      "live scores resume at 20:00 ET &middot; <span class=\"hist\">greyed values are the last void window"+
-      (w?" ("+w[0]+" to "+w[1]+")":"")+"</span>";
+    el("tblnote").textContent=histNote;
   }
 
   var tr=s.track_record||{rounds:[],summary:null,pending:null};
-  var pe=el("pending");
-  pe.innerHTML = tr.pending
+  el("pending").innerHTML=tr.pending
     ? '<div class="round"><span class="badge pend">AWAITING GRADE</span>'+
       '<span class="when">published '+tr.pending.published+'</span>'+
-      '<span class="det">'+tr.pending.n+' symbols &middot; graded '+tr.pending.graded_against+
-      ' &middot; sha256 '+tr.pending.sha256+'…</span></div>'
-    : '<div class="round"><span class="badge pend">NEXT</span><span class="when">Sunday, in the void window</span>'+
+      '<span class="det">'+tr.pending.n+' symbols · graded '+tr.pending.graded_against+
+      ' · sha256 '+tr.pending.sha256+'…</span></div>'
+    : '<div class="round"><span class="badge pend">NEXT</span>'+
+      '<span class="when">Sunday, in the void window</span>'+
       '<span class="det">the weekend prediction publishes automatically and is hashed before the reopen</span></div>';
-  el("rounds").innerHTML = (tr.rounds||[]).slice().reverse().map(function(r){
+  el("rounds").innerHTML=(tr.rounds||[]).slice().reverse().map(function(r){
     return '<div class="round"><span class="when">'+r.target+'</span>'+
       '<span class="badge '+(r.level_won?"won":"lost")+'">LEVEL '+(r.level_won?"WON":"LOST")+'</span>'+
       '<span class="det">'+r.level_model+'% vs '+r.level_base+'% baseline</span>'+
       '<span class="badge '+(r.rank_won?"won":"lost")+'">RANK '+(r.rank_won?"WON":"LOST")+'</span>'+
       '<span class="det">'+r.rank_top+'% vs '+r.rank_bottom+'%</span>'+
-      '<span class="det">'+r.n+' symbols</span></div>';
-  }).join("");
+      '<span class="det">'+r.n+' symbols</span></div>';}).join("");
   var sm=tr.summary;
-  el("rsummary").innerHTML = sm && sm.rounds
+  el("rsummary").innerHTML=sm&&sm.rounds
     ? "Running record: level <b>"+sm.claim_1_won+"/"+sm.rounds+"</b>, ranking <b>"+
-      sm.claim_2_won+"/"+sm.rounds+"</b>. Losses are shown, not hidden."
-    : "";
+      sm.claim_2_won+"/"+sm.rounds+"</b>. Losses are shown, not hidden." : "";
 
   var maxd=0;
-  s.symbols.forEach(function(r){ if(r.buy_usd_0_5>maxd) maxd=r.buy_usd_0_5; });
+  s.symbols.forEach(function(r){if(r.buy_usd_0_5>maxd)maxd=r.buy_usd_0_5;});
   var LIMIT=25;
-  var shown = window.__showAll ? s.symbols : s.symbols.slice(0,LIMIT);
+  var shown=window.__showAll?s.symbols:s.symbols.slice(0,LIMIT);
+  var osz=parseFloat(el("osize").value)||0;
   el("rows").innerHTML=shown.map(function(r){
-    var cls=r.liquidity==="VERY THIN"?"vthin":(r.liquidity==="THIN"?"thin":"ok");
+    var hv=r.last_void||null;
+    var url="https://www.bitget.com/spot/"+r.pair;
+    var cls=r.liquidity==="VERY THIN"?"vthin":(r.liquidity==="THIN"?"thin":"");
     function bar(v){
       var pct=maxd?Math.max(1.5,(v/maxd)*100):0;
-      return '<div class="depth '+cls+'"><span class="track"><i class="fill" style="width:'+pct+'%"></i></span>'+
-             '<span class="amt">'+money(v)+'</span></div>';
-    }
-    var osz=parseFloat(el("osize").value)||0;
+      return '<div class="dep '+cls+'"><span class="track"><i class="fill" style="width:'+pct+
+        '%"></i></span><span class="amt">'+money(v)+'</span></div>';}
+    var dr=r.dislocation_pct==null
+      ? (hv?'<span class="hist '+(hv.drift>=0?"up":"down")+'">'+(hv.drift>=0?"+":"")+
+            hv.drift.toFixed(2)+'%</span>':"—")
+      : '<span class="'+(r.dislocation_pct>=0?"up":"down")+'">'+
+        (r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+'%</span>';
+    var tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+'</span>'
+      :(hv?'<span class="pill hist '+hv.tier+'">'+hv.tier+'</span>':"—");
     var d05=r.buy_usd_0_5||0, split="—";
     if(osz>0){
-      if(d05<=0){ split='<span class="vthin">no book</span>'; }
-      else if(osz<=d05){ split='1 <span class="nm">(fits)</span>'; }
-      else {
-        var n=Math.min(20,Math.ceil(osz/d05));
-        split='<span class="'+(n>=6?"vthin":"thin")+'">'+n+'</span> <span class="nm">x $'+
-              Math.round(osz/n).toLocaleString()+'</span>';
-      }
+      if(d05<=0){split='<span class="down">no book</span>';}
+      else if(osz<=d05){split='1 <span class="nm">fits</span>';}
+      else{var n=Math.min(20,Math.ceil(osz/d05));
+        split='<b class="'+(n>=6?"down":"")+'">'+n+'</b> <span class="nm">× $'+
+              Math.round(osz/n).toLocaleString()+'</span>';}
     }
-    var hv=r.last_void||null;
-    var dr=r.dislocation_pct==null?(hv?
-      '<span class="hist '+(hv.drift>=0?"pos":"neg")+'">'+(hv.drift>=0?"+":"")+hv.drift.toFixed(2)+'%</span>':"—"):
-      '<span class="'+(r.dislocation_pct>=0?"pos":"neg")+'">'+
-      (r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+"%</span>";
-    var tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+"</span>":
-      (hv?'<span class="pill hist '+hv.tier+'">'+hv.tier+"</span>":"—");
-    var url="https://www.bitget.com/spot/"+r.pair;
     return '<tr><td class="sym"><a href="'+url+'" target="_blank" rel="noopener">'+r.symbol+'</a></td>'+
-      '<td class="nm">'+r.name+"</td>"+
-      "<td>"+f(r.last,2)+"</td>"+
-      "<td>"+(r.fair_value==null?(hv?'<span class="hist">'+f(hv.fair,2)+"</span>":"—")
-             :f(r.fair_value,2))+"</td>"+
-      "<td>"+dr+"</td><td>"+(r.noise_score==null?(hv?'<span class="hist">'+hv.score+"</span>":"—"):r.noise_score)+"</td><td>"+tier+"</td>"+
-      "<td>"+bar(r.buy_usd_0_5)+"</td><td>"+bar(r.sell_usd_0_5)+"</td>"+
-      "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td>"+
-      "<td>"+split+"</td>"+
-      '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade &rarr;</a></td></tr>';
+      '<td class="nm">'+r.name+'</td><td>'+f(r.last,2)+'</td>'+
+      '<td>'+(r.fair_value==null?(hv?'<span class="hist">'+f(hv.fair,2)+'</span>':"—")
+             :f(r.fair_value,2))+'</td>'+
+      '<td>'+dr+'</td>'+
+      '<td>'+(r.noise_score==null?(hv?'<span class="hist">'+hv.score+'</span>':"—")
+             :r.noise_score)+'</td>'+
+      '<td>'+tier+'</td><td>'+bar(r.buy_usd_0_5)+'</td><td>'+bar(r.sell_usd_0_5)+'</td>'+
+      '<td>'+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+'</td>'+
+      '<td>'+split+'</td>'+
+      '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade →</a></td></tr>';
   }).join("");
-  var mw=el("morewrap");
-  mw.innerHTML = (window.__showAll || s.symbols.length<=LIMIT) ? "" :
+
+  el("morewrap").innerHTML=(window.__showAll||s.symbols.length<=LIMIT)?"":
     '<button id="moreb">show all '+s.symbols.length+' rTokens</button>';
-  var mb=el("moreb");
-  if(mb) mb.addEventListener("click",function(){window.__showAll=true;load();});
+  var mb=document.getElementById("moreb");
+  if(mb)mb.addEventListener("click",function(){window.__showAll=true;load();});
 }).catch(function(e){
-  el("rows").innerHTML='<tr><td colspan="12">failed to load state: '+e+"</td></tr>";
-});
+  el("rows").innerHTML='<tr><td colspan="12">failed to load state: '+e+'</td></tr>';});
 }
 load();
-setInterval(load, 60000);
-el("osize").addEventListener("change", load);   // the page must not show a frozen weekend
+setInterval(load,60000);
+el("osize").addEventListener("change",load);
 </script></body></html>
