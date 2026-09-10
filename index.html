@@ -181,6 +181,7 @@ footer b{color:var(--fg)}
 </tr></thead>
 <tbody id="rows"><tr><td colspan="10">loading…</td></tr></tbody>
 </table></div>
+<div class="more" id="morewrap"></div>
 
 <section class="record" id="record">
   <h2>The public record</h2>
@@ -248,7 +249,7 @@ var CLIFF=[["13:00",1194526120],["14:00",946424534],["15:00",2266891565],["16:00
 ["22:00",377],["23:00",11],["Sat 02",247],["Sat 08",176],["Sat 14",4],["Sat 20",318]];
 
 function drawCliff(){
-  var host=document.getElementById("bars"), max=Math.log10(2380614570), min=Math.log10(1);
+  var host=el("bars"), max=Math.log10(2380614570), min=Math.log10(1);
   host.innerHTML=CLIFF.map(function(d,i){
     var h=Math.max(2,((Math.log10(Math.max(d[1],1))-min)/(max-min))*100);
     var dark=i>=7;
@@ -258,29 +259,32 @@ function drawCliff(){
 }
 drawCliff();
 
+function el(id){var e=document.getElementById(id);
+  if(!e){console.warn("missing element:",id);}
+  return e || {innerHTML:"", textContent:"", className:"", addEventListener:function(){}};}
 var f=function(n,d){return n==null?"—":n.toLocaleString(undefined,{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
 var money=function(n){return n==null?"—":"$"+f(n);};
 
 function load(){
 fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(function(s){
   var fi=s.finding;
-  document.getElementById("sess").textContent=s.session;
-  document.getElementById("uni").textContent=s.universe.weekend_tradeable+" / "+s.universe.scanned;
-  document.getElementById("uniN").textContent=s.universe.weekend_tradeable;
-  document.getElementById("reopen").textContent=s.hours_to_reopen+" h";
-  document.getElementById("band").textContent="±"+s.band_pct+"%";
-  document.getElementById("noise").textContent=Math.round(fi.noise_share_large_cap_pct)+"%";
-  document.getElementById("livet").textContent=s.generated_et;
-  document.getElementById("built").textContent="Generated "+s.generated_et;
-  document.getElementById("f2").textContent="β = "+fi.beta+", t = "+fi.t;
+  el("sess").textContent=s.session;
+  el("uni").textContent=s.universe.weekend_tradeable+" / "+s.universe.scanned;
+  el("uniN").textContent=s.universe.weekend_tradeable;
+  el("reopen").textContent=s.hours_to_reopen+" h";
+  el("band").textContent="±"+s.band_pct+"%";
+  el("noise").textContent=Math.round(fi.noise_share_large_cap_pct)+"%";
+  el("livet").textContent=s.generated_et;
+  el("built").textContent="Generated "+s.generated_et;
+  el("f2").textContent="β = "+fi.beta+", t = "+fi.t;
 
-  var b=document.getElementById("banner");
+  var b=el("banner");
   if(s.scores_live){
     b.className="banner on";
     b.innerHTML="<b>US market is CLOSED ("+s.session+").</b> Every price below is set by "+
       "Bitget's internal matching engine — there is no external reference. Unfilled limit "+
       "orders are cancelled at "+s.next_reopen_et+".";
-    document.getElementById("tblnote").textContent="noise scores active";
+    el("tblnote").textContent="noise scores active";
   }else if(s.is_dark){
     b.className="banner on";
     b.innerHTML="<b>US market is closed overnight ("+s.session+").</b> Scores are held back: "+
@@ -293,13 +297,13 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       "liquidity, so the Noise Score is suppressed — movement now is genuine price discovery. "+
       "It returns at 20:00 ET when the weekend session begins.";
     var w=s.last_void_window;
-    document.getElementById("tblnote").innerHTML=
+    el("tblnote").innerHTML=
       "live scores resume at 20:00 ET &middot; <span class=\"hist\">greyed values are the last void window"+
       (w?" ("+w[0]+" to "+w[1]+")":"")+"</span>";
   }
 
   var tr=s.track_record||{rounds:[],summary:null,pending:null};
-  var pe=document.getElementById("pending");
+  var pe=el("pending");
   pe.innerHTML = tr.pending
     ? '<div class="round"><span class="badge pend">AWAITING GRADE</span>'+
       '<span class="when">published '+tr.pending.published+'</span>'+
@@ -307,7 +311,7 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       ' &middot; sha256 '+tr.pending.sha256+'…</span></div>'
     : '<div class="round"><span class="badge pend">NEXT</span><span class="when">Sunday, in the void window</span>'+
       '<span class="det">the weekend prediction publishes automatically and is hashed before the reopen</span></div>';
-  document.getElementById("rounds").innerHTML = (tr.rounds||[]).slice().reverse().map(function(r){
+  el("rounds").innerHTML = (tr.rounds||[]).slice().reverse().map(function(r){
     return '<div class="round"><span class="when">'+r.target+'</span>'+
       '<span class="badge '+(r.level_won?"won":"lost")+'">LEVEL '+(r.level_won?"WON":"LOST")+'</span>'+
       '<span class="det">'+r.level_model+'% vs '+r.level_base+'% baseline</span>'+
@@ -316,7 +320,7 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       '<span class="det">'+r.n+' symbols</span></div>';
   }).join("");
   var sm=tr.summary;
-  document.getElementById("rsummary").innerHTML = sm && sm.rounds
+  el("rsummary").innerHTML = sm && sm.rounds
     ? "Running record: level <b>"+sm.claim_1_won+"/"+sm.rounds+"</b>, ranking <b>"+
       sm.claim_2_won+"/"+sm.rounds+"</b>. Losses are shown, not hidden."
     : "";
@@ -325,14 +329,14 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
   s.symbols.forEach(function(r){ if(r.buy_usd_0_5>maxd) maxd=r.buy_usd_0_5; });
   var LIMIT=25;
   var shown = window.__showAll ? s.symbols : s.symbols.slice(0,LIMIT);
-  document.getElementById("rows").innerHTML=shown.map(function(r){
+  el("rows").innerHTML=shown.map(function(r){
     var cls=r.liquidity==="VERY THIN"?"vthin":(r.liquidity==="THIN"?"thin":"ok");
     function bar(v){
       var pct=maxd?Math.max(1.5,(v/maxd)*100):0;
       return '<div class="depth '+cls+'"><span class="track"><i class="fill" style="width:'+pct+'%"></i></span>'+
              '<span class="amt">'+money(v)+'</span></div>';
     }
-    var osz=parseFloat(document.getElementById("osize").value)||0;
+    var osz=parseFloat(el("osize").value)||0;
     var d05=r.buy_usd_0_5||0, split="—";
     if(osz>0){
       if(d05<=0){ split='<span class="vthin">no book</span>'; }
@@ -362,16 +366,16 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       "<td>"+split+"</td>"+
       '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade &rarr;</a></td></tr>';
   }).join("");
-  var mw=document.getElementById("morewrap");
+  var mw=el("morewrap");
   mw.innerHTML = (window.__showAll || s.symbols.length<=LIMIT) ? "" :
     '<button id="moreb">show all '+s.symbols.length+' rTokens</button>';
-  var mb=document.getElementById("moreb");
+  var mb=el("moreb");
   if(mb) mb.addEventListener("click",function(){window.__showAll=true;load();});
 }).catch(function(e){
-  document.getElementById("rows").innerHTML='<tr><td colspan="12">failed to load state: '+e+"</td></tr>";
+  el("rows").innerHTML='<tr><td colspan="12">failed to load state: '+e+"</td></tr>";
 });
 }
 load();
 setInterval(load, 60000);
-document.getElementById("osize").addEventListener("change", load);   // the page must not show a frozen weekend
+el("osize").addEventListener("change", load);   // the page must not show a frozen weekend
 </script></body></html>
