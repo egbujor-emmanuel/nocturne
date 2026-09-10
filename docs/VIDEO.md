@@ -84,6 +84,24 @@ Screen: the skill installed in Claude or Cursor, answering
 
 ---
 
+## REQUIRED: Bitget's own page on screen
+
+Every shot showing a dislocation must be followed by **Bitget's own trading page
+for that symbol** - side by side, or cut to directly. That is the proof the price
+we are calling into question is the real, live price a user sees. The dashboard
+alone only claims a price is wrong; the dashboard next to Bitget showing that
+price proves it.
+
+  https://www.bitget.com/spot/RNVDAUSDT   (swap the pair for whichever symbol)
+
+**A VPN is required to reach it from this machine.** The ISP refuses TCP to
+www.bitget.com at the connection layer - confirmed by test: DNS resolves fine,
+port 443 returns ConnectionRefused. It is not a DNS problem and no browser
+setting fixes it. Confirmed working over VPN. api.bitget.com is unaffected,
+which is why data capture never needed one.
+
+Turn the VPN on and confirm the page loads BEFORE recording, not mid-take.
+
 ## Recording checklist
 
 - [ ] Dashboard open, session shows a DARK state
@@ -91,4 +109,6 @@ Screen: the skill installed in Claude or Cursor, answering
 - [ ] Terminal ready with the skill client
 - [ ] GitHub commit history open in a second tab
 - [ ] Test 10s of audio first
+- [ ] VPN on and https://www.bitget.com/spot/RNVDAUSDT loads
+- [ ] Bitget page open in a second tab for the side-by-side
 - [ ] Shot 1 captured — everything else is upside
