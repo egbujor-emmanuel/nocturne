@@ -2,8 +2,8 @@
  "symbol": "RSTRC",
  "pair": "RSTRCUSDT",
  "name": "STRC",
- "last": 97.99,
- "bid": 97.85,
+ "last": 97.9,
+ "bid": 97.9,
  "ask": 98.01,
  "spread_pct": 0.1736,
  "reference_close": 98.04,
@@ -11,11 +11,11 @@
  "fair_value": 98.04,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.051,
- "noise_score": 11,
+ "dislocation_pct": -0.143,
+ "noise_score": 44,
  "tier": "LOW",
  "sigma_daily_pct": 1.584,
- "z": -0.03,
+ "z": -0.09,
  "buy_usd_0_5": 22424.29,
  "sell_usd_0_5": 21720.06,
  "buy_shares_0_5": 228.0542,
@@ -23,5 +23,5 @@
  "band_max_buy": 107.844,
  "band_max_sell": 88.236,
  "class": "other",
- "captured": "2026-09-09 22:00 ET"
+ "captured": "2026-09-09 22:15 ET"
 }
