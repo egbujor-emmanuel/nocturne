@@ -244,12 +244,18 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
   document.getElementById("f2").textContent="β = "+fi.beta+", t = "+fi.t;
 
   var b=document.getElementById("banner");
-  if(s.is_dark){
+  if(s.scores_live){
     b.className="banner on";
     b.innerHTML="<b>US market is CLOSED ("+s.session+").</b> Every price below is set by "+
       "Bitget's internal matching engine — there is no external reference. Unfilled limit "+
       "orders are cancelled at "+s.next_reopen_et+".";
     document.getElementById("tblnote").textContent="noise scores active";
+  }else if(s.is_dark){
+    b.className="banner on";
+    b.innerHTML="<b>US market is closed overnight ("+s.session+").</b> Scores are held back: "+
+      "the model is calibrated on weekend windows, and an overnight move follows a full "+
+      "session of real price discovery. Live scoring resumes when the weekend session opens "+
+      "Friday 20:00 ET.";
   }else{
     b.className="banner off";
     b.innerHTML="<b>US market is open ("+s.session+").</b> Orders route to real market "+

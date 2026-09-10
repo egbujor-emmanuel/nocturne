@@ -7,7 +7,7 @@ it is either directly observed or derived from the validated result:
 import sys,os,json,glob,datetime as dt
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from core import ROOT, load_bars
-from session import classify, next_reopen, ET, DARK
+from session import classify, next_reopen, ET, DARK, WEEKEND_DARK
 from depth import latest_rows, report as depth_report, BAND
 from noise_score import load_calibration, score as noise_of, LARGE, LEVERAGED
 
@@ -77,7 +77,11 @@ def build():
         # During RTH/PRE/AH the book is routed to real market liquidity and a
         # move away from the last close is genuine price discovery, not drift.
         # The calibration was also built from void windows only.
-        ns=noise_of(sym,last,pf,cal) if (pf and sess in DARK) else None
+        # Score only in the windows the calibration came from. On a weeknight
+        # the drift since the 16:00 close reflects a full session of real price
+        # discovery, and scoring it against weekend-hour percentiles saturates
+        # every symbol at ~100.
+        ns=noise_of(sym,last,pf,cal) if (pf and sess in WEEKEND_DARK) else None
         e=d["executable"]
         out.append({
           "symbol":sym,"pair":sym_pair,"name":NAMES.get(sym,sym.lstrip("R")),
@@ -85,9 +89,9 @@ def build():
           "spread_pct":row.get("spr"),
           "reference_close":pf,
           "reference_close_at":pf_t.strftime("%Y-%m-%d %H:%M ET") if pf_t else None,
-          "fair_value":pf if sess in DARK else None,
-          "score_applies":sess in DARK,
-          "score_suppressed_reason":None if sess in DARK else
+          "fair_value":pf if sess in WEEKEND_DARK else None,
+          "score_applies":sess in WEEKEND_DARK,
+          "score_suppressed_reason":None if sess in WEEKEND_DARK else
               f"US market is open ({sess}) - orders route to real liquidity, "
               "so movement away from the last close is genuine price discovery",
           "dislocation_pct":ns["dislocation_pct"] if ns else None,
@@ -103,7 +107,7 @@ def build():
           "captured":d["captured"],
         })
     lv,lvwin=({},None)
-    if sess not in DARK:
+    if sess not in WEEKEND_DARK:
         lv,lvwin=last_void_snapshot(cal)
         for r in out:
             h=lv.get(r["symbol"])
@@ -117,7 +121,7 @@ def build():
     state={
       "generated":now.isoformat(),
       "generated_et":now.astimezone(ET).strftime("%Y-%m-%d %H:%M ET"),
-      "session":sess,"is_dark":sess in DARK,
+      "session":sess,"is_dark":sess in DARK,"scores_live":sess in WEEKEND_DARK,
       "next_reopen_et":reopen.strftime("%Y-%m-%d %H:%M ET"),
       "hours_to_reopen":round((reopen-now.astimezone(ET)).total_seconds()/3600,2),
       "band_pct":BAND*100,

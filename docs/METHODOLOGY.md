@@ -106,6 +106,12 @@ score      = percentile of |z| against that symbol's own historical
 close-to-close returns. Calibrated per symbol from every void-window hour since
 weekend trading began (76 symbols have enough history).
 
+**The score is only produced in `VOID_A` and `PARTIAL_B`** — the windows the
+calibration was built from. It is withheld during `RTH`/`AH`/`PRE` (orders route
+to real liquidity) and also during `NIGHT`: an overnight move follows a full
+session of genuine price discovery, and scoring it against weekend-hour
+percentiles saturates every symbol near 100, which is meaningless.
+
 **The score is suppressed whenever the US market is open.** During RTH/AH/PRE
 orders route to real liquidity, so movement away from the last close is genuine
 price discovery, not drift — and the calibration was built from void windows

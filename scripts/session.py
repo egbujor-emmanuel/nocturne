@@ -18,6 +18,7 @@ ET=dt.timezone(dt.timedelta(hours=-4))
 
 RTH,AH,NIGHT,PRE,VOID_A,PARTIAL_B="RTH","AH","NIGHT","PRE","VOID_A","PARTIAL_B"
 DARK={VOID_A,PARTIAL_B,NIGHT}          # US market closed
+WEEKEND_DARK={VOID_A,PARTIAL_B}        # the windows the model was fitted on
 NO_ORACLE={VOID_A}                     # no external price anywhere
 
 def now_et(): return dt.datetime.now(ET)

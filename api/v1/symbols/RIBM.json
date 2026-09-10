@@ -8,14 +8,14 @@
  "spread_pct": 0.0837,
  "reference_close": 232.09,
  "reference_close_at": "2026-09-08 15:00 ET",
- "fair_value": 232.09,
- "score_applies": true,
- "score_suppressed_reason": null,
- "dislocation_pct": 2.947,
- "noise_score": 99,
- "tier": "HIGH",
- "sigma_daily_pct": 3.492,
- "z": 0.84,
+ "fair_value": null,
+ "score_applies": false,
+ "score_suppressed_reason": "US market is open (NIGHT) - orders route to real liquidity, so movement away from the last close is genuine price discovery",
+ "dislocation_pct": null,
+ "noise_score": null,
+ "tier": null,
+ "sigma_daily_pct": null,
+ "z": null,
  "buy_usd_0_5": 15871.68,
  "sell_usd_0_5": 16161.17,
  "buy_shares_0_5": 66.2272,
@@ -23,5 +23,12 @@
  "band_max_buy": 255.299,
  "band_max_sell": 208.881,
  "class": "other",
- "captured": "2026-09-09 22:29 ET"
+ "captured": "2026-09-09 22:29 ET",
+ "last_void": {
+  "drift": -0.269,
+  "score": 42,
+  "tier": "LOW",
+  "fair": 234.471,
+  "last": 233.84
+ }
 }
