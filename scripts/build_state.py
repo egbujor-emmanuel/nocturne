@@ -115,6 +115,33 @@ def build():
                 r["last_void"]=h
     out.sort(key=lambda r:(-(r["noise_score"] or (lv.get(r["symbol"],{}).get("score") or -1)),
                            -(r["buy_usd_0_5"] or 0)))
+    # the public record: what we claimed, and how it scored
+    track={"rounds":[],"summary":None,"pending":None}
+    try:
+        sb=json.load(open(os.path.join(ROOT,"data","scoreboard.json")))
+        track["summary"]=sb.get("summary")
+        for r in sb.get("rounds",[])[-6:]:
+            track["rounds"].append({
+                "published":r.get("published"),"target":r.get("target"),"n":r.get("n"),
+                "level_won":r["claim_1_level"]["won"],
+                "level_model":r["claim_1_level"]["mae_model_pct"],
+                "level_base":r["claim_1_level"]["mae_baseline_pct"],
+                "rank_won":r["claim_2_ranking"]["won"],
+                "rank_top":r["claim_2_ranking"]["top_third_move_pct"],
+                "rank_bottom":r["claim_2_ranking"]["bottom_third_move_pct"],
+                "file":r.get("prediction_file")})
+    except Exception: pass
+    try:
+        import glob as _g
+        pend=[f for f in sorted(_g.glob(os.path.join(ROOT,"predictions","*.json")))
+              if not f.endswith("latest.json") and not f.endswith("_graded.json")]
+        if pend:
+            d=json.load(open(pend[-1],encoding="utf8"))
+            h=open(pend[-1].replace(".json",".sha256"),encoding="utf8").read().split()[0]
+            track["pending"]={"file":os.path.basename(pend[-1]),"published":d.get("published_et"),
+                              "graded_against":d.get("graded_against"),
+                              "n":len(d.get("predictions",[])),"sha256":h[:16]}
+    except Exception: pass
     fv=json.load(open(os.path.join(ROOT,"data","fairvalue_v2.json")))
     uni=json.load(open(os.path.join(ROOT,"data","weekend_universe.json")))
     reopen=next_reopen(now)
@@ -127,6 +154,7 @@ def build():
       "band_pct":BAND*100,
       "last_void_window":lvwin,
       "universe":{"weekend_tradeable":uni["weekend_tradeable"],"scanned":uni["candidates"]},
+      "track_record":track,
       "finding":{
         "noise_share_large_cap_pct":100.3,"beta":-1.003,"t":-3.46,
         "oos_improvement_pct":round(fv["large"]["MF"]["improvement_pct"],2),

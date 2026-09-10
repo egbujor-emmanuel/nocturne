@@ -89,6 +89,23 @@ td{font-variant-numeric:tabular-nums}
 .depth .amt{min-width:74px;text-align:right}
 .vthin .fill{background:var(--hot)} .thin .fill{background:var(--warm)} .ok .fill{background:#3b6ea5}
 .vthin .amt{color:var(--hot);font-weight:600}
+.record{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:16px 20px;margin:16px 0}
+.record h2{font-size:14px;margin:0 0 6px;font-weight:600}
+.rsub{color:var(--dim);font-size:12.5px;margin:8px 0 0;line-height:1.7}
+.rsub b{color:var(--fg)}
+.round{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:9px 12px;
+  background:#0c1116;border:1px solid var(--line);border-radius:9px;margin-top:9px;font-size:12.5px}
+.round .when{color:var(--dim);min-width:150px}
+.badge{padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:.03em}
+.won{background:#10281e;color:#68d9ae}
+.lost{background:#3d1613;color:#ff8e82}
+.pend{background:#2a2410;color:#ffcf70}
+.round .det{color:var(--dim)}
+.more{margin-top:10px;text-align:center}
+.more button{background:var(--panel2);color:var(--acc);border:1px solid var(--line);
+  border-radius:8px;padding:7px 16px;font-size:12.5px;cursor:pointer}
+.more button:hover{border-color:var(--acc)}
 .how{background:var(--panel);border:1px solid var(--line);border-radius:12px;
   padding:16px 20px;margin:16px 0}
 .how h2{font-size:14px;margin:0 0 8px;font-weight:600}
@@ -164,6 +181,20 @@ footer b{color:var(--fg)}
 </tr></thead>
 <tbody id="rows"><tr><td colspan="10">loading…</td></tr></tbody>
 </table></div>
+
+<section class="record" id="record">
+  <h2>The public record</h2>
+  <p class="rsub">Every weekend we publish two falsifiable claims <b>before</b> the US market
+  reopens, with a SHA256 of the file committed to a public repo — a git timestamp cannot be
+  back-dated. Then we grade them and publish the result, win or lose.</p>
+  <div id="pending"></div>
+  <div id="rounds"></div>
+  <p class="rsub" id="rsummary"></p>
+  <p class="rsub">Claim 1 historically wins <b>7 weekends in 10</b>. We state that in advance,
+  so a single loss is a predicted outcome rather than a surprise.
+  <a href="https://github.com/egbujor-emmanuel/nocturne/tree/master/predictions">every prediction &amp; hash</a> ·
+  <a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/docs/METHODOLOGY.md">methodology</a></p>
+</section>
 
 <section class="how">
   <h2>How to use this</h2>
@@ -267,9 +298,34 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       (w?" ("+w[0]+" to "+w[1]+")":"")+"</span>";
   }
 
+  var tr=s.track_record||{rounds:[],summary:null,pending:null};
+  var pe=document.getElementById("pending");
+  pe.innerHTML = tr.pending
+    ? '<div class="round"><span class="badge pend">AWAITING GRADE</span>'+
+      '<span class="when">published '+tr.pending.published+'</span>'+
+      '<span class="det">'+tr.pending.n+' symbols &middot; graded '+tr.pending.graded_against+
+      ' &middot; sha256 '+tr.pending.sha256+'…</span></div>'
+    : '<div class="round"><span class="badge pend">NEXT</span><span class="when">Sunday, in the void window</span>'+
+      '<span class="det">the weekend prediction publishes automatically and is hashed before the reopen</span></div>';
+  document.getElementById("rounds").innerHTML = (tr.rounds||[]).slice().reverse().map(function(r){
+    return '<div class="round"><span class="when">'+r.target+'</span>'+
+      '<span class="badge '+(r.level_won?"won":"lost")+'">LEVEL '+(r.level_won?"WON":"LOST")+'</span>'+
+      '<span class="det">'+r.level_model+'% vs '+r.level_base+'% baseline</span>'+
+      '<span class="badge '+(r.rank_won?"won":"lost")+'">RANK '+(r.rank_won?"WON":"LOST")+'</span>'+
+      '<span class="det">'+r.rank_top+'% vs '+r.rank_bottom+'%</span>'+
+      '<span class="det">'+r.n+' symbols</span></div>';
+  }).join("");
+  var sm=tr.summary;
+  document.getElementById("rsummary").innerHTML = sm && sm.rounds
+    ? "Running record: level <b>"+sm.claim_1_won+"/"+sm.rounds+"</b>, ranking <b>"+
+      sm.claim_2_won+"/"+sm.rounds+"</b>. Losses are shown, not hidden."
+    : "";
+
   var maxd=0;
   s.symbols.forEach(function(r){ if(r.buy_usd_0_5>maxd) maxd=r.buy_usd_0_5; });
-  document.getElementById("rows").innerHTML=s.symbols.map(function(r){
+  var LIMIT=25;
+  var shown = window.__showAll ? s.symbols : s.symbols.slice(0,LIMIT);
+  document.getElementById("rows").innerHTML=shown.map(function(r){
     var cls=r.liquidity==="VERY THIN"?"vthin":(r.liquidity==="THIN"?"thin":"ok");
     function bar(v){
       var pct=maxd?Math.max(1.5,(v/maxd)*100):0;
@@ -306,6 +362,11 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       "<td>"+split+"</td>"+
       '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade &rarr;</a></td></tr>';
   }).join("");
+  var mw=document.getElementById("morewrap");
+  mw.innerHTML = (window.__showAll || s.symbols.length<=LIMIT) ? "" :
+    '<button id="moreb">show all '+s.symbols.length+' rTokens</button>';
+  var mb=document.getElementById("moreb");
+  if(mb) mb.addEventListener("click",function(){window.__showAll=true;load();});
 }).catch(function(e){
   document.getElementById("rows").innerHTML='<tr><td colspan="12">failed to load state: '+e+"</td></tr>";
 });

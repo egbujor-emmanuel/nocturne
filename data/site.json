@@ -1,11 +1,11 @@
 {
- "generated": "2026-09-10T02:44:34.020648+00:00",
+ "generated": "2026-09-10T02:44:43.173431+00:00",
  "generated_et": "2026-09-09 22:44 ET",
  "session": "NIGHT",
  "is_dark": true,
  "scores_live": false,
  "next_reopen_et": "2026-09-10 09:30 ET",
- "hours_to_reopen": 10.76,
+ "hours_to_reopen": 10.75,
  "band_pct": 10.0,
  "last_void_window": [
   "2026-09-04",
@@ -14,6 +14,28 @@
  "universe": {
   "weekend_tradeable": 87,
   "scanned": 699
+ },
+ "track_record": {
+  "rounds": [
+   {
+    "published": "2026-09-06 18:00 ET",
+    "target": "2026-09-07 10:00 ET",
+    "n": 52,
+    "level_won": false,
+    "level_model": 0.974,
+    "level_base": 0.808,
+    "rank_won": true,
+    "rank_top": 0.819,
+    "rank_bottom": 0.67,
+    "file": "2026-09-06_1800.json"
+   }
+  ],
+  "summary": {
+   "rounds": 1,
+   "claim_1_won": 0,
+   "claim_2_won": 1
+  },
+  "pending": null
  },
  "finding": {
   "noise_share_large_cap_pct": 100.3,
