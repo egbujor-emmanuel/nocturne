@@ -2,8 +2,8 @@
  "symbol": "RMELI",
  "pair": "RMELIUSDT",
  "name": "MELI",
- "last": 1878.0,
- "bid": 1873.5,
+ "last": 1880.24,
+ "bid": 1874.0,
  "ask": 1890.0,
  "spread_pct": 0.6317,
  "reference_close": 1926.25,
@@ -11,11 +11,11 @@
  "fair_value": 1926.25,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -2.505,
+ "dislocation_pct": -2.389,
  "noise_score": 100,
  "tier": "HIGH",
  "sigma_daily_pct": 2.55,
- "z": -0.98,
+ "z": -0.94,
  "buy_usd_0_5": 21857.77,
  "sell_usd_0_5": 20462.06,
  "buy_shares_0_5": 11.549,
@@ -23,5 +23,5 @@
  "band_max_buy": 2118.875,
  "band_max_sell": 1733.625,
  "class": "other",
- "captured": "2026-09-09 21:30 ET"
+ "captured": "2026-09-09 21:45 ET"
 }
