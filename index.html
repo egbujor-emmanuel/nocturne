@@ -255,7 +255,10 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
     b.innerHTML="<b>US market is open ("+s.session+").</b> Orders route to real market "+
       "liquidity, so the Noise Score is suppressed — movement now is genuine price discovery. "+
       "It returns at 20:00 ET when the weekend session begins.";
-    document.getElementById("tblnote").textContent="noise scores suppressed while the market is open";
+    var w=s.last_void_window;
+    document.getElementById("tblnote").innerHTML=
+      "live scores resume at 20:00 ET &middot; <span class=\"hist\">greyed values are the last void window"+
+      (w?" ("+w[0]+" to "+w[1]+")":"")+"</span>";
   }
 
   var maxd=0;
@@ -278,14 +281,19 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
               Math.round(osz/n).toLocaleString()+'</span>';
       }
     }
-    var dr=r.dislocation_pct==null?"—":
+    var hv=r.last_void||null;
+    var dr=r.dislocation_pct==null?(hv?
+      '<span class="hist '+(hv.drift>=0?"pos":"neg")+'">'+(hv.drift>=0?"+":"")+hv.drift.toFixed(2)+'%</span>':"—"):
       '<span class="'+(r.dislocation_pct>=0?"pos":"neg")+'">'+
       (r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+"%</span>";
-    var tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+"</span>":"—";
+    var tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+"</span>":
+      (hv?'<span class="pill hist '+hv.tier+'">'+hv.tier+"</span>":"—");
     var url="https://www.bitget.com/spot/"+r.pair;
     return '<tr><td class="sym"><a href="'+url+'" target="_blank" rel="noopener">'+r.symbol+'</a></td>'+
       '<td class="nm">'+r.name+"</td>"+
-      "<td>"+f(r.last,2)+"</td><td>"+(r.fair_value==null?"—":f(r.fair_value,2))+"</td>"+
+      "<td>"+f(r.last,2)+"</td>"+
+      "<td>"+(r.fair_value==null?(hv?'<span class="hist">'+f(hv.fair,2)+"</span>":"—")
+             :f(r.fair_value,2))+"</td>"+
       "<td>"+dr+"</td><td>"+(r.noise_score==null?"—":r.noise_score)+"</td><td>"+tier+"</td>"+
       "<td>"+bar(r.buy_usd_0_5)+"</td><td>"+bar(r.sell_usd_0_5)+"</td>"+
       "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td>"+

@@ -28,6 +28,41 @@ def ref_close(sym,now):
     if not cands: return None,None
     return b[cands[0]][0], cands[0]
 
+def last_void_snapshot(cal):
+    """What the score showed at the end of the most recent completed void window.
+
+    When the US market is open the live score is suppressed by design - but a
+    visitor arriving mid-week would then see four empty columns and conclude the
+    product is broken. So we surface the last real void window instead, clearly
+    labelled as historical.
+    """
+    from core import load_bars
+    out={}; window=None
+    for path in glob.glob(os.path.join(ROOT,"data","1h","*.json")):
+        sym=os.path.basename(path)[:-9]
+        try: b=load_bars(path)
+        except Exception: continue
+        fris=sorted({t.date() for t in b if t.weekday()==4})
+        if not fris: continue
+        for fri in reversed(fris):
+            sun=fri+dt.timedelta(days=2)
+            pf=pv=None
+            for k in range(4):
+                t=dt.datetime.combine(fri,dt.time(15,0),ET)-dt.timedelta(hours=k)
+                if t in b: pf=b[t][0]; break
+            for k in range(4):
+                t=dt.datetime.combine(sun,dt.time(18,0),ET)-dt.timedelta(hours=k)
+                if t in b: pv=b[t][0]; break
+            if pf and pv and pf>0:
+                ns=noise_of(sym,pv,pf,cal)
+                if ns:
+                    out[sym]=dict(drift=ns["dislocation_pct"],score=ns["score"],
+                                  tier=ns["tier"],fair=round(pf,4),last=round(pv,4))
+                    window=window or (fri.isoformat(),sun.isoformat())
+                break
+    return out,window
+
+
 def build():
     now=dt.datetime.now(dt.timezone.utc)
     sess=classify(now); cal=load_calibration(); rows=latest_rows()
@@ -67,7 +102,15 @@ def build():
           "class":"large-cap" if sym in LARGE else ("leveraged" if sym in LEVERAGED else "other"),
           "captured":d["captured"],
         })
-    out.sort(key=lambda r:(-(r["noise_score"] or -1), -(r["buy_usd_0_5"] or 0)))
+    lv,lvwin=({},None)
+    if sess not in DARK:
+        lv,lvwin=last_void_snapshot(cal)
+        for r in out:
+            h=lv.get(r["symbol"])
+            if h:
+                r["last_void"]=h
+    out.sort(key=lambda r:(-(r["noise_score"] or (lv.get(r["symbol"],{}).get("score") or -1)),
+                           -(r["buy_usd_0_5"] or 0)))
     fv=json.load(open(os.path.join(ROOT,"data","fairvalue_v2.json")))
     uni=json.load(open(os.path.join(ROOT,"data","weekend_universe.json")))
     reopen=next_reopen(now)
@@ -78,6 +121,7 @@ def build():
       "next_reopen_et":reopen.strftime("%Y-%m-%d %H:%M ET"),
       "hours_to_reopen":round((reopen-now.astimezone(ET)).total_seconds()/3600,2),
       "band_pct":BAND*100,
+      "last_void_window":lvwin,
       "universe":{"weekend_tradeable":uni["weekend_tradeable"],"scanned":uni["candidates"]},
       "finding":{
         "noise_share_large_cap_pct":100.3,"beta":-1.003,"t":-3.46,

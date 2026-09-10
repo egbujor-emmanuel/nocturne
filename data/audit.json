@@ -33,7 +33,7 @@
   "phase": "1",
   "check": "capture cycle runs",
   "pass": true,
-  "detail": "04 ET sess=AH rows=87 books=87/87 -> 2026-09-09.local.ndjson"
+  "detail": "18 ET sess=AH rows=87 books=87/87 -> 2026-09-09.local.ndjson"
  },
  {
   "phase": "1",
@@ -51,13 +51,13 @@
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 12 captures, lane2 12 captures"
+  "detail": "lane1 13 captures, lane2 13 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
   "pass": true,
-  "detail": "19 dispatch runs"
+  "detail": "17 dispatch runs"
  },
  {
   "phase": "1",
@@ -93,19 +93,19 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "87 books; RNVDA buy $669,067"
+  "detail": "87 books; RNVDA buy $674,002"
  },
  {
   "phase": "3",
   "check": "dashboard live",
   "pass": true,
-  "detail": "HTTP 200, 12935 bytes"
+  "detail": "HTTP 200, 16524 bytes"
  },
  {
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 67838 bytes"
+  "detail": "HTTP 200, 67847 bytes"
  },
  {
   "phase": "3",
