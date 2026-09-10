@@ -83,6 +83,8 @@ td{font-variant-numeric:tabular-nums}
 .ELEVATED{background:#3a2b10;color:#ffc978}
 .LOW{background:#10281e;color:#68d9ae}
 .pos{color:#68d9ae}.neg{color:#ff8e82}
+.hist{opacity:.42;font-style:italic}
+.pill.hist{opacity:.42;font-style:normal}
 .depth{display:flex;align-items:center;gap:7px;justify-content:flex-end}
 .depth .track{width:74px;height:6px;border-radius:3px;background:#1b202a;overflow:hidden;flex:none}
 .depth .fill{display:block;height:100%;border-radius:3px}
@@ -360,7 +362,7 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       "<td>"+f(r.last,2)+"</td>"+
       "<td>"+(r.fair_value==null?(hv?'<span class="hist">'+f(hv.fair,2)+"</span>":"—")
              :f(r.fair_value,2))+"</td>"+
-      "<td>"+dr+"</td><td>"+(r.noise_score==null?"—":r.noise_score)+"</td><td>"+tier+"</td>"+
+      "<td>"+dr+"</td><td>"+(r.noise_score==null?(hv?'<span class="hist">'+hv.score+"</span>":"—"):r.noise_score)+"</td><td>"+tier+"</td>"+
       "<td>"+bar(r.buy_usd_0_5)+"</td><td>"+bar(r.sell_usd_0_5)+"</td>"+
       "<td>"+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+"</td>"+
       "<td>"+split+"</td>"+
