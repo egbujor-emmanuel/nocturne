@@ -1,0 +1,16 @@
+Bitget lists tokenized US stocks that trade 24/7.
+
+But Nasdaq shuts Friday 20:00 ET and reopens Monday 09:30.
+
+For ~47 hours a week there is no external price for these assets anywhere.
+
+I measured that window across 87 rTokens.
+
+For large caps, ~100% of the price movement while the market is shut reverses once real liquidity returns. beta = -1.003, t = -3.46, 196 observations.
+
+I call it Void Drift.
+
+Live: https://egbujor-emmanuel.github.io/nocturne/
+Data + code: https://github.com/egbujor-emmanuel/nocturne
+
+#BitgetHackathon @Bitget_AI
