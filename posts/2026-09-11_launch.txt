@@ -1,0 +1,16 @@
+Introducing NOCTURNE - a reference price for stocks while the stock market is closed.
+
+Bitget lists tokenized US equities that trade 24/7. Nasdaq shuts Friday 20:00 ET and reopens Monday 09:30. For ~47 hours a week these assets have no external price anywhere on Earth.
+
+I measured that window across 87 rTokens. For large caps, ~100% of the price movement while the market is shut reverses once real liquidity returns. beta = -1.003, t = -3.46, 196 observations.
+
+I call it Void Drift.
+
+NOCTURNE shows you how far a weekend price has drifted, how much size the book can actually absorb, and that Bitget cancels your unfilled order at the reopen. Read-only: no account, no wallet, no API key.
+
+We published this weekend's call before the open, hashed. Result: level LOST, ranking WON. We publish either way.
+
+Live: https://egbujor-emmanuel.github.io/nocturne/
+Code, data and study: https://github.com/egbujor-emmanuel/nocturne
+
+#BitgetHackathon @Bitget_AI

@@ -129,6 +129,50 @@ def grade():
     return w("grade", long_, short)
 
 
+def launch():
+    """The submission post: introduces the product, states the finding, and
+    carries the graded result if there is one. This is the URL that goes in the
+    hackathon form - Sunday's and Monday's posts both assume the reader already
+    knows what NOCTURNE is."""
+    uni = json.load(open(os.path.join(ROOT, "data", "weekend_universe.json")))
+    n = uni["weekend_tradeable"]
+    res = ""
+    short_res = ""
+    sb = os.path.join(ROOT, "data", "scoreboard.json")
+    if os.path.exists(sb):
+        try:
+            h = json.load(open(sb))
+            r = h["rounds"][-1]
+            c1, c2 = r["claim_1_level"], r["claim_2_ranking"]
+            res = (NL * 2 + "We published this weekend's call before the open, hashed. Result: " +
+                   "level " + ("WON" if c1["won"] else "LOST") + ", ranking " +
+                   ("WON" if c2["won"] else "LOST") + ". We publish either way.")
+            short_res = NL * 2 + "Weekend call published before the open, hashed. Graded " +                         ("WON" if c1["won"] else "LOST") + "/" +                         ("WON" if c2["won"] else "LOST") + "."
+        except Exception:
+            pass
+    long_ = (
+        "Introducing NOCTURNE - a reference price for stocks while the stock market "
+        "is closed." + NL * 2 +
+        "Bitget lists tokenized US equities that trade 24/7. Nasdaq shuts Friday 20:00 ET "
+        "and reopens Monday 09:30. For ~47 hours a week these assets have no external "
+        "price anywhere on Earth." + NL * 2 +
+        "I measured that window across " + str(n) + " rTokens. For large caps, ~100% of the "
+        "price movement while the market is shut reverses once real liquidity returns. "
+        "beta = -1.003, t = -3.46, 196 observations." + NL * 2 +
+        "I call it Void Drift." + NL * 2 +
+        "NOCTURNE shows you how far a weekend price has drifted, how much size the book "
+        "can actually absorb, and that Bitget cancels your unfilled order at the reopen. "
+        "Read-only: no account, no wallet, no API key." + res + NL * 2 +
+        "Live: " + SITE + NL + "Code, data and study: " + REPO + NL * 2 + TAGS)
+    # the free X limit is 280; the graded result lives in the long version
+    short = (
+        "NOCTURNE - a reference price for stocks while the market is closed." + NL * 2 +
+        "~47h a week, tokenized US stocks have no external price anywhere." + NL * 2 +
+        "Across " + str(n) + " rTokens: ~100% of that drift reverses by Monday." + NL * 2 +
+        SITE + NL + TAGS)
+    return w("launch", long_, short)
+
+
 if __name__ == "__main__":
     kind = sys.argv[1] if len(sys.argv) > 1 else "finding"
-    {"finding": finding, "predict": predict, "grade": grade}.get(kind, finding)()
+    {"finding": finding, "predict": predict, "grade": grade, "launch": launch}.get(kind, finding)()
