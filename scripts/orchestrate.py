@@ -115,6 +115,11 @@ def main():
                 try:
                     import make_post as M
                     M.predict()
+                    try:
+                        import card as C
+                        C.build("predict")
+                    except Exception as e2:
+                        log("card predict failed: %s" % str(e2)[:70])
                 except Exception as e:
                     log("post predict failed: %s" % str(e)[:80])
                 did.append("PUBLISHED " + os.path.basename(f))
@@ -133,6 +138,11 @@ def main():
                 try:
                     import make_post as M
                     M.grade()
+                    try:
+                        import card as C
+                        C.build("grade")
+                    except Exception as e2:
+                        log("card grade failed: %s" % str(e2)[:70])
                 except Exception as e:
                     log("post grade failed: %s" % str(e)[:80])
                 did.append("GRADED " + os.path.basename(f))
