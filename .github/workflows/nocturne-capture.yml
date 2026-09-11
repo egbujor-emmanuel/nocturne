@@ -28,6 +28,15 @@ jobs:
       - name: orchestrator selftest
         if: ${{ inputs.selftest }}
         run: |
+          echo "--- browsers present ---"
+          for b in /usr/bin/google-chrome /usr/bin/chromium-browser /usr/bin/chromium; do
+            if [ -x "$b" ]; then echo "FOUND $b"; fi
+          done
+          echo "--- forced screenshot ---"
+          python scripts/shoot.py --force || echo "SHOT_FAILED"
+          echo "--- shots dir ---"
+          ls -la shots/ 2>/dev/null || echo "NO SHOTS DIR"
+          echo "--- orchestrator selftest ---"
           python scripts/orchestrate.py --selftest
 
       - name: capture cycle
