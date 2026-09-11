@@ -142,6 +142,26 @@ def build():
                               "graded_against":d.get("graded_against"),
                               "n":len(d.get("predictions",[])),"sha256":h[:16]}
     except Exception: pass
+    # live series for the page chart - real captured ticks, not decoration
+    spark={}
+    try:
+        import glob as _g
+        want=["RNVDAUSDT","RAAPLUSDT","RTSLAUSDT"]
+        pts={w:[] for w in want}
+        for fp in sorted(_g.glob(os.path.join(ROOT,"data","live","*.ndjson")))[-3:]:
+            for line in open(fp,encoding="utf8"):
+                if not line.strip(): continue
+                try: r=json.loads(line)
+                except Exception: continue
+                if r.get("s") in pts and r.get("last"):
+                    pts[r["s"]].append([r["t"],r["last"]])
+        for k,v in pts.items():
+            v.sort(key=lambda x:x[0])
+            seen={}
+            for t,px in v: seen[t//300*300]=px
+            ser=[[t,px] for t,px in sorted(seen.items())][-220:]
+            if len(ser)>=6: spark[k[:-4]]=ser
+    except Exception: pass
     fv=json.load(open(os.path.join(ROOT,"data","fairvalue_v2.json")))
     uni=json.load(open(os.path.join(ROOT,"data","weekend_universe.json")))
     reopen=next_reopen(now)
@@ -155,6 +175,7 @@ def build():
       "last_void_window":lvwin,
       "universe":{"weekend_tradeable":uni["weekend_tradeable"],"scanned":uni["candidates"]},
       "track_record":track,
+      "spark_series":spark,
       "finding":{
         "noise_share_large_cap_pct":100.3,"beta":-1.003,"t":-3.46,
         "oos_improvement_pct":round(fv["large"]["MF"]["improvement_pct"],2),
