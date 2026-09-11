@@ -79,7 +79,7 @@ a{color:var(--blue2);text-decoration:none}
 .tilt{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0)}
 
 /* tiles */
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:26px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));gap:16px;margin-top:26px}
 .tile{padding:18px 19px}
 .tile .k{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);font-weight:600}
 .tile .v{font-size:32px;font-weight:700;margin-top:8px;letter-spacing:-.03em;font-family:var(--mono)}
@@ -141,6 +141,7 @@ svg.wk{width:100%;height:128px;display:block;overflow:visible}
 
 /* live chart */
 .two{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;margin-top:18px}
+.wrap,.hero,.sec,.two,.tiles{min-width:0}
 @media(max-width:940px){.two{grid-template-columns:1fr}}
 .chart{padding:18px 20px 12px}
 .ct{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
@@ -232,6 +233,41 @@ tbody tr:last-child td{border-bottom:none}
 footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line2);
   color:var(--ink3);font-size:11.5px;line-height:1.9}
 footer b{color:var(--ink2)}
+@media(max-width:700px){
+  .wrap{padding:0 14px 80px}
+  .mast{padding:20px 0 16px}
+  .logo{font-size:16px;letter-spacing:.22em}
+  .stamp{font-size:9.5px}
+  .hero{padding:6px 0 22px}
+  .hero h1{font-size:30px;letter-spacing:-.025em}
+  .hero p{font-size:14px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+  .tile{padding:13px 14px}
+  .tile .v{font-size:22px;margin-top:5px}
+  .tile .k{font-size:9px;letter-spacing:.1em}
+  .tile .n{font-size:10px}
+  .sec{margin-top:26px}
+  .weekwrap{padding:14px 14px 12px}
+  .wkrow{gap:8px}
+  .wkscale{min-width:26px;font-size:7.5px;padding-bottom:18px}
+  svg.wk{height:96px}
+  .wkdays{font-size:8px;letter-spacing:.04em}
+  .chart{padding:14px 15px 11px}
+  svg.spark{height:120px}
+  .lastpx{font-size:21px}
+  .ct .pick button{padding:2px 7px;font-size:9.5px}
+  .ban{padding:12px 14px;font-size:12.5px}
+  .round{padding:11px 13px;gap:8px}
+  .round .when{min-width:0;font-size:11.5px}
+  .round .det{font-size:10.5px}
+  .cn,.mini{font-size:11px}
+  footer{font-size:10.5px}
+  .aurora i{filter:blur(60px);opacity:.42}
+}
+@media(max-width:400px){
+  .tiles{grid-template-columns:1fr}
+  .hero h1{font-size:26px}
+}
 </style></head><body>
 <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
 <div class="grid"></div>
