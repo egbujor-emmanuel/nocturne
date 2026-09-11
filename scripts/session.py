@@ -10,11 +10,17 @@ tape (see docs/METHODOLOGY.md), the US-equity week on Bitget has six states:
   VOID_A     Fri 20:00 -> Sun 19:00  NO external equity price exists anywhere
   PARTIAL_B  Sun 19:00 -> Mon 04:00  index futures live, single names still dark
 
-ET is UTC-4 for the whole project window (US DST ends Nov 1 2026).
+ET follows America/New_York, so it stays correct when US DST ends on
+2026-11-01. It was previously pinned at UTC-4, which would have shifted every
+session boundary by an hour from that date - silently.
 """
 import datetime as dt
 
-ET=dt.timezone(dt.timedelta(hours=-4))
+try:
+    from zoneinfo import ZoneInfo
+    ET = ZoneInfo("America/New_York")
+except Exception:                       # no tzdata - fall back to US DST
+    ET = dt.timezone(dt.timedelta(hours=-4))
 
 RTH,AH,NIGHT,PRE,VOID_A,PARTIAL_B="RTH","AH","NIGHT","PRE","VOID_A","PARTIAL_B"
 DARK={VOID_A,PARTIAL_B,NIGHT}          # US market closed

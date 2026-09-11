@@ -1,6 +1,8 @@
 """Shared feature extraction for the void-drift work."""
 import json,glob,os,datetime as dt,statistics as st
-ET=dt.timezone(dt.timedelta(hours=-4))
+import sys as _s, os as _o
+_s.path.insert(0,_o.path.dirname(_o.path.abspath(__file__)))
+from session import ET
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def load_bars(p):

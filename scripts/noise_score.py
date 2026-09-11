@@ -22,7 +22,9 @@ NOT claim to know where Monday opens.
 import sys,os,json,glob,math,datetime as dt,statistics as st
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from core import load_bars, ROOT
-ET=dt.timezone(dt.timedelta(hours=-4))
+import sys as _s, os as _o
+_s.path.insert(0,_o.path.dirname(_o.path.abspath(__file__)))
+from session import ET
 
 LARGE={"RAAPL","RMSFT","RNVDA","RGOOGL","RAMZN","RMETA","RTSLA",
        "RAMD","RAVGO","RINTC","RMU","RORCL","RPLTR","RCOIN","RBABA"}
