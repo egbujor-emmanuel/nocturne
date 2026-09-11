@@ -51,13 +51,13 @@
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 41 captures, lane2 41 captures"
+  "detail": "lane1 45 captures, lane2 46 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
   "pass": true,
-  "detail": "14 dispatch runs"
+  "detail": "10 dispatch runs"
  },
  {
   "phase": "1",
@@ -93,7 +93,7 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "87 books; RNVDA buy $668,262"
+  "detail": "87 books; RNVDA buy $668,744"
  },
  {
   "phase": "3",
@@ -105,7 +105,7 @@
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 84057 bytes"
+  "detail": "HTTP 200, 84632 bytes"
  },
  {
   "phase": "3",
@@ -117,7 +117,7 @@
   "phase": "3",
   "check": "api symbol live",
   "pass": true,
-  "detail": "HTTP 200, 836 bytes"
+  "detail": "HTTP 200, 834 bytes"
  },
  {
   "phase": "3",
