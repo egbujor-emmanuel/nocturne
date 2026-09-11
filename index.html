@@ -3,285 +3,367 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NOCTURNE — a reference price for stocks while the market is closed</title>
 <meta name="description" content="A reference price for tokenized US stocks while the stock market is closed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F7F1E6; --paper2:#FDFAF4; --panel:#FFFDF8;
-  --rule:#E2D7C3; --rule2:#EFE7D8;
-  --ink:#121A24; --ink2:#4A5560; --ink3:#8A93A0;
-  --blue:#1652E8; --blue-d:#0A2C7E; --blue-l:#E9EEFD; --blue-s:#5C8CFF;
-  --up:#07734A; --down:#C42B1C; --warn:#8F5E00; --warn-bg:#FAEFD6;
-  --sh:0 1px 2px rgba(18,26,36,.05),0 4px 14px rgba(18,26,36,.06);
-  --sh2:0 2px 6px rgba(18,26,36,.07),0 18px 40px rgba(18,26,36,.08);
+  --bg:#070B14; --bg2:#0B1220; --panel:rgba(18,27,45,.72); --panel2:rgba(13,20,35,.86);
+  --line:rgba(88,120,190,.20); --line2:rgba(88,120,190,.11);
+  --ink:#EAF0FA; --ink2:#93A3BE; --ink3:#61708C;
+  --blue:#1652E8; --blue2:#4D8BFF; --blue3:#8FB6FF; --blue-g:rgba(22,82,232,.16);
+  --up:#2BD48A; --down:#FF5C4D; --warn:#FFB020;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;
-  background-image:radial-gradient(circle at 8% -10%,#FFFCF4 0%,transparent 60%)}
-.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
-.wrap{max-width:1180px;margin:0 auto;padding:0 22px 90px}
-a{color:var(--blue)}
-.num{font-variant-numeric:tabular-nums}
+body{margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;
+  font:15px/1.5 'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.num,td,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+a{color:var(--blue2);text-decoration:none}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px 110px;position:relative;z-index:1}
 
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes grow{from{height:0}}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(7,115,74,.45)}70%{box-shadow:0 0 0 9px rgba(7,115,74,0)}
-  100%{box-shadow:0 0 0 0 rgba(7,115,74,0)}}
-@keyframes slide{from{background-position:0 0}to{background-position:36px 0}}
-.r1{animation:rise .5s .05s both}.r2{animation:rise .5s .14s both}
-.r3{animation:rise .5s .23s both}.r4{animation:rise .5s .32s both}
+/* aurora ground */
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;display:block}
+.a1{width:720px;height:720px;left:-180px;top:-260px;background:radial-gradient(circle,#1652E8,transparent 70%);
+  animation:drift1 26s ease-in-out infinite}
+.a2{width:620px;height:620px;right:-160px;top:120px;background:radial-gradient(circle,#0C7CD5,transparent 70%);
+  animation:drift2 32s ease-in-out infinite}
+.a3{width:560px;height:560px;left:38%;top:620px;background:radial-gradient(circle,#2B3FCF,transparent 70%);
+  animation:drift1 38s ease-in-out infinite reverse}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(90px,70px) scale(1.14)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,60px) scale(1.1)}}
+.grid{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;
+  background-image:linear-gradient(rgba(88,120,190,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(88,120,190,.055) 1px,transparent 1px);background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 35%,transparent 100%)}
+
+/* motion */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(43,212,138,.5)}70%{box-shadow:0 0 0 10px rgba(43,212,138,0)}100%{box-shadow:0 0 0 0 rgba(43,212,138,0)}}
+@keyframes grow{from{height:0;opacity:.3}}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes shimmer{to{background-position:200% 0}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.25,1),transform .7s cubic-bezier(.2,.8,.25,1)}
+.rv.in{opacity:1;transform:none}
 
 /* masthead */
-.mast{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:24px 0 18px}
-.mast h1{font-size:21px;margin:0;letter-spacing:.24em;font-weight:600}
-.mast .stamp{margin-left:auto;font-size:11px;color:var(--ink3);letter-spacing:.05em}
-.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--up);
-  margin-right:7px;vertical-align:middle;animation:ping 2.4s infinite}
+.mast{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:30px 0 26px;
+  animation:rise .6s both}
+.logo{font-size:19px;letter-spacing:.30em;font-weight:700;margin:0;
+  background:linear-gradient(95deg,#fff,var(--blue3));-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.stamp{margin-left:auto;font-size:11px;color:var(--ink3);letter-spacing:.06em;font-family:var(--mono)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--up);
+  margin-right:8px;vertical-align:middle;animation:ping 2.4s infinite}
 
-/* hero: one line + the week */
-.hero{padding:6px 0 4px}
-.hero h2{font-size:38px;line-height:1.1;margin:0 0 26px;font-weight:400;letter-spacing:-.02em;
-  max-width:20ch}
-.hero h2 em{font-style:normal;color:var(--blue);
-  background:linear-gradient(transparent 66%,rgba(22,82,232,.2) 0)}
+/* hero */
+.hero{padding:14px 0 34px;animation:rise .7s .08s both}
+.hero h1{font-size:clamp(34px,5.4vw,62px);line-height:1.05;margin:0 0 18px;font-weight:800;
+  letter-spacing:-.035em;max-width:17ch}
+.hero h1 em{font-style:normal;
+  background:linear-gradient(95deg,var(--blue2),#7FD8FF);-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.hero p{color:var(--ink2);max-width:60ch;font-size:16px;margin:0}
+.hero p b{color:var(--ink)}
 
-/* the week bar — the core illustration */
-.week{background:var(--panel);border:1px solid var(--rule);border-radius:10px;
-  padding:18px 20px 14px;box-shadow:var(--sh2);position:relative}
-.wkhead{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
-.wkhead b{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
-.wkhead span{font-size:11.5px;color:var(--ink3);margin-left:auto}
-.track{display:flex;height:46px;border-radius:6px;overflow:hidden;position:relative;
-  box-shadow:inset 0 1px 3px rgba(18,26,36,.16)}
-.seg{position:relative;display:flex;align-items:center;justify-content:center;
-  font-size:10px;font-weight:700;letter-spacing:.06em;color:#fff;overflow:hidden;
-  transition:filter .25s}
-.seg:hover{filter:brightness(1.08)}
-.seg.lit{background:linear-gradient(180deg,var(--blue-s),var(--blue))}
-.seg.ah{background:linear-gradient(180deg,#7FA6FF,#3C6FE8)}
-.seg.void{background:linear-gradient(180deg,#E2695C,#A32215);
-  background-image:linear-gradient(180deg,#E2695C,#A32215),
-    repeating-linear-gradient(115deg,rgba(255,255,255,.09) 0 10px,transparent 10px 20px);
-  background-blend-mode:overlay;animation:slide 2.2s linear infinite}
-.seg.partial{background:linear-gradient(180deg,#D9A23C,#9A6400)}
-.seg.pre{background:linear-gradient(180deg,#9FB6D8,#5C7BA8)}
-.now{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--ink);z-index:3}
-.now:after{content:"NOW";position:absolute;top:-15px;left:50%;transform:translateX(-50%);
-  font-size:8.5px;font-weight:800;letter-spacing:.1em;color:var(--ink);background:var(--paper);
-  padding:0 4px}
-.wkfoot{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--ink3)}
+/* 3D scene wrapper */
+.scene{perspective:1400px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 24px 60px rgba(2,6,16,.6);
+  transition:transform .35s cubic-bezier(.2,.8,.25,1),border-color .35s;
+  transform-style:preserve-3d;will-change:transform}
+.card:hover{border-color:rgba(77,139,255,.4)}
+.tilt{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0)}
 
-/* stat tiles */
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px;margin-top:22px}
-.tile{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:16px 17px;
-  box-shadow:var(--sh);transition:transform .22s,box-shadow .22s}
-.tile:hover{transform:translateY(-3px);box-shadow:var(--sh2)}
-.tile .k{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3)}
-.tile .v{font-size:29px;font-weight:600;margin-top:5px;font-variant-numeric:tabular-nums;
-  letter-spacing:-.02em}
-.tile .v.blue{color:var(--blue)}.tile .v.red{color:var(--down)}
-.tile .n{font-size:10.5px;color:var(--ink3);margin-top:3px}
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:26px}
+.tile{padding:18px 19px}
+.tile .k{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.tile .v{font-size:32px;font-weight:700;margin-top:8px;letter-spacing:-.03em;font-family:var(--mono)}
+.tile .v.b{background:linear-gradient(95deg,var(--blue2),#7FD8FF);-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.tile .v.r{color:var(--down)}
+.tile .n{font-size:11px;color:var(--ink3);margin-top:5px}
 
-/* chart */
-.chart{background:var(--panel);border:1px solid var(--rule);border-radius:10px;
-  padding:18px 20px 12px;box-shadow:var(--sh2);margin-top:22px}
-.chead{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
-.chead b{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
-.chead span{font-size:11.5px;color:var(--ink3);margin-left:auto}
-.plot{display:flex;gap:13px}
-.yax{display:flex;flex-direction:column;justify-content:space-between;height:150px;
-  font-size:9.5px;color:var(--ink3);text-align:right;min-width:32px;padding-bottom:18px}
-.bars{display:flex;align-items:flex-end;gap:5px;height:150px;flex:1;
-  border-bottom:1px solid var(--rule);border-left:1px solid var(--rule);
-  background:repeating-linear-gradient(to top,transparent 0 36px,var(--rule2) 36px 37px)}
-.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;min-width:0}
-.bar i{display:block;border-radius:3px 3px 0 0;animation:grow .75s cubic-bezier(.2,.8,.25,1) both;
-  background:linear-gradient(180deg,var(--blue-s),var(--blue) 45%,var(--blue-d));
-  box-shadow:inset -2px 0 0 rgba(0,0,0,.15),inset 2px 0 0 rgba(255,255,255,.3),
-             0 3px 7px rgba(10,44,126,.3)}
-.bar.dark i{background:linear-gradient(180deg,#E2695C,var(--down) 45%,#8E1D12);
-  box-shadow:inset -2px 0 0 rgba(0,0,0,.15),inset 2px 0 0 rgba(255,255,255,.26),
-             0 3px 7px rgba(142,29,18,.3)}
-.bar span{font-size:8.5px;color:var(--ink3);text-align:center;margin-top:6px;white-space:nowrap}
-.cnote{margin-top:11px;font-size:11.5px;color:var(--ink2)}
-.cnote b{color:var(--down)}
-
-.banner{padding:12px 16px;margin-top:22px;border-left:3px solid;font-size:13.5px;
-  border-radius:4px;box-shadow:var(--sh)}
-.b-dark{background:var(--warn-bg);border-color:var(--warn);color:#57390A}
-.b-open{background:var(--blue-l);border-color:var(--blue);color:var(--blue-d)}
-
-.sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:38px 0 12px}
-.sechead h3{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);
+/* week bar */
+.sec{margin-top:38px}
+.shead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.shead h2{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);
   margin:0;font-weight:700}
-.sechead .note{font-size:11.5px;color:var(--ink3);font-style:italic}
-.sizer{margin-left:auto;font-size:11.5px;color:var(--ink3)}
-.sizer select{font:inherit;background:var(--paper2);color:var(--ink);border:1px solid var(--rule);
-  border-radius:5px;padding:4px 8px;margin-left:6px}
+.shead .note{font-size:11.5px;color:var(--ink3)}
+.shead .rt{margin-left:auto;font-size:11.5px;color:var(--ink3)}
+.shead .rt select{font:inherit;font-family:var(--mono);background:var(--panel2);color:var(--ink);
+  border:1px solid var(--line);border-radius:8px;padding:5px 10px;margin-left:8px}
+.weekwrap{padding:20px 22px 16px}
+.trk{display:flex;height:58px;border-radius:11px;overflow:hidden;position:relative;
+  box-shadow:0 10px 30px rgba(2,6,16,.55),0 1px 0 rgba(255,255,255,.06) inset}
+.seg{position:relative;display:flex;align-items:center;justify-content:center;font-size:9.5px;
+  font-weight:800;letter-spacing:.1em;color:#fff;overflow:hidden;transition:flex .5s,filter .3s}
+.seg:hover{filter:brightness(1.16)}
+.seg.lit{background:linear-gradient(180deg,#3E7BFF,#1443C4)}
+.seg.ah{background:linear-gradient(180deg,#2C63E8,#12318C)}
+.seg.void{background:linear-gradient(180deg,#FF6E5E,#8E1B10)}
+.seg.void:after{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.13) 0 12px,transparent 12px 24px);
+  animation:shimmer 3s linear infinite;background-size:200% 100%}
+.seg.partial{background:linear-gradient(180deg,#FFC153,#9A6400)}
+.seg.pre{background:linear-gradient(180deg,#6E86B8,#33456B)}
+.now{position:absolute;top:-8px;bottom:-8px;width:2px;z-index:4;
+  background:linear-gradient(180deg,transparent,#fff 18%,#fff 82%,transparent);
+  box-shadow:0 0 14px rgba(255,255,255,.85)}
+.now:after{content:"NOW";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  font-size:8.5px;font-weight:900;letter-spacing:.14em;color:#fff;font-family:var(--mono)}
+.wkf{display:flex;justify-content:space-between;margin-top:10px;font-size:10px;color:var(--ink3);
+  font-family:var(--mono)}
 
-.tblwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--panel);
-  box-shadow:var(--sh2)}
-table{border-collapse:collapse;width:100%;min-width:900px;font-size:13px}
-th,td{padding:9px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--rule2)}
-th{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:700;
-  background:var(--paper2);border-bottom:1px solid var(--rule)}
+/* live chart */
+.two{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;margin-top:18px}
+@media(max-width:940px){.two{grid-template-columns:1fr}}
+.chart{padding:18px 20px 12px}
+.ct{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.ct b{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)}
+.ct .pick{margin-left:auto;display:flex;gap:5px}
+.ct .pick button{font:inherit;font-size:10.5px;font-family:var(--mono);background:transparent;
+  color:var(--ink3);border:1px solid var(--line);border-radius:7px;padding:3px 10px;cursor:pointer;
+  transition:all .2s}
+.ct .pick button.on{color:#fff;border-color:var(--blue2);background:var(--blue-g)}
+.lastpx{font-size:26px;font-weight:700;font-family:var(--mono);letter-spacing:-.02em;margin:2px 0 8px}
+.lastpx span{font-size:12px;font-weight:500;margin-left:8px}
+svg.spark{width:100%;height:150px;display:block;overflow:visible}
+.spark path.ln{fill:none;stroke:url(#lg);stroke-width:2.2;stroke-linecap:round;
+  stroke-dasharray:2400;stroke-dashoffset:2400;animation:dash 1.7s cubic-bezier(.2,.8,.25,1) forwards}
+.spark path.ar{fill:url(#ag);opacity:0;animation:fadein .9s .5s forwards}
+@keyframes fadein{to{opacity:1}}
+.spark .gl{stroke:rgba(88,120,190,.13);stroke-width:1}
+
+/* cliff bars */
+.bars{display:flex;align-items:flex-end;gap:5px;height:150px;margin-top:6px;
+  border-bottom:1px solid var(--line2)}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;min-width:0}
+.bar i{display:block;border-radius:4px 4px 0 0;animation:grow .9s cubic-bezier(.2,.8,.25,1) both;
+  background:linear-gradient(180deg,#5C93FF,#1443C4);
+  box-shadow:inset -2px 0 0 rgba(0,0,0,.3),inset 2px 0 0 rgba(255,255,255,.24),
+    0 0 18px rgba(22,82,232,.5)}
+.bar.d i{background:linear-gradient(180deg,#FF7666,#8E1B10);box-shadow:inset -2px 0 0 rgba(0,0,0,.3),
+  inset 2px 0 0 rgba(255,255,255,.2),0 0 18px rgba(196,43,28,.45)}
+.bar span{font-size:8px;color:var(--ink3);text-align:center;margin-top:6px;font-family:var(--mono)}
+.cn{margin-top:10px;font-size:11.5px;color:var(--ink2)}
+.cn b{color:var(--down)}
+
+/* banner */
+.ban{padding:14px 18px;margin-top:22px;border-radius:12px;font-size:13.5px;border:1px solid;
+  backdrop-filter:blur(12px)}
+.b-dark{background:rgba(255,176,32,.09);border-color:rgba(255,176,32,.3);color:#FFD68A}
+.b-open{background:var(--blue-g);border-color:rgba(77,139,255,.3);color:var(--blue3)}
+
+/* table */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--panel2);
+  backdrop-filter:blur(16px);box-shadow:0 24px 60px rgba(2,6,16,.55)}
+table{border-collapse:collapse;width:100%;min-width:920px;font-size:12.5px}
+th,td{padding:10px 13px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line2)}
+th{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:700;
+  font-family:'Inter',sans-serif;background:rgba(10,16,28,.7)}
 th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
-tbody tr{transition:background .15s}
-tbody tr:hover{background:var(--blue-l)}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:rgba(77,139,255,.07)}
 tbody tr:last-child td{border-bottom:none}
-td{font-variant-numeric:tabular-nums}
-.sym a{color:var(--ink);font-weight:700;text-decoration:none}
-.sym a:hover{color:var(--blue)}
-.nm{color:var(--ink3);font-size:12px}
+.sym a{color:var(--ink);font-weight:700;font-family:'Inter',sans-serif}
+.sym a:hover{color:var(--blue2)}
+.nm{color:var(--ink3);font-family:'Inter',sans-serif;font-size:11.5px}
 .up{color:var(--up)}.down{color:var(--down)}
-.pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:9.5px;font-weight:700;
-  letter-spacing:.05em;border:1px solid}
-.HIGH{background:#FBE9E7;color:var(--down);border-color:#F0C4BE}
-.ELEVATED{background:var(--warn-bg);color:var(--warn);border-color:#E7D5A6}
-.LOW{background:#E2F3EA;color:var(--up);border-color:#BCE1CE}
-.hist{opacity:.45;font-style:italic}.pill.hist{opacity:.45;font-style:normal}
-.dep{display:flex;align-items:center;gap:8px;justify-content:flex-end}
-.dep .trk{width:62px;height:8px;background:var(--rule2);border-radius:3px;overflow:hidden;
-  flex:none;box-shadow:inset 0 1px 2px rgba(18,26,36,.14)}
-.dep .fill{display:block;height:100%;border-radius:3px;transition:width .6s cubic-bezier(.2,.8,.25,1);
-  background:linear-gradient(180deg,var(--blue-s),var(--blue))}
-.dep.thin .fill{background:linear-gradient(180deg,#D9A23C,var(--warn))}
-.dep.vthin .fill{background:linear-gradient(180deg,#E2695C,var(--down))}
-.dep.vthin .amt{color:var(--down);font-weight:700}
-.dep .amt{min-width:72px;text-align:right}
-.go{font-size:11.5px;color:var(--blue);text-decoration:none}
-.more{text-align:center;margin-top:14px}
-.more button{font:inherit;font-size:12.5px;background:var(--panel);color:var(--blue);
-  border:1px solid var(--rule);border-radius:7px;padding:9px 20px;cursor:pointer;box-shadow:var(--sh);
-  transition:transform .2s,border-color .2s}
-.more button:hover{transform:translateY(-2px);border-color:var(--blue)}
+.pill{display:inline-block;padding:2px 9px;border-radius:6px;font-size:9px;font-weight:800;
+  letter-spacing:.07em;border:1px solid;font-family:'Inter',sans-serif}
+.HIGH{background:rgba(255,92,77,.13);color:#FF8A7C;border-color:rgba(255,92,77,.32)}
+.ELEVATED{background:rgba(255,176,32,.13);color:#FFCB6B;border-color:rgba(255,176,32,.3)}
+.LOW{background:rgba(43,212,138,.13);color:#6FE3B0;border-color:rgba(43,212,138,.3)}
+.hist{opacity:.42;font-style:italic}.pill.hist{opacity:.42;font-style:normal}
+.dep{display:flex;align-items:center;gap:9px;justify-content:flex-end}
+.dep .t{width:62px;height:7px;background:rgba(88,120,190,.16);border-radius:4px;overflow:hidden;flex:none}
+.dep .f{display:block;height:100%;border-radius:4px;transition:width .7s cubic-bezier(.2,.8,.25,1);
+  background:linear-gradient(90deg,var(--blue),var(--blue2));box-shadow:0 0 10px rgba(77,139,255,.55)}
+.dep.thin .f{background:linear-gradient(90deg,#B8760E,var(--warn));box-shadow:0 0 10px rgba(255,176,32,.5)}
+.dep.vthin .f{background:linear-gradient(90deg,#8E1B10,var(--down));box-shadow:0 0 10px rgba(255,92,77,.5)}
+.dep.vthin .amt{color:var(--down);font-weight:600}
+.dep .amt{min-width:74px;text-align:right}
+.go{font-size:11px;color:var(--blue2);font-family:'Inter',sans-serif}
+.more{text-align:center;margin-top:16px}
+.more button{font:inherit;font-size:12.5px;background:var(--panel);color:var(--blue2);
+  border:1px solid var(--line);border-radius:10px;padding:10px 24px;cursor:pointer;
+  backdrop-filter:blur(12px);transition:transform .25s,border-color .25s,box-shadow .25s}
+.more button:hover{transform:translateY(-3px);border-color:var(--blue2);
+  box-shadow:0 12px 28px rgba(22,82,232,.3)}
 
-.round{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:11px 15px;
-  border:1px solid var(--rule);border-radius:8px;margin-top:9px;font-size:12.5px;
-  background:var(--panel);box-shadow:var(--sh);transition:transform .2s}
-.round:hover{transform:translateX(3px)}
-.round .when{color:var(--ink2);min-width:140px;font-weight:600}
-.badge{padding:2px 8px;border-radius:4px;font-size:9.5px;font-weight:700;letter-spacing:.05em;border:1px solid}
-.won{background:#E2F3EA;color:var(--up);border-color:#BCE1CE}
-.lost{background:#FBE9E7;color:var(--down);border-color:#F0C4BE}
-.pend{background:var(--blue-l);color:var(--blue-d);border-color:#C2D3F7}
-.round .det{color:var(--ink3)}
-.mini{color:var(--ink3);font-size:11.5px;margin:12px 0 0}
+/* record */
+.round{display:flex;gap:13px;flex-wrap:wrap;align-items:center;padding:13px 17px;
+  border:1px solid var(--line);border-radius:12px;margin-top:10px;font-size:12.5px;
+  background:var(--panel);backdrop-filter:blur(12px);transition:transform .25s,border-color .25s}
+.round:hover{transform:translateX(5px);border-color:rgba(77,139,255,.35)}
+.round .when{color:var(--ink2);min-width:150px;font-weight:600;font-family:var(--mono)}
+.bdg{padding:2px 9px;border-radius:6px;font-size:9px;font-weight:800;letter-spacing:.07em;border:1px solid}
+.won{background:rgba(43,212,138,.13);color:#6FE3B0;border-color:rgba(43,212,138,.3)}
+.lost{background:rgba(255,92,77,.13);color:#FF8A7C;border-color:rgba(255,92,77,.32)}
+.pend{background:var(--blue-g);color:var(--blue3);border-color:rgba(77,139,255,.32)}
+.round .det{color:var(--ink3);font-family:var(--mono);font-size:11.5px}
+.mini{color:var(--ink3);font-size:12px;margin:14px 0 0;line-height:1.8}
 .mini b{color:var(--ink2)}
-
-footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--rule);
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line2);
   color:var(--ink3);font-size:11.5px;line-height:1.9}
 footer b{color:var(--ink2)}
-@media(max-width:760px){.hero h2{font-size:28px}.tile .v{font-size:24px}}
-</style></head><body><div class="wrap">
+</style></head><body>
+<div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="grid"></div>
 
-<div class="mast r1">
-  <h1 class="serif">NOCTURNE</h1>
-  <span class="stamp"><span class="pulse"></span><span id="stamp">—</span></span>
+<div class="wrap">
+<div class="mast">
+  <h1 class="logo">NOCTURNE</h1>
+  <span class="stamp"><span class="dot"></span><span id="stamp">—</span></span>
 </div>
 
-<div class="hero r1">
-  <h2 class="serif">For 47 hours a week these stocks have <em>no price</em>.</h2>
+<div class="hero">
+  <h1>For 47 hours a week these stocks have <em>no price</em>.</h1>
+  <p>Bitget lists tokenized US equities that trade around the clock. Nasdaq does not.
+  In between, an internal matching engine is the only source of a price — and across an
+  entire weekend all 87 of them clear <b>$8.6 million</b>, against <b>$5.9 billion</b> in a
+  single Friday hour.</p>
 </div>
 
-<div class="week r2">
-  <div class="wkhead"><b>The trading week</b><span id="wknow">—</span></div>
-  <div class="track" id="track"></div>
-  <div class="wkfoot"><span>Fri 16:00 ET</span><span>Sat</span><span>Sun</span><span>Mon 16:00 ET</span></div>
-</div>
-
-<div class="tiles r3">
-  <div class="tile"><div class="k">Session</div><div class="v" id="sess">—</div>
+<div class="scene">
+<div class="tiles">
+  <div class="card tile rv"><div class="k">Session</div><div class="v" id="sess">—</div>
     <div class="n" id="sessn">&nbsp;</div></div>
-  <div class="tile"><div class="k">Void drift reverses</div><div class="v blue num" id="noise">—</div>
+  <div class="card tile rv"><div class="k">Void drift reverses</div><div class="v b" id="noise">—</div>
     <div class="n">large caps · β −1.003 · t −3.46</div></div>
-  <div class="tile"><div class="k">Weekend market, all 87</div><div class="v red num" id="wknd">—</div>
-    <div class="n">vs $5.9bn in one Friday hour</div></div>
-  <div class="tile"><div class="k">Orders cancelled in</div><div class="v num" id="reopen">—</div>
+  <div class="card tile rv"><div class="k">Weekend market</div><div class="v r" id="wknd">—</div>
+    <div class="n">all 87 rTokens, whole weekend</div></div>
+  <div class="card tile rv"><div class="k">Orders cancelled in</div><div class="v" id="reopen">—</div>
     <div class="n">unfilled weekend limits are wiped</div></div>
-  <div class="tile"><div class="k">Tradeable</div><div class="v num" id="uni">—</div>
+  <div class="card tile rv"><div class="k">Tradeable</div><div class="v" id="uni">—</div>
     <div class="n">rTokens with weekend flow</div></div>
 </div>
 
-<div class="chart r4">
-  <div class="chead"><b>rAAPL turnover · Friday into Saturday</b>
-    <span>log scale · one bar per hour · ET</span></div>
-  <div class="plot">
-    <div class="yax"><span>$1bn</span><span>$1m</span><span>$1k</span><span>$1</span></div>
-    <div class="bars" id="bars"></div>
+<div class="sec rv">
+  <div class="shead"><h2>The trading week</h2><span class="rt" id="wknow">—</span></div>
+  <div class="card weekwrap">
+    <div class="trk" id="track"></div>
+    <div class="wkf"><span>FRI 16:00</span><span>SAT</span><span>SUN</span><span>MON 16:00</span></div>
   </div>
-  <div class="cnote">At <b>20:00 ET</b> the internal matching engine takes over.
-    <b>$2.38bn → $63</b> in one hour.</div>
 </div>
 
-<div id="banner" class="banner b-open">loading…</div>
+<div class="two">
+  <div class="card chart rv">
+    <div class="ct"><b>Live capture</b><span class="pick" id="pick"></span></div>
+    <div class="lastpx" id="lastpx">—</div>
+    <svg class="spark" id="spark" viewBox="0 0 600 150" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#1652E8"/><stop offset="100%" stop-color="#7FD8FF"/>
+        </linearGradient>
+        <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1652E8" stop-opacity=".42"/>
+          <stop offset="100%" stop-color="#1652E8" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="cn" id="sparknote">our own captured ticks, 5-minute resolution</div>
+  </div>
+  <div class="card chart rv">
+    <div class="ct"><b>The cliff · rAAPL turnover</b><span class="rt">log · hourly · ET</span></div>
+    <div class="bars" id="bars"></div>
+    <div class="cn">At <b>20:00 ET</b> the internal engine takes over. <b>$2.38bn → $63</b> in one hour.</div>
+  </div>
+</div>
+</div>
 
-<div class="sechead">
-  <h3>Live book</h3><span class="note" id="tblnote"></span>
-  <span class="sizer">order size
-    <select id="osize">
-      <option value="0">off</option><option value="1000">$1,000</option>
+<div id="banner" class="ban b-open">loading…</div>
+
+<div class="sec rv">
+  <div class="shead"><h2>Live book</h2><span class="note" id="tblnote"></span>
+    <span class="rt">order size
+      <select id="osize"><option value="0">off</option><option value="1000">$1,000</option>
       <option value="10000">$10,000</option><option value="50000" selected>$50,000</option>
-      <option value="250000">$250,000</option>
-    </select>
-  </span>
+      <option value="250000">$250,000</option></select></span>
+  </div>
+  <div class="tw"><table>
+  <thead><tr><th>Symbol</th><th>Name</th><th>Last</th><th>Fair</th><th>Drift</th><th>Noise</th>
+  <th>Tier</th><th>Buy depth</th><th>Sell depth</th><th>Spread</th><th>Slices</th><th></th></tr></thead>
+  <tbody id="rows"><tr><td colspan="12">loading…</td></tr></tbody></table></div>
+  <div class="more" id="morewrap"></div>
 </div>
-<div class="tblwrap"><table>
-<thead><tr><th>Symbol</th><th>Name</th><th>Last</th><th>Fair</th><th>Drift</th>
-<th>Noise</th><th>Tier</th><th>Buy depth</th><th>Sell depth</th><th>Spread</th>
-<th>Slices</th><th></th></tr></thead>
-<tbody id="rows"><tr><td colspan="12">loading…</td></tr></tbody>
-</table></div>
-<div class="more" id="morewrap"></div>
 
-<div class="sechead"><h3>The public record</h3>
-  <span class="note">hashed before the reopen · graded after · win or lose</span></div>
-<div id="pending"></div><div id="rounds"></div>
-<p class="mini" id="rsummary"></p>
-<p class="mini">Claim 1 wins <b>7 weekends in 10</b> — stated in advance.
-<a href="https://github.com/egbujor-emmanuel/nocturne/tree/master/predictions">predictions &amp; hashes</a> ·
-<a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/docs/METHODOLOGY.md">method</a> ·
-<a href="api/v1/index.json">API</a></p>
+<div class="sec rv">
+  <div class="shead"><h2>The public record</h2>
+    <span class="note">hashed before the reopen · graded after · win or lose</span></div>
+  <div id="pending"></div><div id="rounds"></div>
+  <p class="mini" id="rsummary"></p>
+  <p class="mini">Claim 1 wins <b>7 weekends in 10</b> — stated in advance.
+  <a href="https://github.com/egbujor-emmanuel/nocturne/tree/master/predictions">predictions &amp; hashes</a> ·
+  <a href="https://github.com/egbujor-emmanuel/nocturne/blob/master/docs/METHODOLOGY.md">method</a> ·
+  <a href="api/v1/index.json">API</a></p>
+</div>
 
 <footer>
 <b>Read-only.</b> No account, wallet or API key — NOCTURNE never places an order or holds a key.
-<b>Not a forecast.</b> Fitted models were tested walk-forward and lost to the naive baseline; only
-the unfitted one wins, by ~9% MAE on large caps. The Noise Score ranks execution risk, it does not
-predict direction. Scores appear only in the weekend windows the model was calibrated on.<br>
-<span id="built"></span> ·
-<a href="https://github.com/egbujor-emmanuel/nocturne">source, dataset &amp; study</a>
+<b>Not a forecast.</b> Fitted models were tested walk-forward and lost to the naive baseline; only the
+unfitted one wins, by ~9% MAE on large caps. The Noise Score ranks execution risk, it does not predict
+direction. Scores appear only in the weekend windows the model was calibrated on.<br>
+<span id="built"></span> · <a href="https://github.com/egbujor-emmanuel/nocturne">source, dataset &amp; study</a>
 </footer>
 </div>
 
 <script>
 var CLIFF=[["13:00",1194526120],["14:00",946424534],["15:00",2266891565],["16:00",2380614570],
 ["17:00",419727470],["18:00",18908460],["19:00",16062350],["20:00",63],["21:00",123],
-["22:00",377],["23:00",11],["Sat 02",247],["Sat 08",176],["Sat 14",4],["Sat 20",318]];
+["22:00",377],["23:00",11],["02:00",247],["08:00",176],["14:00",4],["20:00",318]];
 var SEGS=[["ah","AFTER-HOURS",4],["void","VOID · NO EXTERNAL PRICE",47],
-          ["partial","FUTURES",9],["pre","PRE",5.5],["lit","OPEN",6.5]];
+          ["partial","FUTURES",9],["pre","PRE-MARKET",5.5],["lit","OPEN",6.5]];
+var SPARK={}, PICK=null;
 
 function el(id){var e=document.getElementById(id);
   if(!e)console.warn("missing element:",id);
-  return e||{innerHTML:"",textContent:"",className:"",value:"0",addEventListener:function(){}};}
-var f=function(n,d){return n==null?"—":n.toLocaleString(undefined,
-  {minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
-var money=function(n){return n==null?"—":"$"+f(n);};
+  return e||{innerHTML:"",textContent:"",className:"",value:"0",addEventListener:function(){},
+             appendChild:function(){},querySelector:function(){return null}};}
+function f(n,d){return n==null?"—":n.toLocaleString(undefined,
+  {minimumFractionDigits:d||0,maximumFractionDigits:d||0});}
+function money(n){return n==null?"—":"$"+f(n);}
 
 function countTo(node,target,suffix,dec,prefix){
-  var t0=null,dur=900;
-  function step(ts){ if(!t0)t0=ts; var p=Math.min(1,(ts-t0)/dur);
+  var t0=null;
+  function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/950);
     var e=1-Math.pow(1-p,3);
     node.textContent=(prefix||"")+f(target*e,dec||0)+(suffix||"");
     if(p<1)requestAnimationFrame(step);}
   requestAnimationFrame(step);
 }
 
+/* scroll reveal */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+},{threshold:.12});
+function armReveal(){[].forEach.call(document.querySelectorAll(".rv:not(.in)"),function(n){io.observe(n);});}
+
+/* 3D tilt */
+document.addEventListener("mousemove",function(ev){
+  [].forEach.call(document.querySelectorAll(".tiles .card"),function(c){
+    var r=c.getBoundingClientRect();
+    if(ev.clientX<r.left-120||ev.clientX>r.right+120||ev.clientY<r.top-120||ev.clientY>r.bottom+120){
+      c.classList.remove("tilt");c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg");return;}
+    var cx=r.left+r.width/2, cy=r.top+r.height/2;
+    c.classList.add("tilt");
+    c.style.setProperty("--ry",((ev.clientX-cx)/r.width*9).toFixed(2)+"deg");
+    c.style.setProperty("--rx",(-(ev.clientY-cy)/r.height*9).toFixed(2)+"deg");
+  });
+});
+
+/* cliff bars */
 (function(){
-  var host=el("bars"),max=Math.log10(2380614570);
-  host.innerHTML=CLIFF.map(function(d,i){
-    var h=Math.max(1.5,(Math.log10(Math.max(d[1],1))/max)*100);
-    return '<div class="bar'+(i>=7?' dark':'')+'" title="'+d[0]+' — $'+d[1].toLocaleString()+'">'+
-      '<i style="height:'+h+'%;animation-delay:'+(i*45)+'ms"></i><span>'+d[0]+'</span></div>';
+  var max=Math.log10(2380614570);
+  el("bars").innerHTML=CLIFF.map(function(d,i){
+    var h=Math.max(2,(Math.log10(Math.max(d[1],1))/max)*100);
+    return '<div class="bar'+(i>=7?' d':'')+'" title="'+d[0]+' — $'+d[1].toLocaleString()+'">'+
+      '<i style="height:'+h+'%;animation-delay:'+(i*50)+'ms"></i><span>'+d[0]+'</span></div>';
   }).join("");
   var tot=SEGS.reduce(function(a,s){return a+s[2];},0);
   el("track").innerHTML=SEGS.map(function(s){
@@ -291,27 +373,47 @@ function countTo(node,target,suffix,dec,prefix){
 
 function placeNow(){
   var now=new Date(), et=new Date(now.getTime()-4*3600*1000);
-  var day=et.getUTCDay(), h=et.getUTCHours()+et.getUTCMinutes()/60;
-  var pos=null;                       // hours from Fri 16:00 across a 72h window
-  if(day===5&&h>=16) pos=h-16;
-  else if(day===6) pos=8+h;
-  else if(day===0) pos=32+h;
-  else if(day===1&&h<=16) pos=56+h;
-  var t=el("track");
-  var old=t.querySelector(".now"); if(old)old.remove();
-  if(pos!==null){var d=document.createElement("div");
-    d.className="now"; d.style.left=(pos/72*100)+"%"; t.appendChild(d);
-    el("wknow").textContent="live";
-  } else {
-    var target=new Date(now.getTime());   // next Friday 20:00 ET
-    var d2=(5-((et.getUTCDay()+6)%7+1)+7)%7;
-    target.setTime(now.getTime()+d2*86400000);
-    var etT=new Date(target.getTime()-4*3600*1000);
-    etT.setUTCHours(20,0,0,0);
-    var hrs=(etT.getTime()+4*3600*1000-now.getTime())/3600000;
-    if(hrs<0)hrs+=168;
+  var day=et.getUTCDay(), h=et.getUTCHours()+et.getUTCMinutes()/60, pos=null;
+  if(day===5&&h>=16)pos=h-16; else if(day===6)pos=8+h;
+  else if(day===0)pos=32+h; else if(day===1&&h<=16)pos=56+h;
+  var t=el("track"); var old=t.querySelector(".now"); if(old)old.remove();
+  if(pos!==null){var d=document.createElement("div");d.className="now";
+    d.style.left=(pos/72*100)+"%";t.appendChild(d);el("wknow").textContent="live in the window";}
+  else{
+    var dd=(5-((et.getUTCDay()+6)%7+1)+7)%7;
+    var tg=new Date(now.getTime()+dd*86400000);
+    var e2=new Date(tg.getTime()-4*3600*1000); e2.setUTCHours(20,0,0,0);
+    var hrs=(e2.getTime()+4*3600*1000-now.getTime())/3600000; if(hrs<0)hrs+=168;
     el("wknow").textContent="void opens in "+hrs.toFixed(0)+"h";
   }
+}
+
+function drawSpark(sym){
+  PICK=sym;
+  var ser=SPARK[sym]||[];
+  var svg=el("spark");
+  [].forEach.call(svg.querySelectorAll("path,line"),function(n){n.remove();});
+  if(ser.length<3){el("lastpx").textContent="—";return;}
+  var ys=ser.map(function(p){return p[1];});
+  var lo=Math.min.apply(null,ys), hi=Math.max.apply(null,ys), pad=(hi-lo)*.18||1;
+  lo-=pad; hi+=pad;
+  var W=600,H=150;
+  function X(i){return i/(ser.length-1)*W;}
+  function Y(v){return H-((v-lo)/(hi-lo))*H;}
+  for(var g=1;g<4;g++){
+    var ln=document.createElementNS("http://www.w3.org/2000/svg","line");
+    ln.setAttribute("class","gl");ln.setAttribute("x1",0);ln.setAttribute("x2",W);
+    ln.setAttribute("y1",H*g/4);ln.setAttribute("y2",H*g/4);svg.appendChild(ln);
+  }
+  var d=ser.map(function(p,i){return (i?"L":"M")+X(i).toFixed(1)+" "+Y(p[1]).toFixed(1);}).join(" ");
+  var ar=document.createElementNS("http://www.w3.org/2000/svg","path");
+  ar.setAttribute("class","ar");ar.setAttribute("d",d+" L"+W+" "+H+" L0 "+H+" Z");svg.appendChild(ar);
+  var ln2=document.createElementNS("http://www.w3.org/2000/svg","path");
+  ln2.setAttribute("class","ln");ln2.setAttribute("d",d);svg.appendChild(ln2);
+  var first=ys[0], last=ys[ys.length-1], ch=(last/first-1)*100;
+  el("lastpx").innerHTML=f(last,2)+
+    '<span class="'+(ch>=0?"up":"down")+'">'+(ch>=0?"+":"")+ch.toFixed(2)+"% over the window</span>";
+  el("sparknote").textContent="our own captured ticks · "+ser.length+" points · 5-minute resolution";
 }
 
 function load(){
@@ -322,71 +424,85 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
   countTo(el("noise"),fi.noise_share_large_cap_pct,"%",0);
   countTo(el("wknd"),8.64,"m",2,"$");
   el("reopen").textContent=s.hours_to_reopen+"h";
-  el("uni").textContent=s.universe.weekend_tradeable;
+  countTo(el("uni"),s.universe.weekend_tradeable,"",0);
   el("stamp").textContent=s.generated_et;
   el("built").textContent="Generated "+s.generated_et;
   placeNow();
 
+  SPARK=s.spark_series||{};
+  var keys=Object.keys(SPARK);
+  if(keys.length){
+    el("pick").innerHTML=keys.map(function(k){
+      return '<button data-k="'+k+'">'+k+'</button>';}).join("");
+    [].forEach.call(el("pick").querySelectorAll("button"),function(b){
+      b.addEventListener("click",function(){
+        [].forEach.call(el("pick").querySelectorAll("button"),function(x){x.classList.remove("on");});
+        b.classList.add("on");drawSpark(b.getAttribute("data-k"));});});
+    var want=(PICK&&SPARK[PICK])?PICK:keys[0];
+    var btn=el("pick").querySelector('[data-k="'+want+'"]');
+    if(btn)btn.classList.add("on");
+    drawSpark(want);
+  }
+
   var b=el("banner"), w=s.last_void_window;
   var hist="greyed = last void window"+(w?" ("+w[0]+" → "+w[1]+")":"");
   if(s.scores_live){
-    b.className="banner b-dark";
-    b.innerHTML="<b>Market CLOSED ("+s.session+").</b> Every price below is set by Bitget's "+
-      "internal engine. Unfilled limit orders are cancelled at "+s.next_reopen_et+".";
+    b.className="ban b-dark";
+    b.innerHTML="<b>Market CLOSED ("+s.session+").</b> Every price below is set by Bitget's internal "+
+      "engine. Unfilled limit orders are cancelled at "+s.next_reopen_et+".";
     el("tblnote").textContent="scores active";
   }else if(s.is_dark){
-    b.className="banner b-dark";
-    b.innerHTML="<b>Closed overnight ("+s.session+").</b> Scores held back — the model is "+
-      "calibrated on weekend windows. Live scoring resumes Friday 20:00 ET.";
+    b.className="ban b-dark";
+    b.innerHTML="<b>Closed overnight ("+s.session+").</b> Scores held back — the model is calibrated "+
+      "on weekend windows. Live scoring resumes Friday 20:00 ET.";
     el("tblnote").textContent=hist;
   }else{
-    b.className="banner b-open";
-    b.innerHTML="<b>Market open ("+s.session+").</b> Orders route to real liquidity, so scores "+
-      "are suppressed. They return at 20:00 ET.";
+    b.className="ban b-open";
+    b.innerHTML="<b>Market open ("+s.session+").</b> Orders route to real liquidity, so scores are "+
+      "suppressed. They return at 20:00 ET.";
     el("tblnote").textContent=hist;
   }
 
   var tr=s.track_record||{rounds:[],summary:null,pending:null};
   el("pending").innerHTML=tr.pending
-    ? '<div class="round"><span class="badge pend">AWAITING GRADE</span>'+
-      '<span class="when">'+tr.pending.published+'</span>'+
-      '<span class="det">'+tr.pending.n+' symbols · sha '+tr.pending.sha256+'…</span></div>'
-    : '<div class="round"><span class="badge pend">NEXT</span>'+
-      '<span class="when">Sunday, in the void</span>'+
+    ? '<div class="round"><span class="bdg pend">AWAITING GRADE</span><span class="when">'+
+      tr.pending.published+'</span><span class="det">'+tr.pending.n+' symbols · sha '+
+      tr.pending.sha256+'…</span></div>'
+    : '<div class="round"><span class="bdg pend">NEXT</span><span class="when">Sunday, in the void</span>'+
       '<span class="det">publishes automatically, hashed before the reopen</span></div>';
   el("rounds").innerHTML=(tr.rounds||[]).slice().reverse().map(function(r){
     return '<div class="round"><span class="when">'+r.target+'</span>'+
-      '<span class="badge '+(r.level_won?"won":"lost")+'">LEVEL '+(r.level_won?"WON":"LOST")+'</span>'+
+      '<span class="bdg '+(r.level_won?"won":"lost")+'">LEVEL '+(r.level_won?"WON":"LOST")+'</span>'+
       '<span class="det">'+r.level_model+'% vs '+r.level_base+'%</span>'+
-      '<span class="badge '+(r.rank_won?"won":"lost")+'">RANK '+(r.rank_won?"WON":"LOST")+'</span>'+
+      '<span class="bdg '+(r.rank_won?"won":"lost")+'">RANK '+(r.rank_won?"WON":"LOST")+'</span>'+
       '<span class="det">'+r.rank_top+'% vs '+r.rank_bottom+'%</span></div>';}).join("");
   var sm=tr.summary;
   el("rsummary").innerHTML=sm&&sm.rounds
-    ? "Record: level <b>"+sm.claim_1_won+"/"+sm.rounds+"</b>, ranking <b>"+sm.claim_2_won+
-      "/"+sm.rounds+"</b>. Losses shown, not hidden." : "";
+    ? "Record: level <b>"+sm.claim_1_won+"/"+sm.rounds+"</b>, ranking <b>"+sm.claim_2_won+"/"+
+      sm.rounds+"</b>. Losses shown, not hidden." : "";
 
   var maxd=0;
   s.symbols.forEach(function(r){if(r.buy_usd_0_5>maxd)maxd=r.buy_usd_0_5;});
   var LIMIT=20, osz=parseFloat(el("osize").value)||0;
-  var shown=window.__showAll?s.symbols:s.symbols.slice(0,LIMIT);
+  var shown=window.__all?s.symbols:s.symbols.slice(0,LIMIT);
   el("rows").innerHTML=shown.map(function(r){
     var hv=r.last_void||null, url="https://www.bitget.com/spot/"+r.pair;
     var cls=r.liquidity==="VERY THIN"?"vthin":(r.liquidity==="THIN"?"thin":"");
-    function bar(v){var pct=maxd?Math.max(2,Math.sqrt(v/maxd)*100):0;
-      return '<div class="dep '+cls+'"><span class="trk"><i class="fill" style="width:'+pct+
+    function bar(v){var pct=maxd?Math.max(3,Math.sqrt(v/maxd)*100):0;
+      return '<div class="dep '+cls+'"><span class="t"><i class="f" style="width:'+pct+
         '%"></i></span><span class="amt">'+money(v)+'</span></div>';}
     var dr=r.dislocation_pct==null
       ? (hv?'<span class="hist '+(hv.drift>=0?"up":"down")+'">'+(hv.drift>=0?"+":"")+
-            hv.drift.toFixed(2)+'%</span>':"—")
-      : '<span class="'+(r.dislocation_pct>=0?"up":"down")+'">'+
-        (r.dislocation_pct>=0?"+":"")+r.dislocation_pct.toFixed(2)+'%</span>';
+          hv.drift.toFixed(2)+'%</span>':"—")
+      : '<span class="'+(r.dislocation_pct>=0?"up":"down")+'">'+(r.dislocation_pct>=0?"+":"")+
+        r.dislocation_pct.toFixed(2)+'%</span>';
     var tier=r.tier?'<span class="pill '+r.tier+'">'+r.tier+'</span>'
       :(hv?'<span class="pill hist '+hv.tier+'">'+hv.tier+'</span>':"—");
-    var d05=r.buy_usd_0_5||0, split="—";
-    if(osz>0){ if(d05<=0)split='<span class="down">none</span>';
-      else if(osz<=d05)split='1';
+    var d05=r.buy_usd_0_5||0, sp="—";
+    if(osz>0){if(d05<=0)sp='<span class="down">none</span>';
+      else if(osz<=d05)sp='1';
       else{var n=Math.min(20,Math.ceil(osz/d05));
-        split='<b class="'+(n>=6?"down":"")+'">'+n+'</b><span class="nm"> × $'+
+        sp='<b class="'+(n>=6?"down":"")+'">'+n+'</b><span class="nm"> × $'+
           Math.round(osz/n).toLocaleString()+'</span>';}}
     return '<tr><td class="sym"><a href="'+url+'" target="_blank" rel="noopener">'+r.symbol+'</a></td>'+
       '<td class="nm">'+r.name+'</td><td>'+f(r.last,2)+'</td>'+
@@ -395,17 +511,19 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
       '<td>'+(r.noise_score==null?(hv?'<span class="hist">'+hv.score+'</span>':"—"):r.noise_score)+'</td>'+
       '<td>'+tier+'</td><td>'+bar(r.buy_usd_0_5)+'</td><td>'+bar(r.sell_usd_0_5)+'</td>'+
       '<td>'+(r.spread_pct==null?"—":r.spread_pct.toFixed(2)+"%")+'</td>'+
-      '<td>'+split+'</td>'+
+      '<td>'+sp+'</td>'+
       '<td><a class="go" href="'+url+'" target="_blank" rel="noopener">trade →</a></td></tr>';
   }).join("");
 
-  el("morewrap").innerHTML=(window.__showAll||s.symbols.length<=LIMIT)?"":
-    '<button id="moreb">show all '+s.symbols.length+'</button>';
+  el("morewrap").innerHTML=(window.__all||s.symbols.length<=LIMIT)?"":
+    '<button id="moreb">show all '+s.symbols.length+' rTokens</button>';
   var mb=document.getElementById("moreb");
-  if(mb)mb.addEventListener("click",function(){window.__showAll=true;load();});
+  if(mb)mb.addEventListener("click",function(){window.__all=true;load();});
+  armReveal();
 }).catch(function(e){
   el("rows").innerHTML='<tr><td colspan="12">failed to load state: '+e+'</td></tr>';});
 }
+armReveal();
 load();
 setInterval(load,60000);
 setInterval(placeNow,60000);
