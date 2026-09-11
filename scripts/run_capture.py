@@ -94,9 +94,14 @@ def _git_publish():
         run(["git","fetch","-q","origin","master"],timeout=90)
         rcm,_,_=run(["git","merge","-X","ours","--no-edit","-q","origin/master"],timeout=120)
         if rcm!=0:
+            # NEVER 'git checkout --ours .' here. It rewrites every tracked file
+            # in the working tree, silently destroying edits in progress - it ate
+            # three separate changes during this build. Restrict recovery to the
+            # data this runner owns and leave source alone.
             run(["git","merge","--abort"],timeout=30)
-            run(["git","checkout","--ours","."],timeout=60)
-            run(["git","add","-A"],timeout=60)
+            for _p in ("data/live","data/books","data/site.json","api"):
+                run(["git","checkout","--ours","--",_p],timeout=60)
+            run(["git","add","-A","data","api"],timeout=60)
         rc2,_,e2=run(["git","push","-q"],timeout=120)
         if rc2==0: log("pushed"); return 0
         log("push failed attempt %d: %s" % (i+1,e2[:100]))
