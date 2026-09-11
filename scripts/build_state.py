@@ -162,6 +162,25 @@ def build():
             ser=[[t,px] for t,px in sorted(seen.items())][-220:]
             if len(ser)>=6: spark[k[:-4]]=ser
     except Exception: pass
+    # median turnover for every hour of the week - the real liquidity profile.
+    # 168 buckets, from our own history. The weekend flatline is measured, not drawn.
+    profile=[]
+    try:
+        import statistics as _st
+        from core import load_bars as _lb
+        buckets={}
+        for _sym in ("RAAPLUSDT","RNVDAUSDT","RTSLAUSDT","RMSFTUSDT"):
+            _p=os.path.join(ROOT,"data","1h",_sym+".json")
+            if not os.path.exists(_p): continue
+            for _t,(_c,_q) in _lb(_p).items():
+                buckets.setdefault(_t.weekday()*24+_t.hour,[]).append(_q)
+        for _h in range(168):
+            _v=buckets.get(_h)
+            profile.append(round(_st.median(_v),2) if _v else 0.0)
+        if not any(profile): profile=[]
+    except Exception as _e:
+        print("week_profile failed: %s: %s" % (type(_e).__name__, str(_e)[:90]))
+        profile=[]
     fv=json.load(open(os.path.join(ROOT,"data","fairvalue_v2.json")))
     uni=json.load(open(os.path.join(ROOT,"data","weekend_universe.json")))
     reopen=next_reopen(now)
@@ -176,6 +195,7 @@ def build():
       "universe":{"weekend_tradeable":uni["weekend_tradeable"],"scanned":uni["candidates"]},
       "track_record":track,
       "spark_series":spark,
+      "week_profile":profile,
       "finding":{
         "noise_share_large_cap_pct":100.3,"beta":-1.003,"t":-3.46,
         "oos_improvement_pct":round(fv["large"]["MF"]["improvement_pct"],2),

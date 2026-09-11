@@ -97,7 +97,26 @@ a{color:var(--blue2);text-decoration:none}
 .shead .rt{margin-left:auto;font-size:11.5px;color:var(--ink3)}
 .shead .rt select{font:inherit;font-family:var(--mono);background:var(--panel2);color:var(--ink);
   border:1px solid var(--line);border-radius:8px;padding:5px 10px;margin-left:8px}
-.weekwrap{padding:20px 22px 16px}
+.weekwrap{padding:18px 22px 14px;display:flex;gap:14px;align-items:stretch}
+.wkscale{display:flex;flex-direction:column;justify-content:space-between;
+  font-size:9px;color:var(--ink3);font-family:var(--mono);padding-bottom:20px;min-width:34px;
+  text-align:right}
+.wkplot{flex:1;position:relative;min-width:0}
+svg.wk{width:100%;height:128px;display:block;overflow:visible}
+.wk rect.h{transition:opacity .2s}
+.wk rect.h:hover{opacity:.75}
+.wk .gl{stroke:rgba(88,120,190,.10);stroke-width:1}
+.wk .voidband{fill:rgba(255,92,77,.07)}
+.wkdays{display:grid;grid-template-columns:repeat(7,1fr);margin-top:7px;
+  font-size:9.5px;color:var(--ink3);font-family:var(--mono);letter-spacing:.1em}
+.wkdays span{text-align:center;border-left:1px solid var(--line2);padding-top:2px}
+.wkdays span:first-child{border-left:none}
+.wkdays span.wknd{color:#FF8A7C}
+.nowline{position:absolute;top:-6px;bottom:26px;width:2px;z-index:3;
+  background:linear-gradient(180deg,transparent,#fff 20%,#fff 80%,transparent);
+  box-shadow:0 0 12px rgba(255,255,255,.9)}
+.nowline:after{content:"NOW";position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  font-size:8px;font-weight:900;letter-spacing:.14em;color:#fff;font-family:var(--mono)}
 .trk{display:flex;height:58px;border-radius:11px;overflow:hidden;position:relative;
   box-shadow:0 10px 30px rgba(2,6,16,.55),0 1px 0 rgba(255,255,255,.06) inset}
 .seg{position:relative;display:flex;align-items:center;justify-content:center;font-size:9.5px;
@@ -247,8 +266,12 @@ footer b{color:var(--ink2)}
 <div class="sec rv">
   <div class="shead"><h2>The trading week</h2><span class="rt" id="wknow">—</span></div>
   <div class="card weekwrap">
-    <div class="trk" id="track"></div>
-    <div class="wkf"><span>FRI 16:00</span><span>SAT</span><span>SUN</span><span>MON 16:00</span></div>
+    <div class="wkscale" id="wkscale"></div>
+    <div class="wkplot">
+      <svg class="wk" id="weekchart" viewBox="0 0 672 128" preserveAspectRatio="none"></svg>
+      <div class="wkdays" id="wkdays"></div>
+    </div>
+    <div class="cn" id="wknote">&nbsp;</div>
   </div>
 </div>
 
@@ -317,8 +340,7 @@ direction. Scores appear only in the weekend windows the model was calibrated on
 var CLIFF=[["13:00",1194526120],["14:00",946424534],["15:00",2266891565],["16:00",2380614570],
 ["17:00",419727470],["18:00",18908460],["19:00",16062350],["20:00",63],["21:00",123],
 ["22:00",377],["23:00",11],["02:00",247],["08:00",176],["14:00",4],["20:00",318]];
-var SEGS=[["ah","AFTER-HOURS",4],["void","VOID · NO EXTERNAL PRICE",47],
-          ["partial","FUTURES",9],["pre","PRE-MARKET",5.5],["lit","OPEN",6.5]];
+var WK=[];
 var SPARK={}, PICK=null;
 
 function el(id){var e=document.getElementById(id);
@@ -365,20 +387,41 @@ document.addEventListener("mousemove",function(ev){
     return '<div class="bar'+(i>=7?' d':'')+'" title="'+d[0]+' — $'+d[1].toLocaleString()+'">'+
       '<i style="height:'+h+'%;animation-delay:'+(i*50)+'ms"></i><span>'+d[0]+'</span></div>';
   }).join("");
-  var tot=SEGS.reduce(function(a,s){return a+s[2];},0);
-  el("track").innerHTML=SEGS.map(function(s){
-    return '<div class="seg '+s[0]+'" style="flex:'+s[2]+'" title="'+s[1]+' · '+s[2]+'h">'+
-      (s[2]>=6?s[1]:"")+'</div>';}).join("");
+  el("wkdays").innerHTML=["MON","TUE","WED","THU","FRI","SAT","SUN"].map(function(d,i){
+    return '<span class="'+(i>=5?"wknd":"")+'">'+d+'</span>';}).join("");
 })();
+
+function drawWeek(){
+  var svg=el("weekchart"); if(!WK.length){return;}
+  while(svg.firstChild)svg.removeChild(svg.firstChild);
+  var W=672,H=128,NS="http://www.w3.org/2000/svg";
+  var mx=Math.log10(Math.max.apply(null,WK)||1);
+  function add(t,a){var n=document.createElementNS(NS,t);
+    for(var k in a)n.setAttribute(k,a[k]);svg.appendChild(n);return n;}
+  // void window shading: Fri 20:00 (idx 4*24+20) to Sun 19:00 (idx 6*24+19)
+  add("rect",{class:"voidband",x:(4*24+20)/168*W,y:0,width:(47/168)*W,height:H});
+  for(var g=1;g<4;g++)add("line",{class:"gl",x1:0,x2:W,y1:H*g/4,y2:H*g/4});
+  for(var i=0;i<168;i++){
+    var v=WK[i], hgt=v>0?Math.max(1.2,(Math.log10(v)/mx)*H):1.2;
+    var wknd=(i>=4*24+20&&i<6*24+19);
+    add("rect",{class:"h",x:i/168*W,y:H-hgt,width:W/168*0.86,height:hgt,
+      fill:wknd?"#FF5C4D":"#4D8BFF",opacity:wknd?.95:.85,
+      title:""});
+  }
+  var scale=el("wkscale");
+  scale.innerHTML=["$1bn","$1m","$1k","$1"].map(function(x){return "<span>"+x+"</span>";}).join("");
+}
 
 function placeNow(){
   var now=new Date(), et=new Date(now.getTime()-4*3600*1000);
-  var day=et.getUTCDay(), h=et.getUTCHours()+et.getUTCMinutes()/60, pos=null;
-  if(day===5&&h>=16)pos=h-16; else if(day===6)pos=8+h;
-  else if(day===0)pos=32+h; else if(day===1&&h<=16)pos=56+h;
-  var t=el("track"); var old=t.querySelector(".now"); if(old)old.remove();
-  if(pos!==null){var d=document.createElement("div");d.className="now";
-    d.style.left=(pos/72*100)+"%";t.appendChild(d);el("wknow").textContent="live in the window";}
+  var idx=((et.getUTCDay()+6)%7)*24+et.getUTCHours()+et.getUTCMinutes()/60;
+  var host=el("weekchart").parentNode;
+  var old=host.querySelector(".nowline"); if(old)old.remove();
+  var d=document.createElement("div");d.className="nowline";
+  d.style.left=(idx/168*100)+"%";host.appendChild(d);
+  var day=et.getUTCDay(), h=et.getUTCHours()+et.getUTCMinutes()/60;
+  var inwin=(day===5&&h>=20)||day===6||(day===0&&h<19);
+  if(inwin){el("wknow").textContent="inside the void window";}
   else{
     var dd=(5-((et.getUTCDay()+6)%7+1)+7)%7;
     var tg=new Date(now.getTime()+dd*86400000);
@@ -429,6 +472,18 @@ fetch("data/site.json?t="+Date.now()).then(function(r){return r.json();}).then(f
   el("built").textContent="Generated "+s.generated_et;
   placeNow();
 
+  WK=s.week_profile||[];
+  if(WK.length===168){
+    drawWeek();
+    var rth=[],vd=[];
+    for(var d2=0;d2<5;d2++)for(var h2=10;h2<16;h2++)rth.push(WK[d2*24+h2]);
+    for(var i2=4*24+20;i2<6*24+19;i2++)vd.push(WK[i2]);
+    rth.sort(function(a,b){return a-b;}); vd.sort(function(a,b){return a-b;});
+    var mr=rth[Math.floor(rth.length/2)]||0, mv=vd[Math.floor(vd.length/2)]||1;
+    el("wknote").innerHTML="Median turnover per hour — <b style=\"color:var(--blue2)\">"+
+      money(mr)+"</b> while the market is open, <b style=\"color:var(--down)\">"+money(mv)+
+      "</b> inside the void. A factor of "+Math.round(mr/Math.max(mv,1)).toLocaleString()+".";
+  }
   SPARK=s.spark_series||{};
   var keys=Object.keys(SPARK);
   if(keys.length){
