@@ -17,7 +17,31 @@ NAMES={"RNVDA":"Nvidia","RAAPL":"Apple","RTSLA":"Tesla","RMSFT":"Microsoft",
  "RBABA":"Alibaba","RMSTR":"Strategy","RCRCL":"Circle","RHOOD":"Robinhood",
  "RSNDK":"SanDisk","RMRVL":"Marvell","RASTS":"AST SpaceMobile","RRKLB":"Rocket Lab"}
 
+_ANCHORS=None
+def _anchors():
+    """Hot anchor file, refreshed hourly. Small on purpose: rewriting the
+    38 MB data/1h archive every hour would add ~1.8 GB of git objects a
+    weekend."""
+    global _ANCHORS
+    if _ANCHORS is None:
+        try:
+            _ANCHORS=json.load(open(os.path.join(ROOT,"data","anchors.json")))["anchors"]
+        except Exception:
+            _ANCHORS={}
+    return _ANCHORS
+
+
 def ref_close(sym,now):
+    a=_anchors().get(sym)
+    if a:
+        try:
+            return a["close"], dt.datetime.fromtimestamp(a["ts"],ET)
+        except Exception:
+            pass
+    return _ref_close_archive(sym,now)
+
+
+def _ref_close_archive(sym,now):
     """Last regular-session (15:00 ET bar) close before the current dark window."""
     p=os.path.join(ROOT,"data","1h",sym+"USDT.json")
     if not os.path.exists(p): return None,None
