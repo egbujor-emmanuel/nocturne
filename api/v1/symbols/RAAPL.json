@@ -5,7 +5,7 @@
  "last": 332.77,
  "bid": 332.77,
  "ask": 332.88,
- "spread_pct": null,
+ "spread_pct": 0.0331,
  "reference_close": 316.22,
  "reference_close_at": "2026-09-08 15:00 ET",
  "fair_value": 316.22,
@@ -16,12 +16,12 @@
  "tier": "HIGH",
  "sigma_daily_pct": 1.71,
  "z": 3.06,
- "buy_usd_0_5": null,
- "sell_usd_0_5": null,
- "buy_shares_0_5": null,
- "liquidity": null,
+ "buy_usd_0_5": 22229.82,
+ "sell_usd_0_5": 22550.02,
+ "buy_shares_0_5": 66.604,
+ "liquidity": "VERY THIN",
  "band_max_buy": 347.842,
  "band_max_sell": 284.598,
  "class": "large-cap",
- "captured": "2026-09-12 09:00 ET"
+ "captured": "2026-09-12 09:02 ET"
 }
