@@ -64,6 +64,17 @@ def main():
     def beat(m):
         try: open(hb,"a",encoding="utf8").write(ts.strftime("%H:%M:%S")+" "+str(m)+chr(10))
         except Exception: pass
+    # keep data/1h current: the fair-value anchor is read from it, and a stale
+    # file silently turns four days of ordinary trading into "weekend drift".
+    if et.minute < 10:
+        try:
+            import subprocess as _sp
+            _sp.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                    "refresh_klines.py")], capture_output=True, timeout=300,
+                    creationflags=(0x08000000 if os.name == "nt" else 0))
+            beat("klines refreshed")
+        except Exception as _e:
+            beat("kline refresh failed: %s" % type(_e).__name__)
     beat("tickers")
     tk=jget(f"{API}/tickers")
     tmap={}

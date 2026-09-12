@@ -172,6 +172,26 @@ def _depth():
     return usd > 0, "%d books; RNVDA buy $%s" % (len(rows), format(usd, ",.0f"))
 
 
+def _anchor():
+    """The fair-value anchor must come from the most recent completed session.
+    A stale data/1h silently reports days of ordinary trading as weekend drift."""
+    import datetime as _dt
+    from session import ET as _ET
+    site = json.load(open("data/site.json"))
+    ages = []
+    for r in site["symbols"]:
+        at = r.get("reference_close_at")
+        if not at:
+            continue
+        t = _dt.datetime.strptime(at.replace(" ET", ""), "%Y-%m-%d %H:%M").replace(tzinfo=_ET)
+        ages.append((_dt.datetime.now(_ET) - t).total_seconds() / 3600)
+    if not ages:
+        return False, "no reference closes"
+    worst = max(ages)
+    return worst < 96, "oldest anchor %.1fh old" % worst
+
+
+chk("2", "anchor is current", _anchor)
 chk("2", "void-drift study reproduces", _study)
 chk("2", "fair value beats baseline OOS", _fv)
 chk("2", "noise score monotonic", _ns)

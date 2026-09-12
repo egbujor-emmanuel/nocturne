@@ -21,7 +21,7 @@
   "phase": "0",
   "check": "history backfilled",
   "pass": true,
-  "detail": "87 symbols, ~4000 bars each"
+  "detail": "88 symbols, ~4066 bars each"
  },
  {
   "phase": "0",
@@ -45,25 +45,31 @@
   "phase": "1",
   "check": "health check",
   "pass": true,
-  "detail": "session=RTH limit=45m healthy=True"
+  "detail": "session=VOID_A limit=30m healthy=True"
  },
  {
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 45 captures, lane2 47 captures"
+  "detail": "lane1 50 captures, lane2 52 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
   "pass": true,
-  "detail": "11 dispatch runs"
+  "detail": "18 dispatch runs"
  },
  {
   "phase": "1",
   "check": "multiple sources on disk",
   "pass": true,
   "detail": "sources: ['gh', 'local', 'local2']"
+ },
+ {
+  "phase": "2",
+  "check": "anchor is current",
+  "pass": true,
+  "detail": "oldest anchor 18.2h old"
  },
  {
   "phase": "2",
@@ -93,7 +99,7 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "87 books; RNVDA buy $681,238"
+  "detail": "87 books; RNVDA buy $611,810"
  },
  {
   "phase": "3",
@@ -105,19 +111,19 @@
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 84645 bytes"
+  "detail": "HTTP 200, 65273 bytes"
  },
  {
   "phase": "3",
   "check": "api index live",
   "pass": true,
-  "detail": "HTTP 200, 1251 bytes"
+  "detail": "HTTP 200, 1253 bytes"
  },
  {
   "phase": "3",
   "check": "api symbol live",
   "pass": true,
-  "detail": "HTTP 200, 832 bytes"
+  "detail": "HTTP 200, 609 bytes"
  },
  {
   "phase": "3",
