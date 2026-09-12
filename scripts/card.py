@@ -103,16 +103,28 @@ def build(kind="finding"):
     now = dt.datetime.now(ET)
     tag = now.strftime("%d %b %Y").upper()
 
+    syms = [r for r in site["symbols"] if r.get("noise_score") is not None]
+    books = [r for r in site["symbols"] if (r.get("buy_usd_0_5") or 0) > 0]
+    thin = min(books, key=lambda r: r["buy_usd_0_5"]) if books else None
+    top = max(syms, key=lambda r: r["noise_score"]) if syms else None
+
+    def usd(v):
+        return "$%s" % format(int(v), ",")
+
     if kind == "predict":
         tr = site.get("track_record", {}) or {}
         p = tr.get("pending") or {}
-        n = p.get("n", "—")
+        n = p.get("n") or len(syms) or "—"
         h1 = "This weekend's call, <em>published before the open</em>."
         sub = ("%s tokenized US stocks scored inside the void window and hashed to a public "
-               "repo. Graded Monday — <b>win or lose</b>." % n)
-        tiles = (tile("Scored", str(n), "rTokens in the void") +
-                 tile("Void drift reverses", "100%", "large caps · t = −3.46", "b") +
-                 tile("Graded", "MON", str(p.get("graded_against", "at the reopen"))))
+               "repo before the market reopens. Graded Monday — <b>win or lose</b>." % n)
+        tiles = tile("Scored", str(n), "rTokens, live in the void")
+        if top:
+            tiles += tile("Highest risk", top["symbol"],
+                          "drift %+.2f%% · score %d" % (top["dislocation_pct"], top["noise_score"]), "b")
+        if thin:
+            tiles += tile("Thinnest book", usd(thin["buy_usd_0_5"]),
+                          "%s — all you can buy at 0.5%%" % thin["symbol"], "r")
     elif kind == "grade":
         tr = site.get("track_record", {}) or {}
         rs = tr.get("rounds") or []
@@ -133,9 +145,12 @@ def build(kind="finding"):
         h1 = "For 47 hours a week these stocks have <em>no price</em>."
         sub = ("Tokenized US stocks trade 24/7. Nasdaq does not. In between, an internal "
                "matching engine is the only source of a price — and it clears almost nothing.")
-        tiles = (tile("Void drift reverses", "100%", "large caps · β −1.003 · t −3.46", "b") +
-                 tile("Weekend market", "$8.64m", "all %d rTokens, whole weekend" % uni, "r") +
-                 tile("One Friday hour", "$5.9bn", "rAAPL alone — 684× more"))
+        tiles = tile("Void drift reverses", "100%", "large caps · β −1.003 · t −3.46", "b")
+        if thin:
+            tiles += tile("Thinnest book right now", usd(thin["buy_usd_0_5"]),
+                          "%s — all you can buy at 0.5%%" % thin["symbol"], "r")
+        tiles += tile("Weekend market", "$8.64m",
+                      "all %d rTokens vs $5.9bn in one Friday hour" % uni)
 
     html = (TPL.replace("__TAG__", tag).replace("__H1__", h1)
                .replace("__SUB__", sub).replace("__TILES__", tiles))
