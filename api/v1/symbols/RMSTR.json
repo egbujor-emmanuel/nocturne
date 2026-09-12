@@ -3,9 +3,9 @@
  "pair": "RMSTRUSDT",
  "name": "Strategy",
  "last": 130.64,
- "bid": 130.57,
+ "bid": 130.64,
  "ask": 130.65,
- "spread_pct": 0.0613,
+ "spread_pct": 0.0077,
  "reference_close": 136.52,
  "reference_close_at": "2026-09-08 15:00 ET",
  "fair_value": 136.52,
@@ -16,12 +16,12 @@
  "tier": "HIGH",
  "sigma_daily_pct": 5.397,
  "z": -0.8,
- "buy_usd_0_5": 30922.24,
- "sell_usd_0_5": 33461.99,
+ "buy_usd_0_5": 30926.46,
+ "sell_usd_0_5": 25844.2,
  "buy_shares_0_5": 236.0279,
  "liquidity": "THIN",
  "band_max_buy": 150.172,
  "band_max_sell": 122.868,
  "class": "other",
- "captured": "2026-09-11 20:10 ET"
+ "captured": "2026-09-11 20:15 ET"
 }
