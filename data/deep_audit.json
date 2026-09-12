@@ -1,0 +1,134 @@
+[
+  {
+    "group": "A data",
+    "check": "every anchor is current",
+    "pass": true,
+    "detail": "87 anchors, oldest 18.6h, newest 18.6h"
+  },
+  {
+    "group": "A data",
+    "check": "anchor is Friday inside a weekend",
+    "pass": true,
+    "detail": "anchor dates in use: ['2026-09-11']"
+  },
+  {
+    "group": "A data",
+    "check": "void drift is plausible",
+    "pass": true,
+    "detail": "median |drift| 0.17%, max 2.34%"
+  },
+  {
+    "group": "A data",
+    "check": "scores are distributed",
+    "pass": true,
+    "detail": "n=75 median=24, 3% at >=90"
+  },
+  {
+    "group": "A data",
+    "check": "no capture gaps in the void",
+    "pass": true,
+    "detail": "75 cycles, 0 gaps>25min"
+  },
+  {
+    "group": "A data",
+    "check": "no null prices or books",
+    "pass": true,
+    "detail": "no price: 0, no book: 0 []"
+  },
+  {
+    "group": "A data",
+    "check": "universe file fresh",
+    "pass": true,
+    "detail": "87 of 699, file 74h old"
+  },
+  {
+    "group": "A data",
+    "check": "repo under the size limit",
+    "pass": true,
+    "detail": "pack 59 MB (GitHub soft limit 1 GB)"
+  },
+  {
+    "group": "B docs",
+    "check": "README carries the finding",
+    "pass": true,
+    "detail": "beta and t present in README"
+  },
+  {
+    "group": "B docs",
+    "check": "walkthrough matches the data",
+    "pass": true,
+    "detail": "all key figures present"
+  },
+  {
+    "group": "B docs",
+    "check": "submission matches the data",
+    "pass": true,
+    "detail": "all key figures present"
+  },
+  {
+    "group": "B docs",
+    "check": "site claims match the study",
+    "pass": true,
+    "detail": "site finding beta=-1.003 t=-3.46"
+  },
+  {
+    "group": "C pipe",
+    "check": "operational modules import",
+    "pass": true,
+    "detail": "all 16 operational modules import"
+  },
+  {
+    "group": "C pipe",
+    "check": "every script parses",
+    "pass": true,
+    "detail": "all 33 scripts parse"
+  },
+  {
+    "group": "C pipe",
+    "check": "workflow runs the full chain",
+    "pass": true,
+    "detail": "all steps present"
+  },
+  {
+    "group": "C pipe",
+    "check": "runner cannot clobber source",
+    "pass": true,
+    "detail": "runner cannot clobber the working tree"
+  },
+  {
+    "group": "C pipe",
+    "check": "dispatch token valid",
+    "pass": true,
+    "detail": "dispatch token valid"
+  },
+  {
+    "group": "C pipe",
+    "check": "no secrets in history",
+    "pass": true,
+    "detail": "clean (4 patterns)"
+  },
+  {
+    "group": "D live",
+    "check": "live site matches local",
+    "pass": true,
+    "detail": "live generated 2026-09-12 09:36 ET, finding matches local: True"
+  },
+  {
+    "group": "D live",
+    "check": "live anchor is fresh",
+    "pass": true,
+    "detail": "oldest live anchor 18.6h"
+  },
+  {
+    "group": "D live",
+    "check": "all public endpoints up",
+    "pass": true,
+    "detail": "all 3 endpoints 200"
+  },
+  {
+    "group": "D live",
+    "check": "prediction hashes intact",
+    "pass": true,
+    "detail": "1 files, hashes all match"
+  }
+]
