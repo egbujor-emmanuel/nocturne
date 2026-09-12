@@ -2,7 +2,7 @@
  "symbol": "RRKLB",
  "pair": "RRKLBUSDT",
  "name": "Rocket Lab",
- "last": 63.23,
+ "last": 63.22,
  "bid": 63.14,
  "ask": 63.22,
  "spread_pct": 0.1267,
@@ -11,8 +11,8 @@
  "fair_value": 62.95,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.445,
- "noise_score": 30,
+ "dislocation_pct": 0.429,
+ "noise_score": 29,
  "tier": "LOW",
  "sigma_daily_pct": 6.174,
  "z": 0.07,
@@ -23,5 +23,5 @@
  "band_max_buy": 69.245,
  "band_max_sell": 56.655,
  "class": "other",
- "captured": "2026-09-12 09:09 ET"
+ "captured": "2026-09-12 09:11 ET"
 }
