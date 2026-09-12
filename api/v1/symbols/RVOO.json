@@ -2,7 +2,7 @@
  "symbol": "RVOO",
  "pair": "RVOOUSDT",
  "name": "VOO",
- "last": 703.58,
+ "last": 703.65,
  "bid": 702.7,
  "ask": 703.65,
  "spread_pct": 0.1352,
@@ -11,11 +11,11 @@
  "fair_value": 704.07,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.07,
- "noise_score": 16,
+ "dislocation_pct": -0.06,
+ "noise_score": 15,
  "tier": "LOW",
  "sigma_daily_pct": 0.864,
- "z": -0.08,
+ "z": -0.07,
  "buy_usd_0_5": 50276.92,
  "sell_usd_0_5": 45084.57,
  "buy_shares_0_5": 71.2588,
@@ -23,5 +23,5 @@
  "band_max_buy": 774.477,
  "band_max_sell": 633.663,
  "class": "other",
- "captured": "2026-09-12 06:15 ET"
+ "captured": "2026-09-12 06:30 ET"
 }
