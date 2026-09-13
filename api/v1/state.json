@@ -1,11 +1,11 @@
 {
- "generated": "2026-09-13T21:01:00.011272+00:00",
- "generated_et": "2026-09-13 17:01 ET",
+ "generated": "2026-09-13T21:10:03.482704+00:00",
+ "generated_et": "2026-09-13 17:10 ET",
  "session": "VOID_A",
  "is_dark": true,
  "scores_live": true,
  "next_reopen_et": "2026-09-14 09:30 ET",
- "hours_to_reopen": 16.48,
+ "hours_to_reopen": 16.33,
  "band_pct": 10.0,
  "last_void_window": null,
  "universe": {
@@ -32,7 +32,13 @@
    "claim_1_won": 0,
    "claim_2_won": 1
   },
-  "pending": null
+  "pending": {
+   "file": "2026-09-13_1701.json",
+   "published": "2026-09-13 17:01 ET",
+   "graded_against": "2026-09-14 09:30 ET",
+   "n": 75,
+   "sha256": "91f3f9fc412e4096"
+  }
  },
  "spark_series": {
   "RNVDA": [
@@ -350,6 +356,10 @@
    ],
    [
     1789333200,
+    217.16
+   ],
+   [
+    1789333500,
     217.16
    ]
   ],
@@ -669,6 +679,10 @@
    [
     1789333200,
     332.73
+   ],
+   [
+    1789333500,
+    331.02
    ]
   ],
   "RTSLA": [
@@ -987,6 +1001,10 @@
    [
     1789333200,
     362.67
+   ],
+   [
+    1789333500,
+    362.67
    ]
   ]
  },
@@ -1174,7 +1192,7 @@
    "symbol": "RMU",
    "pair": "RMUUSDT",
    "name": "Micron",
-   "last": 938.74,
+   "last": 938.94,
    "bid": 938.73,
    "ask": 938.94,
    "spread_pct": 0.0224,
@@ -1183,46 +1201,46 @@
    "fair_value": 975.26,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -3.745,
+   "dislocation_pct": -3.724,
    "noise_score": 100,
    "tier": "HIGH",
    "sigma_daily_pct": 5.93,
    "z": -0.63,
-   "buy_usd_0_5": 101637.96,
+   "buy_usd_0_5": 101113.65,
    "sell_usd_0_5": 625786.77,
-   "buy_shares_0_5": 108.1478,
+   "buy_shares_0_5": 107.5904,
    "liquidity": "OK",
    "band_max_buy": 1072.786,
    "band_max_sell": 877.734,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RQCOM",
    "pair": "RQCOMUSDT",
    "name": "QCOM",
-   "last": 180.44,
-   "bid": 180.42,
+   "last": 180.42,
+   "bid": 180.4,
    "ask": 180.51,
-   "spread_pct": 0.0499,
+   "spread_pct": 0.061,
    "reference_close": 181.97,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 181.97,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -0.841,
+   "dislocation_pct": -0.852,
    "noise_score": 100,
    "tier": "HIGH",
    "sigma_daily_pct": 3.771,
-   "z": -0.22,
-   "buy_usd_0_5": 36490.53,
-   "sell_usd_0_5": 289869.27,
-   "buy_shares_0_5": 201.8853,
+   "z": -0.23,
+   "buy_usd_0_5": 35420.48,
+   "sell_usd_0_5": 290082.91,
+   "buy_shares_0_5": 195.9896,
    "liquidity": "THIN",
    "band_max_buy": 200.167,
    "band_max_sell": 163.773,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RGLW",
@@ -1249,34 +1267,34 @@
    "band_max_buy": 183.04,
    "band_max_sell": 149.76,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSNDK",
    "pair": "RSNDKUSDT",
    "name": "SanDisk",
-   "last": 1575.65,
-   "bid": 1574.76,
-   "ask": 1576.08,
-   "spread_pct": 0.1016,
+   "last": 1574.75,
+   "bid": 1575.07,
+   "ask": 1575.24,
+   "spread_pct": 0.0108,
    "reference_close": 1633.35,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 1633.35,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -3.533,
+   "dislocation_pct": -3.588,
    "noise_score": 99,
    "tier": "HIGH",
    "sigma_daily_pct": 7.124,
    "z": -0.5,
-   "buy_usd_0_5": 101285.39,
-   "sell_usd_0_5": 618038.45,
-   "buy_shares_0_5": 64.1077,
+   "buy_usd_0_5": 100433.48,
+   "sell_usd_0_5": 621965.32,
+   "buy_shares_0_5": 63.5681,
    "liquidity": "OK",
    "band_max_buy": 1796.685,
    "band_max_sell": 1470.015,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RQQQ",
@@ -1303,7 +1321,7 @@
    "band_max_buy": 786.368,
    "band_max_sell": 643.392,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAVGO",
@@ -1330,7 +1348,34 @@
    "band_max_buy": 398.189,
    "band_max_sell": 325.791,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
+  },
+  {
+   "symbol": "RCOHR",
+   "pair": "RCOHRUSDT",
+   "name": "COHR",
+   "last": 297.32,
+   "bid": 297.3,
+   "ask": 297.45,
+   "spread_pct": 0.0505,
+   "reference_close": 305.37,
+   "reference_close_at": "2026-09-11 15:00 ET",
+   "fair_value": 305.37,
+   "score_applies": true,
+   "score_suppressed_reason": null,
+   "dislocation_pct": -2.636,
+   "noise_score": 99,
+   "tier": "HIGH",
+   "sigma_daily_pct": 5.817,
+   "z": -0.45,
+   "buy_usd_0_5": 13411.0,
+   "sell_usd_0_5": 16246.89,
+   "buy_shares_0_5": 44.9337,
+   "liquidity": "VERY THIN",
+   "band_max_buy": 335.907,
+   "band_max_sell": 274.833,
+   "class": "other",
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSQQQ",
@@ -1357,7 +1402,7 @@
    "band_max_buy": 42.757,
    "band_max_sell": 34.983,
    "class": "leveraged",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSOXS",
@@ -1378,13 +1423,13 @@
    "sigma_daily_pct": 9.54,
    "z": 0.37,
    "buy_usd_0_5": 19464.88,
-   "sell_usd_0_5": 4451.43,
+   "sell_usd_0_5": 4363.61,
    "buy_shares_0_5": 425.2356,
    "liquidity": "VERY THIN",
    "band_max_buy": 48.554,
    "band_max_sell": 39.726,
    "class": "leveraged",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RLITE",
@@ -1411,7 +1456,7 @@
    "band_max_buy": 1019.733,
    "band_max_sell": 834.327,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RMRVL",
@@ -1438,7 +1483,7 @@
    "band_max_buy": 259.71,
    "band_max_sell": 212.49,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RTSM",
@@ -1465,7 +1510,7 @@
    "band_max_buy": 476.564,
    "band_max_sell": 389.916,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RPLTR",
@@ -1492,7 +1537,7 @@
    "band_max_buy": 183.953,
    "band_max_sell": 150.507,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RDRAM",
@@ -1519,7 +1564,7 @@
    "band_max_buy": 65.01,
    "band_max_sell": 53.19,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RINTC",
@@ -1546,7 +1591,7 @@
    "band_max_buy": 113.234,
    "band_max_sell": 92.646,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RNOK",
@@ -1573,7 +1618,7 @@
    "band_max_buy": 12.243,
    "band_max_sell": 10.017,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RORCL",
@@ -1600,7 +1645,7 @@
    "band_max_buy": 165.308,
    "band_max_sell": 135.252,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RHOOD",
@@ -1627,7 +1672,7 @@
    "band_max_buy": 123.827,
    "band_max_sell": 101.313,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RMETA",
@@ -1654,7 +1699,7 @@
    "band_max_buy": 712.833,
    "band_max_sell": 583.227,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAAOI",
@@ -1681,34 +1726,7 @@
    "band_max_buy": 115.896,
    "band_max_sell": 94.824,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
-  },
-  {
-   "symbol": "RCOHR",
-   "pair": "RCOHRUSDT",
-   "name": "COHR",
-   "last": 299.07,
-   "bid": 298.86,
-   "ask": 299.17,
-   "spread_pct": 0.1037,
-   "reference_close": 305.37,
-   "reference_close_at": "2026-09-11 15:00 ET",
-   "fair_value": 305.37,
-   "score_applies": true,
-   "score_suppressed_reason": null,
-   "dislocation_pct": -2.063,
-   "noise_score": 86,
-   "tier": "HIGH",
-   "sigma_daily_pct": 5.817,
-   "z": -0.35,
-   "buy_usd_0_5": 5495.09,
-   "sell_usd_0_5": 16058.76,
-   "buy_shares_0_5": 18.3264,
-   "liquidity": "VERY THIN",
-   "band_max_buy": 335.907,
-   "band_max_sell": 274.833,
-   "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RTSLA",
@@ -1735,7 +1753,7 @@
    "band_max_buy": 401.984,
    "band_max_sell": 328.896,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RMSFT",
@@ -1762,34 +1780,34 @@
    "band_max_buy": 545.193,
    "band_max_sell": 446.067,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RBE",
    "pair": "RBEUSDT",
    "name": "BE",
-   "last": 265.35,
-   "bid": 265.32,
-   "ask": 265.76,
-   "spread_pct": 0.1658,
+   "last": 265.42,
+   "bid": 265.35,
+   "ask": 265.56,
+   "spread_pct": 0.0791,
    "reference_close": 275.75,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 275.75,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -3.772,
+   "dislocation_pct": -3.746,
    "noise_score": 76,
    "tier": "ELEVATED",
    "sigma_daily_pct": 6.927,
    "z": -0.54,
-   "buy_usd_0_5": 19137.44,
-   "sell_usd_0_5": 24952.76,
-   "buy_shares_0_5": 71.7716,
+   "buy_usd_0_5": 17061.86,
+   "sell_usd_0_5": 31467.92,
+   "buy_shares_0_5": 64.0244,
    "liquidity": "VERY THIN",
    "band_max_buy": 303.325,
    "band_max_sell": 248.175,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSKHY",
@@ -1816,7 +1834,7 @@
    "band_max_buy": 209.077,
    "band_max_sell": 171.063,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAMD",
@@ -1843,7 +1861,7 @@
    "band_max_buy": 567.743,
    "band_max_sell": 464.517,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RCOIN",
@@ -1870,7 +1888,7 @@
    "band_max_buy": 192.786,
    "band_max_sell": 157.734,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAXTI",
@@ -1897,7 +1915,7 @@
    "band_max_buy": 71.247,
    "band_max_sell": 58.293,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RDELL",
@@ -1906,7 +1924,7 @@
    "last": 570.0,
    "bid": 570.0,
    "ask": 570.17,
-   "spread_pct": 0.0298,
+   "spread_pct": null,
    "reference_close": 567.29,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 567.29,
@@ -1917,14 +1935,14 @@
    "tier": "ELEVATED",
    "sigma_daily_pct": 5.274,
    "z": 0.09,
-   "buy_usd_0_5": 28527.17,
-   "sell_usd_0_5": 15922.93,
-   "buy_shares_0_5": 49.9052,
-   "liquidity": "VERY THIN",
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
    "band_max_buy": 624.019,
    "band_max_sell": 510.561,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RNVDA",
@@ -1951,7 +1969,7 @@
    "band_max_buy": 240.119,
    "band_max_sell": 196.461,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSPY",
@@ -1978,7 +1996,7 @@
    "band_max_buy": 840.719,
    "band_max_sell": 687.861,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RTQQQ",
@@ -2005,7 +2023,7 @@
    "band_max_buy": 78.078,
    "band_max_sell": 63.882,
    "class": "leveraged",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RMARA",
@@ -2032,7 +2050,7 @@
    "band_max_buy": 13.178,
    "band_max_sell": 10.782,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RADBE",
@@ -2059,7 +2077,34 @@
    "band_max_buy": 277.453,
    "band_max_sell": 227.007,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
+  },
+  {
+   "symbol": "RAAPL",
+   "pair": "RAAPLUSDT",
+   "name": "Apple",
+   "last": 331.02,
+   "bid": 330.91,
+   "ask": 332.73,
+   "spread_pct": 0.55,
+   "reference_close": 332.27,
+   "reference_close_at": "2026-09-11 15:00 ET",
+   "fair_value": 332.27,
+   "score_applies": true,
+   "score_suppressed_reason": null,
+   "dislocation_pct": -0.376,
+   "noise_score": 55,
+   "tier": "ELEVATED",
+   "sigma_daily_pct": 1.71,
+   "z": -0.22,
+   "buy_usd_0_5": 23540.22,
+   "sell_usd_0_5": 24817.23,
+   "buy_shares_0_5": 70.5218,
+   "liquidity": "VERY THIN",
+   "band_max_buy": 365.497,
+   "band_max_sell": 299.043,
+   "class": "large-cap",
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RARM",
@@ -2086,7 +2131,7 @@
    "band_max_buy": 291.269,
    "band_max_sell": 238.311,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RVOO",
@@ -2113,7 +2158,7 @@
    "band_max_buy": 772.816,
    "band_max_sell": 632.304,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RNOW",
@@ -2167,15 +2212,15 @@
    "band_max_buy": 491.898,
    "band_max_sell": 402.462,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RGOOGL",
    "pair": "RGOOGLUSDT",
    "name": "Alphabet",
    "last": 337.28,
-   "bid": 337.36,
-   "ask": 337.73,
+   "bid": 337.41,
+   "ask": 337.78,
    "spread_pct": 0.1097,
    "reference_close": 338.5,
    "reference_close_at": "2026-09-11 15:00 ET",
@@ -2187,14 +2232,14 @@
    "tier": "ELEVATED",
    "sigma_daily_pct": 2.156,
    "z": -0.17,
-   "buy_usd_0_5": 244439.07,
-   "sell_usd_0_5": 360237.6,
+   "buy_usd_0_5": 244439.37,
+   "sell_usd_0_5": 322532.53,
    "buy_shares_0_5": 721.5811,
    "liquidity": "OK",
    "band_max_buy": 372.35,
    "band_max_sell": 304.65,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSPCX",
@@ -2215,13 +2260,13 @@
    "sigma_daily_pct": 5.643,
    "z": -0.17,
    "buy_usd_0_5": 1611.21,
-   "sell_usd_0_5": 19166.29,
+   "sell_usd_0_5": 22909.92,
    "buy_shares_0_5": 10.7192,
    "liquidity": "VERY THIN",
    "band_max_buy": 166.331,
    "band_max_sell": 136.089,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RQQQM",
@@ -2248,7 +2293,7 @@
    "band_max_buy": 323.829,
    "band_max_sell": 264.951,
    "class": "leveraged",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSPMO",
@@ -2329,7 +2374,7 @@
    "band_max_buy": 356.356,
    "band_max_sell": 291.564,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RIBM",
@@ -2356,7 +2401,7 @@
    "band_max_buy": 267.619,
    "band_max_sell": 218.961,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSOXX",
@@ -2383,7 +2428,7 @@
    "band_max_buy": 579.777,
    "band_max_sell": 474.363,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RONDS",
@@ -2403,14 +2448,14 @@
    "tier": "LOW",
    "sigma_daily_pct": 6.185,
    "z": -0.09,
-   "buy_usd_0_5": 17878.71,
+   "buy_usd_0_5": 17933.01,
    "sell_usd_0_5": 16395.95,
-   "buy_shares_0_5": 2464.2,
+   "buy_shares_0_5": 2471.7,
    "liquidity": "VERY THIN",
    "band_max_buy": 7.953,
    "band_max_sell": 6.507,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RDDOG",
@@ -2464,34 +2509,7 @@
    "band_max_buy": 237.017,
    "band_max_sell": 193.923,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
-  },
-  {
-   "symbol": "RMSTR",
-   "pair": "RMSTRUSDT",
-   "name": "Strategy",
-   "last": 130.01,
-   "bid": 130.02,
-   "ask": 130.15,
-   "spread_pct": 0.1,
-   "reference_close": 130.97,
-   "reference_close_at": "2026-09-11 15:00 ET",
-   "fair_value": 130.97,
-   "score_applies": true,
-   "score_suppressed_reason": null,
-   "dislocation_pct": -0.733,
-   "noise_score": 32,
-   "tier": "LOW",
-   "sigma_daily_pct": 5.397,
-   "z": -0.14,
-   "buy_usd_0_5": 4143.19,
-   "sell_usd_0_5": 34990.76,
-   "buy_shares_0_5": 31.7423,
-   "liquidity": "VERY THIN",
-   "band_max_buy": 144.067,
-   "band_max_sell": 117.873,
-   "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RHIMS",
@@ -2518,7 +2536,34 @@
    "band_max_buy": 30.261,
    "band_max_sell": 24.759,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
+  },
+  {
+   "symbol": "RMSTR",
+   "pair": "RMSTRUSDT",
+   "name": "Strategy",
+   "last": 130.16,
+   "bid": 130.02,
+   "ask": 130.16,
+   "spread_pct": 0.1077,
+   "reference_close": 130.97,
+   "reference_close_at": "2026-09-11 15:00 ET",
+   "fair_value": 130.97,
+   "score_applies": true,
+   "score_suppressed_reason": null,
+   "dislocation_pct": -0.618,
+   "noise_score": 27,
+   "tier": "LOW",
+   "sigma_daily_pct": 5.397,
+   "z": -0.11,
+   "buy_usd_0_5": 4103.17,
+   "sell_usd_0_5": 35017.26,
+   "buy_shares_0_5": 31.4159,
+   "liquidity": "VERY THIN",
+   "band_max_buy": 144.067,
+   "band_max_sell": 117.873,
+   "class": "other",
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RNBIS",
@@ -2545,7 +2590,7 @@
    "band_max_buy": 247.005,
    "band_max_sell": 202.095,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RVRT",
@@ -2572,34 +2617,7 @@
    "band_max_buy": 282.766,
    "band_max_sell": 231.354,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
-  },
-  {
-   "symbol": "RAAPL",
-   "pair": "RAAPLUSDT",
-   "name": "Apple",
-   "last": 332.73,
-   "bid": 331.03,
-   "ask": 332.73,
-   "spread_pct": 0.5135,
-   "reference_close": 332.27,
-   "reference_close_at": "2026-09-11 15:00 ET",
-   "fair_value": 332.27,
-   "score_applies": true,
-   "score_suppressed_reason": null,
-   "dislocation_pct": 0.138,
-   "noise_score": 22,
-   "tier": "LOW",
-   "sigma_daily_pct": 1.71,
-   "z": 0.08,
-   "buy_usd_0_5": 23540.22,
-   "sell_usd_0_5": 25507.37,
-   "buy_shares_0_5": 70.5218,
-   "liquidity": "VERY THIN",
-   "band_max_buy": 365.497,
-   "band_max_sell": 299.043,
-   "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RUSO",
@@ -2629,33 +2647,6 @@
    "captured": "2026-09-13 06:45 ET"
   },
   {
-   "symbol": "RBABA",
-   "pair": "RBABAUSDT",
-   "name": "Alibaba",
-   "last": 109.15,
-   "bid": 109.15,
-   "ask": 109.49,
-   "spread_pct": 0.3115,
-   "reference_close": 109.3,
-   "reference_close_at": "2026-09-11 15:00 ET",
-   "fair_value": 109.3,
-   "score_applies": true,
-   "score_suppressed_reason": null,
-   "dislocation_pct": -0.137,
-   "noise_score": 20,
-   "tier": "LOW",
-   "sigma_daily_pct": 2.637,
-   "z": -0.05,
-   "buy_usd_0_5": 24294.15,
-   "sell_usd_0_5": 16071.58,
-   "buy_shares_0_5": 221.21,
-   "liquidity": "VERY THIN",
-   "band_max_buy": 120.23,
-   "band_max_sell": 98.37,
-   "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
-  },
-  {
    "symbol": "RCRCL",
    "pair": "RCRCLUSDT",
    "name": "Circle",
@@ -2673,14 +2664,41 @@
    "tier": "LOW",
    "sigma_daily_pct": 6.571,
    "z": -0.05,
-   "buy_usd_0_5": 15923.41,
-   "sell_usd_0_5": 755931.34,
-   "buy_shares_0_5": 175.9472,
+   "buy_usd_0_5": 16103.31,
+   "sell_usd_0_5": 755930.78,
+   "buy_shares_0_5": 177.9417,
    "liquidity": "VERY THIN",
    "band_max_buy": 99.66,
    "band_max_sell": 81.54,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
+  },
+  {
+   "symbol": "RBABA",
+   "pair": "RBABAUSDT",
+   "name": "Alibaba",
+   "last": 109.15,
+   "bid": 109.15,
+   "ask": 109.49,
+   "spread_pct": null,
+   "reference_close": 109.3,
+   "reference_close_at": "2026-09-11 15:00 ET",
+   "fair_value": 109.3,
+   "score_applies": true,
+   "score_suppressed_reason": null,
+   "dislocation_pct": -0.137,
+   "noise_score": 20,
+   "tier": "LOW",
+   "sigma_daily_pct": 2.637,
+   "z": -0.05,
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
+   "band_max_buy": 120.23,
+   "band_max_sell": 98.37,
+   "class": "large-cap",
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSONY",
@@ -2761,7 +2779,7 @@
    "band_max_buy": 65.846,
    "band_max_sell": 53.874,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAMAT",
@@ -2770,7 +2788,7 @@
    "last": 455.78,
    "bid": 455.87,
    "ask": 458.21,
-   "spread_pct": null,
+   "spread_pct": 0.5133,
    "reference_close": 456.49,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 456.49,
@@ -2781,14 +2799,14 @@
    "tier": "LOW",
    "sigma_daily_pct": 4.149,
    "z": -0.04,
-   "buy_usd_0_5": null,
-   "sell_usd_0_5": null,
-   "buy_shares_0_5": null,
-   "liquidity": null,
+   "buy_usd_0_5": 19124.56,
+   "sell_usd_0_5": 14854.58,
+   "buy_shares_0_5": 41.6308,
+   "liquidity": "VERY THIN",
    "band_max_buy": 502.139,
    "band_max_sell": 410.841,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RASML",
@@ -2815,7 +2833,7 @@
    "band_max_buy": 1868.13,
    "band_max_sell": 1528.47,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RIONQ",
@@ -2842,7 +2860,7 @@
    "band_max_buy": 40.425,
    "band_max_sell": 33.075,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RTEM",
@@ -2896,7 +2914,7 @@
    "band_max_buy": 48.213,
    "band_max_sell": 39.447,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RLRCX",
@@ -2950,7 +2968,7 @@
    "band_max_buy": 97.119,
    "band_max_sell": 79.461,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAMZN",
@@ -2977,7 +2995,7 @@
    "band_max_buy": 282.458,
    "band_max_sell": 231.102,
    "class": "large-cap",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RRKLB",
@@ -3004,7 +3022,7 @@
    "band_max_buy": 69.245,
    "band_max_sell": 56.655,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSTX",
@@ -3031,7 +3049,7 @@
    "band_max_buy": 913.187,
    "band_max_sell": 747.153,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RMELI",
@@ -3085,7 +3103,7 @@
    "band_max_buy": 63.932,
    "band_max_sell": 52.308,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RCRWV",
@@ -3112,7 +3130,7 @@
    "band_max_buy": 97.889,
    "band_max_sell": 80.091,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "REWY",
@@ -3139,7 +3157,7 @@
    "band_max_buy": 207.592,
    "band_max_sell": 169.848,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAEHR",
@@ -3166,7 +3184,7 @@
    "band_max_buy": 104.159,
    "band_max_sell": 85.221,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RAPLD",
@@ -3193,7 +3211,7 @@
    "band_max_buy": 29.062,
    "band_max_sell": 23.778,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RISRG",
@@ -3220,7 +3238,7 @@
    "band_max_buy": 406.065,
    "band_max_sell": 332.235,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RCRWD",
@@ -3247,7 +3265,7 @@
    "band_max_buy": 227.414,
    "band_max_sell": 186.066,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RBB",
@@ -3274,7 +3292,7 @@
    "band_max_buy": 8.437,
    "band_max_sell": 6.903,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RIWM",
@@ -3328,7 +3346,7 @@
    "band_max_buy": 625.383,
    "band_max_sell": 511.677,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSTRC",
@@ -3355,7 +3373,7 @@
    "band_max_buy": 108.504,
    "band_max_sell": 88.776,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSOFI",
@@ -3436,7 +3454,7 @@
    "band_max_buy": 576.609,
    "band_max_sell": 471.771,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RTLT",
@@ -3490,7 +3508,7 @@
    "band_max_buy": 123.343,
    "band_max_sell": 100.917,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   },
   {
    "symbol": "RSGOV",
@@ -3544,7 +3562,7 @@
    "band_max_buy": 361.889,
    "band_max_sell": 296.091,
    "class": "other",
-   "captured": "2026-09-13 17:00 ET"
+   "captured": "2026-09-13 17:09 ET"
   }
  ]
 }
