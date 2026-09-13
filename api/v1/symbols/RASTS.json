@@ -2,7 +2,7 @@
  "symbol": "RASTS",
  "pair": "RASTSUSDT",
  "name": "AST SpaceMobile",
- "last": 59.91,
+ "last": 59.73,
  "bid": 59.73,
  "ask": 59.91,
  "spread_pct": null,
@@ -11,11 +11,11 @@
  "fair_value": 59.86,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.084,
- "noise_score": 8,
+ "dislocation_pct": -0.217,
+ "noise_score": 15,
  "tier": "LOW",
  "sigma_daily_pct": 6.912,
- "z": 0.01,
+ "z": -0.03,
  "buy_usd_0_5": null,
  "sell_usd_0_5": null,
  "buy_shares_0_5": null,
@@ -23,5 +23,5 @@
  "band_max_buy": 65.846,
  "band_max_sell": 53.874,
  "class": "other",
- "captured": "2026-09-13 01:15 ET"
+ "captured": "2026-09-13 01:30 ET"
 }
