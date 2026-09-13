@@ -2,7 +2,7 @@
  "symbol": "RQCOM",
  "pair": "RQCOMUSDT",
  "name": "QCOM",
- "last": 180.5,
+ "last": 180.48,
  "bid": 180.46,
  "ask": 180.57,
  "spread_pct": 0.061,
@@ -11,11 +11,11 @@
  "fair_value": 181.97,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.808,
+ "dislocation_pct": -0.819,
  "noise_score": 100,
  "tier": "HIGH",
  "sigma_daily_pct": 3.771,
- "z": -0.21,
+ "z": -0.22,
  "buy_usd_0_5": 27957.77,
  "sell_usd_0_5": 269900.49,
  "buy_shares_0_5": 154.5977,
@@ -23,5 +23,5 @@
  "band_max_buy": 200.167,
  "band_max_sell": 163.773,
  "class": "other",
- "captured": "2026-09-13 08:15 ET"
+ "captured": "2026-09-13 08:30 ET"
 }
