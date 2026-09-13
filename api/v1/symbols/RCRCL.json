@@ -4,8 +4,8 @@
  "name": "Circle",
  "last": 90.13,
  "bid": 90.03,
- "ask": 90.12,
- "spread_pct": 0.1,
+ "ask": 90.06,
+ "spread_pct": 0.0333,
  "reference_close": 90.6,
  "reference_close_at": "2026-09-11 15:00 ET",
  "fair_value": 90.6,
@@ -16,12 +16,12 @@
  "tier": "LOW",
  "sigma_daily_pct": 6.571,
  "z": -0.08,
- "buy_usd_0_5": 32954.06,
- "sell_usd_0_5": 755829.15,
- "buy_shares_0_5": 364.6367,
+ "buy_usd_0_5": 29129.52,
+ "sell_usd_0_5": 756162.58,
+ "buy_shares_0_5": 322.3188,
  "liquidity": "THIN",
  "band_max_buy": 99.66,
  "band_max_sell": 81.54,
  "class": "other",
- "captured": "2026-09-13 06:51 ET"
+ "captured": "2026-09-13 06:54 ET"
 }
