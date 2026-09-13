@@ -167,6 +167,10 @@
    [
     1789298700,
     217.75
+   ],
+   [
+    1789299000,
+    217.75
    ]
   ],
   "RAAPL": [
@@ -301,6 +305,10 @@
    [
     1789298700,
     331.02
+   ],
+   [
+    1789299000,
+    331.02
    ]
   ],
   "RTSLA": [
@@ -434,6 +442,10 @@
    ],
    [
     1789298700,
+    364.46
+   ],
+   [
+    1789299000,
     364.46
    ]
   ]
@@ -838,16 +850,16 @@
    "symbol": "RSNDK",
    "pair": "RSNDKUSDT",
    "name": "SanDisk",
-   "last": 1583.88,
-   "bid": 1583.74,
+   "last": 1583.74,
+   "bid": 1583.68,
    "ask": 1584.37,
-   "spread_pct": 0.0398,
+   "spread_pct": 0.0436,
    "reference_close": 1633.35,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 1633.35,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -3.029,
+   "dislocation_pct": -3.037,
    "noise_score": 98,
    "tier": "HIGH",
    "sigma_daily_pct": 7.124,
@@ -1297,23 +1309,23 @@
    "symbol": "RAMD",
    "pair": "RAMDUSDT",
    "name": "AMD",
-   "last": 512.34,
-   "bid": 512.22,
-   "ask": 512.7,
-   "spread_pct": 0.0937,
+   "last": 512.22,
+   "bid": 512.18,
+   "ask": 512.67,
+   "spread_pct": 0.0957,
    "reference_close": 516.13,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 516.13,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -0.734,
-   "noise_score": 72,
+   "dislocation_pct": -0.758,
+   "noise_score": 74,
    "tier": "ELEVATED",
    "sigma_daily_pct": 4.757,
-   "z": -0.15,
-   "buy_usd_0_5": 9035.26,
-   "sell_usd_0_5": 23380.63,
-   "buy_shares_0_5": 17.5736,
+   "z": -0.16,
+   "buy_usd_0_5": 9025.01,
+   "sell_usd_0_5": 23112.63,
+   "buy_shares_0_5": 17.5544,
    "liquidity": "VERY THIN",
    "band_max_buy": 567.743,
    "band_max_sell": 464.517,
@@ -1975,7 +1987,7 @@
    "last": 63.24,
    "bid": 63.02,
    "ask": 63.25,
-   "spread_pct": 0.365,
+   "spread_pct": null,
    "reference_close": 62.95,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 62.95,
@@ -1986,10 +1998,10 @@
    "tier": "LOW",
    "sigma_daily_pct": 6.174,
    "z": 0.07,
-   "buy_usd_0_5": 13492.41,
-   "sell_usd_0_5": 11648.58,
-   "buy_shares_0_5": 212.7945,
-   "liquidity": "VERY THIN",
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
    "band_max_buy": 69.245,
    "band_max_sell": 56.655,
    "class": "other",
@@ -2326,7 +2338,7 @@
    "last": 89.08,
    "bid": 89.06,
    "ask": 89.21,
-   "spread_pct": 0.1684,
+   "spread_pct": null,
    "reference_close": 88.99,
    "reference_close_at": "2026-09-11 15:00 ET",
    "fair_value": 88.99,
@@ -2337,10 +2349,10 @@
    "tier": "LOW",
    "sigma_daily_pct": 6.19,
    "z": 0.02,
-   "buy_usd_0_5": 244520.99,
-   "sell_usd_0_5": 259799.68,
-   "buy_shares_0_5": 2736.1367,
-   "liquidity": "OK",
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
    "band_max_buy": 97.889,
    "band_max_sell": 80.091,
    "class": "other",
