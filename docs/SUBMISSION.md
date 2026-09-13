@@ -134,9 +134,11 @@ publishes the result. Backtested round (2026-09-04): claim 1 **lost**
 **Distribution and effectiveness — targeted, stated honestly.** We have no users
 yet. Our proof is a public, timestamped, self-grading record rather than a usage
 claim: predictions hashed before the outcome, graded after, win or lose, running
-autonomously through judging. Measurable now: uptime of the live reference price
-(observed — capture from three independent sources, zero gaps in the current
-void window), and cumulative claim accuracy (observed, published).
+autonomously through judging. Measurable now: uptime of the live reference price —
+**observed**, capture from three independent sources across the 2026-09-11 void
+window: 174 cycles, median interval 15 minutes, 4 gaps longer than 25 minutes
+(longest 55) where an external cron missed consecutive firings. And cumulative
+claim accuracy (**observed**, published in `data/scoreboard.json`).
 
 **What we do not claim.** We cannot forecast Monday's price for an individual
 stock. Monday is dominated by genuine overnight news, roughly 3× larger than
