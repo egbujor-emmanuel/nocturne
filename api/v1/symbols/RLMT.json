@@ -4,8 +4,8 @@
  "name": "LMT",
  "last": 525.26,
  "bid": 525.0,
- "ask": 526.0,
- "spread_pct": null,
+ "ask": 525.99,
+ "spread_pct": 0.2323,
  "reference_close": 524.19,
  "reference_close_at": "2026-09-11 15:00 ET",
  "fair_value": 524.19,
@@ -16,12 +16,12 @@
  "tier": null,
  "sigma_daily_pct": null,
  "z": null,
- "buy_usd_0_5": null,
- "sell_usd_0_5": null,
- "buy_shares_0_5": null,
- "liquidity": null,
+ "buy_usd_0_5": 23431.09,
+ "sell_usd_0_5": 21444.37,
+ "buy_shares_0_5": 44.3785,
+ "liquidity": "VERY THIN",
  "band_max_buy": 576.609,
  "band_max_sell": 471.771,
  "class": "other",
- "captured": "2026-09-14 03:30 ET"
+ "captured": "2026-09-14 03:45 ET"
 }
