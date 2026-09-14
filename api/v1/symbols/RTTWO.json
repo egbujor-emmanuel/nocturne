@@ -2,7 +2,7 @@
  "symbol": "RTTWO",
  "pair": "RTTWOUSDT",
  "name": "TTWO",
- "last": 216.72,
+ "last": 217.07,
  "bid": 216.62,
  "ask": 217.55,
  "spread_pct": 0.4976,
@@ -11,11 +11,11 @@
  "fair_value": 215.47,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.58,
+ "dislocation_pct": 0.743,
  "noise_score": 76,
  "tier": "ELEVATED",
  "sigma_daily_pct": 2.208,
- "z": 0.26,
+ "z": 0.34,
  "buy_usd_0_5": 203987.46,
  "sell_usd_0_5": 225132.24,
  "buy_shares_0_5": 941.0856,
@@ -23,5 +23,5 @@
  "band_max_buy": 237.017,
  "band_max_sell": 193.923,
  "class": "other",
- "captured": "2026-09-14 02:00 ET"
+ "captured": "2026-09-14 02:06 ET"
 }
