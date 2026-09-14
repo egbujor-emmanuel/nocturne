@@ -23,11 +23,23 @@ Implemented in `scripts/session.py` with boundary assertions.
 ## 2. The weekend universe
 
 A symbol is weekend-tradeable if it **printed trades inside a completed void
-window.** We scanned all 699 listed rTokens against Fri 2026-09-04 20:00 →
-Sun 2026-09-06 19:00 ET. 87 qualified.
+window.** This is measured, not taken from documentation — the hackathon
+handbook lists 20. `scripts/scan_universe.py`, output
+`data/weekend_universe.json`.
 
-This is measured, not taken from documentation — the hackathon handbook lists
-20. `scripts/scan_universe.py`, output `data/weekend_universe.json`.
+The set is re-measured every weekend, and it moves:
+
+| void window scanned | rToken pairs listed | printed a trade |
+|---|---|---|
+| Fri 2026-09-04 → Sun 2026-09-06 | 699 | **87** |
+| Fri 2026-09-11 → Sun 2026-09-13 | 1,173 | **73** |
+
+Same script, same rule, one week apart. Bitget's listed rToken universe grew
+**68%** while the set that actually trades a weekend **shrank by 14 names**. New
+listings are not arriving with weekend liquidity — the void is getting thinner
+relative to what is listed, not denser. Every study figure below is labelled
+with the window it was measured on; the live product always reads the current
+file.
 
 ## 3. Anchor prices
 

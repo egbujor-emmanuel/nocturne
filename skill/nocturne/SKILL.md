@@ -1,6 +1,6 @@
 ---
 name: nocturne
-description: Check whether a tokenized US stock (rToken) price on Bitget is trustworthy right now. Use when the US market is closed - weekends, overnight, pre-market - and someone asks what an rToken is really worth, how much they can actually trade, whether a weekend move is real, or what happens to their order on Monday. Covers 87 weekend-tradeable rTokens including rNVDA, rAAPL, rTSLA, rMSFT, rMU, rCRCL, rMSTR, rCOIN.
+description: Check whether a tokenized US stock (rToken) price on Bitget is trustworthy right now. Use when the US market is closed - weekends, overnight, pre-market - and someone asks what an rToken is really worth, how much they can actually trade, whether a weekend move is real, or what happens to their order on Monday. Covers 88 tokenized US stocks including rNVDA, rAAPL, rTSLA, rMSFT, rMU, rCRCL, rMSTR, rCOIN.
 ---
 
 # NOCTURNE
@@ -12,8 +12,8 @@ A reference price for tokenized US stocks while the US stock market is shut.
 Bitget lists rTokens that trade 24/7, but Nasdaq closes Friday 20:00 ET and
 reopens Monday 09:30 ET. For ~47 hours a week there is no external price for
 these assets anywhere on Earth. Bitget's internal matching engine is the only
-source, and across an entire weekend all 87 weekend-tradeable rTokens combined
-clear roughly $8.6M - about 1/684th of what rAAPL alone does in one Friday hour.
+source, and across an entire weekend every weekend-tradeable rToken combined
+clears roughly $8.6M - about 1/684th of what rAAPL alone does in one Friday hour.
 
 Measured across 196 observations and 13 weekends: for large-cap rTokens,
 **essentially 100% of the price movement that happens while the market is shut
@@ -30,7 +30,7 @@ Base: https://egbujor-emmanuel.github.io/nocturne/api/v1
 | Endpoint | Returns |
 |---|---|
 | `/index.json` | session state, the headline finding, list of covered symbols |
-| `/state.json` | full state for all 87 symbols |
+| `/state.json` | full state for all 88 symbols |
 | `/symbols/RNVDA.json` | one symbol (use the rToken symbol, uppercase, no USDT) |
 
 ## How to answer questions with it

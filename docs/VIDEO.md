@@ -10,7 +10,7 @@ Times are ET, with your local (WAT = ET + 5) alongside.
 ## The opening line — say this over shot 1
 
 > "One hour of Apple on a Friday trades five point nine billion dollars.
-> The entire following weekend, across all 87 tokenised US stocks on Bitget,
+> The entire following weekend, across every tokenised US stock on Bitget,
 > trades eight point six million.
 > That's six hundred and eighty four to one.
 > And the price still moves."

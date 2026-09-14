@@ -159,6 +159,12 @@ def build():
         import glob as _g
         pend=[f for f in sorted(_g.glob(os.path.join(ROOT,"predictions","*.json")))
               if not f.endswith("latest.json") and not f.endswith("_graded.json")]
+        # a round that has already been graded is not pending - the site was
+        # showing "AWAITING GRADE" next to the very round it had just graded
+        graded={r.get("prediction_file") for r in (track["rounds"] or [])}
+        pend=[f for f in pend
+              if os.path.basename(f) not in graded
+              and not os.path.exists(f.replace(".json","_graded.json"))]
         if pend:
             d=json.load(open(pend[-1],encoding="utf8"))
             h=open(pend[-1].replace(".json",".sha256"),encoding="utf8").read().split()[0]

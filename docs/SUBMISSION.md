@@ -50,7 +50,7 @@ says an internal matching engine takes over and quotes are "indicative."
 We measured what that means. One hour of rAAPL on a Friday clears
 **$5,911,636,056**. The entire following weekend, across all 87
 weekend-tradeable rTokens combined, clears **$8,640,279** — a ratio of
-**684 : 1**. Median turnover per hour is **$1.6bn** while the market is open and
+**684 : 1** (measured on the 2026-09-04 void window). Median turnover per hour is **$1.6bn** while the market is open and
 **$492** inside the void, a factor of 3.3 million. The median rToken clears
 **$8,827** across an entire weekend.
 
@@ -119,17 +119,38 @@ low 2.64% · middle 2.91% · high 3.28% — monotonic.
 2026-08-31), consuming roughly a fifth of the average edge. Limit band ±10% from
 the API's own `buyLimitPriceRatio` — not the 20% in Bitget's written guide.
 
-**Original artifacts:** the true weekend universe is **87 of 699 rTokens**,
-measured from the tape — the handbook documents 20. A measured session map
+**Original artifacts:** the true weekend universe is **measured from the tape,
+not documented** — **87 of 699 rTokens** on the 2026-09-04 window and, running
+the same script a week later, **73 of 1,173** on 2026-09-11. The handbook
+documents 20 either way. Listings grew 68% in a week while the set that actually
+trades a weekend shrank by 14 names: **new rToken listings are not arriving with
+weekend liquidity.** A measured session map
 (Void A ~47h, Partial B ~9h, pre-market from 04:00). Independent pipeline
 validation: Bitget launched weekend trading 2026-06-12, and our study, blind to
 that date, found the first qualifying weekend was 2026-06-12.
 
-**Live public record `[LIVE]`.** Every weekend the system publishes two
-falsifiable claims **before** the US market reopens, with a SHA256 committed to a
-public repo — a git timestamp cannot be back-dated — then grades itself and
-publishes the result. Backtested round (2026-09-04): claim 1 **lost**
-(0.974% vs 0.808%), claim 2 **won** (0.819% vs 0.670%). Published as-is.
+**Live public record — observed, two rounds graded.** Every weekend the system
+publishes two falsifiable claims **before** the US market reopens, with a SHA256
+committed to a public repo — a git timestamp cannot be back-dated — then grades
+itself and publishes the result.
+
+| round | n | claim 1 · price level | claim 2 · execution-risk ranking |
+|---|---|---|---|
+| 2026-09-06 → 09-07 *(replayed)* | 52 | **lost** 0.974% vs 0.808% | **won** 0.819% vs 0.670% |
+| **2026-09-13 → 09-14 *(live)*** | **75** | **lost** 4.524% vs 3.906% | **won** 4.493% vs 3.316% |
+| **running** | | **0 / 2** | **2 / 2** |
+
+The live round ran with no human present: published Sun 2026-09-13 17:01 ET from
+GitHub Actions, hash committed, graded Mon 11:01 ET, scoreboard updated —
+autonomously, before the market reopened. Both results published as-is.
+
+**Read it honestly.** Claim 1 is the price-level forecast and it has now lost
+twice; that is the same result our walk-forward test predicted and we did not
+quietly drop the claim. Claim 2 is the one the product actually sells — *rank
+which names are dangerous to execute in* — and it has won both rounds. The names
+NOCTURNE flagged highest-risk on Sunday moved **4.49%** on Monday against
+**3.32%** for the names it cleared, a 35% spread, on an unusually violent Monday
+(the average move was 3.9%, roughly double a normal re-anchor).
 
 **Distribution and effectiveness — targeted, stated honestly.** We have no users
 yet. Our proof is a public, timestamped, self-grading record rather than a usage
@@ -152,7 +173,7 @@ capture from three independent sources (GitHub Actions via external cron, two
 local lanes); a six-state session classifier derived from the tape; the
 void-drift study; the fair-value anchor; a Noise Score calibrated across 76
 symbols; a Qwen news judge, gated and cached; depth, order-splitting and
-order-lifecycle modules; a live dashboard; an 87-endpoint public JSON API;
+order-lifecycle modules; a live dashboard; an 88-endpoint public JSON API;
 hashed prediction publishing; automated grading; an installable agent skill.
 
 **Problems hit and solved.** GitHub's own `schedule` event never fired on this
@@ -233,10 +254,10 @@ Monday quoting Sunday's prediction post, with the demo video attached.
 S1 was a different project entirely. NOCTURNE shares no code, data, thesis or
 architecture with it. New since S1: the Void Drift finding itself (β = −1.003,
 t = −3.46, 196 observations) and the walk-forward validation behind it; the
-measured 87-name weekend universe against a documented 20; the six-state session
+measured weekend universe against a documented 20, re-measured weekly; the six-state session
 map derived from the tape; a live reference-price product with depth,
 order-splitting and order-lifecycle modelling; a three-source capture
-architecture; a hashed, self-grading public prediction record; an 87-endpoint
+architecture; a hashed, self-grading public prediction record; an 88-endpoint
 public API and an installable agent skill; and an open dataset. This is not a
 rename or an edit of an S1 entry.
 

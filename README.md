@@ -20,6 +20,8 @@ documentation calls the quotes "indicative."
 
 We measured what that means:
 
+Measured on the Fri 2026-09-04 → Sun 2026-09-06 void window:
+
 | | |
 |---|---|
 | rAAPL, one Friday hour (closing auction) | **$5,911,636,056** |
@@ -73,9 +75,12 @@ The Noise Score **ranks** execution risk. It does not predict direction.
 
 ## Other things we found
 
-- **The true weekend universe is 87 rTokens, not 20.** We scanned all 699
-  listed rTokens against a real void window. The hackathon handbook documents
-  20. Published in [`data/weekend_universe.json`](data/weekend_universe.json).
+- **The true weekend universe is measured, not 20.** We scan every listed
+  rToken against a real void window. Fri 2026-09-04: **87 of 699** traded.
+  Fri 2026-09-11, same script: **73 of 1,173**. The hackathon handbook documents
+  20 either way. Listings grew 68% in a week while the set that actually trades
+  a weekend shrank — new listings arrive without weekend liquidity. Published in
+  [`data/weekend_universe.json`](data/weekend_universe.json).
 - **A measured session map.** Void A ~47h (Fri 20:00 → Sun 19:00), Partial B
   ~9h, pre-market from Mon 04:00. The volume cliff at Friday 20:00 ET is exact.
 - **rSOXL is listed as weekend-tradeable but returns an empty order book.**
@@ -119,7 +124,7 @@ No API key is required for any of it — Bitget's market endpoints are public.
 | path | |
 |---|---|
 | `scripts/` | capture, study, scoring, publishing, audit |
-| `data/1h/` | hourly history, 87 symbols |
+| `data/1h/` | hourly history, 88 symbols |
 | `data/live/` | 5-minute tick + order-book capture, tagged by source |
 | `api/v1/` | the public JSON API served by GitHub Pages |
 | `predictions/` | hashed pre-commitments and their graded results |

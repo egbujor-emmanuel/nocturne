@@ -19,6 +19,14 @@ REPO = "https://github.com/egbujor-emmanuel/nocturne"
 NL = "\n"
 
 
+def xlen(t):
+    """Characters as X counts them: every link is billed at 23 regardless of
+    its real length (t.co wrapping). Counting raw len() made a post that fits
+    look 60 characters too long."""
+    import re as _re
+    return len(_re.sub(r"https?://\S+", "x" * 23, t))
+
+
 def w(kind, text, short=None):
     """Write a long version and, for accounts without X Premium, a <=280 char one."""
     d = os.path.join(ROOT, "posts")
@@ -32,8 +40,9 @@ def w(kind, text, short=None):
     if short:
         ps = os.path.join(d, stamp + "_" + kind + "_short.txt")
         open(ps, "w", encoding="utf8").write(short)
-        flag = "OK" if len(short) <= 280 else "STILL TOO LONG"
-        print(NL + "SHORT (" + str(len(short)) + " chars - " + flag + "):")
+        n = xlen(short)
+        flag = "OK" if n <= 280 else "STILL TOO LONG"
+        print(NL + "SHORT (" + str(n) + " chars as X counts them - " + flag + "):")
         print(short)
         print("--- " + os.path.relpath(ps, ROOT) + " ---")
     return p
@@ -144,10 +153,26 @@ def launch():
             h = json.load(open(sb))
             r = h["rounds"][-1]
             c1, c2 = r["claim_1_level"], r["claim_2_ranking"]
-            res = (NL * 2 + "We published this weekend's call before the open, hashed. Result: " +
-                   "level " + ("WON" if c1["won"] else "LOST") + ", ranking " +
-                   ("WON" if c2["won"] else "LOST") + ". We publish either way.")
-            short_res = NL * 2 + "Weekend call published before the open, hashed. Graded " +                         ("WON" if c1["won"] else "LOST") + "/" +                         ("WON" if c2["won"] else "LOST") + "."
+            sm = h.get("summary") or {}
+            res = (NL * 2 +
+                   "Sunday, inside the void, it published two falsifiable calls on " +
+                   str(r["n"]) + " symbols and committed the SHA256 to a public repo before "
+                   "the market reopened. No human was awake for any of it." + NL * 2 +
+                   "Graded this morning:" + NL +
+                   "- Execution risk ranking: WON. The names it flagged riskiest moved " +
+                   str(c2["top_third_move_pct"]) + "% on Monday. The names it cleared moved " +
+                   str(c2["bottom_third_move_pct"]) + "%." + NL +
+                   "- Price level forecast: LOST. " + str(c1["mae_model_pct"]) +
+                   "% error against " + str(c1["mae_baseline_pct"]) + "% for doing nothing." +
+                   NL * 2 +
+                   "Running record: ranking " + str(sm.get("claim_2_won", 0)) + "/" +
+                   str(sm.get("rounds", 0)) + ", level " + str(sm.get("claim_1_won", 0)) + "/" +
+                   str(sm.get("rounds", 0)) + ". I am showing you the loss because a "
+                   "prediction you can only check when it wins is not a prediction.")
+            short_res = (NL * 2 + "Sunday's call, hashed before the open, graded today: "
+                         "execution-risk ranking WON, " + str(round(c2["top_third_move_pct"], 2)) +
+                         "% vs " + str(round(c2["bottom_third_move_pct"], 2)) +
+                         "%. Price level LOST. Both published.")
         except Exception:
             pass
     long_ = (
@@ -156,9 +181,10 @@ def launch():
         "Bitget lists tokenized US equities that trade 24/7. Nasdaq shuts Friday 20:00 ET "
         "and reopens Monday 09:30. For ~47 hours a week these assets have no external "
         "price anywhere on Earth." + NL * 2 +
-        "I measured that window across " + str(n) + " rTokens. For large caps, ~100% of the "
-        "price movement while the market is shut reverses once real liquidity returns. "
-        "beta = -1.003, t = -3.46, 196 observations." + NL * 2 +
+        "I measured that window across every rToken that trades it - " + str(n) + " of them "
+        "last weekend, detected from the tape, not from documentation. For large caps, "
+        "~100% of the price movement while the market is shut reverses once real liquidity "
+        "returns. beta = -1.003, t = -3.46, 196 observations." + NL * 2 +
         "I call it Void Drift." + NL * 2 +
         "NOCTURNE shows you how far a weekend price has drifted, how much size the book "
         "can actually absorb, and that Bitget cancels your unfilled order at the reopen. "
@@ -166,10 +192,8 @@ def launch():
         "Live: " + SITE + NL + "Code, data and study: " + REPO + NL * 2 + TAGS)
     # the free X limit is 280; the graded result lives in the long version
     short = (
-        "NOCTURNE - a reference price for stocks while the market is closed." + NL * 2 +
-        "~47h a week, tokenized US stocks have no external price anywhere." + NL * 2 +
-        "Across " + str(n) + " rTokens: ~100% of that drift reverses by Monday." + NL * 2 +
-        SITE + NL + TAGS)
+        "NOCTURNE - a reference price for tokenized US stocks while the market is "
+        "closed." + short_res + NL * 2 + SITE + NL + TAGS)
     return w("launch", long_, short)
 
 

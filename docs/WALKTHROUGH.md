@@ -27,11 +27,13 @@ that actually printed trades.
 
 **Result:**
 
-| | |
-|---|---|
-| rToken pairs listed | 699 |
-| **Actually traded the void window** | **87** |
-| Documented in the hackathon handbook | 20 |
+| void window | pairs listed | **traded the void** | handbook says |
+|---|---|---|---|
+| Fri 2026-09-04 → Sun 2026-09-06 | 699 | **87** | 20 |
+| Fri 2026-09-11 → Sun 2026-09-13 | 1,173 | **73** | 20 |
+
+Re-run a week later, unchanged script: listings up 68%, the weekend-tradeable
+set down 14. **New rToken listings are not arriving with weekend liquidity.**
 
 **Insight:** the published list is materially incomplete. 68 names trade the
 weekend that no documentation mentions — rCRCL, rMSTR, rCOIN, rHOOD, rPLTR,
@@ -60,7 +62,7 @@ values always appear on the dashboard.
 | Median turnover, inside the void | **$492 / hour** |
 | **Ratio** | **3,340,020 : 1** |
 | rAAPL, one Friday closing hour | $5,911,636,056 |
-| All 87 rTokens, entire weekend | $8,640,279 |
+| All 87 rTokens, entire weekend (2026-09-04 window) | $8,640,279 |
 
 **Insight:** a single Friday hour of one stock clears **684×** what every
 weekend-tradeable rToken clears across an entire weekend. The median rToken
@@ -194,7 +196,7 @@ weekend drift. The edge is real, modest, and wins 7 weekends in 10.
 ## Reproduce every step
 
 ```bash
-python scripts/scan_universe.py    # step 1 — the 87-name universe
+python scripts/scan_universe.py    # step 1 — measure the weekend universe
 python scripts/build_state.py      # step 2 — the 168-hour liquidity profile
 python scripts/study_v2.py         # step 3 — beta = -1.003, t = -3.46
 python scripts/fairvalue_v2.py     # step 4 — walk-forward, +9.19% MAE

@@ -1,5 +1,5 @@
 """Full build audit, phases 0-3. Every check runs the real thing."""
-import sys, os, json, glob, subprocess, urllib.request, datetime as dt, hashlib
+import sys, os, re, json, glob, subprocess, urllib.request, datetime as dt, hashlib
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -104,8 +104,9 @@ def _health():
 
 def _lanes():
     a, b = os.path.exists("logs/runner.local.log"), os.path.exists("logs/runner.local2.log")
-    ca = open("logs/runner.local.log").read().count("rows=87") if a else 0
-    cb = open("logs/runner.local2.log").read().count("rows=87") if b else 0
+    # universe size changes as Bitget lists; count any completed capture
+    ca = len(re.findall(r"rows=\d+", open("logs/runner.local.log").read())) if a else 0
+    cb = len(re.findall(r"rows=\d+", open("logs/runner.local2.log").read())) if b else 0
     return a and b, "lane1 %d captures, lane2 %d captures" % (ca, cb)
 
 
