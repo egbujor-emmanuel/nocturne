@@ -3,13 +3,13 @@
     "group": "A data",
     "check": "every anchor is current",
     "pass": true,
-    "detail": "88 anchors, oldest 72.7h, newest 0.7h"
+    "detail": "88 anchors, oldest 73.4h, newest 1.4h"
   },
   {
     "group": "A data",
     "check": "anchor is Friday inside a weekend",
     "pass": true,
-    "detail": "not a weekend window (RTH) - skipped"
+    "detail": "not a weekend window (AH) - skipped"
   },
   {
     "group": "A data",
@@ -21,11 +21,11 @@
     "group": "A data",
     "check": "scores are distributed",
     "pass": true,
-    "detail": "scores suppressed (RTH)"
+    "detail": "scores suppressed (AH)"
   },
   {
     "group": "A data",
-    "check": "no capture gaps in the void",
+    "check": "capture coverage in the void",
     "pass": true,
     "detail": "303 cycles, median 14.9min, 4 gaps>25min, max 55min, coverage 97.9% (SLO 95%)"
   },
@@ -39,13 +39,13 @@
     "group": "A data",
     "check": "universe file fresh",
     "pass": true,
-    "detail": "73 of 1173, file 33h old"
+    "detail": "73 of 1173, file 34h old"
   },
   {
     "group": "A data",
     "check": "repo under the size limit",
     "pass": true,
-    "detail": "pack 82 MB (GitHub soft limit 1 GB)"
+    "detail": "pack 95 MB (GitHub soft limit 1 GB)"
   },
   {
     "group": "B docs",
@@ -81,7 +81,7 @@
     "group": "C pipe",
     "check": "every script parses",
     "pass": true,
-    "detail": "all 33 scripts parse"
+    "detail": "all 34 scripts parse"
   },
   {
     "group": "C pipe",
@@ -111,13 +111,13 @@
     "group": "D live",
     "check": "live site matches local",
     "pass": true,
-    "detail": "live generated 2026-09-14 15:39 ET, finding matches local: True"
+    "detail": "live generated 2026-09-14 16:15 ET, finding matches local: True"
   },
   {
     "group": "D live",
     "check": "live anchor is fresh",
     "pass": true,
-    "detail": "oldest live anchor 72.7h"
+    "detail": "oldest live anchor 73.4h"
   },
   {
     "group": "D live",

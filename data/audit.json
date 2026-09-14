@@ -21,7 +21,7 @@
   "phase": "0",
   "check": "no stale rows shown as live",
   "pass": true,
-  "detail": "73 live (worst 0.0h), 15 held out as dormant"
+  "detail": "73 live (worst 0.3h), 15 held out as dormant"
  },
  {
   "phase": "0",
@@ -51,19 +51,19 @@
   "phase": "1",
   "check": "health check",
   "pass": true,
-  "detail": "session=RTH limit=45m healthy=True"
+  "detail": "session=AH limit=45m healthy=True"
  },
  {
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 88 captures, lane2 93 captures"
+  "detail": "lane1 88 captures, lane2 94 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
   "pass": true,
-  "detail": "21 dispatch runs"
+  "detail": "20 dispatch runs"
  },
  {
   "phase": "1",
@@ -75,7 +75,7 @@
   "phase": "2",
   "check": "anchor is current",
   "pass": true,
-  "detail": "oldest anchor 72.7h old"
+  "detail": "oldest anchor 73.4h old"
  },
  {
   "phase": "2",
@@ -105,25 +105,25 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "88 books; RNVDA buy $597,315"
+  "detail": "88 books; RNVDA buy $616,952"
  },
  {
   "phase": "3",
   "check": "dashboard live",
   "pass": true,
-  "detail": "HTTP 200, 34078 bytes"
+  "detail": "HTTP 200, 34994 bytes"
  },
  {
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 90305 bytes"
+  "detail": "HTTP 200, 90367 bytes"
  },
  {
   "phase": "3",
   "check": "api index live",
   "pass": true,
-  "detail": "HTTP 200, 1260 bytes"
+  "detail": "HTTP 200, 1259 bytes"
  },
  {
   "phase": "3",
