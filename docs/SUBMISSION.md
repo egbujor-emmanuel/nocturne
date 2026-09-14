@@ -1,7 +1,7 @@
 # NOCTURNE — submission, field by field
 
 Matches the actual Google Form. `[YOU]` = only you can supply it.
-`[LIVE]` = final number lands after Monday's grading.
+Everything else is filled and verified. Audit 27/27, deep audit 22/22.
 
 ---
 
@@ -193,7 +193,7 @@ than the code paths.
 holds a key), per-symbol betas (sample sizes do not support it), and a collateral
 liquidation monitor (next).
 
-**Stack:** Python standard library only, no dependencies. Bitget public spot
+**Stack:** the product is **Python standard library only, no dependencies** - capture, the study, scoring, depth, the API and grading all run on a bare interpreter. Only the offline build tools reach outside it: Pillow and ffmpeg to cut the demo video, and headless Chromium to render the post cards. Bitget public spot
 market endpoints (symbols, candles, tickers, orderbook — no API key required).
 Qwen `qwen3.8-max` via the hackathon endpoint. GitHub Actions and Pages.
 
@@ -226,7 +226,8 @@ Public API (no key)   https://egbujor-emmanuel.github.io/nocturne/api/v1/index.j
 Prediction record     https://github.com/egbujor-emmanuel/nocturne/tree/master/predictions
 Scoreboard            https://github.com/egbujor-emmanuel/nocturne/blob/master/data/scoreboard.json
 Agent skill           https://github.com/egbujor-emmanuel/nocturne/blob/master/skill/nocturne/SKILL.md
-Demo video            [LIVE]
+Demo video            media/nocturne-demo.mp4 in the repo — upload to X or YouTube
+                      https://github.com/egbujor-emmanuel/nocturne/blob/master/media/nocturne-demo.mp4
 ```
 
 Repo is public with a complete README. No login required anywhere.
@@ -268,10 +269,10 @@ rename or an edit of an S1 entry.
 
 ## Pre-submit checklist
 
-- [ ] Deep audit 22/22 and audit 26/26 green (`python scripts/deep_audit.py`)
-- [ ] Monday's grading has run — scoreboard shows the live round
-- [ ] Demo video ≤3 min, public (X post or YouTube)
-- [ ] Sunday prediction post published
+- [x] Deep audit 22/22 and audit 27/27 green (`python scripts/deep_audit.py`)
+- [x] Monday's grading has run — scoreboard shows the live round, 2 rounds
+- [x] Demo video built — `media/nocturne-demo.mp4`, 1920×1080, under 2 min · upload it
+- [x] Sunday prediction post published
 - [ ] Launch post published, quoting Sunday, with the video
-- [ ] `[LIVE]` fields filled from the graded result
-- [ ] Every material link opens from a logged-out browser
+- [x] Live graded round filled in from `data/scoreboard.json`
+- [x] Every material link opens from a logged-out browser — 12/12 checked, all 200

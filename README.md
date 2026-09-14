@@ -105,7 +105,21 @@ Two falsifiable claims per weekend:
 2. **Ranking** — the top-scored third moves more than the bottom third
 
 See [`predictions/`](predictions/) and [`data/scoreboard.json`](data/scoreboard.json).
-Backtested round (2026-09-04): claim 1 **lost**, claim 2 **won**. Published as-is.
+
+| round | n | 1 · level | 2 · ranking |
+|---|---|---|---|
+| 2026-09-06 → 09-07 *(replayed)* | 52 | lost 0.974% vs 0.808% | **won** 0.819% vs 0.670% |
+| **2026-09-13 → 09-14 *(live)*** | **75** | lost 4.524% vs 3.906% | **won 4.493% vs 3.316%** |
+| **running** | | **0 / 2** | **2 / 2** |
+
+The live round ran unattended: published Sunday 17:01 ET from GitHub Actions,
+hash committed 16 hours before the reopen, graded Monday 11:01 ET. The level
+claim has lost twice — the same result our walk-forward test predicted — and we
+did not quietly drop it. Both results published as-is.
+
+**Demo video:** [`media/nocturne-demo.mp4`](media/nocturne-demo.mp4) — every
+frame is a real capture, a real screenshot, or a card rendered from the live
+data files at build time.
 
 ## Reproduce it
 
