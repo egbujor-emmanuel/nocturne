@@ -4,8 +4,8 @@
  "name": "CSCO",
  "last": 111.1,
  "bid": 111.1,
- "ask": 111.43,
- "spread_pct": 0.3239,
+ "ask": 111.4,
+ "spread_pct": null,
  "reference_close": 112.13,
  "reference_close_at": "2026-09-11 15:00 ET",
  "fair_value": 112.13,
@@ -16,12 +16,12 @@
  "tier": null,
  "sigma_daily_pct": null,
  "z": null,
- "buy_usd_0_5": 18780.66,
- "sell_usd_0_5": 19118.21,
- "buy_shares_0_5": 167.9354,
- "liquidity": "VERY THIN",
+ "buy_usd_0_5": null,
+ "sell_usd_0_5": null,
+ "buy_shares_0_5": null,
+ "liquidity": null,
  "band_max_buy": 123.343,
  "band_max_sell": 100.917,
  "class": "other",
- "captured": "2026-09-14 00:15 ET"
+ "captured": "2026-09-14 00:30 ET"
 }
