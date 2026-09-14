@@ -15,7 +15,13 @@
   "phase": "0",
   "check": "weekend universe mapped",
   "pass": true,
-  "detail": "87 of 699"
+  "detail": "73 of 1173, scanned 2026-09-11 (2d ago)"
+ },
+ {
+  "phase": "0",
+  "check": "no stale rows shown as live",
+  "pass": true,
+  "detail": "73 live (worst 0.0h), 15 held out as dormant"
  },
  {
   "phase": "0",
@@ -33,7 +39,7 @@
   "phase": "1",
   "check": "capture cycle runs",
   "pass": true,
-  "detail": "rows=87 books=87/87"
+  "detail": "rows=73 books=73/73"
  },
  {
   "phase": "1",
@@ -45,19 +51,19 @@
   "phase": "1",
   "check": "health check",
   "pass": true,
-  "detail": "session=VOID_A limit=30m healthy=True"
+  "detail": "session=RTH limit=45m healthy=True"
  },
  {
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 50 captures, lane2 52 captures"
+  "detail": "lane1 88 captures, lane2 93 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
   "pass": true,
-  "detail": "18 dispatch runs"
+  "detail": "21 dispatch runs"
  },
  {
   "phase": "1",
@@ -69,7 +75,7 @@
   "phase": "2",
   "check": "anchor is current",
   "pass": true,
-  "detail": "oldest anchor 18.2h old"
+  "detail": "oldest anchor 72.7h old"
  },
  {
   "phase": "2",
@@ -99,49 +105,49 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "87 books; RNVDA buy $611,810"
+  "detail": "88 books; RNVDA buy $597,315"
  },
  {
   "phase": "3",
   "check": "dashboard live",
   "pass": true,
-  "detail": "HTTP 200, 34049 bytes"
+  "detail": "HTTP 200, 34078 bytes"
  },
  {
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 65273 bytes"
+  "detail": "HTTP 200, 90305 bytes"
  },
  {
   "phase": "3",
   "check": "api index live",
   "pass": true,
-  "detail": "HTTP 200, 1253 bytes"
+  "detail": "HTTP 200, 1260 bytes"
  },
  {
   "phase": "3",
   "check": "api symbol live",
   "pass": true,
-  "detail": "HTTP 200, 609 bytes"
+  "detail": "HTTP 200, 875 bytes"
  },
  {
   "phase": "3",
   "check": "api covers universe",
   "pass": true,
-  "detail": "87 symbol endpoints"
+  "detail": "88 symbol endpoints"
  },
  {
   "phase": "3",
   "check": "prediction + hash integrity",
   "pass": true,
-  "detail": "2026-09-06_1800.json n=56 hash MATCH"
+  "detail": "2026-09-13_1701.json n=75 hash MATCH"
  },
  {
   "phase": "3",
   "check": "grader produced a round",
   "pass": true,
-  "detail": "1 round(s); claim1 0/1 claim2 1/1"
+  "detail": "2 round(s); claim1 0/2 claim2 2/2"
  },
  {
   "phase": "3",

@@ -157,8 +157,11 @@ yet. Our proof is a public, timestamped, self-grading record rather than a usage
 claim: predictions hashed before the outcome, graded after, win or lose, running
 autonomously through judging. Measurable now: uptime of the live reference price —
 **observed**, capture from three independent sources across the 2026-09-11 void
-window: 174 cycles, median interval 15 minutes, 4 gaps longer than 25 minutes
-(longest 55) where an external cron missed consecutive firings. And cumulative
+window (Fri 20:00 → Mon 04:00 ET): **303 cycles**, median interval **14.9
+minutes**, **97.9% coverage** against a stated 95% SLO. Four gaps ran longer than
+25 minutes, the longest 55, where the external cron missed consecutive firings —
+we publish the number rather than claim zero. Per lane: GitHub Actions 235
+cycles, local 34, local2 35; no lane is load-bearing on its own. And cumulative
 claim accuracy (**observed**, published in `data/scoreboard.json`).
 
 **What we do not claim.** We cannot forecast Monday's price for an individual

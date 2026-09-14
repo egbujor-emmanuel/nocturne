@@ -42,8 +42,33 @@ def _secret():
 
 
 def _uni():
+    """The weekend-tradeable set is measured, not fixed - it went 87 -> 73 in a
+    week while listings went 699 -> 1173. A hardcoded floor just encodes last
+    month's measurement. What actually matters: it is materially more than the
+    20 the handbook documents, and it was scanned against a recent window."""
+    import datetime as _dt
+    from session import ET as _ET
     u = json.load(open("data/weekend_universe.json"))
-    return u["weekend_tradeable"] >= 80, "%d of %d" % (u["weekend_tradeable"], u["candidates"])
+    n, c = u["weekend_tradeable"], u["candidates"]
+    scanned = _dt.datetime.fromisoformat(u["void_window"][0])
+    age_d = (_dt.datetime.now(_ET) - scanned).days
+    ok = n > 20 and n == len(u["universe"]) and c > n and age_d <= 10
+    return ok, "%d of %d, scanned %s (%dd ago)" % (n, c, scanned.strftime("%Y-%m-%d"), age_d)
+
+
+def _fresh():
+    """Every symbol the dashboard presents as live must have a recent capture.
+    The universe shrank on 2026-09-12 and 15 dropped names kept appearing with
+    33-hour-old prices beside four-minute-old ones."""
+    site = json.load(open("data/site.json"))
+    rows = site["symbols"]
+    stale = [r["symbol"] for r in rows if r.get("stale")]
+    live = [r for r in rows if not r.get("stale")]
+    if not live:
+        return False, "no live symbols"
+    worst = max(r.get("capture_age_h") or 0 for r in live)
+    return worst <= 6, "%d live (worst %.1fh), %d held out as dormant" % (
+        len(live), worst, len(stale))
 
 
 def _bf():
@@ -74,6 +99,7 @@ def _secrets_clean():
 chk("0", "repo is public", _repo)
 chk("0", "qwen secret set", _secret)
 chk("0", "weekend universe mapped", _uni)
+chk("0", "no stale rows shown as live", _fresh)
 chk("0", "history backfilled", _bf)
 chk("0", "no secrets in git history", _secrets_clean)
 

@@ -130,6 +130,19 @@ def build():
           "class":"large-cap" if sym in LARGE else ("leveraged" if sym in LEVERAGED else "other"),
           "captured":d["captured"],
         })
+    # Bitget's weekend-tradeable set is re-measured every weekend and it moves.
+    # When a name drops out, capture stops following it but the archive still
+    # holds a row - so the page was showing 15 prices last seen 33 hours ago
+    # beside prices four minutes old, with nothing to tell them apart.
+    for r in out:
+        age=None
+        try:
+            c=dt.datetime.strptime(r["captured"].replace(" ET",""),"%Y-%m-%d %H:%M").replace(tzinfo=ET)
+            age=round((now-c).total_seconds()/3600,1)
+        except Exception:
+            pass
+        r["capture_age_h"]=age
+        r["stale"]=(age is None or age>6)
     lv,lvwin=({},None)
     if sess not in WEEKEND_DARK:
         lv,lvwin=last_void_snapshot(cal)

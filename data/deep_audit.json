@@ -3,31 +3,31 @@
     "group": "A data",
     "check": "every anchor is current",
     "pass": true,
-    "detail": "87 anchors, oldest 18.6h, newest 18.6h"
+    "detail": "88 anchors, oldest 72.7h, newest 0.7h"
   },
   {
     "group": "A data",
     "check": "anchor is Friday inside a weekend",
     "pass": true,
-    "detail": "anchor dates in use: ['2026-09-11']"
+    "detail": "not a weekend window (RTH) - skipped"
   },
   {
     "group": "A data",
     "check": "void drift is plausible",
     "pass": true,
-    "detail": "median |drift| 0.17%, max 2.34%"
+    "detail": "no live drifts (scores suppressed)"
   },
   {
     "group": "A data",
     "check": "scores are distributed",
     "pass": true,
-    "detail": "n=75 median=24, 3% at >=90"
+    "detail": "scores suppressed (RTH)"
   },
   {
     "group": "A data",
     "check": "no capture gaps in the void",
     "pass": true,
-    "detail": "75 cycles, 0 gaps>25min"
+    "detail": "303 cycles, median 14.9min, 4 gaps>25min, max 55min, coverage 97.9% (SLO 95%)"
   },
   {
     "group": "A data",
@@ -39,13 +39,13 @@
     "group": "A data",
     "check": "universe file fresh",
     "pass": true,
-    "detail": "87 of 699, file 74h old"
+    "detail": "73 of 1173, file 33h old"
   },
   {
     "group": "A data",
     "check": "repo under the size limit",
     "pass": true,
-    "detail": "pack 59 MB (GitHub soft limit 1 GB)"
+    "detail": "pack 82 MB (GitHub soft limit 1 GB)"
   },
   {
     "group": "B docs",
@@ -111,13 +111,13 @@
     "group": "D live",
     "check": "live site matches local",
     "pass": true,
-    "detail": "live generated 2026-09-12 09:36 ET, finding matches local: True"
+    "detail": "live generated 2026-09-14 15:39 ET, finding matches local: True"
   },
   {
     "group": "D live",
     "check": "live anchor is fresh",
     "pass": true,
-    "detail": "oldest live anchor 18.6h"
+    "detail": "oldest live anchor 72.7h"
   },
   {
     "group": "D live",
@@ -129,6 +129,6 @@
     "group": "D live",
     "check": "prediction hashes intact",
     "pass": true,
-    "detail": "1 files, hashes all match"
+    "detail": "2 files, hashes all match"
   }
 ]
