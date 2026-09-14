@@ -1,11 +1,11 @@
 {
- "generated": "2026-09-14T15:00:51.654747+00:00",
- "generated_et": "2026-09-14 11:00 ET",
+ "generated": "2026-09-14T15:15:22.401982+00:00",
+ "generated_et": "2026-09-14 11:15 ET",
  "session": "RTH",
  "is_dark": false,
  "scores_live": false,
  "next_reopen_et": "2026-09-15 09:30 ET",
- "hours_to_reopen": 22.49,
+ "hours_to_reopen": 22.24,
  "band_pct": 10.0,
  "last_void_window": [
   "2026-09-04",
@@ -28,12 +28,24 @@
     "rank_top": 0.819,
     "rank_bottom": 0.67,
     "file": "2026-09-06_1800.json"
+   },
+   {
+    "published": "2026-09-13 17:01 ET",
+    "target": "2026-09-14 10:00 ET",
+    "n": 75,
+    "level_won": false,
+    "level_model": 4.524,
+    "level_base": 3.906,
+    "rank_won": true,
+    "rank_top": 4.493,
+    "rank_bottom": 3.316,
+    "file": "2026-09-13_1701.json"
    }
   ],
   "summary": {
-   "rounds": 1,
+   "rounds": 2,
    "claim_1_won": 0,
-   "claim_2_won": 1
+   "claim_2_won": 2
   },
   "pending": {
    "file": "2026-09-13_1701.json",
