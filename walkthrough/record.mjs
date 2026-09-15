@@ -43,15 +43,19 @@ page.on("pageerror", (e) => errs.push(String(e).slice(0, 160)));
 
 const CAP_CSS = `
 #capwrap{position:fixed;left:0;right:0;bottom:0;z-index:2147483646;
-  display:flex;justify-content:center;padding:52px 0 24px;pointer-events:none;
-  background:linear-gradient(0deg,rgba(0,0,0,.97) 45%,rgba(0,0,0,.72) 82%,transparent)}
+  display:flex;justify-content:center;padding:120px 0 26px;pointer-events:none;
+  background:linear-gradient(0deg,rgba(0,0,0,.99) 52%,rgba(0,0,0,.93) 70%,
+    rgba(0,0,0,.72) 84%,transparent)}
 #cap{max-width:1020px;text-align:center;padding:0 40px}
-#cap .l{display:block;font:600 25px/1.44 Inter,-apple-system,"Segoe UI",Roboto,sans-serif;
-  letter-spacing:-.012em}
-#cap .w{color:rgba(255,255,255,.38)}
-#cap .w.read{color:#fff}
-#cap .w.now{color:#4D8BFF}
-#cap .n{display:block;margin-top:12px;font:700 11px/1 "JetBrains Mono",ui-monospace,Consolas,monospace;
+/* Namespaced. The dashboard already owns .now - an absolutely positioned
+   marker that also injects a "NOW" label - so a caption word classed "now"
+   was torn out of the line and pinned over the chart. */
+#cap .ncl{display:block;font:600 25px/1.44 Inter,-apple-system,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:-.012em;position:static}
+#cap .ncw{color:rgba(255,255,255,.38);position:static;display:inline}
+#cap .ncw-read{color:#fff}
+#cap .ncw-now{color:#4D8BFF}
+#cap .ncn{display:block;margin-top:12px;font:700 11px/1 "JetBrains Mono",ui-monospace,Consolas,monospace;
   letter-spacing:.2em;text-transform:uppercase;color:#7c8ba6}
 #flash{position:fixed;inset:0;z-index:2147483647;background:#fff;display:none}
 `;
@@ -75,12 +79,24 @@ async function dress(zoom = 1) {
 }
 
 const hold = (ms) => page.waitForTimeout(ms);
+// A missing anchor used to resolve to null and scroll nowhere, so the first
+// take narrated four charts while filming the hero and nothing anywhere said
+// so. Now it stops the recording instead.
 const to = async (sel, p = 1100, block = "center") => {
-  await page.evaluate(
-    ([s, b]) => document.querySelector(s)?.scrollIntoView({ block: b, behavior: "smooth" }),
+  const before = await page.evaluate(() => Math.round(window.scrollY));
+  const ok = await page.evaluate(
+    ([s, b]) => {
+      const el = document.querySelector(s);
+      if (!el) return false;
+      el.scrollIntoView({ block: b, behavior: "smooth" });
+      return true;
+    },
     [sel, block]
   );
+  if (!ok) throw new Error(`no such element to scroll to: ${sel}`);
   await hold(p);
+  const after = await page.evaluate(() => Math.round(window.scrollY));
+  if (after === before && before === 0) throw new Error(`page did not scroll for ${sel}`);
 };
 const top = async (p = 1100) => {
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "smooth" }));
@@ -127,9 +143,9 @@ const say = async (i) => {
       const cap = document.getElementById("cap");
       if (!cap) return;
       cap.innerHTML =
-        `<span class="l">${parts.map((w) => `<span class="w">${w}</span>`).join(" ")}</span>` +
-        (g ? `<span class="n">${g}</span>` : "");
-      const spans = Array.from(cap.querySelectorAll(".w"));
+        `<span class="ncl">${parts.map((w) => `<span class="ncw">${w}</span>`).join(" ")}</span>` +
+        (g ? `<span class="ncn">${g}</span>` : "");
+      const spans = Array.from(cap.querySelectorAll(".ncw"));
       // Word boundaries come from the synthesiser. If it split the line
       // differently from a whitespace split, spread evenly rather than
       // lighting the wrong word.
@@ -139,12 +155,12 @@ const say = async (i) => {
           : spans.map((_, k) => (dur * k) / spans.length);
       marks.forEach((ms, k) =>
         setTimeout(() => {
-          if (k) spans[k - 1].className = "w read";
-          spans[k].className = "w now";
+          if (k) spans[k - 1].className = "ncw ncw-read";
+          spans[k].className = "ncw ncw-now";
         }, Math.max(0, ms))
       );
       setTimeout(() => {
-        spans[spans.length - 1].className = "w read";
+        spans[spans.length - 1].className = "ncw ncw-read";
       }, dur);
     },
     [line, tag, t.words, t.dur]
@@ -205,7 +221,47 @@ await say(10); // to bitget
 if (link) {
   await link.click().catch(() => {});
   await page.waitForLoadState("domcontentloaded", { timeout: 60000 }).catch(() => {});
-  await hold(5200); // the exchange is heavy, and over a VPN
+
+  // The exchange app is heavy and this machine reaches it over a VPN. A fixed
+  // wait filmed a loading spinner while the voice said "live order book", so
+  // wait for the ticker bar to actually mount. Dead time is free: the mixdown
+  // compresses every gap between spoken lines.
+  let ready = false;
+  for (let i = 0; i < 40; i++) {
+    ready = await page
+      .evaluate(() => /24h\s*(change|high|low|volume)/i.test(document.body.innerText))
+      .catch(() => false);
+    if (ready) break;
+    await hold(1500);
+  }
+  console.log("  bitget trading UI mounted:", ready);
+  if (!ready) throw new Error("Bitget page never rendered - is the VPN up?");
+
+  // Clear the cookie dialog so it is not sitting over the order book.
+  for (const label of ["Accept all cookies", "Accept All Cookies", "Accept all", "Accept"]) {
+    const b = await page.$(`button:has-text("${label}")`);
+    if (b) {
+      await b.click({ timeout: 4000 }).catch(() => {});
+      await hold(600);
+      break;
+    }
+  }
+
+  // And let the price chart finish drawing. A spinner on screen while the
+  // voice says "live price" is the one thing this shot cannot show.
+  let charted = false;
+  for (let i = 0; i < 24; i++) {
+    charted = await page
+      .evaluate(() => {
+        const c = document.querySelector("canvas");
+        return !!c && c.getBoundingClientRect().width > 300;
+      })
+      .catch(() => false);
+    if (charted) break;
+    await hold(1500);
+  }
+  console.log("  bitget chart drawn:", charted);
+  await hold(2500);
   await dress();
 }
 await say(11); // the real screen
