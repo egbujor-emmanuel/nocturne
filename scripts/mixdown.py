@@ -161,9 +161,13 @@ def lay(silent: Path, timing: list, starts: list) -> int:
           "amix=inputs=%d:normalize=0[m];" % len(starts) +
           "[m]loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,apad[a]")
     OUT.parent.mkdir(parents=True, exist_ok=True)
+    # The picture is already H.264 yuv420p at the target rate - the segments
+    # were encoded that way and concatenated without re-encoding. Copying it
+    # turns a five-minute re-encode into a few seconds and avoids a second
+    # generation of compression on top of the first.
     run(["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", fc,
-         "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-preset", "slow",
-         "-crf", "20", "-c:a", "aac", "-b:a", "160k",
+         "-map", "0:v", "-map", "[a]", "-c:v", "copy",
+         "-c:a", "aac", "-b:a", "160k",
          "-movflags", "+faststart", "-shortest", str(OUT)])
     dur = dur_of(OUT)
     print("\n%s\n  %.1f MB, %.1fs, 1920x1080, %d fps"
@@ -257,34 +261,9 @@ def main() -> int:
     vdur = dur_of(silent)
     print("  picture: %d segments, %.1fs" % (len(parts), vdur))
 
-    # Lay each line of narration at the position its passage now occupies.
-    inputs: list[str] = ["-i", str(silent)]
-    for t in timing:
-        inputs += ["-i", str(AUDIO / t["file"])]
-    delays = ["[%d:a]adelay=%d|%d[a%d]" % (n, int(s * 1000), int(s * 1000), n)
-              for n, s in enumerate(starts, start=1)]
-    mix = "".join("[a%d]" % n for n in range(1, len(starts) + 1))
-    # normalize=0 keeps each line at the level it was spoken; loudnorm then puts
-    # the whole track at a consistent level.
-    fc = (";".join(delays) + ";" + mix +
-          "amix=inputs=%d:normalize=0[m];" % len(starts) +
-          "[m]loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,apad[a]")
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    run(["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", fc,
-         "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-preset", "slow",
-         "-crf", "20", "-c:a", "aac", "-b:a", "160k",
-         "-movflags", "+faststart", "-shortest", str(OUT)])
-
-    dur = dur_of(OUT)
-    print("\n%s\n  %.1f MB, %.1fs, 1920x1080, %d fps"
-          % (OUT, OUT.stat().st_size / 1e6, dur, FPS))
-    print("  last line starts at %.1fs, ends %.1fs"
-          % (starts[-1], starts[-1] + timing[-1]["dur"] / 1000))
-    if dur > CAP:
-        print("  OVER the 3-minute limit by %.1fs" % (dur - CAP))
-        return 1
-    print("  under the 3-minute limit with %.1fs to spare" % (CAP - dur))
-    return 0
+    # One audio pass, shared with --from-cut, so the resumed path and the full
+    # path cannot drift apart.
+    return lay(silent, timing, starts)
 
 
 if __name__ == "__main__":

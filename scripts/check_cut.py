@@ -69,6 +69,9 @@ def main() -> int:
              "end": round(st + t["dur"] / 1000.0, 2), "line": t["line"]}
             for t, st in zip(timing, starts)]
     (WORK / "manifest.json").write_text(json.dumps(rows, indent=1), encoding="utf-8")
+    print("  manifest: %d lines, picture %.1fs" % (len(rows), clock))
+    if "--manifest-only" in sys.argv:
+        return 0
 
     SHOTS.mkdir(parents=True, exist_ok=True)
     for f in SHOTS.glob("*.png"):
