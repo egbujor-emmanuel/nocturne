@@ -226,8 +226,10 @@ Public API (no key)   https://egbujor-emmanuel.github.io/nocturne/api/v1/index.j
 Prediction record     https://github.com/egbujor-emmanuel/nocturne/tree/master/predictions
 Scoreboard            https://github.com/egbujor-emmanuel/nocturne/blob/master/data/scoreboard.json
 Agent skill           https://github.com/egbujor-emmanuel/nocturne/blob/master/skill/nocturne/SKILL.md
-Demo video            media/nocturne-demo.mp4 in the repo — upload to X or YouTube
+Demo video            media/nocturne-demo.mp4 — upload to X or YouTube
                       https://github.com/egbujor-emmanuel/nocturne/blob/master/media/nocturne-demo.mp4
+Screen recording      the same file — this is also the Track 3 run record
+                      https://github.com/egbujor-emmanuel/nocturne/blob/master/docs/VIDEO.md
 ```
 
 Repo is public with a complete README. No login required anywhere.
@@ -271,7 +273,9 @@ rename or an edit of an S1 entry.
 
 - [x] Deep audit 22/22 and audit 27/27 green (`python scripts/deep_audit.py`)
 - [x] Monday's grading has run — scoreboard shows the live round, 2 rounds
-- [x] Demo video built — `media/nocturne-demo.mp4`, 1920×1080, under 2 min · upload it
+- [x] Demo video built — `media/nocturne-demo.mp4`, 1920×1080, under the 3-min
+      cap · a narrated, captioned screen recording of the live product, which
+      is also what the track asks for as a run record · upload it
 - [x] Sunday prediction post published
 - [ ] Launch post published, quoting Sunday, with the video
 - [x] Live graded round filled in from `data/scoreboard.json`

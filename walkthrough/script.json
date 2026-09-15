@@ -1,0 +1,78 @@
+[
+ {
+  "tag": "the void",
+  "line": "Bitget lists tokenized US stocks that trade around the clock. Nasdaq does not. For about forty seven hours a week these assets have no external price anywhere."
+ },
+ {
+  "tag": "who sets the price",
+  "line": "Bitget's own engine sets it instead, and its documentation calls those quotes indicative. Nobody tells you how thin that is."
+ },
+ {
+  "tag": "the session map",
+  "line": "So NOCTURNE reads the tape and works out which session the market is really in. Six states, derived from the data, not a calendar."
+ },
+ {
+  "tag": "the trading week",
+  "line": "A full week of turnover, hour by hour. Blue is real Nasdaq liquidity, red is the void, and the axis is logarithmic."
+ },
+ {
+  "tag": "the cliff",
+  "line": "Apple clears two point three eight billion in the Friday closing hour, and sixty three dollars in the hour after. The median weekend hour is four hundred and ninety two dollars."
+ },
+ {
+  "tag": "our own tape",
+  "line": "These are our own captured ticks. Three independent lanes record the book right through the weekend. Three hundred and three cycles, ninety eight percent coverage."
+ },
+ {
+  "tag": "the finding",
+  "line": "With that tape we measured what the weekend moves are worth. Across one hundred and ninety six observations, for large caps, essentially all of the drift reverses by Monday. We call it Void Drift."
+ },
+ {
+  "tag": "the live book",
+  "line": "Every weekend-tradeable rToken, measured from the tape rather than a list. Last price, fair value, how far it has drifted, and a score ranking execution risk."
+ },
+ {
+  "tag": "depth",
+  "line": "Beside it, the depth that actually exists. Not the chart, the book. How many dollars move the price half a percent."
+ },
+ {
+  "tag": "order splitting",
+  "line": "Give it an order size and it says whether one fill clears, or how many slices. Watch it at a quarter of a million."
+ },
+ {
+  "tag": "to bitget",
+  "line": "Every row links straight to Bitget, because the claim only counts if you can check it against the real screen."
+ },
+ {
+  "tag": "the real screen",
+  "line": "Live page, live price, live order book. The same number we just called thin. Nothing here is a mockup."
+ },
+ {
+  "tag": "the public record",
+  "line": "Every weekend it commits to two falsifiable claims before the reopen, and hashes the file into a public repo. A git timestamp cannot be back-dated."
+ },
+ {
+  "tag": "the live round",
+  "line": "Sunday it published seventy five symbols at five oh one, then graded itself Monday morning. Nobody was awake for either."
+ },
+ {
+  "tag": "the loss",
+  "line": "The ranking claim won. The level claim lost, and it is on the front page, because a prediction you only check when it wins is not a prediction."
+ },
+ {
+  "tag": "the api",
+  "line": "All of it is public. Eighty eight JSON endpoints. No key, no login, no rate limit."
+ },
+ {
+  "tag": "the agent skill",
+  "line": "It also ships as an installable agent skill, so your own assistant can ask whether a weekend price is trustworthy and answer from the same data."
+ },
+ {
+  "tag": "autonomy",
+  "line": "The loop runs on GitHub Actions every fifteen minutes. It captured, published, graded and deployed itself all weekend with nobody at the keyboard, and it keeps running while you judge."
+ },
+ {
+  "tag": "nocturne",
+  "line": "A reference price for stocks while the stock market is closed. NOCTURNE."
+ }
+]

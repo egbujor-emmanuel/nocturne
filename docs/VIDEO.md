@@ -1,114 +1,92 @@
-# NOCTURNE — demo video script
+# NOCTURNE — the demo video
 
-**Target: 90 seconds.** A judge watching 200 submissions decides in the first
-ten. Lead with the number, not the product tour.
+The hackathon asks AI Trading Desk entries for **"a full research-task
+walkthrough or screen recording"**, and a demo video of **3 minutes or less**.
+So the video is not a slide deck. It is one continuous screen recording of the
+live product, driven by Playwright, narrated, with a word-synchronised caption.
 
-Times are ET, with your local (WAT = ET + 5) alongside.
-
----
-
-## The opening line — say this over shot 1
-
-> "One hour of Apple on a Friday trades five point nine billion dollars.
-> The entire following weekend, across every tokenised US stock on Bitget,
-> trades eight point six million.
-> That's six hundred and eighty four to one.
-> And the price still moves."
-
-Then, two beats later:
-
-> "We measured what happens to those weekend moves. For large caps,
-> a hundred percent of them reverse by Monday. We call it Void Drift."
+Output: `media/nocturne-demo.mp4`, 1920×1080.
 
 ---
 
-## Shot list
+## What it shows, in order
 
-### Shot 1 — the dead market (30s)
-**Sat 08:00–14:00 ET · Sat 13:00–19:00 your time**
+Every part of the build is touched once and then left. Nothing is dwelt on.
 
-Screen: the dashboard, live, during the void window.
+| # | section | on screen |
+|---|---|---|
+| 1 | the void | the live dashboard, hero |
+| 2 | who sets the price | — |
+| 3 | the session map | the six-state session tile |
+| 4 | the trading week | 168 hourly bars, void highlighted, log axis |
+| 5 | the cliff | rAAPL turnover, $2.38bn → $63 at 20:00 ET |
+| 6 | our own tape | the live-capture sparkline, our own ticks |
+| 7 | the finding | arriving at the book |
+| 8 | the live book | last, fair value, drift, noise score, tier |
+| 9 | depth | the table scrolled to buy/sell depth and spread |
+| 10 | order splitting | order size raised to $250,000, slices change |
+| 11 | to Bitget | a real `trade →` link, highlighted, clicked |
+| 12 | **the real screen** | **Bitget's own live page for that pair** |
+| 13 | the public record | the hashed-prediction section |
+| 14 | the live round | Sunday's round, graded |
+| 15 | the loss | the level claim losing, on the front page |
+| 16 | the API | a live JSON endpoint in the browser |
+| 17 | the agent skill | `skill/nocturne/SKILL.md` |
+| 18 | autonomy | the GitHub Actions run history |
+| 19 | close | back to the dashboard |
 
-- The banner reading **US market is CLOSED (VOID_A)**
-- The depth column — scroll to the VERY THIN rows. rAAPL, rAMD, rASTS
-- One Noise Score in the 90s next to a drift of a fraction of a percent
-- The countdown: "orders cancelled in N hours"
+## How it is built
 
-**This is the most important footage of the weekend.** It is the only shot that
-cannot be reconstructed later, and it is the entire argument.
+Four steps, all reproducible.
 
-### Shot 2 — the pre-commitment (15s)
-**Sun 17:00–19:00 ET · Sun 22:00–00:00 your time**
+```bash
+# 1. the words
+#    walkthrough/script.json — one line per beat
 
-Screen: the GitHub commit for the prediction file.
+# 2. the voice, and where every word lands
+python scripts/tts.py --voice en-US-AndrewNeural --rate "+8%"
+#    -> walkthrough/audio/NN.mp3 + timing.json
 
-- The `predictions/` file and its `.sha256`
-- GitHub's own commit timestamp, clearly before Monday's open
-- Say: *"Published before the market opened. Hashed. We can't edit it after."*
+# 3. drive the live product and film it
+cd walkthrough && PW_CHROME=<chromium> node record.mjs
+#    -> walkthrough/final/*.webm + audio/offsets.json
 
-### Shot 3 — liquidity returns (10s, optional)
-**Sun 19:00–20:00 ET · Mon 00:00–01:00 your time**
+# 4. cut it to the narration and lay the voice on
+python scripts/mixdown.py
+#    -> media/nocturne-demo.mp4
+```
 
-Screen: session flips VOID_A -> PARTIAL_B, depth numbers visibly rebuild.
+**Why the caption cannot drift.** The voice is synthesised *first*, and the
+synthesiser reports the millisecond at which every word is spoken. The recorder
+lights each word from those marks, and reports back the offset at which each
+line began. The mixdown places each line of audio at exactly that offset.
+Nothing is estimated from an assumed reading speed, so the highlight stays on
+the voice for the whole run.
 
-Say: *"Sunday evening, index futures reopen and liquidity comes back. Nobody
-charts this boundary because you have to know it exists."*
+**Why the transitions run fast.** Headless Chromium drives the page far slower
+than a person does — a scroll and a settle that read as one second cost twenty
+in the capture — so the raw take runs about seven minutes. The mixdown keeps
+every narrated passage at real speed and compresses only the dead time between
+them. The transitions are the same frames, run fast. Nothing is dropped and no
+frame is synthetic.
 
-Skip if you're not up. Nice-to-have.
+## Bitget's own page
 
-### Shot 4 — the re-anchor and the grade (25s)
-**Mon 09:30–11:30 ET · Mon 14:30–16:30 your time**
+Shot 12 is the one that makes the rest count: the dashboard alone only *claims*
+a price is thin, and the dashboard next to Bitget showing that same price is
+what proves it. The recorder strips `target="_blank"` from a real `trade →`
+link so it opens in the same tab, keeping one continuous recording.
 
-Screen: prices snap back, then the scoreboard.
+**A VPN is required on this machine.** The ISP refuses TCP to `www.bitget.com`
+at the connection layer — DNS resolves fine, port 443 returns
+ConnectionRefused. It is not a DNS problem and no browser setting fixes it.
+`api.bitget.com` is unaffected, which is why data capture never needed one.
+Confirm the page loads before recording, not mid-take.
 
-- Both claims scored, **including any loss**
-- Say: *"We said Monday would land closer to Friday's close. Here's how we did.
-  Claim one wins seven weekends in ten — we said that before, not after."*
+## Dependencies
 
-### Shot 5 — the close (10s)
+Build-time only; nothing in the running product imports any of them.
 
-Screen: the skill installed in Claude or Cursor, answering
-*"what is rNVDA worth right now?"* from the public API.
-
-> "No API key. Eighty-seven stocks. It'll still be running while you judge."
-
----
-
-## Rules
-
-- **Never say "predicts."** Say *reference price*, *ranks execution risk*.
-- **Show a loss on screen.** It is the most persuasive thing in the video.
-- Real cursor movement on the live site. No mockups, no slides.
-- Screen-record at 1080p+. Face optional; voice matters more.
-- If a number on screen disagrees with the script, **read the screen.**
-
----
-
-## REQUIRED: Bitget's own page on screen
-
-Every shot showing a dislocation must be followed by **Bitget's own trading page
-for that symbol** - side by side, or cut to directly. That is the proof the price
-we are calling into question is the real, live price a user sees. The dashboard
-alone only claims a price is wrong; the dashboard next to Bitget showing that
-price proves it.
-
-  https://www.bitget.com/spot/RNVDAUSDT   (swap the pair for whichever symbol)
-
-**A VPN is required to reach it from this machine.** The ISP refuses TCP to
-www.bitget.com at the connection layer - confirmed by test: DNS resolves fine,
-port 443 returns ConnectionRefused. It is not a DNS problem and no browser
-setting fixes it. Confirmed working over VPN. api.bitget.com is unaffected,
-which is why data capture never needed one.
-
-Turn the VPN on and confirm the page loads BEFORE recording, not mid-take.
-
-## Recording checklist
-
-- [ ] Dashboard open, session shows a DARK state
-- [ ] Browser zoom ~110% so depth figures are legible
-- [ ] Terminal ready with the skill client
-- [ ] GitHub commit history open in a second tab
-- [ ] Test 10s of audio first
-- [ ] VPN on and https://www.bitget.com/spot/RNVDAUSDT loads
-- [ ] Bitget page open in a second tab for the side-by-side
-- [ ] Shot 1 captured — everything else is upside
+- `edge-tts` — narration and word timings
+- `playwright-core` + Chromium — driving and filming the live site
+- `ffmpeg` / `ffprobe` — cutting and mixing

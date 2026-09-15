@@ -297,7 +297,7 @@ footer b{color:var(--ink2)}
 </div>
 
 <div class="scene">
-<div class="tiles">
+<div class="tiles" id="s-tiles">
   <div class="card tile rv"><div class="k">Session</div><div class="v" id="sess">—</div>
     <div class="n" id="sessn">&nbsp;</div></div>
   <div class="card tile rv"><div class="k">Void drift reverses</div><div class="v b" id="noise">—</div>
@@ -310,7 +310,7 @@ footer b{color:var(--ink2)}
     <div class="n">rTokens with weekend flow</div></div>
 </div>
 
-<div class="sec rv">
+<div class="sec rv" id="s-week">
   <div class="shead"><h2>The trading week</h2><span class="rt" id="wknow">—</span></div>
   <div class="card weekwrap">
     <div class="wkrow">
@@ -324,7 +324,7 @@ footer b{color:var(--ink2)}
   </div>
 </div>
 
-<div class="two">
+<div class="two" id="s-charts">
   <div class="card chart rv">
     <div class="ct"><b>Live capture</b><span class="pick" id="pick"></span></div>
     <div class="lastpx" id="lastpx">—</div>
@@ -351,7 +351,7 @@ footer b{color:var(--ink2)}
 
 <div id="banner" class="ban b-open">loading…</div>
 
-<div class="sec rv">
+<div class="sec rv" id="s-book">
   <div class="shead"><h2>Live book</h2><span class="note" id="tblnote"></span>
     <span class="rt">order size
       <select id="osize"><option value="0">off</option><option value="1000">$1,000</option>
@@ -366,7 +366,7 @@ footer b{color:var(--ink2)}
   <div class="more" id="morewrap"></div>
 </div>
 
-<div class="sec rv">
+<div class="sec rv" id="s-record">
   <div class="shead"><h2>The public record</h2>
     <span class="note">hashed before the reopen · graded after · win or lose</span></div>
   <div id="pending"></div><div id="rounds"></div>
