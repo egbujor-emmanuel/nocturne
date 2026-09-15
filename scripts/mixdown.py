@@ -121,7 +121,57 @@ def seg(src: Path, ss: float, dur: float, dest: Path, speed: float = 1.0) -> Non
          "-pix_fmt", "yuv420p", "-video_track_timescale", "90000", str(dest)])
 
 
+def remix() -> int:
+    """Re-lay the narration onto a picture that is already cut.
+
+    The cut segments and their manifest survive independently of the raw take,
+    so a lost recording does not mean re-recording: if walkthrough/cut holds a
+    silent.mp4 and a manifest, the audio pass can be run again on its own.
+    """
+    silent = WORK / "silent.mp4"
+    man = WORK / "manifest.json"
+    if not (silent.exists() and man.exists()):
+        sys.exit("no cut to remix - run without --from-cut")
+    rows = json.loads(man.read_text(encoding="utf-8"))
+    timing = json.loads((AUDIO / "timing.json").read_text(encoding="utf-8"))
+    if len(rows) != len(timing):
+        sys.exit("manifest and timing disagree")
+    print("  reusing %s (%.1fs, %d lines)" % (silent.name, dur_of(silent), len(rows)))
+    return lay(silent, timing, [r["start"] for r in rows])
+
+
+def lay(silent: Path, timing: list, starts: list) -> int:
+    inputs: list[str] = ["-i", str(silent)]
+    for t in timing:
+        inputs += ["-i", str(AUDIO / t["file"])]
+    delays = ["[%d:a]adelay=%d|%d[a%d]" % (n, int(st * 1000), int(st * 1000), n)
+              for n, st in enumerate(starts, start=1)]
+    mix = "".join("[a%d]" % n for n in range(1, len(starts) + 1))
+    # normalize=0 keeps each line at the level it was spoken; loudnorm then puts
+    # the whole track at a consistent level.
+    fc = (";".join(delays) + ";" + mix +
+          "amix=inputs=%d:normalize=0[m];" % len(starts) +
+          "[m]loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,apad[a]")
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    run(["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", fc,
+         "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-preset", "slow",
+         "-crf", "20", "-c:a", "aac", "-b:a", "160k",
+         "-movflags", "+faststart", "-shortest", str(OUT)])
+    dur = dur_of(OUT)
+    print("\n%s\n  %.1f MB, %.1fs, 1920x1080, %d fps"
+          % (OUT, OUT.stat().st_size / 1e6, dur, FPS))
+    print("  last line starts at %.1fs, ends %.1fs"
+          % (starts[-1], starts[-1] + timing[-1]["dur"] / 1000))
+    if dur > CAP:
+        print("  OVER the 3-minute limit by %.1fs" % (dur - CAP))
+        return 1
+    print("  under the 3-minute limit with %.1fs to spare" % (CAP - dur))
+    return 0
+
+
 def main() -> int:
+    if "--from-cut" in sys.argv:
+        return remix()
     src = max(REC.glob("*.webm"), key=lambda p: p.stat().st_size, default=None)
     if src is None:
         sys.exit("no recording in walkthrough/final")
