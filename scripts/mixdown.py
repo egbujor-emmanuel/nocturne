@@ -21,7 +21,7 @@ Writes media/nocturne-demo.mp4.
 from __future__ import annotations
 
 import json
-import os
+
 import re
 import shutil
 import subprocess
@@ -141,6 +141,14 @@ def remix() -> int:
 
 
 def lay(silent: Path, timing: list, starts: list) -> int:
+    # A manifest so the cut can be checked frame by frame, and so the audio
+    # pass can be re-run on its own later: every line, and where it now sits
+    # in the finished file.
+    (WORK / "manifest.json").write_text(json.dumps(
+        [{"i": t["i"], "tag": t["tag"], "start": round(st, 2),
+          "end": round(st + t["dur"] / 1000.0, 2), "line": t["line"]}
+         for t, st in zip(timing, starts)], indent=1), encoding="utf-8")
+
     inputs: list[str] = ["-i", str(silent)]
     for t in timing:
         inputs += ["-i", str(AUDIO / t["file"])]

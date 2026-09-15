@@ -73,9 +73,31 @@ frame is synthetic.
 ## Bitget's own page
 
 Shot 12 is the one that makes the rest count: the dashboard alone only *claims*
-a price is thin, and the dashboard next to Bitget showing that same price is
-what proves it. The recorder strips `target="_blank"` from a real `trade →`
-link so it opens in the same tab, keeping one continuous recording.
+a price is thin, and Bitget's own page showing that same price is what proves
+it. The recorder clicks a real `trade →` link and the tab follows it.
+
+Three things had to be true for that click to work, and each was a silent
+failure first:
+
+1. **The page must stop reloading.** The dashboard refreshes itself every
+   sixty seconds, which restores `target="_blank"` on the link and replaces
+   the row. A handle taken before the narration line then clicked a row that
+   no longer existed — and `click()` was wrapped in a catch, so nothing
+   reported it. The recorder now clears the page's timers first.
+2. **The link must be re-queried at the moment of clicking**, not before.
+3. **The navigation must be given time to land.** Checking the URL immediately
+   said "did not navigate" while the tab was already on its way, and the
+   fallback raced the navigation it was meant to replace.
+
+The recorder prints `clicked through: true -> <url>` so this is verifiable
+rather than assumed, and it refuses to film the page until the ticker bar or
+order book has actually mounted — an earlier take showed a loading spinner
+under the words "live order book".
+
+The price chart usually stays a spinner: TradingView wants a GPU canvas this
+headless build does not provide, and Bitget's own code times out trying. The
+live price and the live order book — what the line actually claims — are both
+on screen.
 
 **A VPN is required on this machine.** The ISP refuses TCP to `www.bitget.com`
 at the connection layer — DNS resolves fine, port 443 returns

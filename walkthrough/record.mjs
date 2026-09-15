@@ -241,12 +241,24 @@ await say(10); // to bitget
     await page.evaluate((s) => document.querySelector(s)?.removeAttribute("target"), SEL);
     await link.click({ timeout: 10000 }).catch(() => {});
   }
-  await page.waitForLoadState("domcontentloaded", { timeout: 60000 }).catch(() => {});
-  if (!/bitget\.com/i.test(page.url())) {
-    console.log("  click did not navigate, following the href directly");
-    await page.goto(href, { waitUntil: "domcontentloaded", timeout: 90000 });
+  // Give the click's own navigation time to land before judging it. Checking
+  // the URL immediately said "did not navigate" while the tab was already on
+  // its way, and the fallback goto then raced the navigation it was meant to
+  // replace.
+  let arrived = false;
+  for (let i = 0; i < 20; i++) {
+    if (/bitget\.com/i.test(page.url())) {
+      arrived = true;
+      break;
+    }
+    await hold(1000);
   }
-  console.log("  now at:", page.url());
+  if (!arrived) {
+    console.log("  click did not navigate, following the href directly");
+    await page.goto(href, { waitUntil: "domcontentloaded", timeout: 90000 }).catch(() => {});
+  }
+  await page.waitForLoadState("domcontentloaded", { timeout: 60000 }).catch(() => {});
+  console.log("  clicked through:", arrived, "->", page.url());
 
   // The exchange app is heavy and this machine reaches it over a VPN. A fixed
   // wait filmed a loading spinner while the voice said "live order book", so
