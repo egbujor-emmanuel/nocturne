@@ -41,41 +41,53 @@ const page = await ctx.newPage();
 const errs = [];
 page.on("pageerror", (e) => errs.push(String(e).slice(0, 160)));
 
-const CAP_CSS = `
-#capwrap{position:fixed;left:0;right:0;bottom:0;z-index:2147483646;
-  display:flex;justify-content:center;padding:120px 0 26px;pointer-events:none;
-  background:linear-gradient(0deg,rgba(0,0,0,.99) 52%,rgba(0,0,0,.93) 70%,
-    rgba(0,0,0,.72) 84%,transparent)}
-#cap{max-width:1020px;text-align:center;padding:0 40px}
-/* Namespaced. The dashboard already owns .now - an absolutely positioned
-   marker that also injects a "NOW" label - so a caption word classed "now"
-   was torn out of the line and pinned over the chart. */
-#cap .ncl{display:block;font:600 25px/1.44 Inter,-apple-system,"Segoe UI",Roboto,sans-serif;
-  letter-spacing:-.012em;position:static}
-#cap .ncw{color:rgba(255,255,255,.38);position:static;display:inline}
-#cap .ncw-read{color:#fff}
-#cap .ncw-now{color:#4D8BFF}
-#cap .ncn{display:block;margin-top:12px;font:700 11px/1 "JetBrains Mono",ui-monospace,Consolas,monospace;
-  letter-spacing:.2em;text-transform:uppercase;color:#7c8ba6}
-#flash{position:fixed;inset:0;z-index:2147483647;background:#fff;display:none}
-`;
 
-/** Re-attach the caption layer. Every navigation destroys it. */
-async function dress(zoom = 1) {
-  await page.addStyleTag({ content: CAP_CSS + (zoom !== 1 ? `body{zoom:${zoom}}` : "") });
-  await page.evaluate(() => {
-    if (!document.getElementById("capwrap")) {
-      const w = document.createElement("div");
+/** Re-attach the caption layer. Every navigation destroys it.
+ *
+ * Styles are applied through the CSSOM rather than an injected <style> tag.
+ * Bitget serves a Content-Security-Policy that drops the tag silently, and the
+ * caption vanished for exactly the one shot where it mattered most - the line
+ * claiming the price on screen is live. Setting properties on the element is
+ * not subject to style-src, so this works everywhere.
+ */
+async function dress() {
+  const ok = await page.evaluate(() => {
+    const set = (el, css) => {
+      for (const [k, v] of Object.entries(css)) el.style.setProperty(k, v, "important");
+    };
+    let w = document.getElementById("capwrap");
+    if (!w) {
+      w = document.createElement("div");
       w.id = "capwrap";
-      w.innerHTML = '<div id="cap"></div>';
+      const c = document.createElement("div");
+      c.id = "cap";
+      w.appendChild(c);
       document.body.appendChild(w);
     }
-    if (!document.getElementById("flash")) {
-      const f = document.createElement("div");
+    set(w, {
+      position: "fixed", left: "0", right: "0", bottom: "0",
+      "z-index": "2147483646", display: "flex", "justify-content": "center",
+      padding: "120px 0 26px", "pointer-events": "none",
+      background:
+        "linear-gradient(0deg,rgba(0,0,0,.99) 52%,rgba(0,0,0,.93) 70%," +
+        "rgba(0,0,0,.72) 84%,transparent)",
+    });
+    set(document.getElementById("cap"), {
+      "max-width": "1020px", "text-align": "center", padding: "0 40px",
+    });
+    let f = document.getElementById("flash");
+    if (!f) {
+      f = document.createElement("div");
       f.id = "flash";
       document.body.appendChild(f);
     }
+    set(f, {
+      position: "fixed", top: "0", left: "0", right: "0", bottom: "0",
+      "z-index": "2147483647", background: "#fff", display: "none",
+    });
+    return !!document.getElementById("cap");
   });
+  if (!ok) throw new Error("caption layer failed to attach");
 }
 
 const hold = (ms) => page.waitForTimeout(ms);
@@ -136,16 +148,54 @@ const offsets = [];
 const say = async (i) => {
   const { line, tag } = SCRIPT[i];
   const t = TIMING[i];
+  // Re-attach if the layer went away. say() used to find no #cap and return
+  // quietly, which is how the Bitget shot - the one shot whose whole point is
+  // that the price on screen is real - ended up with no caption at all while
+  // every other line had one.
+  if (!(await page.evaluate(() => !!document.getElementById("cap")))) {
+    console.log(`  caption layer was missing before line ${i}, re-attaching`);
+    await dress();
+  }
   const at = Date.now() - t0;
   await page.evaluate(
     ([l, g, words, dur]) => {
       const parts = l.split(/\s+/);
       const cap = document.getElementById("cap");
       if (!cap) return;
-      cap.innerHTML =
-        `<span class="ncl">${parts.map((w) => `<span class="ncw">${w}</span>`).join(" ")}</span>` +
-        (g ? `<span class="ncn">${g}</span>` : "");
-      const spans = Array.from(cap.querySelectorAll(".ncw"));
+      // Built and coloured through the CSSOM, for the same CSP reason as the
+      // wrapper. Class names alone would style nothing on Bitget's page.
+      const set = (el, css) => {
+        for (const [k, v] of Object.entries(css)) el.style.setProperty(k, v, "important");
+      };
+      cap.textContent = "";
+      const lineEl = document.createElement("span");
+      set(lineEl, {
+        display: "block",
+        font: '600 25px/1.44 Inter,-apple-system,"Segoe UI",Roboto,sans-serif',
+        "letter-spacing": "-.012em",
+        position: "static",
+      });
+      const spans = parts.map((word, k) => {
+        const s = document.createElement("span");
+        s.textContent = word;
+        set(s, { color: "rgba(255,255,255,.38)", position: "static", display: "inline" });
+        lineEl.appendChild(s);
+        if (k < parts.length - 1) lineEl.appendChild(document.createTextNode(" "));
+        return s;
+      });
+      cap.appendChild(lineEl);
+      if (g) {
+        const tagEl = document.createElement("span");
+        tagEl.textContent = g;
+        set(tagEl, {
+          display: "block", "margin-top": "12px",
+          font: '700 11px/1 "JetBrains Mono",ui-monospace,Consolas,monospace',
+          "letter-spacing": ".2em", "text-transform": "uppercase", color: "#7c8ba6",
+        });
+        cap.appendChild(tagEl);
+      }
+      const READ = "#fff";
+      const NOW = "#4D8BFF";
       // Word boundaries come from the synthesiser. If it split the line
       // differently from a whitespace split, spread evenly rather than
       // lighting the wrong word.
@@ -155,16 +205,21 @@ const say = async (i) => {
           : spans.map((_, k) => (dur * k) / spans.length);
       marks.forEach((ms, k) =>
         setTimeout(() => {
-          if (k) spans[k - 1].className = "ncw ncw-read";
-          spans[k].className = "ncw ncw-now";
+          if (k) spans[k - 1].style.setProperty("color", READ, "important");
+          spans[k].style.setProperty("color", NOW, "important");
         }, Math.max(0, ms))
       );
       setTimeout(() => {
-        spans[spans.length - 1].className = "ncw ncw-read";
+        spans[spans.length - 1].style.setProperty("color", READ, "important");
       }, dur);
     },
     [line, tag, t.words, t.dur]
   );
+  // Confirm the words actually landed on screen rather than assuming they did.
+  const shown = await page
+    .evaluate(() => (document.getElementById("cap")?.textContent || "").length)
+    .catch(() => 0);
+  if (!shown) console.log(`  WARNING: line ${i} (${tag}) rendered no caption`);
   offsets.push({ i, tag, at: Math.round(at), dur: t.dur });
   await hold(t.dur + 300);
 };
@@ -264,29 +319,53 @@ await say(10); // to bitget
   // wait filmed a loading spinner while the voice said "live order book", so
   // wait for the ticker bar to actually mount. Dead time is free: the mixdown
   // compresses every gap between spoken lines.
-  let ready = false;
-  for (let i = 0; i < 40; i++) {
-    ready = await page
+  // Two minutes, with one reload halfway. The app usually mounts in about
+  // fifteen seconds and occasionally not at all; a take that dies here costs
+  // twenty-five minutes, so it is worth waiting out and worth one retry.
+  const mounted = () =>
+    page
       .evaluate(() => {
         const t = document.body.innerText || "";
         return /24h\s*(change|high|low|volume)/i.test(t) || /order\s*book/i.test(t);
       })
       .catch(() => false);
+  let ready = false;
+  for (let i = 0; i < 80; i++) {
+    ready = await mounted();
     if (ready) break;
+    if (i === 40) {
+      console.log("  bitget still blank after 60s, reloading once");
+      await page.reload({ waitUntil: "domcontentloaded", timeout: 90000 }).catch(() => {});
+    }
     await hold(1500);
   }
   console.log("  bitget trading UI mounted:", ready);
-  if (!ready) throw new Error("Bitget page never rendered - is the VPN up?");
-
-  // Clear the cookie dialog so it is not sitting over the order book.
-  for (const label of ["Accept all cookies", "Accept All Cookies", "Accept all", "Accept"]) {
-    const b = await page.$(`button:has-text("${label}")`);
-    if (b) {
-      await b.click({ timeout: 4000 }).catch(() => {});
-      await hold(600);
-      break;
-    }
+  if (!ready) {
+    throw new Error(
+      "Bitget's app never mounted in two minutes. Check the VPN reaches " +
+        "www.bitget.com, then re-run - the site itself answers in a few seconds " +
+        "when it is up."
+    );
   }
+
+  // Clear the cookie dialog so it is not sitting over the order book. It can
+  // appear a beat after the app mounts, so this keeps trying for a few seconds
+  // rather than looking once and moving on.
+  let dismissed = false;
+  for (let i = 0; i < 8 && !dismissed; i++) {
+    dismissed = await page
+      .evaluate(() => {
+        const b = [...document.querySelectorAll("button,[role=button],a")].find((el) =>
+          /^\s*(accept|allow|agree|got it|ok)\b/i.test(el.textContent || "")
+        );
+        if (!b) return false;
+        b.click();
+        return true;
+      })
+      .catch(() => false);
+    await hold(700);
+  }
+  console.log("  cookie dialog dismissed:", dismissed);
 
   // Give the price chart a short chance to draw. It usually will not:
   // TradingView wants a GPU canvas this headless build does not provide, and
