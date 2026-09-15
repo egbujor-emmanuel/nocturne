@@ -2,26 +2,26 @@
  {
   "phase": "0",
   "check": "repo is public",
-  "pass": true,
-  "detail": "PUBLIC"
+  "pass": false,
+  "detail": "EXC TimeoutExpired: Command '('gh', 'repo', 'view', 'egbujor-emmanuel/nocturne', '--json', 'visibility', '-q',"
  },
  {
   "phase": "0",
   "check": "qwen secret set",
-  "pass": true,
-  "detail": "present"
+  "pass": false,
+  "detail": "EXC TimeoutExpired: Command '('gh', 'secret', 'list', '-R', 'egbujor-emmanuel/nocturne')' timed out after 90 s"
  },
  {
   "phase": "0",
   "check": "weekend universe mapped",
   "pass": true,
-  "detail": "73 of 1173, scanned 2026-09-11 (2d ago)"
+  "detail": "73 of 1173, scanned 2026-09-11 (3d ago)"
  },
  {
   "phase": "0",
   "check": "no stale rows shown as live",
   "pass": true,
-  "detail": "73 live (worst 0.3h), 15 held out as dormant"
+  "detail": "73 live (worst 0.0h), 15 held out as dormant"
  },
  {
   "phase": "0",
@@ -38,8 +38,8 @@
  {
   "phase": "1",
   "check": "capture cycle runs",
-  "pass": true,
-  "detail": "rows=73 books=73/73"
+  "pass": false,
+  "detail": "EXC TimeoutExpired: Command '('C:\\\\Users\\\\Yoma Maroh\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\venv\\\\Scripts\\\\pyt"
  },
  {
   "phase": "1",
@@ -51,19 +51,19 @@
   "phase": "1",
   "check": "health check",
   "pass": true,
-  "detail": "session=AH limit=45m healthy=True"
+  "detail": "session=PRE limit=45m healthy=True"
  },
  {
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 88 captures, lane2 94 captures"
+  "detail": "lane1 101 captures, lane2 109 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
-  "pass": true,
-  "detail": "20 dispatch runs"
+  "pass": false,
+  "detail": "EXC TimeoutExpired: Command '('gh', 'run', 'list', '-R', 'egbujor-emmanuel/nocturne', '--limit', '50', '--json"
  },
  {
   "phase": "1",
@@ -75,13 +75,13 @@
   "phase": "2",
   "check": "anchor is current",
   "pass": true,
-  "detail": "oldest anchor 73.4h old"
+  "detail": "oldest anchor 85.2h old"
  },
  {
   "phase": "2",
   "check": "void-drift study reproduces",
-  "pass": true,
-  "detail": "n=  81 symbols= 13  beta=-1.003 se=0.290 t=-3.46 R2=0.131  noise=100.3%"
+  "pass": false,
+  "detail": "EXC TimeoutExpired: Command '('C:\\\\Users\\\\Yoma Maroh\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\venv\\\\Scripts\\\\pyt"
  },
  {
   "phase": "2",
@@ -105,25 +105,25 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "88 books; RNVDA buy $616,952"
+  "detail": "88 books; RNVDA buy $660,586"
  },
  {
   "phase": "3",
   "check": "dashboard live",
   "pass": true,
-  "detail": "HTTP 200, 34994 bytes"
+  "detail": "HTTP 200, 35059 bytes"
  },
  {
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 90367 bytes"
+  "detail": "HTTP 200, 87356 bytes"
  },
  {
   "phase": "3",
   "check": "api index live",
   "pass": true,
-  "detail": "HTTP 200, 1259 bytes"
+  "detail": "HTTP 200, 1260 bytes"
  },
  {
   "phase": "3",
