@@ -6,11 +6,11 @@
 // real trade link through to Bitget's own page, and walks the public API, the
 // agent skill and the Actions history.
 //
-// The voice is generated first (scripts/tts.py) and reports where every word
-// lands, so this file never guesses a reading speed: it lights each word at the
-// moment it is spoken and reports back the offset at which every line started.
-// scripts/mixdown.py then drops each line of audio at exactly that offset,
-// which is why the caption cannot drift off the voice.
+// The voice is generated first (scripts/tts.py). Captions are burned in by
+// scripts/mixdown.py from the same timings, so nothing is injected into the
+// pages being filmed and no host page can interfere with them. This file just
+// drives the product and reports the offset at which every line began.
+//
 //
 // A single white frame is flashed before the first line. The mixdown finds it,
 // treats it as time zero, and trims it off.
@@ -42,68 +42,22 @@ const errs = [];
 page.on("pageerror", (e) => errs.push(String(e).slice(0, 160)));
 
 
-/** Re-attach the caption layer. Every navigation destroys it.
- *
- * Styles are applied through the CSSOM rather than an injected <style> tag.
- * Bitget serves a Content-Security-Policy that drops the tag silently, and the
- * caption vanished for exactly the one shot where it mattered most - the line
- * claiming the price on screen is live. Setting properties on the element is
- * not subject to style-src, so this works everywhere.
- */
+/** The sync-flash element. Captions are burned in by scripts/mixdown.py, so
+ * nothing is injected into the page any more - which also means a host page
+ * cannot interfere with them. */
 async function dress() {
-  const ok = await page.evaluate(() => {
-    const set = (el, css) => {
-      for (const [k, v] of Object.entries(css)) el.style.setProperty(k, v, "important");
-    };
-    let w = document.getElementById("capwrap");
-    if (!w) {
-      w = document.createElement("div");
-      w.id = "capwrap";
-      const c = document.createElement("div");
-      c.id = "cap";
-      w.appendChild(c);
-      document.body.appendChild(w);
-    }
-    set(w, {
-      position: "fixed", left: "0", right: "0", bottom: "0",
-      "z-index": "2147483646", display: "flex", "justify-content": "center",
-      padding: "120px 0 26px", "pointer-events": "none",
-      background:
-        "linear-gradient(0deg,rgba(0,0,0,.99) 52%,rgba(0,0,0,.93) 70%," +
-        "rgba(0,0,0,.72) 84%,transparent)",
-    });
-    set(document.getElementById("cap"), {
-      "max-width": "1020px", "text-align": "center", padding: "0 40px",
-    });
+  await page.evaluate(() => {
     let f = document.getElementById("flash");
     if (!f) {
       f = document.createElement("div");
       f.id = "flash";
       document.body.appendChild(f);
     }
-    set(f, {
+    for (const [k, v] of Object.entries({
       position: "fixed", top: "0", left: "0", right: "0", bottom: "0",
       "z-index": "2147483647", background: "#fff", display: "none",
-    });
-
-    // Put it back if the host page takes it out. Bitget's app re-renders after
-    // the cookie dialog is dismissed and drops nodes it does not own, which is
-    // how the caption came to be drawn - the post-draw check saw the text - and
-    // then gone again before a single frame of that line was captured.
-    window.__capWrap = w;
-    if (window.__capGuard) window.__capGuard.disconnect();
-    window.__capEvictions = window.__capEvictions || 0;
-    window.__capGuard = new MutationObserver(() => {
-      const kept = window.__capWrap;
-      if (kept && !kept.isConnected) {
-        document.body.appendChild(kept);
-        window.__capEvictions++;
-      }
-    });
-    window.__capGuard.observe(document.body, { childList: true });
-    return !!document.getElementById("cap");
+    })) f.style.setProperty(k, v, "important");
   });
-  if (!ok) throw new Error("caption layer failed to attach");
 }
 
 const hold = (ms) => page.waitForTimeout(ms);
@@ -162,99 +116,12 @@ await hold(1200);
 
 const offsets = [];
 const say = async (i) => {
-  const { line, tag } = SCRIPT[i];
+  const { tag } = SCRIPT[i];
   const t = TIMING[i];
-  // Re-attach if the layer went away. say() used to find no #cap and return
-  // quietly, which is how the Bitget shot - the one shot whose whole point is
-  // that the price on screen is real - ended up with no caption at all while
-  // every other line had one.
-  if (!(await page.evaluate(() => !!document.getElementById("cap")))) {
-    console.log(`  caption layer was missing before line ${i}, re-attaching`);
-    await dress();
-  }
-  const at = Date.now() - t0;
-  await page.evaluate(
-    ([l, g, words, dur]) => {
-      const parts = l.split(/\s+/);
-      const cap = document.getElementById("cap");
-      if (!cap) return;
-      // Built and coloured through the CSSOM, for the same CSP reason as the
-      // wrapper. Class names alone would style nothing on Bitget's page.
-      const set = (el, css) => {
-        for (const [k, v] of Object.entries(css)) el.style.setProperty(k, v, "important");
-      };
-      cap.textContent = "";
-      const lineEl = document.createElement("span");
-      set(lineEl, {
-        display: "block",
-        font: '600 25px/1.44 Inter,-apple-system,"Segoe UI",Roboto,sans-serif',
-        "letter-spacing": "-.012em",
-        position: "static",
-      });
-      const spans = parts.map((word, k) => {
-        const s = document.createElement("span");
-        s.textContent = word;
-        set(s, { color: "rgba(255,255,255,.38)", position: "static", display: "inline" });
-        lineEl.appendChild(s);
-        if (k < parts.length - 1) lineEl.appendChild(document.createTextNode(" "));
-        return s;
-      });
-      cap.appendChild(lineEl);
-      if (g) {
-        const tagEl = document.createElement("span");
-        tagEl.textContent = g;
-        set(tagEl, {
-          display: "block", "margin-top": "12px",
-          font: '700 11px/1 "JetBrains Mono",ui-monospace,Consolas,monospace',
-          "letter-spacing": ".2em", "text-transform": "uppercase", color: "#7c8ba6",
-        });
-        cap.appendChild(tagEl);
-      }
-      const READ = "#fff";
-      const NOW = "#4D8BFF";
-      // Word boundaries come from the synthesiser. If it split the line
-      // differently from a whitespace split, spread evenly rather than
-      // lighting the wrong word.
-      const marks =
-        words.length === spans.length
-          ? words.map((w) => w.at)
-          : spans.map((_, k) => (dur * k) / spans.length);
-      marks.forEach((ms, k) =>
-        setTimeout(() => {
-          if (k) spans[k - 1].style.setProperty("color", READ, "important");
-          spans[k].style.setProperty("color", NOW, "important");
-        }, Math.max(0, ms))
-      );
-      setTimeout(() => {
-        spans[spans.length - 1].style.setProperty("color", READ, "important");
-      }, dur);
-    },
-    [line, tag, t.words, t.dur]
-  );
-  // Confirm the words actually landed on screen rather than assuming they did.
-  const shown = await page
-    .evaluate(() => (document.getElementById("cap")?.textContent || "").length)
-    .catch(() => 0);
-  if (!shown) console.log(`  WARNING: line ${i} (${tag}) rendered no caption`);
-  offsets.push({ i, tag, at: Math.round(at), dur: t.dur });
+  offsets.push({ i, tag, at: Math.round(Date.now() - t0), dur: t.dur });
   await hold(t.dur + 300);
-  // Check again at the END of the line, not only the start. Drawing it proves
-  // nothing if the host page removes it a moment later, which is exactly what
-  // happened on Bitget: drawn, verified, then gone before any frame of the
-  // line was captured.
-  const after = await page
-    .evaluate(() => ({
-      text: (document.getElementById("cap")?.textContent || "").length,
-      connected: !!window.__capWrap?.isConnected,
-      evictions: window.__capEvictions || 0,
-    }))
-    .catch(() => null);
-  if (!after || !after.text || !after.connected) {
-    console.log(`  WARNING: line ${i} (${tag}) lost its caption before the line ended`);
-  } else if (after.evictions) {
-    console.log(`  line ${i} (${tag}): caption re-attached ${after.evictions}x by the guard`);
-  }
 };
+
 
 // ---- the problem, on the live dashboard -------------------------------
 await say(0); // the void

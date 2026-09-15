@@ -110,10 +110,66 @@ def find_flash(src: Path, need: float, total: float) -> float:
     return fits[-1]
 
 
-def seg(src: Path, ss: float, dur: float, dest: Path, speed: float = 1.0) -> None:
+# Captions are burned in here rather than drawn in the browser. They used to be
+# injected into the page, which meant they depended on the host page leaving
+# them alone - Bitget's did not, and the one shot whose point is that the price
+# on screen is real was the only line with no caption. Burning them also means
+# the styling can be changed without recording anything again.
+FONT = "C:/Windows/Fonts/segoeui.ttf"
+FONT_TAG = "C:/Windows/Fonts/consola.ttf"
+
+
+def _esc(s: str) -> str:
+    """Quote text for drawtext: backslash, colon, apostrophe are all syntax."""
+    return s.replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\\\'")
+
+
+def _wrap(text: str, width: int = 58) -> list:
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        if len(cur) + len(w) + 1 > width:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = (cur + " " + w).strip()
+    if cur:
+        lines.append(cur)
+    return lines[:2]
+
+
+def burn_filter(line: str, tag: str) -> str:
+    """Caption text only - no band behind it.
+
+    A dark underlay was covering a third of the frame and hiding the product it
+    was meant to be describing. A shadow carries the text over both the light
+    and dark parts of the page instead.
+    """
+    rows = _wrap(line)
+    base = 1080 - 44 - (len(rows) - 1) * 52
+    parts = []
+    for n, row in enumerate(rows):
+        parts.append(
+            "drawtext=fontfile='%s':text='%s':fontcolor=white:fontsize=38:"
+            "shadowcolor=black@0.95:shadowx=0:shadowy=2:borderw=3:"
+            "bordercolor=black@0.75:x=(w-text_w)/2:y=%d"
+            % (FONT.replace(":", "\\:"), _esc(row), base - 62 + n * 52)
+        )
+    parts.append(
+        "drawtext=fontfile='%s':text='%s':fontcolor=0x9fb0c9:fontsize=17:"
+        "shadowcolor=black@0.95:shadowx=0:shadowy=2:borderw=2:"
+        "bordercolor=black@0.7:x=(w-text_w)/2:y=%d"
+        % (FONT_TAG.replace(":", "\\:"), _esc(tag.upper()), 1080 - 40)
+    )
+    return ",".join(parts)
+
+
+def seg(src: Path, ss: float, dur: float, dest: Path, speed: float = 1.0,
+        burn: str = "") -> None:
     vf = "scale=1920:1080:flags=lanczos"
     if speed != 1.0:
         vf = "setpts=PTS/%.6f,%s" % (speed, vf)
+    if burn:
+        vf += "," + burn
     vf += ",fps=%d,format=yuv420p" % FPS
     run(["ffmpeg", "-v", "error", "-y", "-ss", "%.3f" % ss, "-t", "%.3f" % dur,
          "-i", str(src), "-an", "-vf", vf, "-r", str(FPS),
@@ -243,7 +299,7 @@ def main() -> int:
                     print("  gap %2d  %6.1fs raw -> %.2fs at %4.1fx" % (i, raw, d, speed))
         starts.append(clock + LEAD)
         p = WORK / ("k%03d.mp4" % i)
-        seg(src, a, b - a, p)
+        seg(src, a, b - a, p, burn=burn_filter(timing[i]["line"], timing[i]["tag"]))
         parts.append(p)
         clock += dur_of(p)
 
