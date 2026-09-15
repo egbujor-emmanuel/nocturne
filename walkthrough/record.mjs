@@ -85,6 +85,22 @@ async function dress() {
       position: "fixed", top: "0", left: "0", right: "0", bottom: "0",
       "z-index": "2147483647", background: "#fff", display: "none",
     });
+
+    // Put it back if the host page takes it out. Bitget's app re-renders after
+    // the cookie dialog is dismissed and drops nodes it does not own, which is
+    // how the caption came to be drawn - the post-draw check saw the text - and
+    // then gone again before a single frame of that line was captured.
+    window.__capWrap = w;
+    if (window.__capGuard) window.__capGuard.disconnect();
+    window.__capEvictions = window.__capEvictions || 0;
+    window.__capGuard = new MutationObserver(() => {
+      const kept = window.__capWrap;
+      if (kept && !kept.isConnected) {
+        document.body.appendChild(kept);
+        window.__capEvictions++;
+      }
+    });
+    window.__capGuard.observe(document.body, { childList: true });
     return !!document.getElementById("cap");
   });
   if (!ok) throw new Error("caption layer failed to attach");
@@ -222,6 +238,22 @@ const say = async (i) => {
   if (!shown) console.log(`  WARNING: line ${i} (${tag}) rendered no caption`);
   offsets.push({ i, tag, at: Math.round(at), dur: t.dur });
   await hold(t.dur + 300);
+  // Check again at the END of the line, not only the start. Drawing it proves
+  // nothing if the host page removes it a moment later, which is exactly what
+  // happened on Bitget: drawn, verified, then gone before any frame of the
+  // line was captured.
+  const after = await page
+    .evaluate(() => ({
+      text: (document.getElementById("cap")?.textContent || "").length,
+      connected: !!window.__capWrap?.isConnected,
+      evictions: window.__capEvictions || 0,
+    }))
+    .catch(() => null);
+  if (!after || !after.text || !after.connected) {
+    console.log(`  WARNING: line ${i} (${tag}) lost its caption before the line ended`);
+  } else if (after.evictions) {
+    console.log(`  line ${i} (${tag}): caption re-attached ${after.evictions}x by the guard`);
+  }
 };
 
 // ---- the problem, on the live dashboard -------------------------------
