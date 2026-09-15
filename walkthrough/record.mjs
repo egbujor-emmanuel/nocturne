@@ -204,23 +204,49 @@ await say(9); // order splitting
 // ---- through to Bitget's own page -------------------------------------
 // Clicking it for real is the point, so the link is opened in this tab
 // rather than a popup - a popup would start a second recording file.
-const link = await page.$("#rows tr:first-child a.go");
-if (link) {
-  await page.evaluate(() => {
-    const a = document.querySelector("#rows tr:first-child a.go");
-    if (!a) return;
-    a.removeAttribute("target");
-    a.style.outline = "2px solid #4D8BFF";
-    a.style.outlineOffset = "3px";
-    a.scrollIntoView({ block: "center" });
-  });
-  await hold(700);
-}
+// Stop the dashboard reloading itself. It re-renders the table every sixty
+// seconds, which puts target="_blank" back on the link and replaces the row
+// out from under the click - so the click opened a popup (a second recording
+// file) and this tab never moved. Everything that needed the live refresh has
+// already been filmed by this point.
+await page.evaluate(() => {
+  const last = setTimeout(() => {}, 0);
+  for (let id = 0; id <= last; id++) {
+    clearInterval(id);
+    clearTimeout(id);
+  }
+});
+await hold(400);
+
+const SEL = "#rows tr:first-child a.go";
+const href = await page.evaluate((s) => {
+  const a = document.querySelector(s);
+  if (!a) return null;
+  a.removeAttribute("target");
+  a.style.outline = "2px solid #4D8BFF";
+  a.style.outlineOffset = "3px";
+  a.scrollIntoView({ block: "center" });
+  return a.href;
+}, SEL);
+if (!href) throw new Error("no trade link in the table - did the book render?");
+await hold(700);
 await say(10); // to bitget
 
-if (link) {
-  await link.click().catch(() => {});
+{
+  // Re-query rather than reuse a handle taken before the line was spoken: a
+  // handle to a row the page has since replaced clicks nothing at all, and
+  // silently, because click() is wrapped in a catch.
+  const link = await page.$(SEL);
+  if (link) {
+    await page.evaluate((s) => document.querySelector(s)?.removeAttribute("target"), SEL);
+    await link.click({ timeout: 10000 }).catch(() => {});
+  }
   await page.waitForLoadState("domcontentloaded", { timeout: 60000 }).catch(() => {});
+  if (!/bitget\.com/i.test(page.url())) {
+    console.log("  click did not navigate, following the href directly");
+    await page.goto(href, { waitUntil: "domcontentloaded", timeout: 90000 });
+  }
+  console.log("  now at:", page.url());
 
   // The exchange app is heavy and this machine reaches it over a VPN. A fixed
   // wait filmed a loading spinner while the voice said "live order book", so
@@ -229,7 +255,10 @@ if (link) {
   let ready = false;
   for (let i = 0; i < 40; i++) {
     ready = await page
-      .evaluate(() => /24h\s*(change|high|low|volume)/i.test(document.body.innerText))
+      .evaluate(() => {
+        const t = document.body.innerText || "";
+        return /24h\s*(change|high|low|volume)/i.test(t) || /order\s*book/i.test(t);
+      })
       .catch(() => false);
     if (ready) break;
     await hold(1500);
@@ -247,10 +276,13 @@ if (link) {
     }
   }
 
-  // And let the price chart finish drawing. A spinner on screen while the
-  // voice says "live price" is the one thing this shot cannot show.
+  // Give the price chart a short chance to draw. It usually will not:
+  // TradingView wants a GPU canvas this headless build does not provide, and
+  // Bitget's own code times out trying. The ticker price and the order book
+  // are what the line actually claims, and both are there, so this is a brief
+  // try rather than a long wait for something that is not coming.
   let charted = false;
-  for (let i = 0; i < 24; i++) {
+  for (let i = 0; i < 6; i++) {
     charted = await page
       .evaluate(() => {
         const c = document.querySelector("canvas");

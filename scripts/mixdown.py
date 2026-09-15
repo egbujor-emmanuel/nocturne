@@ -172,9 +172,15 @@ def lay(silent: Path, timing: list, starts: list) -> int:
 def main() -> int:
     if "--from-cut" in sys.argv:
         return remix()
-    src = max(REC.glob("*.webm"), key=lambda p: p.stat().st_size, default=None)
+    # Newest, not largest: a previous take whose file was still locked when the
+    # directory was cleared can sit alongside the current one, and is often the
+    # bigger of the two.
+    takes = sorted(REC.glob("*.webm"), key=lambda p: p.stat().st_mtime)
+    src = takes[-1] if takes else None
     if src is None:
         sys.exit("no recording in walkthrough/final")
+    if len(takes) > 1:
+        print("  %d takes present, using the newest" % len(takes))
     print("  source %s (%.1f MB)" % (src.name, src.stat().st_size / 1e6))
 
     offsets = json.loads((AUDIO / "offsets.json").read_text(encoding="utf-8"))
