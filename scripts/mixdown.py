@@ -119,9 +119,9 @@ FONT = "C:/Windows/Fonts/segoeui.ttf"
 FONT_TAG = "C:/Windows/Fonts/consola.ttf"
 
 
-def _esc(s: str) -> str:
-    """Quote text for drawtext: backslash, colon, apostrophe are all syntax."""
-    return s.replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\\\'")
+def _path(p) -> str:
+    """A Windows path drawtext will accept: forward slashes, escaped colon."""
+    return str(p).replace("\\", "/").replace(":", "\\:")
 
 
 def _wrap(text: str, width: int = 58) -> list:
@@ -137,28 +137,37 @@ def _wrap(text: str, width: int = 58) -> list:
     return lines[:2]
 
 
-def burn_filter(line: str, tag: str) -> str:
+def burn_filter(i: int, line: str, tag: str) -> str:
     """Caption text only - no band behind it.
 
     A dark underlay was covering a third of the frame and hiding the product it
-    was meant to be describing. A shadow carries the text over both the light
-    and dark parts of the page instead.
+    was meant to be describing. A shadow and a thin outline carry the text over
+    both the light and dark parts of the page instead.
+
+    The words are passed as textfile= rather than text=. Caption lines contain
+    commas and apostrophes, and ffmpeg parses those as filter syntax - one
+    comma inside a sentence split the filter chain and it went looking for a
+    filter called "and its documentation".
     """
     rows = _wrap(line)
     base = 1080 - 44 - (len(rows) - 1) * 52
     parts = []
     for n, row in enumerate(rows):
+        f = WORK / ("cap%03d_%d.txt" % (i, n))
+        f.write_text(row, encoding="utf-8")
         parts.append(
-            "drawtext=fontfile='%s':text='%s':fontcolor=white:fontsize=38:"
+            "drawtext=fontfile='%s':textfile='%s':fontcolor=white:fontsize=38:"
             "shadowcolor=black@0.95:shadowx=0:shadowy=2:borderw=3:"
             "bordercolor=black@0.75:x=(w-text_w)/2:y=%d"
-            % (FONT.replace(":", "\\:"), _esc(row), base - 62 + n * 52)
+            % (_path(FONT), _path(f), base - 62 + n * 52)
         )
+    ft = WORK / ("cap%03d_tag.txt" % i)
+    ft.write_text(tag.upper(), encoding="utf-8")
     parts.append(
-        "drawtext=fontfile='%s':text='%s':fontcolor=0x9fb0c9:fontsize=17:"
+        "drawtext=fontfile='%s':textfile='%s':fontcolor=0x9fb0c9:fontsize=17:"
         "shadowcolor=black@0.95:shadowx=0:shadowy=2:borderw=2:"
         "bordercolor=black@0.7:x=(w-text_w)/2:y=%d"
-        % (FONT_TAG.replace(":", "\\:"), _esc(tag.upper()), 1080 - 40)
+        % (_path(FONT_TAG), _path(ft), 1080 - 40)
     )
     return ",".join(parts)
 
@@ -299,7 +308,7 @@ def main() -> int:
                     print("  gap %2d  %6.1fs raw -> %.2fs at %4.1fx" % (i, raw, d, speed))
         starts.append(clock + LEAD)
         p = WORK / ("k%03d.mp4" % i)
-        seg(src, a, b - a, p, burn=burn_filter(timing[i]["line"], timing[i]["tag"]))
+        seg(src, a, b - a, p, burn=burn_filter(i, timing[i]["line"], timing[i]["tag"]))
         parts.append(p)
         clock += dur_of(p)
 
