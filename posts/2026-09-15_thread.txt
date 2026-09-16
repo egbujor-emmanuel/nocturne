@@ -1,0 +1,33 @@
+--- 1/5  (271 chars, ok) ---
+Sunday night, in the window where tokenized US stocks have no external price, this published a call on 75 of them and hashed it into a public repo.
+
+Monday it graded itself. Won one claim, lost the other. Both public.
+
+https://egbujor-emmanuel.github.io/nocturne/
+
+#BitgetHackathon @Bitget_AI
+
+--- 2/5  (256 chars, ok) ---
+Won: ranking which names are dangerous to execute in. The third it flagged riskiest moved 4.49% on Monday. The third it cleared moved 3.32%.
+
+Lost: predicting the price level. 4.524% error against 3.906% for doing nothing.
+
+Running: ranking 2/2, level 0/2.
+
+--- 3/5  (247 chars, ok) ---
+I expected that loss. Walk-forward, both models I fitted lost to a naive baseline out of sample - only the unfitted rule beat it, and I wrote that down before this weekend rather than after.
+
+It is on the front page of the site, not in a footnote.
+
+--- 4/5  (256 chars, ok) ---
+Why there is anything to measure: Nasdaq shuts Friday 20:00 ET. rAAPL turnover falls from $2.38bn to $63 in one hour, and Bitget's own engine becomes the only source of a price.
+
+Across 196 observations, nearly all of that weekend drift reverses by Monday.
+
+--- 5/5  (262 chars, ok) ---
+It is read-only. No account, no API key, it never places an order.
+
+Code, the dataset, every hashed prediction and the scoreboard:
+https://github.com/egbujor-emmanuel/nocturne
+
+It captured, published and graded itself through the weekend with nobody at the keyboard, and it still is.
