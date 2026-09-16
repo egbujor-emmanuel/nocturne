@@ -44,18 +44,27 @@ def a_anchor_all():
     """EVERY anchor must be the most recent completed session, not just samples."""
     s = site()
     now = dt.datetime.now(ET)
-    bad, ages = [], []
+    bad, ages, dormant = [], [], 0
     for r in s["symbols"]:
         at = r.get("reference_close_at")
         if not at:
             bad.append(r["symbol"])
             continue
+        # A name that left the weekend-tradeable set is no longer captured and
+        # keeps its last close for ever. It is held out of the dashboard, so its
+        # age says nothing about whether the pipeline is current - counting it
+        # here just reports the age of the delisting.
+        if r.get("stale"):
+            dormant += 1
+            continue
         t = dt.datetime.strptime(at.replace(" ET", ""), "%Y-%m-%d %H:%M").replace(tzinfo=ET)
         ages.append((now - t).total_seconds() / 3600)
     if bad:
         return False, "%d symbols have no anchor: %s" % (len(bad), bad[:5])
-    return max(ages) < 96, "%d anchors, oldest %.1fh, newest %.1fh" % (
-        len(ages), max(ages), min(ages))
+    if not ages:
+        return False, "every symbol is dormant"
+    return max(ages) < 96, "%d live anchors, oldest %.1fh, newest %.1fh (%d dormant)" % (
+        len(ages), max(ages), min(ages), dormant)
 
 
 def a_anchor_is_friday():
@@ -296,15 +305,22 @@ def d_live_anchor_fresh():
         return False, "HTTP %s" % st_
     live = json.loads(b)
     now = dt.datetime.now(ET)
-    ages = []
+    ages, dormant = [], 0
     for r in live["symbols"]:
         at = r.get("reference_close_at")
-        if at:
-            t = dt.datetime.strptime(at.replace(" ET", ""), "%Y-%m-%d %H:%M").replace(tzinfo=ET)
-            ages.append((now - t).total_seconds() / 3600)
+        if not at:
+            continue
+        # Dormant names are held out of the dashboard, so their anchor age is
+        # not a statement about anything a visitor sees.
+        if r.get("stale"):
+            dormant += 1
+            continue
+        t = dt.datetime.strptime(at.replace(" ET", ""), "%Y-%m-%d %H:%M").replace(tzinfo=ET)
+        ages.append((now - t).total_seconds() / 3600)
     if not ages:
         return False, "no anchors live"
-    return max(ages) < 96, "oldest live anchor %.1fh" % max(ages)
+    return max(ages) < 96, "oldest live anchor %.1fh (%d dormant held out)" % (
+        max(ages), dormant)
 
 
 def d_endpoints():

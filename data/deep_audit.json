@@ -3,7 +3,7 @@
     "group": "A data",
     "check": "every anchor is current",
     "pass": true,
-    "detail": "88 anchors, oldest 85.3h, newest 13.3h"
+    "detail": "73 live anchors, oldest 11.5h, newest 11.5h (15 dormant)"
   },
   {
     "group": "A data",
@@ -39,13 +39,13 @@
     "group": "A data",
     "check": "universe file fresh",
     "pass": true,
-    "detail": "73 of 1173, file 45h old"
+    "detail": "73 of 1173, file 68h old"
   },
   {
     "group": "A data",
     "check": "repo under the size limit",
     "pass": true,
-    "detail": "pack 185 MB (GitHub soft limit 1 GB)"
+    "detail": "pack 260 MB (GitHub soft limit 1 GB)"
   },
   {
     "group": "B docs",
@@ -81,7 +81,7 @@
     "group": "C pipe",
     "check": "every script parses",
     "pass": true,
-    "detail": "all 37 scripts parse"
+    "detail": "all 38 scripts parse"
   },
   {
     "group": "C pipe",
@@ -111,13 +111,13 @@
     "group": "D live",
     "check": "live site matches local",
     "pass": true,
-    "detail": "live generated 2026-09-15 04:15 ET, finding matches local: True"
+    "detail": "live generated 2026-09-16 02:26 ET, finding matches local: True"
   },
   {
     "group": "D live",
     "check": "live anchor is fresh",
     "pass": true,
-    "detail": "oldest live anchor 85.4h"
+    "detail": "oldest live anchor 11.5h (15 dormant held out)"
   },
   {
     "group": "D live",

@@ -205,17 +205,24 @@ def _anchor():
     import datetime as _dt
     from session import ET as _ET
     site = json.load(open("data/site.json"))
-    ages = []
+    ages, dormant = [], 0
     for r in site["symbols"]:
         at = r.get("reference_close_at")
         if not at:
+            continue
+        # Names that left the weekend-tradeable set are no longer captured and
+        # keep whatever close they last had. They are held out of the dashboard
+        # for exactly that reason, so measuring them here only ever reports the
+        # age of a name nobody is being shown.
+        if r.get("stale"):
+            dormant += 1
             continue
         t = _dt.datetime.strptime(at.replace(" ET", ""), "%Y-%m-%d %H:%M").replace(tzinfo=_ET)
         ages.append((_dt.datetime.now(_ET) - t).total_seconds() / 3600)
     if not ages:
         return False, "no reference closes"
     worst = max(ages)
-    return worst < 96, "oldest anchor %.1fh old" % worst
+    return worst < 96, "oldest live anchor %.1fh (%d dormant held out)" % (worst, dormant)
 
 
 chk("2", "anchor is current", _anchor)

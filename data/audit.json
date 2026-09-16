@@ -2,20 +2,20 @@
  {
   "phase": "0",
   "check": "repo is public",
-  "pass": false,
-  "detail": "EXC TimeoutExpired: Command '('gh', 'repo', 'view', 'egbujor-emmanuel/nocturne', '--json', 'visibility', '-q',"
+  "pass": true,
+  "detail": "PUBLIC"
  },
  {
   "phase": "0",
   "check": "qwen secret set",
-  "pass": false,
-  "detail": "EXC TimeoutExpired: Command '('gh', 'secret', 'list', '-R', 'egbujor-emmanuel/nocturne')' timed out after 90 s"
+  "pass": true,
+  "detail": "present"
  },
  {
   "phase": "0",
   "check": "weekend universe mapped",
   "pass": true,
-  "detail": "73 of 1173, scanned 2026-09-11 (3d ago)"
+  "detail": "73 of 1173, scanned 2026-09-11 (4d ago)"
  },
  {
   "phase": "0",
@@ -38,8 +38,8 @@
  {
   "phase": "1",
   "check": "capture cycle runs",
-  "pass": false,
-  "detail": "EXC TimeoutExpired: Command '('C:\\\\Users\\\\Yoma Maroh\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\venv\\\\Scripts\\\\pyt"
+  "pass": true,
+  "detail": "rows=73 books=73/73"
  },
  {
   "phase": "1",
@@ -51,19 +51,19 @@
   "phase": "1",
   "check": "health check",
   "pass": true,
-  "detail": "session=PRE limit=45m healthy=True"
+  "detail": "session=NIGHT limit=30m healthy=True"
  },
  {
   "phase": "1",
   "check": "two local lanes exist",
   "pass": true,
-  "detail": "lane1 101 captures, lane2 109 captures"
+  "detail": "lane1 109 captures, lane2 117 captures"
  },
  {
   "phase": "1",
   "check": "external cron dispatching",
-  "pass": false,
-  "detail": "EXC TimeoutExpired: Command '('gh', 'run', 'list', '-R', 'egbujor-emmanuel/nocturne', '--limit', '50', '--json"
+  "pass": true,
+  "detail": "19 dispatch runs"
  },
  {
   "phase": "1",
@@ -75,13 +75,13 @@
   "phase": "2",
   "check": "anchor is current",
   "pass": true,
-  "detail": "oldest anchor 85.2h old"
+  "detail": "oldest live anchor 11.5h (15 dormant held out)"
  },
  {
   "phase": "2",
   "check": "void-drift study reproduces",
-  "pass": false,
-  "detail": "EXC TimeoutExpired: Command '('C:\\\\Users\\\\Yoma Maroh\\\\AppData\\\\Local\\\\hermes\\\\hermes-agent\\\\venv\\\\Scripts\\\\pyt"
+  "pass": true,
+  "detail": "n=  81 symbols= 13  beta=-1.003 se=0.290 t=-3.46 R2=0.131  noise=100.3%"
  },
  {
   "phase": "2",
@@ -105,7 +105,7 @@
   "phase": "2",
   "check": "depth/band/lifecycle",
   "pass": true,
-  "detail": "88 books; RNVDA buy $660,586"
+  "detail": "88 books; RNVDA buy $644,088"
  },
  {
   "phase": "3",
@@ -117,19 +117,19 @@
   "phase": "3",
   "check": "site.json live",
   "pass": true,
-  "detail": "HTTP 200, 87356 bytes"
+  "detail": "HTTP 200, 86263 bytes"
  },
  {
   "phase": "3",
   "check": "api index live",
   "pass": true,
-  "detail": "HTTP 200, 1260 bytes"
+  "detail": "HTTP 200, 1261 bytes"
  },
  {
   "phase": "3",
   "check": "api symbol live",
   "pass": true,
-  "detail": "HTTP 200, 875 bytes"
+  "detail": "HTTP 200, 877 bytes"
  },
  {
   "phase": "3",
