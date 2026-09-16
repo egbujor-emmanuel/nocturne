@@ -117,6 +117,10 @@
    ],
    [
     1789540800,
+    213.44
+   ],
+   [
+    1789541100,
     213.42
    ],
    [
@@ -191,6 +195,10 @@
    ],
    [
     1789540800,
+    331.51
+   ],
+   [
+    1789541100,
     331.57
    ],
    [
@@ -265,6 +273,10 @@
    ],
    [
     1789540800,
+    357.35
+   ],
+   [
+    1789541100,
     357.48
    ],
    [
@@ -1711,6 +1723,42 @@
     "tier": "LOW",
     "fair": 7.915,
     "last": 7.98
+   }
+  },
+  {
+   "symbol": "RMRVL",
+   "pair": "RMRVLUSDT",
+   "name": "Marvell",
+   "last": 225.16,
+   "bid": 225.1,
+   "ask": 225.3,
+   "spread_pct": 0.0888,
+   "reference_close": 221.7,
+   "reference_close_at": "2026-09-15 15:00 ET",
+   "fair_value": null,
+   "score_applies": false,
+   "score_suppressed_reason": "US market is open (NIGHT) - orders route to real liquidity, so movement away from the last close is genuine price discovery",
+   "dislocation_pct": null,
+   "noise_score": null,
+   "tier": null,
+   "sigma_daily_pct": null,
+   "z": null,
+   "buy_usd_0_5": 15909.76,
+   "sell_usd_0_5": 18787.29,
+   "buy_shares_0_5": 70.367,
+   "liquidity": "VERY THIN",
+   "band_max_buy": 243.87,
+   "band_max_sell": 199.53,
+   "class": "other",
+   "captured": "2026-09-16 02:45 ET",
+   "capture_age_h": 0.0,
+   "stale": false,
+   "last_void": {
+    "drift": -0.582,
+    "score": 49,
+    "tier": "LOW",
+    "fair": 223.55,
+    "last": 222.25
    }
   },
   {
@@ -3515,6 +3563,42 @@
    "captured": "2026-09-13 06:45 ET",
    "capture_age_h": 68.0,
    "stale": true
+  },
+  {
+   "symbol": "RARM",
+   "pair": "RARMUSDT",
+   "name": "ARM",
+   "last": 244.73,
+   "bid": 244.4,
+   "ask": 244.74,
+   "spread_pct": null,
+   "reference_close": 241.83,
+   "reference_close_at": "2026-09-15 15:00 ET",
+   "fair_value": null,
+   "score_applies": false,
+   "score_suppressed_reason": "US market is open (NIGHT) - orders route to real liquidity, so movement away from the last close is genuine price discovery",
+   "dislocation_pct": null,
+   "noise_score": null,
+   "tier": null,
+   "sigma_daily_pct": null,
+   "z": null,
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
+   "band_max_buy": 266.013,
+   "band_max_sell": 217.647,
+   "class": "other",
+   "captured": "2026-09-16 02:45 ET",
+   "capture_age_h": 0.0,
+   "stale": false,
+   "last_void": {
+    "drift": -0.024,
+    "score": 0,
+    "tier": "LOW",
+    "fair": 252.09,
+    "last": 252.03
+   }
   }
  ]
 }
