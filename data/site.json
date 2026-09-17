@@ -3568,12 +3568,19 @@
    "sell_usd_0_5": 21491.74,
    "buy_shares_0_5": 37.9472,
    "liquidity": "VERY THIN",
-   "band_max_buy": 590.975,
-   "band_max_sell": 483.525,
+   "band_max_buy": 268.378,
+   "band_max_sell": 219.582,
    "class": "other",
    "captured": "2026-09-17 00:22 ET",
    "capture_age_h": 0.0,
-   "stale": false
+   "stale": false,
+   "last_void": {
+    "drift": -0.024,
+    "score": 0,
+    "tier": "LOW",
+    "fair": 252.09,
+    "last": 252.03
+   }
   },
   {
    "symbol": "RTLT",
@@ -3755,6 +3762,35 @@
    "captured": "2026-09-13 06:45 ET",
    "capture_age_h": 89.7,
    "stale": true
+  },
+  {
+   "symbol": "RLMT",
+   "pair": "RLMTUSDT",
+   "name": "LMT",
+   "last": 538.52,
+   "bid": 538.5,
+   "ask": 539.49,
+   "spread_pct": null,
+   "reference_close": 537.25,
+   "reference_close_at": "2026-09-16 15:00 ET",
+   "fair_value": null,
+   "score_applies": false,
+   "score_suppressed_reason": "US market is open (NIGHT) - orders route to real liquidity, so movement away from the last close is genuine price discovery",
+   "dislocation_pct": null,
+   "noise_score": null,
+   "tier": null,
+   "sigma_daily_pct": null,
+   "z": null,
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
+   "band_max_buy": 590.975,
+   "band_max_sell": 483.525,
+   "class": "other",
+   "captured": "2026-09-17 00:15 ET",
+   "capture_age_h": 0.0,
+   "stale": false
   }
  ]
 }
