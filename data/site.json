@@ -2122,6 +2122,42 @@
    }
   },
   {
+   "symbol": "RSOXS",
+   "pair": "RSOXSUSDT",
+   "name": "SOXS",
+   "last": 44.85,
+   "bid": 44.85,
+   "ask": 44.86,
+   "spread_pct": 0.0891,
+   "reference_close": 44.99,
+   "reference_close_at": "2026-09-17 15:00 ET",
+   "fair_value": null,
+   "score_applies": false,
+   "score_suppressed_reason": "US market is open (NIGHT) - orders route to real liquidity, so movement away from the last close is genuine price discovery",
+   "dislocation_pct": null,
+   "noise_score": null,
+   "tier": null,
+   "sigma_daily_pct": null,
+   "z": null,
+   "buy_usd_0_5": 13966.32,
+   "sell_usd_0_5": 20127.86,
+   "buy_shares_0_5": 309.805,
+   "liquidity": "VERY THIN",
+   "band_max_buy": 49.489,
+   "band_max_sell": 40.491,
+   "class": "leveraged",
+   "captured": "2026-09-18 00:30 ET",
+   "capture_age_h": 0.0,
+   "stale": false,
+   "last_void": {
+    "drift": 0.496,
+    "score": 38,
+    "tier": "LOW",
+    "fair": 46.34,
+    "last": 46.57
+   }
+  },
+  {
    "symbol": "RSTX",
    "pair": "RSTXUSDT",
    "name": "STX",
@@ -3312,19 +3348,12 @@
    "sell_usd_0_5": 20139.98,
    "buy_shares_0_5": 62.5697,
    "liquidity": "VERY THIN",
-   "band_max_buy": 291.39,
-   "band_max_sell": 238.41,
+   "band_max_buy": 591.899,
+   "band_max_sell": 484.281,
    "class": "other",
    "captured": "2026-09-18 00:34 ET",
    "capture_age_h": 0.0,
-   "stale": false,
-   "last_void": {
-    "drift": -0.024,
-    "score": 0,
-    "tier": "LOW",
-    "fair": 252.09,
-    "last": 252.03
-   }
+   "stale": false
   },
   {
    "symbol": "RDDOG",
