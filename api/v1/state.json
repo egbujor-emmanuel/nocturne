@@ -1,11 +1,11 @@
 {
- "generated": "2026-10-18T03:45:50.094514+00:00",
- "generated_et": "2026-10-17 23:45 ET",
+ "generated": "2026-10-18T04:01:14.903803+00:00",
+ "generated_et": "2026-10-18 00:01 ET",
  "session": "VOID_A",
  "is_dark": true,
  "scores_live": true,
  "next_reopen_et": "2026-10-19 09:30 ET",
- "hours_to_reopen": 33.74,
+ "hours_to_reopen": 33.48,
  "band_pct": 10.0,
  "last_void_window": null,
  "universe": {
@@ -102,226 +102,6 @@
  },
  "spark_series": {
   "RNVDA": [
-   [
-    1792045800,
-    218.7
-   ],
-   [
-    1792046700,
-    218.42
-   ],
-   [
-    1792047600,
-    217.86
-   ],
-   [
-    1792048500,
-    217.92
-   ],
-   [
-    1792049400,
-    218.1
-   ],
-   [
-    1792050300,
-    218.46
-   ],
-   [
-    1792051200,
-    218.8
-   ],
-   [
-    1792053000,
-    217.31
-   ],
-   [
-    1792054800,
-    217.92
-   ],
-   [
-    1792056600,
-    217.6
-   ],
-   [
-    1792058400,
-    217.27
-   ],
-   [
-    1792060200,
-    216.87
-   ],
-   [
-    1792062000,
-    216.99
-   ],
-   [
-    1792063800,
-    217.71
-   ],
-   [
-    1792065600,
-    217.75
-   ],
-   [
-    1792067400,
-    217.6
-   ],
-   [
-    1792069200,
-    216.83
-   ],
-   [
-    1792071000,
-    214.33
-   ],
-   [
-    1792072800,
-    214.5
-   ],
-   [
-    1792074600,
-    215.75
-   ],
-   [
-    1792076400,
-    216.64
-   ],
-   [
-    1792078200,
-    216.57
-   ],
-   [
-    1792080000,
-    217.81
-   ],
-   [
-    1792081800,
-    216.08
-   ],
-   [
-    1792083600,
-    217.2
-   ],
-   [
-    1792085400,
-    217.39
-   ],
-   [
-    1792087200,
-    217.88
-   ],
-   [
-    1792089000,
-    217.1
-   ],
-   [
-    1792090800,
-    217.75
-   ],
-   [
-    1792092600,
-    217.6
-   ],
-   [
-    1792094400,
-    217.19
-   ],
-   [
-    1792094700,
-    217.65
-   ],
-   [
-    1792096200,
-    217.55
-   ],
-   [
-    1792098000,
-    216.86
-   ],
-   [
-    1792099800,
-    217.4
-   ],
-   [
-    1792101600,
-    217.51
-   ],
-   [
-    1792103400,
-    217.58
-   ],
-   [
-    1792105200,
-    217.19
-   ],
-   [
-    1792107000,
-    216.8
-   ],
-   [
-    1792108800,
-    216.91
-   ],
-   [
-    1792109700,
-    217.03
-   ],
-   [
-    1792110600,
-    216.67
-   ],
-   [
-    1792111500,
-    217.03
-   ],
-   [
-    1792112400,
-    217.74
-   ],
-   [
-    1792113300,
-    217.79
-   ],
-   [
-    1792114200,
-    217.74
-   ],
-   [
-    1792115100,
-    217.75
-   ],
-   [
-    1792116000,
-    217.92
-   ],
-   [
-    1792116900,
-    217.99
-   ],
-   [
-    1792117800,
-    218.12
-   ],
-   [
-    1792118700,
-    217.9
-   ],
-   [
-    1792119600,
-    217.81
-   ],
-   [
-    1792120500,
-    217.93
-   ],
-   [
-    1792121400,
-    217.86
-   ],
-   [
-    1792122300,
-    217.95
-   ],
    [
     1792123200,
     218.54
@@ -981,229 +761,13 @@
    [
     1792295100,
     213.66
+   ],
+   [
+    1792296000,
+    213.66
    ]
   ],
   "RAAPL": [
-   [
-    1792045800,
-    344.68
-   ],
-   [
-    1792046700,
-    344.39
-   ],
-   [
-    1792047600,
-    344.59
-   ],
-   [
-    1792048500,
-    344.65
-   ],
-   [
-    1792049400,
-    344.98
-   ],
-   [
-    1792050300,
-    345.36
-   ],
-   [
-    1792051200,
-    345.25
-   ],
-   [
-    1792053000,
-    345.01
-   ],
-   [
-    1792054800,
-    345.25
-   ],
-   [
-    1792056600,
-    345.39
-   ],
-   [
-    1792058400,
-    345.48
-   ],
-   [
-    1792060200,
-    345.6
-   ],
-   [
-    1792062000,
-    346.73
-   ],
-   [
-    1792063800,
-    345.87
-   ],
-   [
-    1792065600,
-    345.38
-   ],
-   [
-    1792067400,
-    345.0
-   ],
-   [
-    1792069200,
-    345.47
-   ],
-   [
-    1792071000,
-    346.67
-   ],
-   [
-    1792072800,
-    345.58
-   ],
-   [
-    1792074600,
-    345.01
-   ],
-   [
-    1792076400,
-    344.74
-   ],
-   [
-    1792078200,
-    344.19
-   ],
-   [
-    1792080000,
-    343.39
-   ],
-   [
-    1792081800,
-    343.98
-   ],
-   [
-    1792083600,
-    344.23
-   ],
-   [
-    1792085400,
-    344.45
-   ],
-   [
-    1792087200,
-    343.44
-   ],
-   [
-    1792089000,
-    342.07
-   ],
-   [
-    1792090800,
-    342.47
-   ],
-   [
-    1792092600,
-    342.6
-   ],
-   [
-    1792094400,
-    342.0
-   ],
-   [
-    1792094700,
-    341.65
-   ],
-   [
-    1792096200,
-    341.9
-   ],
-   [
-    1792098000,
-    341.9
-   ],
-   [
-    1792099800,
-    342.01
-   ],
-   [
-    1792101600,
-    342.0
-   ],
-   [
-    1792103400,
-    341.65
-   ],
-   [
-    1792105200,
-    341.63
-   ],
-   [
-    1792107000,
-    341.0
-   ],
-   [
-    1792108800,
-    340.97
-   ],
-   [
-    1792109700,
-    341.54
-   ],
-   [
-    1792110600,
-    341.79
-   ],
-   [
-    1792111500,
-    342.12
-   ],
-   [
-    1792112400,
-    342.04
-   ],
-   [
-    1792113300,
-    341.61
-   ],
-   [
-    1792114200,
-    341.84
-   ],
-   [
-    1792115100,
-    341.65
-   ],
-   [
-    1792116000,
-    341.77
-   ],
-   [
-    1792116900,
-    341.83
-   ],
-   [
-    1792117800,
-    341.72
-   ],
-   [
-    1792118700,
-    341.57
-   ],
-   [
-    1792119600,
-    341.66
-   ],
-   [
-    1792120500,
-    341.56
-   ],
-   [
-    1792121400,
-    341.56
-   ],
-   [
-    1792122300,
-    341.82
-   ],
    [
     1792123200,
     341.84
@@ -1863,229 +1427,13 @@
    [
     1792295100,
     342.82
+   ],
+   [
+    1792296000,
+    342.82
    ]
   ],
   "RTSLA": [
-   [
-    1792045800,
-    361.86
-   ],
-   [
-    1792046700,
-    361.08
-   ],
-   [
-    1792047600,
-    361.22
-   ],
-   [
-    1792048500,
-    361.72
-   ],
-   [
-    1792049400,
-    362.43
-   ],
-   [
-    1792050300,
-    362.89
-   ],
-   [
-    1792051200,
-    361.91
-   ],
-   [
-    1792053000,
-    360.4
-   ],
-   [
-    1792054800,
-    361.05
-   ],
-   [
-    1792056600,
-    361.35
-   ],
-   [
-    1792058400,
-    361.24
-   ],
-   [
-    1792060200,
-    361.22
-   ],
-   [
-    1792062000,
-    361.68
-   ],
-   [
-    1792063800,
-    362.05
-   ],
-   [
-    1792065600,
-    361.53
-   ],
-   [
-    1792067400,
-    361.17
-   ],
-   [
-    1792069200,
-    361.64
-   ],
-   [
-    1792071000,
-    357.75
-   ],
-   [
-    1792072800,
-    355.52
-   ],
-   [
-    1792074600,
-    357.47
-   ],
-   [
-    1792076400,
-    361.42
-   ],
-   [
-    1792078200,
-    362.66
-   ],
-   [
-    1792080000,
-    362.36
-   ],
-   [
-    1792081800,
-    360.0
-   ],
-   [
-    1792083600,
-    360.35
-   ],
-   [
-    1792085400,
-    360.06
-   ],
-   [
-    1792087200,
-    361.44
-   ],
-   [
-    1792089000,
-    360.17
-   ],
-   [
-    1792090800,
-    361.67
-   ],
-   [
-    1792092600,
-    362.77
-   ],
-   [
-    1792094400,
-    362.93
-   ],
-   [
-    1792094700,
-    362.15
-   ],
-   [
-    1792096200,
-    361.99
-   ],
-   [
-    1792098000,
-    361.99
-   ],
-   [
-    1792099800,
-    362.3
-   ],
-   [
-    1792101600,
-    362.79
-   ],
-   [
-    1792103400,
-    363.07
-   ],
-   [
-    1792105200,
-    362.61
-   ],
-   [
-    1792107000,
-    362.48
-   ],
-   [
-    1792108800,
-    362.4
-   ],
-   [
-    1792109700,
-    362.86
-   ],
-   [
-    1792110600,
-    362.99
-   ],
-   [
-    1792111500,
-    364.5
-   ],
-   [
-    1792112400,
-    364.11
-   ],
-   [
-    1792113300,
-    363.85
-   ],
-   [
-    1792114200,
-    362.12
-   ],
-   [
-    1792115100,
-    367.23
-   ],
-   [
-    1792116000,
-    367.28
-   ],
-   [
-    1792116900,
-    369.16
-   ],
-   [
-    1792117800,
-    369.37
-   ],
-   [
-    1792118700,
-    372.23
-   ],
-   [
-    1792119600,
-    372.26
-   ],
-   [
-    1792120500,
-    373.37
-   ],
-   [
-    1792121400,
-    372.64
-   ],
-   [
-    1792122300,
-    373.5
-   ],
    [
     1792123200,
     374.15
@@ -2745,6 +2093,10 @@
    [
     1792295100,
     352.46
+   ],
+   [
+    1792296000,
+    352.46
    ]
   ]
  },
@@ -2953,7 +2305,7 @@
    "band_max_buy": 204.633,
    "band_max_sell": 167.427,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2982,7 +2334,7 @@
    "band_max_buy": 365.2,
    "band_max_sell": 298.8,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3011,7 +2363,7 @@
    "band_max_buy": 702.911,
    "band_max_sell": 575.109,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3040,7 +2392,7 @@
    "band_max_buy": 839.575,
    "band_max_sell": 686.925,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3069,7 +2421,7 @@
    "band_max_buy": 390.192,
    "band_max_sell": 319.248,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3098,7 +2450,7 @@
    "band_max_buy": 67.529,
    "band_max_sell": 55.251,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3127,7 +2479,7 @@
    "band_max_buy": 269.72,
    "band_max_sell": 220.68,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3156,7 +2508,7 @@
    "band_max_buy": 227.062,
    "band_max_sell": 185.778,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3185,7 +2537,7 @@
    "band_max_buy": 780.2575,
    "band_max_sell": 638.3925,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3214,7 +2566,7 @@
    "band_max_buy": 107.492,
    "band_max_sell": 87.948,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3243,7 +2595,7 @@
    "band_max_buy": 581.955,
    "band_max_sell": 476.145,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3272,7 +2624,7 @@
    "band_max_buy": 292.743,
    "band_max_sell": 239.517,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3301,7 +2653,7 @@
    "band_max_buy": 42.79,
    "band_max_sell": 35.01,
    "class": "leveraged",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3330,7 +2682,7 @@
    "band_max_buy": 361.625,
    "band_max_sell": 295.875,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3359,7 +2711,7 @@
    "band_max_buy": 496.881,
    "band_max_sell": 406.539,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3388,7 +2740,7 @@
    "band_max_buy": 780.78,
    "band_max_sell": 638.82,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3417,7 +2769,7 @@
    "band_max_buy": 141.053,
    "band_max_sell": 115.407,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3446,7 +2798,7 @@
    "band_max_buy": 250.58,
    "band_max_sell": 205.02,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3475,7 +2827,7 @@
    "band_max_buy": 771.771,
    "band_max_sell": 631.449,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3504,7 +2856,7 @@
    "band_max_buy": 75.031,
    "band_max_sell": 61.389,
    "class": "leveraged",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3533,7 +2885,7 @@
    "band_max_buy": 275.0,
    "band_max_sell": 225.0,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3562,7 +2914,7 @@
    "band_max_buy": 255.354,
    "band_max_sell": 208.926,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3591,7 +2943,7 @@
    "band_max_buy": 34.408,
    "band_max_sell": 28.152,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3621,7 +2973,7 @@
    "band_max_sell": 119.277,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -3649,7 +3001,7 @@
    "band_max_buy": 54.153,
    "band_max_sell": 44.307,
    "class": "leveraged",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3678,7 +3030,7 @@
    "band_max_buy": 374.649,
    "band_max_sell": 306.531,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3707,7 +3059,7 @@
    "band_max_buy": 98.835,
    "band_max_sell": 80.865,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3736,7 +3088,7 @@
    "band_max_buy": 145.2,
    "band_max_sell": 118.8,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3765,7 +3117,7 @@
    "band_max_buy": 1429.23,
    "band_max_sell": 1169.37,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3794,7 +3146,7 @@
    "band_max_buy": 966.724,
    "band_max_sell": 790.956,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3823,7 +3175,7 @@
    "band_max_buy": 8.283,
    "band_max_sell": 6.777,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3852,7 +3204,7 @@
    "band_max_buy": 103.29,
    "band_max_sell": 84.51,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3882,7 +3234,7 @@
    "band_max_sell": 133.479,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -3910,7 +3262,7 @@
    "band_max_buy": 150.513,
    "band_max_sell": 123.147,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3939,7 +3291,7 @@
    "band_max_buy": 906.543,
    "band_max_sell": 741.717,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3969,7 +3321,7 @@
    "band_max_sell": 70.029,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -3997,7 +3349,7 @@
    "band_max_buy": 165.484,
    "band_max_sell": 135.396,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4027,7 +3379,7 @@
    "band_max_sell": 199.089,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -4055,7 +3407,7 @@
    "band_max_buy": 108.757,
    "band_max_sell": 88.983,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4084,7 +3436,7 @@
    "band_max_buy": 51.095,
    "band_max_sell": 41.805,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4113,7 +3465,7 @@
    "band_max_buy": 256.19,
    "band_max_sell": 209.61,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4142,7 +3494,7 @@
    "band_max_buy": 235.543,
    "band_max_sell": 192.717,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4171,7 +3523,7 @@
    "band_max_buy": 243.441,
    "band_max_sell": 199.179,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4200,7 +3552,7 @@
    "band_max_buy": 581.625,
    "band_max_sell": 475.875,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4229,7 +3581,7 @@
    "band_max_buy": 377.806,
    "band_max_sell": 309.114,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4258,7 +3610,7 @@
    "band_max_buy": 120.021,
    "band_max_sell": 98.199,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4287,7 +3639,7 @@
    "band_max_buy": 150.139,
    "band_max_sell": 122.841,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4316,7 +3668,7 @@
    "band_max_buy": 189.321,
    "band_max_sell": 154.899,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4346,7 +3698,7 @@
    "band_max_sell": 139.41,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -4374,7 +3726,7 @@
    "band_max_buy": 160.633,
    "band_max_sell": 131.427,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4403,7 +3755,7 @@
    "band_max_buy": 6.644,
    "band_max_sell": 5.436,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4433,7 +3785,7 @@
    "band_max_sell": 21.51,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -4461,7 +3813,7 @@
    "band_max_buy": 190.476,
    "band_max_sell": 155.844,
    "class": "large-cap",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4491,7 +3843,7 @@
    "band_max_sell": 101.457,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -4519,7 +3871,7 @@
    "band_max_buy": 55.924,
    "band_max_sell": 45.756,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4548,7 +3900,7 @@
    "band_max_buy": 10.054,
    "band_max_sell": 8.226,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4577,7 +3929,7 @@
    "band_max_buy": 1805.672,
    "band_max_sell": 1477.368,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4606,7 +3958,7 @@
    "band_max_buy": 450.219,
    "band_max_sell": 368.361,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4635,7 +3987,7 @@
    "band_max_buy": 321.486,
    "band_max_sell": 263.034,
    "class": "leveraged",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4664,7 +4016,7 @@
    "band_max_buy": 542.729,
    "band_max_sell": 444.051,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4693,7 +4045,7 @@
    "band_max_buy": 250.613,
    "band_max_sell": 205.047,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4723,7 +4075,7 @@
    "band_max_sell": 53.109,
    "class": "leveraged",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -4752,7 +4104,7 @@
    "band_max_sell": 268.398,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -4780,7 +4132,7 @@
    "band_max_buy": 83.127,
    "band_max_sell": 68.013,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4809,7 +4161,7 @@
    "band_max_buy": 30.877,
    "band_max_sell": 25.263,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4838,7 +4190,7 @@
    "band_max_buy": 44.726,
    "band_max_sell": 36.594,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4868,7 +4220,7 @@
    "band_max_sell": 1707.633,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -4896,7 +4248,7 @@
    "band_max_buy": 453.871,
    "band_max_sell": 371.349,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4925,7 +4277,7 @@
    "band_max_buy": 56.617,
    "band_max_sell": 46.323,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4954,7 +4306,7 @@
    "band_max_buy": 90.442,
    "band_max_sell": 73.998,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4983,7 +4335,7 @@
    "band_max_buy": 225.808,
    "band_max_sell": 184.752,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5012,7 +4364,7 @@
    "band_max_buy": 56.661,
    "band_max_sell": 46.359,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5041,7 +4393,7 @@
    "band_max_buy": 66.66,
    "band_max_sell": 54.54,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5070,7 +4422,7 @@
    "band_max_buy": 182.017,
    "band_max_sell": 148.923,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5100,7 +4452,7 @@
    "band_max_sell": 260.001,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -5129,7 +4481,7 @@
    "band_max_sell": 15.588,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -5158,7 +4510,7 @@
    "band_max_sell": 512.271,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -5187,7 +4539,7 @@
    "band_max_sell": 72.783,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -5216,7 +4568,7 @@
    "band_max_sell": 90.468,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 833.0,
+   "capture_age_h": 833.3,
    "stale": true
   },
   {
@@ -5244,7 +4596,7 @@
    "band_max_buy": 337.524,
    "band_max_sell": 276.156,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5273,7 +4625,7 @@
    "band_max_buy": 29.689,
    "band_max_sell": 24.291,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5302,7 +4654,7 @@
    "band_max_buy": 469.37,
    "band_max_sell": 384.03,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5331,7 +4683,7 @@
    "band_max_buy": 593.769,
    "band_max_sell": 485.811,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5360,7 +4712,7 @@
    "band_max_buy": 118.129,
    "band_max_sell": 96.651,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5389,7 +4741,7 @@
    "band_max_buy": 607.299,
    "band_max_sell": 496.881,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5418,7 +4770,7 @@
    "band_max_buy": 250.129,
    "band_max_sell": 204.651,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5447,7 +4799,7 @@
    "band_max_buy": 19.855,
    "band_max_sell": 16.245,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -5476,7 +4828,7 @@
    "band_max_buy": 8.866,
    "band_max_sell": 7.254,
    "class": "other",
-   "captured": "2026-10-17 23:45 ET",
+   "captured": "2026-10-18 00:00 ET",
    "capture_age_h": 0.0,
    "stale": false
   }
