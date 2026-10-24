@@ -2,8 +2,8 @@
  "symbol": "RBE",
  "pair": "RBEUSDT",
  "name": "BE",
- "last": 192.56,
- "bid": 192.57,
+ "last": 192.55,
+ "bid": 192.59,
  "ask": 192.93,
  "spread_pct": null,
  "reference_close": 193.3,
@@ -11,7 +11,7 @@
  "fair_value": 193.3,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.383,
+ "dislocation_pct": -0.388,
  "noise_score": 6,
  "tier": "LOW",
  "sigma_daily_pct": 6.927,
@@ -23,7 +23,7 @@
  "band_max_buy": 212.63,
  "band_max_sell": 173.97,
  "class": "other",
- "captured": "2026-10-24 04:30 ET",
+ "captured": "2026-10-24 04:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
