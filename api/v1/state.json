@@ -1,11 +1,11 @@
 {
- "generated": "2026-10-24T11:01:06.361742+00:00",
- "generated_et": "2026-10-24 07:01 ET",
+ "generated": "2026-10-24T11:15:45.408044+00:00",
+ "generated_et": "2026-10-24 07:15 ET",
  "session": "VOID_A",
  "is_dark": true,
  "scores_live": true,
  "next_reopen_et": "2026-10-26 09:30 ET",
- "hours_to_reopen": 50.48,
+ "hours_to_reopen": 50.24,
  "band_pct": 10.0,
  "last_void_window": null,
  "universe": {
@@ -753,6 +753,10 @@
    [
     1792839600,
     211.04
+   ],
+   [
+    1792840500,
+    211.04
    ]
   ],
   "RAAPL": [
@@ -1406,6 +1410,10 @@
    ],
    [
     1792839600,
+    347.61
+   ],
+   [
+    1792840500,
     347.61
    ]
   ],
@@ -2061,6 +2069,10 @@
    [
     1792839600,
     370.88
+   ],
+   [
+    1792840500,
+    370.88
    ]
   ]
  },
@@ -2269,7 +2281,7 @@
    "band_max_buy": 224.059,
    "band_max_sell": 183.321,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2298,7 +2310,7 @@
    "band_max_buy": 768.438,
    "band_max_sell": 628.722,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2327,7 +2339,7 @@
    "band_max_buy": 43.769,
    "band_max_sell": 35.811,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2356,7 +2368,7 @@
    "band_max_buy": 378.037,
    "band_max_sell": 309.303,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2364,17 +2376,17 @@
    "symbol": "RCRCL",
    "pair": "RCRCLUSDT",
    "name": "Circle",
-   "last": 84.76,
-   "bid": 84.75,
-   "ask": 84.76,
+   "last": 84.77,
+   "bid": 84.74,
+   "ask": 84.77,
    "spread_pct": null,
    "reference_close": 85.91,
    "reference_close_at": "2026-10-23 15:00 ET",
    "fair_value": 85.91,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -1.339,
-   "noise_score": 79,
+   "dislocation_pct": -1.327,
+   "noise_score": 78,
    "tier": "ELEVATED",
    "sigma_daily_pct": 6.571,
    "z": -0.2,
@@ -2385,7 +2397,7 @@
    "band_max_buy": 94.501,
    "band_max_sell": 77.319,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2414,7 +2426,7 @@
    "band_max_buy": 230.219,
    "band_max_sell": 188.361,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2424,7 +2436,7 @@
    "name": "VRT",
    "last": 195.24,
    "bid": 194.65,
-   "ask": 195.13,
+   "ask": 195.11,
    "spread_pct": null,
    "reference_close": 194.32,
    "reference_close_at": "2026-10-23 15:00 ET",
@@ -2443,7 +2455,7 @@
    "band_max_buy": 213.752,
    "band_max_sell": 174.888,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2472,7 +2484,7 @@
    "band_max_buy": 272.8,
    "band_max_sell": 223.2,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2501,7 +2513,7 @@
    "band_max_buy": 319.066,
    "band_max_sell": 261.054,
    "class": "leveraged",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2530,7 +2542,7 @@
    "band_max_buy": 290.202,
    "band_max_sell": 237.438,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2559,7 +2571,7 @@
    "band_max_buy": 693.539,
    "band_max_sell": 567.441,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2588,36 +2600,36 @@
    "band_max_buy": 101.981,
    "band_max_sell": 83.439,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
   {
-   "symbol": "RQQQ",
-   "pair": "RQQQUSDT",
-   "name": "QQQ",
-   "last": 706.09,
-   "bid": 704.72,
-   "ask": 706.09,
+   "symbol": "RMU",
+   "pair": "RMUUSDT",
+   "name": "Micron",
+   "last": 881.85,
+   "bid": 881.71,
+   "ask": 881.85,
    "spread_pct": null,
-   "reference_close": 704.4,
+   "reference_close": 877.55,
    "reference_close_at": "2026-10-23 15:00 ET",
-   "fair_value": 704.4,
+   "fair_value": 877.55,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": 0.24,
-   "noise_score": 60,
+   "dislocation_pct": 0.49,
+   "noise_score": 59,
    "tier": "ELEVATED",
-   "sigma_daily_pct": 1.352,
-   "z": 0.18,
+   "sigma_daily_pct": 5.93,
+   "z": 0.08,
    "buy_usd_0_5": null,
    "sell_usd_0_5": null,
    "buy_shares_0_5": null,
    "liquidity": null,
-   "band_max_buy": 774.84,
-   "band_max_sell": 633.96,
-   "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "band_max_buy": 965.305,
+   "band_max_sell": 789.795,
+   "class": "large-cap",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2646,7 +2658,7 @@
    "band_max_buy": 59.6585,
    "band_max_sell": 48.8115,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2656,7 +2668,7 @@
    "name": "IONQ",
    "last": 31.01,
    "bid": 31.01,
-   "ask": 31.11,
+   "ask": 31.1,
    "spread_pct": null,
    "reference_close": 31.27,
    "reference_close_at": "2026-10-23 15:00 ET",
@@ -2675,7 +2687,7 @@
    "band_max_buy": 34.397,
    "band_max_sell": 28.143,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2704,7 +2716,7 @@
    "band_max_buy": 576.961,
    "band_max_sell": 472.059,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2733,36 +2745,7 @@
    "band_max_buy": 193.501,
    "band_max_sell": 158.319,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
-   "capture_age_h": 0.0,
-   "stale": false
-  },
-  {
-   "symbol": "RMU",
-   "pair": "RMUUSDT",
-   "name": "Micron",
-   "last": 881.21,
-   "bid": 880.64,
-   "ask": 881.43,
-   "spread_pct": null,
-   "reference_close": 877.55,
-   "reference_close_at": "2026-10-23 15:00 ET",
-   "fair_value": 877.55,
-   "score_applies": true,
-   "score_suppressed_reason": null,
-   "dislocation_pct": 0.417,
-   "noise_score": 53,
-   "tier": "ELEVATED",
-   "sigma_daily_pct": 5.93,
-   "z": 0.07,
-   "buy_usd_0_5": null,
-   "sell_usd_0_5": null,
-   "buy_shares_0_5": null,
-   "liquidity": null,
-   "band_max_buy": 965.305,
-   "band_max_sell": 789.795,
-   "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2791,7 +2774,7 @@
    "band_max_buy": 180.895,
    "band_max_sell": 148.005,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2820,7 +2803,7 @@
    "band_max_buy": 409.442,
    "band_max_sell": 334.998,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2850,7 +2833,7 @@
    "band_max_sell": 119.277,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -2878,7 +2861,7 @@
    "band_max_buy": 104.577,
    "band_max_sell": 85.563,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2907,7 +2890,7 @@
    "band_max_buy": 136.059,
    "band_max_sell": 111.321,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2936,7 +2919,7 @@
    "band_max_buy": 706.882,
    "band_max_sell": 578.358,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2965,7 +2948,7 @@
    "band_max_buy": 95.656,
    "band_max_sell": 78.264,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -2994,7 +2977,7 @@
    "band_max_buy": 835.967,
    "band_max_sell": 683.973,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3023,36 +3006,7 @@
    "band_max_buy": 74.261,
    "band_max_sell": 60.759,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
-   "capture_age_h": 0.0,
-   "stale": false
-  },
-  {
-   "symbol": "RLITE",
-   "pair": "RLITEUSDT",
-   "name": "LITE",
-   "last": 753.58,
-   "bid": 753.55,
-   "ask": 753.84,
-   "spread_pct": null,
-   "reference_close": 756.17,
-   "reference_close_at": "2026-10-23 15:00 ET",
-   "fair_value": 756.17,
-   "score_applies": true,
-   "score_suppressed_reason": null,
-   "dislocation_pct": -0.343,
-   "noise_score": 43,
-   "tier": "LOW",
-   "sigma_daily_pct": 6.23,
-   "z": -0.05,
-   "buy_usd_0_5": null,
-   "sell_usd_0_5": null,
-   "buy_shares_0_5": null,
-   "liquidity": null,
-   "band_max_buy": 831.787,
-   "band_max_sell": 680.553,
-   "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3060,17 +3014,17 @@
    "symbol": "RNBIS",
    "pair": "RNBISUSDT",
    "name": "NBIS",
-   "last": 157.44,
-   "bid": 157.42,
-   "ask": 157.49,
+   "last": 157.42,
+   "bid": 157.4,
+   "ask": 157.42,
    "spread_pct": null,
    "reference_close": 158.74,
    "reference_close_at": "2026-10-23 15:00 ET",
    "fair_value": 158.74,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -0.819,
-   "noise_score": 43,
+   "dislocation_pct": -0.832,
+   "noise_score": 44,
    "tier": "LOW",
    "sigma_daily_pct": 7.562,
    "z": -0.11,
@@ -3081,7 +3035,7 @@
    "band_max_buy": 174.614,
    "band_max_sell": 142.866,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3110,7 +3064,7 @@
    "band_max_buy": 568.469,
    "band_max_sell": 465.111,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3140,7 +3094,7 @@
    "band_max_sell": 133.479,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -3168,7 +3122,7 @@
    "band_max_buy": 8.954,
    "band_max_sell": 7.326,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3198,7 +3152,7 @@
    "band_max_sell": 70.029,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -3226,7 +3180,7 @@
    "band_max_buy": 251.361,
    "band_max_sell": 205.659,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3255,7 +3209,7 @@
    "band_max_buy": 526.02,
    "band_max_sell": 430.38,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3284,7 +3238,7 @@
    "band_max_buy": 57.706,
    "band_max_sell": 47.214,
    "class": "leveraged",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3313,7 +3267,36 @@
    "band_max_buy": 352.231,
    "band_max_sell": 288.189,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
+   "capture_age_h": 0.0,
+   "stale": false
+  },
+  {
+   "symbol": "RLITE",
+   "pair": "RLITEUSDT",
+   "name": "LITE",
+   "last": 754.46,
+   "bid": 754.47,
+   "ask": 754.49,
+   "spread_pct": null,
+   "reference_close": 756.17,
+   "reference_close_at": "2026-10-23 15:00 ET",
+   "fair_value": 756.17,
+   "score_applies": true,
+   "score_suppressed_reason": null,
+   "dislocation_pct": -0.226,
+   "noise_score": 37,
+   "tier": "LOW",
+   "sigma_daily_pct": 6.23,
+   "z": -0.04,
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
+   "band_max_buy": 831.787,
+   "band_max_sell": 680.553,
+   "class": "other",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3343,15 +3326,15 @@
    "band_max_sell": 199.089,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
    "symbol": "RRKLB",
    "pair": "RRKLBUSDT",
    "name": "Rocket Lab",
-   "last": 52.31,
-   "bid": 52.32,
+   "last": 52.32,
+   "bid": 52.31,
    "ask": 52.57,
    "spread_pct": null,
    "reference_close": 52.6,
@@ -3359,7 +3342,7 @@
    "fair_value": 52.6,
    "score_applies": true,
    "score_suppressed_reason": null,
-   "dislocation_pct": -0.551,
+   "dislocation_pct": -0.532,
    "noise_score": 35,
    "tier": "LOW",
    "sigma_daily_pct": 6.174,
@@ -3371,7 +3354,7 @@
    "band_max_buy": 57.86,
    "band_max_sell": 47.34,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3400,7 +3383,7 @@
    "band_max_buy": 109.604,
    "band_max_sell": 89.676,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3429,36 +3412,7 @@
    "band_max_buy": 212.63,
    "band_max_sell": 173.97,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
-   "capture_age_h": 0.0,
-   "stale": false
-  },
-  {
-   "symbol": "RSPCX",
-   "pair": "RSPCXUSDT",
-   "name": "SPCX",
-   "last": 146.83,
-   "bid": 146.91,
-   "ask": 146.97,
-   "spread_pct": null,
-   "reference_close": 147.49,
-   "reference_close_at": "2026-10-23 15:00 ET",
-   "fair_value": 147.49,
-   "score_applies": true,
-   "score_suppressed_reason": null,
-   "dislocation_pct": -0.447,
-   "noise_score": 27,
-   "tier": "LOW",
-   "sigma_daily_pct": 5.643,
-   "z": -0.08,
-   "buy_usd_0_5": null,
-   "sell_usd_0_5": null,
-   "buy_shares_0_5": null,
-   "liquidity": null,
-   "band_max_buy": 162.239,
-   "band_max_sell": 132.741,
-   "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3487,7 +3441,36 @@
    "band_max_buy": 216.425,
    "band_max_sell": 177.075,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
+   "capture_age_h": 0.0,
+   "stale": false
+  },
+  {
+   "symbol": "RSPCX",
+   "pair": "RSPCXUSDT",
+   "name": "SPCX",
+   "last": 146.84,
+   "bid": 146.84,
+   "ask": 146.99,
+   "spread_pct": null,
+   "reference_close": 147.49,
+   "reference_close_at": "2026-10-23 15:00 ET",
+   "fair_value": 147.49,
+   "score_applies": true,
+   "score_suppressed_reason": null,
+   "dislocation_pct": -0.441,
+   "noise_score": 26,
+   "tier": "LOW",
+   "sigma_daily_pct": 5.643,
+   "z": -0.08,
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
+   "band_max_buy": 162.239,
+   "band_max_sell": 132.741,
+   "class": "other",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3516,7 +3499,7 @@
    "band_max_buy": 60.841,
    "band_max_sell": 49.779,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3545,7 +3528,7 @@
    "band_max_buy": 138.776,
    "band_max_sell": 113.544,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3575,8 +3558,37 @@
    "band_max_sell": 139.41,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
+  },
+  {
+   "symbol": "RQQQ",
+   "pair": "RQQQUSDT",
+   "name": "QQQ",
+   "last": 704.9,
+   "bid": 704.57,
+   "ask": 706.09,
+   "spread_pct": null,
+   "reference_close": 704.4,
+   "reference_close_at": "2026-10-23 15:00 ET",
+   "fair_value": 704.4,
+   "score_applies": true,
+   "score_suppressed_reason": null,
+   "dislocation_pct": 0.071,
+   "noise_score": 21,
+   "tier": "LOW",
+   "sigma_daily_pct": 1.352,
+   "z": 0.05,
+   "buy_usd_0_5": null,
+   "sell_usd_0_5": null,
+   "buy_shares_0_5": null,
+   "liquidity": null,
+   "band_max_buy": 774.84,
+   "band_max_sell": 633.96,
+   "class": "other",
+   "captured": "2026-10-24 07:15 ET",
+   "capture_age_h": 0.0,
+   "stale": false
   },
   {
    "symbol": "RMARA",
@@ -3603,7 +3615,7 @@
    "band_max_buy": 7.722,
    "band_max_sell": 6.318,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3632,7 +3644,7 @@
    "band_max_buy": 1728.98,
    "band_max_sell": 1414.62,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3661,7 +3673,7 @@
    "band_max_buy": 43.648,
    "band_max_sell": 35.712,
    "class": "leveraged",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3690,7 +3702,7 @@
    "band_max_buy": 166.386,
    "band_max_sell": 136.134,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3719,7 +3731,7 @@
    "band_max_buy": 1361.833,
    "band_max_sell": 1114.227,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3748,7 +3760,7 @@
    "band_max_buy": 72.919,
    "band_max_sell": 59.661,
    "class": "leveraged",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3777,7 +3789,7 @@
    "band_max_buy": 278.916,
    "band_max_sell": 228.204,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3807,7 +3819,7 @@
    "band_max_sell": 21.51,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -3836,7 +3848,7 @@
    "band_max_sell": 101.457,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -3864,7 +3876,7 @@
    "band_max_buy": 414.964,
    "band_max_sell": 339.516,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3893,7 +3905,7 @@
    "band_max_buy": 109.296,
    "band_max_sell": 89.424,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3922,7 +3934,7 @@
    "band_max_buy": 353.848,
    "band_max_sell": 289.512,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -3952,7 +3964,7 @@
    "band_max_sell": 53.109,
    "class": "leveraged",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -3980,7 +3992,7 @@
    "band_max_buy": 53.592,
    "band_max_sell": 43.848,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4009,7 +4021,7 @@
    "band_max_buy": 27.3955,
    "band_max_sell": 22.4145,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4039,7 +4051,7 @@
    "band_max_sell": 268.398,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -4067,7 +4079,7 @@
    "band_max_buy": 51.766,
    "band_max_sell": 42.354,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4096,7 +4108,7 @@
    "band_max_buy": 232.056,
    "band_max_sell": 189.864,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4105,8 +4117,8 @@
    "pair": "RSKHYUSDT",
    "name": "SKHY",
    "last": 137.18,
-   "bid": 136.54,
-   "ask": 137.18,
+   "bid": 137.18,
+   "ask": 137.19,
    "spread_pct": null,
    "reference_close": 137.02,
    "reference_close_at": "2026-10-23 15:00 ET",
@@ -4125,7 +4137,7 @@
    "band_max_buy": 150.722,
    "band_max_sell": 123.318,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4154,7 +4166,7 @@
    "band_max_buy": 30.481,
    "band_max_sell": 24.939,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4184,7 +4196,7 @@
    "band_max_sell": 1707.633,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -4212,7 +4224,7 @@
    "band_max_buy": 160.611,
    "band_max_sell": 131.409,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4241,7 +4253,7 @@
    "band_max_buy": 382.4975,
    "band_max_sell": 312.9525,
    "class": "large-cap",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4270,7 +4282,7 @@
    "band_max_buy": 6.82,
    "band_max_sell": 5.58,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4299,7 +4311,7 @@
    "band_max_buy": 286.275,
    "band_max_sell": 234.225,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4328,7 +4340,7 @@
    "band_max_buy": 57.288,
    "band_max_sell": 46.872,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4357,7 +4369,7 @@
    "band_max_buy": 502.084,
    "band_max_sell": 410.796,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4387,7 +4399,7 @@
    "band_max_sell": 260.001,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -4416,7 +4428,7 @@
    "band_max_sell": 15.588,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -4445,7 +4457,7 @@
    "band_max_sell": 512.271,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -4474,7 +4486,7 @@
    "band_max_sell": 72.783,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -4503,7 +4515,7 @@
    "band_max_sell": 90.468,
    "class": "other",
    "captured": "2026-09-13 06:45 ET",
-   "capture_age_h": 984.3,
+   "capture_age_h": 984.5,
    "stale": true
   },
   {
@@ -4531,7 +4543,7 @@
    "band_max_buy": 460.361,
    "band_max_sell": 376.659,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4560,7 +4572,7 @@
    "band_max_buy": 357.973,
    "band_max_sell": 292.887,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4589,7 +4601,7 @@
    "band_max_buy": 231.363,
    "band_max_sell": 189.297,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4618,7 +4630,7 @@
    "band_max_buy": 497.519,
    "band_max_sell": 407.061,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4647,7 +4659,7 @@
    "band_max_buy": 579.92,
    "band_max_sell": 474.48,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4676,7 +4688,7 @@
    "band_max_buy": 117.15,
    "band_max_sell": 95.85,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4705,7 +4717,7 @@
    "band_max_buy": 664.598,
    "band_max_sell": 543.762,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4734,7 +4746,7 @@
    "band_max_buy": 283.327,
    "band_max_sell": 231.813,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4763,7 +4775,7 @@
    "band_max_buy": 20.075,
    "band_max_sell": 16.425,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   },
@@ -4792,7 +4804,7 @@
    "band_max_buy": 9.812,
    "band_max_sell": 8.028,
    "class": "other",
-   "captured": "2026-10-24 07:00 ET",
+   "captured": "2026-10-24 07:15 ET",
    "capture_age_h": 0.0,
    "stale": false
   }
