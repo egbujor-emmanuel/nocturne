@@ -2,7 +2,7 @@
  "symbol": "RCRWV",
  "pair": "RCRWVUSDT",
  "name": "CRWV",
- "last": 54.4,
+ "last": 54.41,
  "bid": 54.36,
  "ask": 54.41,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 54.235,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.304,
- "noise_score": 52,
+ "dislocation_pct": 0.323,
+ "noise_score": 54,
  "tier": "ELEVATED",
  "sigma_daily_pct": 6.19,
  "z": 0.05,
@@ -23,7 +23,7 @@
  "band_max_buy": 59.6585,
  "band_max_sell": 48.8115,
  "class": "other",
- "captured": "2026-10-24 19:00 ET",
+ "captured": "2026-10-24 19:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
