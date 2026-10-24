@@ -2,7 +2,7 @@
  "symbol": "RLITE",
  "pair": "RLITEUSDT",
  "name": "LITE",
- "last": 758.55,
+ "last": 758.35,
  "bid": 756.59,
  "ask": 758.2,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 756.17,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.315,
- "noise_score": 42,
+ "dislocation_pct": 0.288,
+ "noise_score": 41,
  "tier": "LOW",
  "sigma_daily_pct": 6.23,
  "z": 0.05,
@@ -23,7 +23,7 @@
  "band_max_buy": 831.787,
  "band_max_sell": 680.553,
  "class": "other",
- "captured": "2026-10-23 22:15 ET",
+ "captured": "2026-10-23 22:31 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
