@@ -2,7 +2,7 @@
  "symbol": "RSPCX",
  "pair": "RSPCXUSDT",
  "name": "SPCX",
- "last": 147.0,
+ "last": 146.95,
  "bid": 146.95,
  "ask": 147.05,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 147.49,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.332,
- "noise_score": 17,
+ "dislocation_pct": -0.366,
+ "noise_score": 20,
  "tier": "LOW",
  "sigma_daily_pct": 5.643,
  "z": -0.06,
@@ -23,7 +23,7 @@
  "band_max_buy": 162.239,
  "band_max_sell": 132.741,
  "class": "other",
- "captured": "2026-10-24 20:15 ET",
+ "captured": "2026-10-24 20:30 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
