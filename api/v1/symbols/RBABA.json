@@ -2,7 +2,7 @@
  "symbol": "RBABA",
  "pair": "RBABAUSDT",
  "name": "Alibaba",
- "last": 99.94,
+ "last": 99.93,
  "bid": 99.52,
  "ask": 99.93,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 99.64,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.301,
- "noise_score": 39,
+ "dislocation_pct": 0.291,
+ "noise_score": 37,
  "tier": "LOW",
  "sigma_daily_pct": 2.637,
  "z": 0.11,
@@ -23,7 +23,7 @@
  "band_max_buy": 109.604,
  "band_max_sell": 89.676,
  "class": "large-cap",
- "captured": "2026-10-25 17:00 ET",
+ "captured": "2026-10-25 17:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
