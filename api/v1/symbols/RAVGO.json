@@ -2,7 +2,7 @@
  "symbol": "RAVGO",
  "pair": "RAVGOUSDT",
  "name": "Broadcom",
- "last": 321.22,
+ "last": 321.24,
  "bid": 321.17,
  "ask": 322.93,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 321.68,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.143,
- "noise_score": 24,
+ "dislocation_pct": -0.137,
+ "noise_score": 23,
  "tier": "LOW",
  "sigma_daily_pct": 2.918,
  "z": -0.05,
@@ -23,7 +23,7 @@
  "band_max_buy": 353.848,
  "band_max_sell": 289.512,
  "class": "large-cap",
- "captured": "2026-10-25 02:53 ET",
+ "captured": "2026-10-25 03:00 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
