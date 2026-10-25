@@ -2,7 +2,7 @@
  "symbol": "RNVDA",
  "pair": "RNVDAUSDT",
  "name": "Nvidia",
- "last": 212.02,
+ "last": 212.01,
  "bid": 212.02,
  "ask": 212.08,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 210.96,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.502,
- "noise_score": 64,
+ "dislocation_pct": 0.498,
+ "noise_score": 63,
  "tier": "ELEVATED",
  "sigma_daily_pct": 2.467,
  "z": 0.2,
@@ -23,7 +23,7 @@
  "band_max_buy": 232.056,
  "band_max_sell": 189.864,
  "class": "large-cap",
- "captured": "2026-10-25 08:30 ET",
+ "captured": "2026-10-25 08:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
