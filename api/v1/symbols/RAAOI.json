@@ -2,7 +2,7 @@
  "symbol": "RAAOI",
  "pair": "RAAOIUSDT",
  "name": "AAOI",
- "last": 67.85,
+ "last": 67.9,
  "bid": 67.39,
  "ask": 67.94,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 67.51,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.504,
- "noise_score": 25,
+ "dislocation_pct": 0.578,
+ "noise_score": 29,
  "tier": "LOW",
  "sigma_daily_pct": 9.142,
  "z": 0.06,
@@ -23,7 +23,7 @@
  "band_max_buy": 74.261,
  "band_max_sell": 60.759,
  "class": "other",
- "captured": "2026-10-25 18:00 ET",
+ "captured": "2026-10-25 18:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
