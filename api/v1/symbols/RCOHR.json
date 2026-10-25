@@ -2,7 +2,7 @@
  "symbol": "RCOHR",
  "pair": "RCOHRUSDT",
  "name": "COHR",
- "last": 208.37,
+ "last": 208.29,
  "bid": 206.63,
  "ask": 208.29,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 209.29,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.44,
- "noise_score": 24,
+ "dislocation_pct": -0.478,
+ "noise_score": 27,
  "tier": "LOW",
  "sigma_daily_pct": 5.817,
  "z": -0.08,
@@ -23,7 +23,7 @@
  "band_max_buy": 230.219,
  "band_max_sell": 188.361,
  "class": "other",
- "captured": "2026-10-24 22:45 ET",
+ "captured": "2026-10-24 23:00 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
