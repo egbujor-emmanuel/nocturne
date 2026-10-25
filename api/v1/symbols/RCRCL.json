@@ -2,7 +2,7 @@
  "symbol": "RCRCL",
  "pair": "RCRCLUSDT",
  "name": "Circle",
- "last": 84.49,
+ "last": 84.52,
  "bid": 84.51,
  "ask": 84.53,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 85.91,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -1.653,
- "noise_score": 84,
+ "dislocation_pct": -1.618,
+ "noise_score": 83,
  "tier": "HIGH",
  "sigma_daily_pct": 6.571,
  "z": -0.25,
@@ -23,7 +23,7 @@
  "band_max_buy": 94.501,
  "band_max_sell": 77.319,
  "class": "other",
- "captured": "2026-10-25 05:30 ET",
+ "captured": "2026-10-25 05:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
