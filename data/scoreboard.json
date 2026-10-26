@@ -132,10 +132,29 @@
     "bottom_third_move_pct": 3.656,
     "third_size": 25
    }
+  },
+  {
+   "prediction_file": "2026-10-25_1701.json",
+   "published": "2026-10-25 17:01 ET",
+   "graded_at": "2026-10-26 11:01 ET",
+   "target": "2026-10-26 10:00 ET",
+   "n": 75,
+   "claim_1_level": {
+    "won": false,
+    "mae_model_pct": 3.682,
+    "mae_baseline_pct": 3.305,
+    "improvement_pct": -11.4
+   },
+   "claim_2_ranking": {
+    "won": false,
+    "top_third_move_pct": 2.081,
+    "bottom_third_move_pct": 4.761,
+    "third_size": 25
+   }
   }
  ],
  "summary": {
-  "rounds": 7,
+  "rounds": 8,
   "claim_1_won": 3,
   "claim_2_won": 2
  }
