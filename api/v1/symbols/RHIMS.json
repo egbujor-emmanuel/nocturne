@@ -2,7 +2,7 @@
  "symbol": "RHIMS",
  "pair": "RHIMSUSDT",
  "name": "HIMS",
- "last": 27.81,
+ "last": 27.82,
  "bid": 27.8,
  "ask": 27.85,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 27.71,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.361,
- "noise_score": 29,
+ "dislocation_pct": 0.397,
+ "noise_score": 33,
  "tier": "LOW",
  "sigma_daily_pct": 6.448,
  "z": 0.06,
@@ -23,7 +23,7 @@
  "band_max_buy": 30.481,
  "band_max_sell": 24.939,
  "class": "other",
- "captured": "2026-10-25 20:00 ET",
+ "captured": "2026-10-25 20:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
