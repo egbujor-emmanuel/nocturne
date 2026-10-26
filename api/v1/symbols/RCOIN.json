@@ -2,8 +2,8 @@
  "symbol": "RCOIN",
  "pair": "RCOINUSDT",
  "name": "Coinbase",
- "last": 161.02,
- "bid": 160.75,
+ "last": 161.0,
+ "bid": 160.88,
  "ask": 161.2,
  "spread_pct": null,
  "reference_close": 164.45,
@@ -11,7 +11,7 @@
  "fair_value": 164.45,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -2.086,
+ "dislocation_pct": -2.098,
  "noise_score": 98,
  "tier": "HIGH",
  "sigma_daily_pct": 4.782,
@@ -23,7 +23,7 @@
  "band_max_buy": 180.895,
  "band_max_sell": 148.005,
  "class": "large-cap",
- "captured": "2026-10-25 23:45 ET",
+ "captured": "2026-10-26 00:00 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
