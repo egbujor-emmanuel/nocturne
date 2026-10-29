@@ -37,11 +37,125 @@
     "bottom_third_move_pct": 3.316,
     "third_size": 25
    }
+  },
+  {
+   "prediction_file": "2026-09-20_2311.json",
+   "published": "2026-09-20 23:11 ET",
+   "graded_at": "2026-09-21 11:01 ET",
+   "target": "2026-09-21 10:00 ET",
+   "n": 75,
+   "claim_1_level": {
+    "won": false,
+    "mae_model_pct": 3.321,
+    "mae_baseline_pct": 2.537,
+    "improvement_pct": -30.87
+   },
+   "claim_2_ranking": {
+    "won": false,
+    "top_third_move_pct": 3.123,
+    "bottom_third_move_pct": 3.4,
+    "third_size": 25
+   }
+  },
+  {
+   "prediction_file": "2026-09-27_1701.json",
+   "published": "2026-09-27 17:01 ET",
+   "graded_at": "2026-09-28 11:01 ET",
+   "target": "2026-09-28 10:00 ET",
+   "n": 75,
+   "claim_1_level": {
+    "won": true,
+    "mae_model_pct": 3.925,
+    "mae_baseline_pct": 4.152,
+    "improvement_pct": 5.48
+   },
+   "claim_2_ranking": {
+    "won": false,
+    "top_third_move_pct": 3.992,
+    "bottom_third_move_pct": 4.834,
+    "third_size": 25
+   }
+  },
+  {
+   "prediction_file": "2026-10-04_1701.json",
+   "published": "2026-10-04 17:01 ET",
+   "graded_at": "2026-10-05 11:01 ET",
+   "target": "2026-10-05 10:00 ET",
+   "n": 75,
+   "claim_1_level": {
+    "won": false,
+    "mae_model_pct": 2.414,
+    "mae_baseline_pct": 2.366,
+    "improvement_pct": -2.04
+   },
+   "claim_2_ranking": {
+    "won": false,
+    "top_third_move_pct": 1.682,
+    "bottom_third_move_pct": 3.993,
+    "third_size": 25
+   }
+  },
+  {
+   "prediction_file": "2026-10-11_1701.json",
+   "published": "2026-10-11 17:01 ET",
+   "graded_at": "2026-10-12 11:01 ET",
+   "target": "2026-10-12 10:00 ET",
+   "n": 75,
+   "claim_1_level": {
+    "won": true,
+    "mae_model_pct": 3.028,
+    "mae_baseline_pct": 3.372,
+    "improvement_pct": 10.2
+   },
+   "claim_2_ranking": {
+    "won": false,
+    "top_third_move_pct": 3.08,
+    "bottom_third_move_pct": 3.503,
+    "third_size": 25
+   }
+  },
+  {
+   "prediction_file": "2026-10-18_1701.json",
+   "published": "2026-10-18 17:01 ET",
+   "graded_at": "2026-10-19 11:02 ET",
+   "target": "2026-10-19 10:00 ET",
+   "n": 75,
+   "claim_1_level": {
+    "won": true,
+    "mae_model_pct": 3.18,
+    "mae_baseline_pct": 3.389,
+    "improvement_pct": 6.17
+   },
+   "claim_2_ranking": {
+    "won": false,
+    "top_third_move_pct": 3.214,
+    "bottom_third_move_pct": 3.656,
+    "third_size": 25
+   }
+  },
+  {
+   "prediction_file": "2026-10-25_1701.json",
+   "published": "2026-10-25 17:01 ET",
+   "graded_at": "2026-10-26 11:01 ET",
+   "target": "2026-10-26 10:00 ET",
+   "n": 75,
+   "claim_1_level": {
+    "won": false,
+    "mae_model_pct": 3.682,
+    "mae_baseline_pct": 3.305,
+    "improvement_pct": -11.4
+   },
+   "claim_2_ranking": {
+    "won": false,
+    "top_third_move_pct": 2.081,
+    "bottom_third_move_pct": 4.761,
+    "third_size": 25
+   }
   }
  ],
  "summary": {
-  "rounds": 2,
-  "claim_1_won": 0,
+  "rounds": 8,
+  "claim_1_won": 3,
   "claim_2_won": 2
  }
 }

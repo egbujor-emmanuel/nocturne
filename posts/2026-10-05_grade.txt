@@ -1,0 +1,16 @@
+NOCTURNE - how last weekend's predictions actually scored.
+
+Graded 75 tokenized US stocks against the real 2026-10-05 10:00 ET prices.
+
+CLAIM 1 (level): LOST
+  our error 2.414% vs baseline 2.366%
+
+CLAIM 2 (ranking): LOST
+  top third moved 1.682% vs bottom third 3.993%
+
+Running record: 1/5 and 2/5
+
+Predictions were hashed and committed before the open. Nothing edited after.
+https://egbujor-emmanuel.github.io/nocturne/
+
+#BitgetHackathon @Bitget_AI
