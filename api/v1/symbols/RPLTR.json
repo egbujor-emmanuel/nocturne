@@ -2,8 +2,8 @@
  "symbol": "RPLTR",
  "pair": "RPLTRUSDT",
  "name": "Palantir",
- "last": 184.57,
- "bid": 184.55,
+ "last": 184.55,
+ "bid": 184.51,
  "ask": 185.09,
  "spread_pct": null,
  "reference_close": 184.11,
@@ -11,7 +11,7 @@
  "fair_value": 184.11,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.25,
+ "dislocation_pct": 0.239,
  "noise_score": 38,
  "tier": "LOW",
  "sigma_daily_pct": 4.298,
@@ -23,7 +23,7 @@
  "band_max_buy": 202.521,
  "band_max_sell": 165.699,
  "class": "large-cap",
- "captured": "2026-10-31 05:30 ET",
+ "captured": "2026-10-31 05:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
