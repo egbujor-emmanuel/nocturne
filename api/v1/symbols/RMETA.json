@@ -2,8 +2,8 @@
  "symbol": "RMETA",
  "pair": "RMETAUSDT",
  "name": "Meta",
- "last": 613.2,
- "bid": 613.19,
+ "last": 613.19,
+ "bid": 613.11,
  "ask": 613.61,
  "spread_pct": null,
  "reference_close": 614.99,
@@ -11,7 +11,7 @@
  "fair_value": 614.99,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.291,
+ "dislocation_pct": -0.293,
  "noise_score": 55,
  "tier": "ELEVATED",
  "sigma_daily_pct": 2.735,
@@ -23,7 +23,7 @@
  "band_max_buy": 676.489,
  "band_max_sell": 553.491,
  "class": "large-cap",
- "captured": "2026-10-31 08:47 ET",
+ "captured": "2026-10-31 09:00 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
