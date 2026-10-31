@@ -2,7 +2,7 @@
  "symbol": "RSNDK",
  "pair": "RSNDKUSDT",
  "name": "SanDisk",
- "last": 1151.08,
+ "last": 1150.99,
  "bid": 1150.79,
  "ask": 1150.99,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 1150.89,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.017,
- "noise_score": 1,
+ "dislocation_pct": 0.009,
+ "noise_score": 0,
  "tier": "LOW",
  "sigma_daily_pct": 7.124,
  "z": 0.0,
@@ -23,7 +23,7 @@
  "band_max_buy": 1265.979,
  "band_max_sell": 1035.801,
  "class": "other",
- "captured": "2026-10-31 15:30 ET",
+ "captured": "2026-10-31 15:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
