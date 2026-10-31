@@ -2,7 +2,7 @@
  "symbol": "RTSLA",
  "pair": "RTSLAUSDT",
  "name": "Tesla",
- "last": 399.14,
+ "last": 399.08,
  "bid": 399.08,
  "ask": 399.39,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 399.81,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.168,
- "noise_score": 21,
+ "dislocation_pct": -0.183,
+ "noise_score": 25,
  "tier": "LOW",
  "sigma_daily_pct": 3.034,
  "z": -0.06,
@@ -23,7 +23,7 @@
  "band_max_buy": 439.791,
  "band_max_sell": 359.829,
  "class": "large-cap",
- "captured": "2026-10-31 09:30 ET",
+ "captured": "2026-10-31 09:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
