@@ -2,8 +2,8 @@
  "symbol": "RSOXS",
  "pair": "RSOXSUSDT",
  "name": "SOXS",
- "last": 50.76,
- "bid": 50.75,
+ "last": 50.75,
+ "bid": 50.73,
  "ask": 50.86,
  "spread_pct": null,
  "reference_close": 52.08,
@@ -11,7 +11,7 @@
  "fair_value": 52.08,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -2.535,
+ "dislocation_pct": -2.554,
  "noise_score": 91,
  "tier": "HIGH",
  "sigma_daily_pct": 9.54,
@@ -23,7 +23,7 @@
  "band_max_buy": 57.288,
  "band_max_sell": 46.872,
  "class": "leveraged",
- "captured": "2026-11-01 06:24 ET",
+ "captured": "2026-11-01 06:26 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
