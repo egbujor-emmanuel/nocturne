@@ -2,7 +2,7 @@
  "symbol": "RAMD",
  "pair": "RAMDUSDT",
  "name": "AMD",
- "last": 510.64,
+ "last": 510.45,
  "bid": 509.12,
  "ask": 510.69,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 504.8,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 1.157,
- "noise_score": 90,
+ "dislocation_pct": 1.119,
+ "noise_score": 88,
  "tier": "HIGH",
  "sigma_daily_pct": 4.757,
  "z": 0.24,
@@ -23,7 +23,7 @@
  "band_max_buy": 555.28,
  "band_max_sell": 454.32,
  "class": "large-cap",
- "captured": "2026-11-01 01:00 ET",
+ "captured": "2026-11-01 01:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
