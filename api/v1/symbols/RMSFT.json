@@ -2,8 +2,8 @@
  "symbol": "RMSFT",
  "pair": "RMSFTUSDT",
  "name": "Microsoft",
- "last": 523.03,
- "bid": 523.02,
+ "last": 523.01,
+ "bid": 523.01,
  "ask": 523.14,
  "spread_pct": null,
  "reference_close": 521.91,
@@ -11,7 +11,7 @@
  "fair_value": 521.91,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.215,
+ "dislocation_pct": 0.211,
  "noise_score": 56,
  "tier": "ELEVATED",
  "sigma_daily_pct": 2.29,
@@ -23,7 +23,7 @@
  "band_max_buy": 574.101,
  "band_max_sell": 469.719,
  "class": "large-cap",
- "captured": "2026-11-01 22:01 ET",
+ "captured": "2026-11-01 22:04 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
