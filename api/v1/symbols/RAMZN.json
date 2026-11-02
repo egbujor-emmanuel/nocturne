@@ -2,8 +2,8 @@
  "symbol": "RAMZN",
  "pair": "RAMZNUSDT",
  "name": "Amazon",
- "last": 241.07,
- "bid": 241.0,
+ "last": 241.06,
+ "bid": 241.05,
  "ask": 241.19,
  "spread_pct": null,
  "reference_close": 240.35,
@@ -11,7 +11,7 @@
  "fair_value": 240.35,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.3,
+ "dislocation_pct": 0.295,
  "noise_score": 50,
  "tier": "ELEVATED",
  "sigma_daily_pct": 2.318,
@@ -23,7 +23,7 @@
  "band_max_buy": 264.385,
  "band_max_sell": 216.315,
  "class": "large-cap",
- "captured": "2026-11-01 21:39 ET",
+ "captured": "2026-11-01 21:41 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
