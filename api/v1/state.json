@@ -8,8 +8,8 @@
  "hours_to_reopen": 8.99,
  "band_pct": 10.0,
  "last_void_window": [
-  "2026-09-04",
-  "2026-09-06"
+  "2026-08-14",
+  "2026-08-16"
  ],
  "universe": {
   "weekend_tradeable": 73,
@@ -103,7 +103,86 @@
    "sha256": "9dc1da5f35f0b817"
   }
  },
- "spark_series": {},
+ "spark_series": {
+  "RNVDA": [
+   [
+    1793682000,
+    203.36
+   ],
+   [
+    1793682600,
+    203.37
+   ],
+   [
+    1793682900,
+    203.49
+   ],
+   [
+    1793683200,
+    203.35
+   ],
+   [
+    1793683500,
+    203.35
+   ],
+   [
+    1793683800,
+    203.16
+   ]
+  ],
+  "RAAPL": [
+   [
+    1793682000,
+    329.89
+   ],
+   [
+    1793682600,
+    329.5
+   ],
+   [
+    1793682900,
+    329.67
+   ],
+   [
+    1793683200,
+    329.8
+   ],
+   [
+    1793683500,
+    329.69
+   ],
+   [
+    1793683800,
+    329.67
+   ]
+  ],
+  "RTSLA": [
+   [
+    1793682000,
+    402.2
+   ],
+   [
+    1793682600,
+    401.82
+   ],
+   [
+    1793682900,
+    402.2
+   ],
+   [
+    1793683200,
+    402.21
+   ],
+   [
+    1793683500,
+    402.4
+   ],
+   [
+    1793683800,
+    402.26
+   ]
+  ]
+ },
  "week_profile": [
   4775561.57,
   7363500.35,
@@ -758,7 +837,7 @@
    "name": "Meta",
    "last": 607.09,
    "bid": 606.55,
-   "ask": 607.5,
+   "ask": 607.2,
    "spread_pct": null,
    "reference_close": 606.664,
    "reference_close_at": "2026-11-02 15:00 ET",
@@ -1225,7 +1304,7 @@
    "pair": "RADBEUSDT",
    "name": "ADBE",
    "last": 251.56,
-   "bid": 250.25,
+   "bid": 250.24,
    "ask": 251.82,
    "spread_pct": null,
    "reference_close": 251.47,
@@ -1548,9 +1627,9 @@
    "symbol": "RAXTI",
    "pair": "RAXTIUSDT",
    "name": "AXTI",
-   "last": 47.85,
-   "bid": 47.72,
-   "ask": 47.9,
+   "last": 47.76,
+   "bid": 47.66,
+   "ask": 47.81,
    "spread_pct": null,
    "reference_close": 48.2,
    "reference_close_at": "2026-11-02 15:00 ET",
@@ -1656,9 +1735,9 @@
    "symbol": "RASML",
    "pair": "RASMLUSDT",
    "name": "ASML",
-   "last": 1532.5,
+   "last": 1530.0,
    "bid": 1530.0,
-   "ask": 1535.0,
+   "ask": 1533.56,
    "spread_pct": null,
    "reference_close": 1526.14,
    "reference_close_at": "2026-11-02 15:00 ET",
@@ -1838,7 +1917,7 @@
    "name": "IBM",
    "last": 251.23,
    "bid": 250.8,
-   "ask": 251.44,
+   "ask": 251.43,
    "spread_pct": null,
    "reference_close": 252.51,
    "reference_close_at": "2026-11-02 15:00 ET",
@@ -2772,9 +2851,9 @@
    "symbol": "RQCOM",
    "pair": "RQCOMUSDT",
    "name": "QCOM",
-   "last": 162.74,
-   "bid": 162.4,
-   "ask": 162.85,
+   "last": 162.35,
+   "bid": 162.23,
+   "ask": 162.53,
    "spread_pct": null,
    "reference_close": 162.08,
    "reference_close_at": "2026-11-02 15:00 ET",
@@ -2808,9 +2887,9 @@
    "symbol": "RVRT",
    "pair": "RVRTUSDT",
    "name": "VRT",
-   "last": 223.54,
-   "bid": 223.0,
-   "ask": 223.77,
+   "last": 223.0,
+   "bid": 222.68,
+   "ask": 223.19,
    "spread_pct": null,
    "reference_close": 224.24,
    "reference_close_at": "2026-11-02 15:00 ET",
