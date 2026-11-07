@@ -2,7 +2,7 @@
  "symbol": "RSKHY",
  "pair": "RSKHYUSDT",
  "name": "SKHY",
- "last": 127.82,
+ "last": 127.77,
  "bid": 127.8,
  "ask": 128.09,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 127.34,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.377,
- "noise_score": 26,
+ "dislocation_pct": 0.338,
+ "noise_score": 24,
  "tier": "LOW",
  "sigma_daily_pct": 7.388,
  "z": 0.05,
@@ -23,7 +23,7 @@
  "band_max_buy": 140.074,
  "band_max_sell": 114.606,
  "class": "other",
- "captured": "2026-11-06 22:00 ET",
+ "captured": "2026-11-06 22:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
