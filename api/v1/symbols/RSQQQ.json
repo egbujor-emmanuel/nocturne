@@ -2,8 +2,8 @@
  "symbol": "RSQQQ",
  "pair": "RSQQQUSDT",
  "name": "SQQQ",
- "last": 47.41,
- "bid": 47.45,
+ "last": 47.42,
+ "bid": 47.41,
  "ask": 47.48,
  "spread_pct": null,
  "reference_close": 47.7,
@@ -11,7 +11,7 @@
  "fair_value": 47.7,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.608,
+ "dislocation_pct": -0.587,
  "noise_score": 77,
  "tier": "ELEVATED",
  "sigma_daily_pct": 4.016,
@@ -23,7 +23,7 @@
  "band_max_buy": 52.47,
  "band_max_sell": 42.93,
  "class": "leveraged",
- "captured": "2026-11-06 20:00 ET",
+ "captured": "2026-11-06 20:05 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
