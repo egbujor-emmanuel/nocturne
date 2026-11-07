@@ -2,7 +2,7 @@
  "symbol": "RAAPL",
  "pair": "RAAPLUSDT",
  "name": "Apple",
- "last": 343.03,
+ "last": 342.99,
  "bid": 342.99,
  "ask": 343.38,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 342.37,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.193,
- "noise_score": 29,
+ "dislocation_pct": 0.181,
+ "noise_score": 28,
  "tier": "LOW",
  "sigma_daily_pct": 1.71,
  "z": 0.11,
@@ -23,7 +23,7 @@
  "band_max_buy": 376.607,
  "band_max_sell": 308.133,
  "class": "large-cap",
- "captured": "2026-11-07 12:00 ET",
+ "captured": "2026-11-07 12:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
