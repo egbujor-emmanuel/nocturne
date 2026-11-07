@@ -2,8 +2,8 @@
  "symbol": "RMU",
  "pair": "RMUUSDT",
  "name": "Micron",
- "last": 692.46,
- "bid": 692.44,
+ "last": 692.44,
+ "bid": 692.2,
  "ask": 692.97,
  "spread_pct": null,
  "reference_close": 690.0,
@@ -11,7 +11,7 @@
  "fair_value": 690.0,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.357,
+ "dislocation_pct": 0.354,
  "noise_score": 47,
  "tier": "LOW",
  "sigma_daily_pct": 5.93,
@@ -23,7 +23,7 @@
  "band_max_buy": 759.0,
  "band_max_sell": 621.0,
  "class": "large-cap",
- "captured": "2026-11-07 09:15 ET",
+ "captured": "2026-11-07 09:30 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
