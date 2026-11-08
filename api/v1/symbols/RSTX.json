@@ -2,8 +2,8 @@
  "symbol": "RSTX",
  "pair": "RSTXUSDT",
  "name": "STX",
- "last": 461.86,
- "bid": 461.92,
+ "last": 461.92,
+ "bid": 461.83,
  "ask": 462.27,
  "spread_pct": null,
  "reference_close": 460.99,
@@ -11,7 +11,7 @@
  "fair_value": 460.99,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.189,
+ "dislocation_pct": 0.202,
  "noise_score": 51,
  "tier": "ELEVATED",
  "sigma_daily_pct": 4.818,
@@ -23,7 +23,7 @@
  "band_max_buy": 507.089,
  "band_max_sell": 414.891,
  "class": "other",
- "captured": "2026-11-08 11:00 ET",
+ "captured": "2026-11-08 11:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
