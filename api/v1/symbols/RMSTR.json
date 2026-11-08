@@ -2,8 +2,8 @@
  "symbol": "RMSTR",
  "pair": "RMSTRUSDT",
  "name": "Strategy",
- "last": 126.84,
- "bid": 126.84,
+ "last": 126.83,
+ "bid": 126.82,
  "ask": 126.91,
  "spread_pct": null,
  "reference_close": 128.93,
@@ -11,7 +11,7 @@
  "fair_value": 128.93,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -1.621,
+ "dislocation_pct": -1.629,
  "noise_score": 62,
  "tier": "ELEVATED",
  "sigma_daily_pct": 5.397,
@@ -23,7 +23,7 @@
  "band_max_buy": 141.823,
  "band_max_sell": 116.037,
  "class": "other",
- "captured": "2026-11-07 21:15 ET",
+ "captured": "2026-11-07 21:30 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
