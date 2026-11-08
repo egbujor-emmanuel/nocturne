@@ -2,8 +2,8 @@
  "symbol": "RNBIS",
  "pair": "RNBISUSDT",
  "name": "NBIS",
- "last": 130.56,
- "bid": 130.53,
+ "last": 130.57,
+ "bid": 130.57,
  "ask": 130.61,
  "spread_pct": null,
  "reference_close": 129.49,
@@ -11,7 +11,7 @@
  "fair_value": 129.49,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.826,
+ "dislocation_pct": 0.834,
  "noise_score": 44,
  "tier": "LOW",
  "sigma_daily_pct": 7.562,
@@ -23,7 +23,7 @@
  "band_max_buy": 142.439,
  "band_max_sell": 116.541,
  "class": "other",
- "captured": "2026-11-08 06:30 ET",
+ "captured": "2026-11-08 06:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
