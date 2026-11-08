@@ -2,7 +2,7 @@
  "symbol": "RDRAM",
  "pair": "RDRAMUSDT",
  "name": "DRAM",
- "last": 39.39,
+ "last": 39.37,
  "bid": 39.37,
  "ask": 39.4,
  "spread_pct": null,
@@ -11,8 +11,8 @@
  "fair_value": 39.29,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": 0.255,
- "noise_score": 22,
+ "dislocation_pct": 0.204,
+ "noise_score": 20,
  "tier": "LOW",
  "sigma_daily_pct": 5.794,
  "z": 0.04,
@@ -23,7 +23,7 @@
  "band_max_buy": 43.219,
  "band_max_sell": 35.361,
  "class": "other",
- "captured": "2026-11-07 20:31 ET",
+ "captured": "2026-11-07 20:45 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
