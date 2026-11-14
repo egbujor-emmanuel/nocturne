@@ -2,8 +2,8 @@
  "symbol": "RORCL",
  "pair": "RORCLUSDT",
  "name": "Oracle",
- "last": 122.52,
- "bid": 122.49,
+ "last": 122.5,
+ "bid": 122.52,
  "ask": 122.64,
  "spread_pct": null,
  "reference_close": 125.35,
@@ -11,7 +11,7 @@
  "fair_value": 125.35,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -2.258,
+ "dislocation_pct": -2.274,
  "noise_score": 99,
  "tier": "HIGH",
  "sigma_daily_pct": 3.917,
@@ -23,7 +23,7 @@
  "band_max_buy": 137.885,
  "band_max_sell": 112.815,
  "class": "large-cap",
- "captured": "2026-11-14 12:00 ET",
+ "captured": "2026-11-14 12:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
