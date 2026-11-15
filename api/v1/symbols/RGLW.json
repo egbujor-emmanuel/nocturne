@@ -2,8 +2,8 @@
  "symbol": "RGLW",
  "pair": "RGLWUSDT",
  "name": "GLW",
- "last": 110.84,
- "bid": 110.81,
+ "last": 110.81,
+ "bid": 110.8,
  "ask": 110.88,
  "spread_pct": null,
  "reference_close": 114.08,
@@ -11,7 +11,7 @@
  "fair_value": 114.08,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -2.84,
+ "dislocation_pct": -2.866,
  "noise_score": 100,
  "tier": "HIGH",
  "sigma_daily_pct": 5.297,
@@ -23,7 +23,7 @@
  "band_max_buy": 125.488,
  "band_max_sell": 102.672,
  "class": "other",
- "captured": "2026-11-15 02:00 ET",
+ "captured": "2026-11-15 02:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
