@@ -2,8 +2,8 @@
  "symbol": "RTSM",
  "pair": "RTSMUSDT",
  "name": "TSM",
- "last": 391.56,
- "bid": 391.56,
+ "last": 391.5,
+ "bid": 391.47,
  "ask": 391.78,
  "spread_pct": null,
  "reference_close": 398.73,
@@ -11,7 +11,7 @@
  "fair_value": 398.73,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -1.798,
+ "dislocation_pct": -1.813,
  "noise_score": 97,
  "tier": "HIGH",
  "sigma_daily_pct": 2.699,
@@ -23,7 +23,7 @@
  "band_max_buy": 438.603,
  "band_max_sell": 358.857,
  "class": "other",
- "captured": "2026-11-15 02:45 ET",
+ "captured": "2026-11-15 03:00 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
