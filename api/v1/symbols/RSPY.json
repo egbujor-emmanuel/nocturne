@@ -2,8 +2,8 @@
  "symbol": "RSPY",
  "pair": "RSPYUSDT",
  "name": "SPY",
- "last": 749.31,
- "bid": 749.28,
+ "last": 749.28,
+ "bid": 749.27,
  "ask": 749.61,
  "spread_pct": null,
  "reference_close": 754.37,
@@ -11,7 +11,7 @@
  "fair_value": 754.37,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.671,
+ "dislocation_pct": -0.675,
  "noise_score": 100,
  "tier": "HIGH",
  "sigma_daily_pct": 0.849,
@@ -23,7 +23,7 @@
  "band_max_buy": 829.807,
  "band_max_sell": 678.933,
  "class": "other",
- "captured": "2026-11-15 12:00 ET",
+ "captured": "2026-11-15 12:15 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
