@@ -2,8 +2,8 @@
  "symbol": "RTQQQ",
  "pair": "RTQQQUSDT",
  "name": "TQQQ",
- "last": 48.3,
- "bid": 48.29,
+ "last": 48.29,
+ "bid": 48.28,
  "ask": 48.35,
  "spread_pct": null,
  "reference_close": 48.7702,
@@ -11,7 +11,7 @@
  "fair_value": 48.7702,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.964,
+ "dislocation_pct": -0.985,
  "noise_score": 77,
  "tier": "ELEVATED",
  "sigma_daily_pct": 4.026,
@@ -23,7 +23,7 @@
  "band_max_buy": 53.6472,
  "band_max_sell": 43.8932,
  "class": "leveraged",
- "captured": "2026-11-28 03:29 ET",
+ "captured": "2026-11-28 03:30 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
