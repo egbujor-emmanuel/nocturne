@@ -2,8 +2,8 @@
  "symbol": "RVRT",
  "pair": "RVRTUSDT",
  "name": "VRT",
- "last": 178.02,
- "bid": 178.0,
+ "last": 178.0,
+ "bid": 178.03,
  "ask": 178.1,
  "spread_pct": null,
  "reference_close": 178.79,
@@ -11,7 +11,7 @@
  "fair_value": 178.79,
  "score_applies": true,
  "score_suppressed_reason": null,
- "dislocation_pct": -0.431,
+ "dislocation_pct": -0.442,
  "noise_score": 71,
  "tier": "ELEVATED",
  "sigma_daily_pct": 4.325,
@@ -23,7 +23,7 @@
  "band_max_buy": 196.669,
  "band_max_sell": 160.911,
  "class": "other",
- "captured": "2026-11-28 06:15 ET",
+ "captured": "2026-11-28 06:30 ET",
  "capture_age_h": 0.0,
  "stale": false
 }
